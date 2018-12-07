@@ -15,9 +15,21 @@ _global_script_class_icons={
 
 [application]
 
-config/name="godot-wild-jam-4"
+config/name="Snowman Slushy"
 run/main_scene="res://TemporyMain.tscn"
-config/icon="res://icon.png"
+config/icon="res://Godot.png"
+
+[autoload]
+
+SceneBrowser="*res://Global/SceneBrowser.tscn"
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 
