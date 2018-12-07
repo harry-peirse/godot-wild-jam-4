@@ -16,7 +16,6 @@ const JUMP_STAGE_2 = 0.011167 * 8
 const JUMP_STAGE_3 = 0.011167 * 10
 const JUMP_STAGE_MAX = 3
 
-
 #Determines the velocity
 var velocity : Vector2 = Vector2( 0,0 )
 
@@ -24,6 +23,7 @@ var velocity : Vector2 = Vector2( 0,0 )
 var jump_held : float = 0
 var jump_stage : int = 1
 var jump_mod : Array = [ 0, -140, -200, -300 ]
+var allow_slope = false #Fixes slopes messing with jumps.
 
 #Determines how large the snowman is.
 var size = 1
@@ -33,6 +33,8 @@ onready var original_sprite_scale = $Sprite.scale
 
 func _process(delta):
 	#Quick left right handling.
+	#I will eventually replace this with
+	#a controller input handling class.
 	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
 	
@@ -42,14 +44,16 @@ func _process(delta):
 	if jump_held > 0 :
 		jump_held( delta )
 
+	allow_slope = false
 	if on_floor() :
+		allow_slope = true
 		jump_held = 0
 		velocity.y = 0
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
 	
-	move_and_slide_with_snap( velocity , Vector2( 0, -1 ), FLOOR )
+	move_and_slide_with_snap( velocity.rotated( slope() ) , Vector2( 0, -1 ), FLOOR )
 
 
 func change_scale( new_scale : float ):
@@ -57,6 +61,19 @@ func change_scale( new_scale : float ):
 	#Eventually we will better handle scaling.
 	$Col.shape.extents = original_col_extents * new_scale
 	$Sprite.scale = original_sprite_scale * new_scale
+
+
+func slope():
+	#Returns the slope's angle.
+	var slope = Vector2( 0,0 )
+	if $Floor1.is_colliding() :
+		slope = $Floor1.get_collision_normal()
+	
+	elif $Floor2.is_colliding() :
+		slope = $Floor2.get_collision_normal()
+	
+
+	return slope.rotated( 1.570796 ).angle() * int( allow_slope )
 
 
 func jump_held( delta ):
