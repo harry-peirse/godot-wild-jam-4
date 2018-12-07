@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Prototype/SnowmanExample.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prototype/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Godot.png" type="Texture" id=2]
+[ext_resource path="res://Art/Primitive/Ramp.png" type="Texture" id=3]
 
-[node name="Test" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 571.694, 29.1493 )
+
+[node name="Node2D" type="Node2D"]
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
-position = Vector2( 55.3864, 109.144 )
+position = Vector2( 199.023, 62.033 )
 
-[node name="Fire" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0.223529 )
-position = Vector2( 243.537, 110.773 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 377.368, 511.822 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 2.27255, 0 )
+scale = Vector2( 17.7274, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Ramp" type="StaticBody2D" parent="."]
+position = Vector2( 842.228, 405.153 )
+
+[node name="Sprite" type="Sprite" parent="Ramp"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp"]
+polygon = PoolVector2Array( 90, -90, 90, 90, -90, 90 )
+__meta__ = {
+"_edit_lock_": true
+}
 

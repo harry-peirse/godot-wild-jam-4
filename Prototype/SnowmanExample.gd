@@ -1,16 +1,19 @@
-extends Area2D
+extends KinematicBody2D
 
 #Signals are great for calling methods in
 #physics objects. Godot does not crash if it
 #attempts to emit a signal inside a body
 #that does not exist.
-signal inside_shrink
-signal outside_shrink
 
+#These are the constants that will always be
+#affecting us.
+const GRAVITY_ADD = 50
+const GRAVITY_MAX = 300
+const FLOOR = Vector2( 0,-1 )
 
-#How the snowman knows that it should start
-#shrinking.
-var is_shrinking = false
+#Determines the velocity
+var velocity : Vector2 = Vector2( 0,0 )
+var jump_held : float = 0 #Use this to determine jump height.
 
 #Determines how large the snowman is.
 var size = 1
@@ -19,36 +22,49 @@ onready var original_sprite_scale = $Sprite.scale
 
 
 func _process(delta):
-	var move = 0
-	move += (int( Input.is_action_pressed("ui_right") ) - 
-	int( Input.is_action_pressed( "ui_left" ) ) )
+	#Quick left right handling.
+	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
+	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
 	
-	position.x += (move * 80) * delta
+	#Calculate velocity's y value.
+	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
 	
-	
-	if is_shrinking :
-		size = max(size - 0.100, 0.500 )
-		change_scale( size )
+	#We are on the floor, start the timer to determine
+	#if we are in the air.
+#	if is_on_floor() :
+#		on_floor = true
+#		air_time = 0
+#	elif air_time >= THREE_FRAME :
+#		on_floor = false
+
+
+	if on_floor() :
+		self.modulate = Color( 0,0,0, 1 )
+		jump_held = 0
+		velocity.y = 0
+		if Input.is_action_just_pressed( "jump" ) :
+			velocity.y =  -900
+			jump_held += 1
 	
 	else:
-		size = min( size + 0.050, 1 )
-		change_scale( size )
-
-
-func _ready():
-	self.connect( "inside_shrink", self, "inside_shrink" )
-	self.connect( "outside_shrink", self, "outside_shrink" )
+		self.modulate = Color( 1,1,1,1 )
+	
+	move_and_slide_with_snap( velocity , Vector2( 0, -1 ), FLOOR )
 
 
 func change_scale( new_scale : float ):
+	#Change the size of the snowman
+	#Eventually we will better handle scaling.
 	$Col.shape.extents = original_col_extents * new_scale
 	$Sprite.scale = original_sprite_scale * new_scale
 
 
-func inside_shrink( area ):
-	#Let the Snowman know it should begin shrinking.
-	is_shrinking = true
-
-
-func outside_shrink( area ):
-	is_shrinking = false
+func on_floor():
+	var on_floor = false
+	$Floor1.update()
+	$Floor2.update()
+	
+	if $Floor1.is_colliding() || $Floor2.is_colliding():
+		on_floor = true
+	
+	return on_floor
