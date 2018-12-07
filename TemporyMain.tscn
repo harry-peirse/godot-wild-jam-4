@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="TemporyMain" type="Node2D"]
+
+[node name="NOTE" type="RichTextLabel" parent="."]
+margin_right = 476.0
+margin_bottom = 227.0
+rect_scale = Vector2( 2, 3 )
+text = "I always like to use RichTextLabels for leaving quick notes within scenes. It is pretty useful imo."
+
