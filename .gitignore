@@ -6,5 +6,6 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
-Godot.png.import
-Art/Primitive/Ramp.png.import
+*.import
+*.godot
+*.tres
