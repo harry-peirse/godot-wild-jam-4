@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
 
 [node name="ChimneyDescent1" type="Node"]
 
@@ -29,4 +30,23 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 14.362, 81.076 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 2.1585, -51.8032 )
+scale = Vector2( 5.7329, 2.4165 )
+texture = ExtResource( 3 )
+centered = false
 
