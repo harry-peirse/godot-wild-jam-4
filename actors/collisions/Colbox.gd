@@ -9,6 +9,8 @@ var permanent = true
 
 
 func _ready():
+	self.connect( "area_entered", self, "collided" )
+	
 	#Queue_free myself after a select amount of time passes.
 	if permanent != true :
 		var free_timer = Timer.new()
@@ -20,15 +22,7 @@ func _ready():
 		free_timer.start( timer_duration )
 
 
-func create( relative_position, size : float = 10 ):
-	var circle = CircleShape2D.new()
-	circle.radius = size
-	
-	var col_shape = CollisionShape2D
-	col_shape.shape = circle
-	
-	self.call_deferred( "add_child", col_shape )
-	
-	
-	
-	
+func set_duration( new_time ):
+	timer_duration = new_time
+
+
