@@ -1,10 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://actors/character/snowman/SnowmanExample.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Godot.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/environments/Ramp.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/Tilemap.png" type="Texture" id=4]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,7 +12,6 @@ extents = Vector2( 571.694, 29.1493 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
-visible = true
 show_behind_parent = true
 position = Vector2( 155, 179 )
 
