@@ -21,7 +21,7 @@ config/icon="res://Godot.png"
 
 [autoload]
 
-SceneBrowser="*res://Global/SceneBrowser.tscn"
+SceneBrowser="*res://globals/SceneBrowser.tscn"
 
 [display]
 

@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Prototype/SnowmanExample.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/character/snowman/SnowmanExample.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Godot.png" type="Texture" id=2]
-[ext_resource path="res://Art/Primitive/Ramp.png" type="Texture" id=3]
-[ext_resource path="res://Art/Tilemap.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/environments/Ramp.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Tilemap.png" type="Texture" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
