@@ -38,6 +38,8 @@ onready var original_col_extents = $Col.shape.extents
 onready var original_sprite_scale = $Sprite.scale
 
 var JUMP = 1
+var RUNNING = 2
+var IDLE = 3
 var state = JUMP
 
 func _process(delta):
@@ -46,12 +48,14 @@ func _process(delta):
 	#a controller input handling class.
 	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
-	
+		
 	#Calculate velocity's y value.
 	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
-	
+				
 	$AnimatedSprite.play()
-	
+	if velocity.x > 0 and state != JUMP:
+		state = RUNNING
+		
 	if jump_held > 0 :
 		jump_held( delta )
 
@@ -133,6 +137,9 @@ func on_floor():
 	$Floor2.update()
 	if state == JUMP:
 		$AnimatedSprite.animation = "Idle"
+		state = IDLE
+	if state == RUNNING:
+		$AnimatedSprite.animation = "Running"
 	
 	if $Floor1.is_colliding() || $Floor2.is_colliding():
 		on_floor = true
