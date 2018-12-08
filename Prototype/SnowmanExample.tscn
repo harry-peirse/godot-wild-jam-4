@@ -8,21 +8,24 @@
 extents = Vector2( 25.0682, 26.6484 )
 
 [node name="Snowman" type="KinematicBody2D"]
+visible = false
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 8.52331 )
+scale = Vector2( 1, 1.42617 )
 texture = ExtResource( 2 )
 
 [node name="Col" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Floor1" type="RayCast2D" parent="."]
-position = Vector2( -23.8571, 26.304 )
+position = Vector2( -23.8571, 23.2496 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 
 [node name="Floor2" type="RayCast2D" parent="."]
-position = Vector2( 24.4688, 24.8766 )
+position = Vector2( 24.4688, 22.3313 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 
