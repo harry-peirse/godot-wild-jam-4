@@ -21,6 +21,7 @@ func _ready():
 	self.connect( "damage", self, "damage" )
 	self.connect( "gain_health", self, "gain_health" )
 	self.connect( "lose_health", self, "lose_health" )
+	self.connect( "lost_all_health", self, "queue_free" )
 	
 	for child in get_children():
 		if child.has_method( "set_health_object" ):
@@ -34,7 +35,7 @@ func damage( amount : float ):
 	if health <= 0 :
 		emit_signal( "lost_all_health" )
 	
-	health_changed()
+	return health_changed()
 
 
 func gain_health( amount : float, can_exceed_100 : bool = false ) :
@@ -43,11 +44,12 @@ func gain_health( amount : float, can_exceed_100 : bool = false ) :
 	else:
 		health = min( health + amount, 100 ) 
 	
-	health_changed()
+	return health_changed()
 	
 	
 func health_changed():
 	emit_signal( "health_changed", health )
+	return health
 
 	
 func lost_health( amount : float ):
@@ -56,4 +58,4 @@ func lost_health( amount : float ):
 	if health <= 0 :
 		emit_signal( "lost_all_health" ) 
 	
-	health_changed()
+	return health_changed()

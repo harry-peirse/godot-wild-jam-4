@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ramp.png-d58b841cb417b38e379bd667ad7fc7d8.stex"
+path="res://.import/walk0.png-cb2ae7aa0b789c84b0e4cee3cc639acf.stex"
 
 [deps]
 
-source_file="res://assets/art/environments/Ramp.png"
-dest_files=[ "res://.import/Ramp.png-d58b841cb417b38e379bd667ad7fc7d8.stex" ]
+source_file="res://assets/characters/santa/walk0.png"
+dest_files=[ "res://.import/walk0.png-cb2ae7aa0b789c84b0e4cee3cc639acf.stex" ]
 
 [params]
 

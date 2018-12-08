@@ -1,34 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
 [ext_resource path="res://Icon.png" type="Texture" id=2]
-[ext_resource path="res://assets/characters/Snowman_falling.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/s_idle01.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/s_idle02.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/Snowman_jumping.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ null ],
 "loop": true,
 "name": "Falling",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ null, null ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 3.0
-}, {
-"frames": [  ],
+"frames": [ null, null, null ],
 "loop": true,
 "name": "Running",
 "speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "Jumping",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

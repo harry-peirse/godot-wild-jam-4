@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tilemap.png-91a10f4e849a5a45b9b5afa5cc530bed.stex"
+path="res://.import/Snowman.png-ae723a0498dff9cf934bfd139f75a763.stex"
 
 [deps]
 
-source_file="res://assets/art/Tilemap.png"
-dest_files=[ "res://.import/Tilemap.png-91a10f4e849a5a45b9b5afa5cc530bed.stex" ]
+source_file="res://assets/characters/snowman/Snowman.png"
+dest_files=[ "res://.import/Snowman.png-ae723a0498dff9cf934bfd139f75a763.stex" ]
 
 [params]
 

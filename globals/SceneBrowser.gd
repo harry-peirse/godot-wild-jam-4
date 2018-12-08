@@ -2,7 +2,7 @@ extends Node
 
 
 var scene_list = {
-	"Test" : "res://Prototype/Test.tscn"
+	"Test" : "res://scenes/prototype/Test.tscn"
 }
 
 

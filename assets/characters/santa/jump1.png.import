@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Snowman_falling.png-13b4c35b84d520eebd043119b9dc7c05.stex"
+path="res://.import/jump1.png-898d6dd9cc8e9b84f68af7eaaf2e0f40.stex"
 
 [deps]
 
-source_file="res://assets/characters/Snowman_falling.png"
-dest_files=[ "res://.import/Snowman_falling.png-13b4c35b84d520eebd043119b9dc7c05.stex" ]
+source_file="res://assets/characters/santa/jump1.png"
+dest_files=[ "res://.import/jump1.png-898d6dd9cc8e9b84f68af7eaaf2e0f40.stex" ]
 
 [params]
 

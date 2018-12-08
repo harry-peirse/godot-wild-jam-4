@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://actors/character/snowman/SnowmanExample.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prototype/OldJunk/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prototype/OldJunk/Fire.tscn" type="PackedScene" id=2]
+
+
 
 
 

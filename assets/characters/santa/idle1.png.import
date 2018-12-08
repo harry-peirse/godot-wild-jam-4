@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/s_idle01.png-31f89362d4fa5a38cf8f08f6ac134354.stex"
+path="res://.import/idle1.png-475a830c8708957e81db45be7ecc9cef.stex"
 
 [deps]
 
-source_file="res://assets/characters/s_idle01.png"
-dest_files=[ "res://.import/s_idle01.png-31f89362d4fa5a38cf8f08f6ac134354.stex" ]
+source_file="res://assets/characters/santa/idle1.png"
+dest_files=[ "res://.import/idle1.png-475a830c8708957e81db45be7ecc9cef.stex" ]
 
 [params]
 

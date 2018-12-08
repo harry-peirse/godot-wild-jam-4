@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/Ramp.png-98defc2397fdf33bf7cef341bba7de2b.stex"
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+source_file="res://assets/tilesets/Ramp.png"
+dest_files=[ "res://.import/Ramp.png-98defc2397fdf33bf7cef341bba7de2b.stex" ]
 
 [params]
 
