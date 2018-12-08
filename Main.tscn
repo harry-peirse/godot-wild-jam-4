@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TemporyMain.gd" type="Script" id=1]
+
+[node name="TemporyMain" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="NOTE" type="RichTextLabel" parent="."]
+margin_right = 476.0
+margin_bottom = 227.0
+rect_scale = Vector2( 2, 3 )
+text = "I always like to use RichTextLabels for leaving quick notes within scenes. It is pretty useful imo."
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 358.0
+margin_top = 205.0
+margin_right = 776.0
+margin_bottom = 472.0
+

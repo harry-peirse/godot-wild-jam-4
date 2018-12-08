@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/basic_screen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/gameover_screen/gameover.gd" type="Script" id=2]
+
+[node name="Gameover" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Theme" ]
+next_scene = "res://screens/game_screen/levels/2players.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
+margin_left = 843.0
+margin_top = 476.0
+margin_right = 984.0
+margin_bottom = 586.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Rematch" type="Button" parent="VBoxContainer" index="0"]
+margin_right = 141.0
+margin_bottom = 20.0
+text = "Rematch"
+
+[node name="Menu" type="Button" parent="VBoxContainer" index="1"]
+margin_top = 24.0
+margin_right = 141.0
+margin_bottom = 44.0
+text = "Back to menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer" index="2"]
+margin_top = 48.0
+margin_right = 141.0
+margin_bottom = 68.0
+text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 140.0
+margin_top = -290.0
+margin_right = -160.0
+margin_bottom = 110.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
+margin_right = 724.0
+margin_bottom = 400.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" index="0"]
+margin_top = 184.0
+margin_right = 724.0
+margin_bottom = 215.0
+size_flags_horizontal = 3
+text = "GAMEOVER
+"
+align = 1
+autowrap = true
+
+[connection signal="pressed" from="VBoxContainer/Rematch" to="." method="_on_Rematch_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
