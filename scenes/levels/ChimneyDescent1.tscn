@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
+
+[node name="ChimneyDescent1" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 32, 0, 0, 65568, 0, 0, 131073, 9, 0, 131074, 11, 0, 131078, 9, 0, 131079, 10, 0, 131097, 9, 0, 131098, 9, 0, 131099, 10, 0, 131100, 10, 0, 131104, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 2, 0, 196620, 0, 0, 196621, 2, 0, 196624, 0, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 1, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 1, 0, 196638, 7, 0, 196639, 7, 0, 196640, 0, 0, 262144, 3, 0, 262145, 6, 0, 262146, 6, 0, 262147, 6, 0, 262148, 6, 0, 262149, 6, 0, 262150, 6, 0, 262151, 6, 0, 262152, 6, 0, 262153, 5, 0, 262156, 3, 0, 262157, 6, 0, 262160, 3, 0, 262161, 6, 0, 262162, 6, 0, 262163, 6, 0, 262164, 6, 0, 262165, 6, 0, 262166, 6, 0, 262167, 6, 0, 262168, 6, 0, 262169, 6, 0, 262170, 6, 0, 262171, 6, 0, 262172, 6, 0, 262173, 6, 0, 262174, 6, 0, 262175, 6, 0, 262176, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 983040, 8, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 8, 0, 983046, 8, 0, 983047, 8, 0, 983048, 8, 0, 983049, 8, 0, 983050, 8, 0, 983051, 8, 0, 983052, 8, 0, 983053, 8, 0, 983054, 8, 0, 983055, 8, 0, 983056, 8, 0, 983057, 8, 0, 983058, 8, 0, 983059, 8, 0, 983060, 8, 0, 983061, 8, 0, 983062, 8, 0, 983063, 8, 0, 983064, 8, 0, 983065, 8, 0, 983066, 8, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 8, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 14.362, 81.076 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 2.1585, -51.8032 )
+scale = Vector2( 5.7329, 2.4165 )
+texture = ExtResource( 3 )
+centered = false
+
