@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/music/snowman-outside-music.wav" type="AudioStream" id=2]
 
 [node name="TemporyMain" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,4 +17,8 @@ margin_left = 358.0
 margin_top = 205.0
 margin_right = 776.0
 margin_bottom = 472.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 
