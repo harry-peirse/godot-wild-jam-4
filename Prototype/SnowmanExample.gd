@@ -37,6 +37,8 @@ var size = 1
 onready var original_col_extents = $Col.shape.extents
 onready var original_sprite_scale = $Sprite.scale
 
+var JUMP = 1
+var state = JUMP
 
 func _process(delta):
 	#Quick left right handling.
@@ -47,7 +49,9 @@ func _process(delta):
 	
 	#Calculate velocity's y value.
 	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
-
+	
+	$AnimatedSprite.play()
+	
 	if jump_held > 0 :
 		jump_held( delta )
 
@@ -62,11 +66,22 @@ func _process(delta):
 			jump_held += delta
 
 	
-	else:
-		if has_double_jump :
+	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
+				$AnimatedSprite.animation = "Jumping"
+				state = JUMP
+	
+	#Code for Animations states		
+	if state == JUMP and velocity.y > 0:
+		$AnimatedSprite.animation = "Falling"
+	#if state == JUMP and is_on_floor():
+		#$AnimatedSprite.animation = "idle"
+	if  velocity.x < 0 :
+		$AnimatedSprite.flip_h = true
+	if  velocity.x > 0 :
+		$AnimatedSprite.flip_h = false	
 	
 	move_and_slide_with_snap( velocity.rotated( slope() ) , Vector2( 0, -1 ), FLOOR )
 
@@ -116,6 +131,8 @@ func on_floor():
 	var on_floor = false
 	$Floor1.update()
 	$Floor2.update()
+	if state == JUMP:
+		$AnimatedSprite.animation = "Idle"
 	
 	if $Floor1.is_colliding() || $Floor2.is_colliding():
 		on_floor = true
