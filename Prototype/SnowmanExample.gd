@@ -7,9 +7,10 @@ extends KinematicBody2D
 
 #These are the constants that will always be
 #affecting us.
+const DOUBLE_JUMP = -1000
 const FLOOR = Vector2( 0,-1 )
-const GRAVITY_ADD = 50
-const GRAVITY_MAX = 300
+const GRAVITY_ADD = 70
+const GRAVITY_MAX = 600
 const JUMP_STRENGTH = -300
 const JUMP_STAGE_1 = 0.011167 * 5
 const JUMP_STAGE_2 = 0.011167 * 8
@@ -24,6 +25,12 @@ var jump_held : float = 0
 var jump_stage : int = 1
 var jump_mod : Array = [ 0, -140, -200, -300 ]
 var allow_slope = false #Fixes slopes messing with jumps.
+
+
+#This allows us to double jump.
+#I am not sure if double jump should 
+#be affected by jump being held or not.
+var has_double_jump = true
 
 #Determines how large the snowman is.
 var size = 1
@@ -45,13 +52,21 @@ func _process(delta):
 		jump_held( delta )
 
 	allow_slope = false
-	if on_floor() :
+	if on_floor() && velocity.y >= 0:
+		has_double_jump = true
 		allow_slope = true
 		jump_held = 0
 		velocity.y = 0
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
+
+	
+	else:
+		if has_double_jump :
+			if Input.is_action_just_pressed( "jump" ) :
+				has_double_jump = false
+				velocity.y = DOUBLE_JUMP
 	
 	move_and_slide_with_snap( velocity.rotated( slope() ) , Vector2( 0, -1 ), FLOOR )
 

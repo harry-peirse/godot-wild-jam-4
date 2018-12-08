@@ -11,12 +11,14 @@ extents = Vector2( 571.694, 29.1493 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
-position = Vector2( 199.023, 62.033 )
+visible = true
+position = Vector2( 154.978, 179.486 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 377.368, 511.822 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
+visible = false
 position = Vector2( 2.27255, 0 )
 scale = Vector2( 17.7274, 1 )
 texture = ExtResource( 2 )
