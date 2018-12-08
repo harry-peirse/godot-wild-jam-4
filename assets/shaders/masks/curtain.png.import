@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Snowman.png-f306f0fedbe3e3c6499febb0236c6ea6.stex"
+path="res://.import/curtain.png-73ae39a13d65a59b23b5e70fa5e286b2.stex"
 
 [deps]
 
-source_file="res://Art/Snowman.png"
-dest_files=[ "res://.import/Snowman.png-f306f0fedbe3e3c6499febb0236c6ea6.stex" ]
+source_file="res://assets/shaders/masks/curtain.png"
+dest_files=[ "res://.import/curtain.png-73ae39a13d65a59b23b5e70fa5e286b2.stex" ]
 
 [params]
 

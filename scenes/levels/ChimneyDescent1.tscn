@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
+
 
 [node name="ChimneyDescent1" type="Node"]
 

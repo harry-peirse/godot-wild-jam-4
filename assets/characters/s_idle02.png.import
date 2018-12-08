@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ramp.png-01a94397841152346aa0c3402f664c27.stex"
+path="res://.import/s_idle02.png-70bfc92278eb5d2fdcb03e58e1827899.stex"
 
 [deps]
 
-source_file="res://Art/Primitive/Ramp.png"
-dest_files=[ "res://.import/Ramp.png-01a94397841152346aa0c3402f664c27.stex" ]
+source_file="res://assets/characters/s_idle02.png"
+dest_files=[ "res://.import/s_idle02.png-70bfc92278eb5d2fdcb03e58e1827899.stex" ]
 
 [params]
 

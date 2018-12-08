@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Snowman Slushy"
-run/main_scene="res://TemporyMain.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://Godot.png"
 
 [autoload]
