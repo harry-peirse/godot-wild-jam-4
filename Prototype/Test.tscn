@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Prototype/SnowmanExample.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Godot.png" type="Texture" id=2]
 [ext_resource path="res://Art/Primitive/Ramp.png" type="Texture" id=3]
+[ext_resource path="res://Art/Tilemap.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,7 +13,8 @@ extents = Vector2( 571.694, 29.1493 )
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
 visible = true
-position = Vector2( 154.978, 179.486 )
+show_behind_parent = true
+position = Vector2( 155, 179 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 377.368, 511.822 )
@@ -24,6 +26,7 @@ scale = Vector2( 17.7274, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 6.63199, 0.178009 )
 shape = SubResource( 1 )
 
 [node name="Ramp" type="StaticBody2D" parent="."]
@@ -38,4 +41,231 @@ polygon = PoolVector2Array( 90, -90, 90, 90, -90, 90 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Moon" type="Sprite" parent="Background"]
+position = Vector2( 344, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+
+[node name="Nightsky" type="Sprite" parent="Background"]
+position = Vector2( 23.8798, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky2" type="Sprite" parent="Background"]
+position = Vector2( 151.88, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky3" type="Sprite" parent="Background"]
+position = Vector2( 24, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky4" type="Sprite" parent="Background"]
+position = Vector2( 88, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky5" type="Sprite" parent="Background"]
+position = Vector2( 87.8798, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky6" type="Sprite" parent="Background"]
+position = Vector2( 152, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky7" type="Sprite" parent="Background"]
+position = Vector2( 216, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky8" type="Sprite" parent="Background"]
+position = Vector2( 216, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky9" type="Sprite" parent="Background"]
+position = Vector2( 280, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky10" type="Sprite" parent="Background"]
+position = Vector2( 280, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky11" type="Sprite" parent="Background"]
+position = Vector2( 344, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky12" type="Sprite" parent="Background"]
+position = Vector2( 344, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky13" type="Sprite" parent="Background"]
+position = Vector2( 280, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky14" type="Sprite" parent="Background"]
+position = Vector2( 216, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky15" type="Sprite" parent="Background"]
+position = Vector2( 152, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky16" type="Sprite" parent="Background"]
+position = Vector2( 88, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky17" type="Sprite" parent="Background"]
+position = Vector2( 24, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky18" type="Sprite" parent="Background"]
+position = Vector2( -40, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky19" type="Sprite" parent="Background"]
+position = Vector2( -40, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky20" type="Sprite" parent="Background"]
+position = Vector2( -40, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky21" type="Sprite" parent="Background"]
+position = Vector2( 408, 480 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky22" type="Sprite" parent="Background"]
+position = Vector2( 408, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Nightsky23" type="Sprite" parent="Background"]
+position = Vector2( 408, 352 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Ground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+layer = 2
+
+[node name="Ground1" type="Sprite" parent="Ground"]
+position = Vector2( 0, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground2" type="Sprite" parent="Ground"]
+position = Vector2( 64, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground3" type="Sprite" parent="Ground"]
+position = Vector2( 128, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground4" type="Sprite" parent="Ground"]
+position = Vector2( 192, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground5" type="Sprite" parent="Ground"]
+position = Vector2( 256, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground6" type="Sprite" parent="Ground"]
+position = Vector2( 320, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground7" type="Sprite" parent="Ground"]
+position = Vector2( 384, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Ground8" type="Sprite" parent="Ground"]
+position = Vector2( 448, 524.368 )
+texture = ExtResource( 4 )
+offset = Vector2( -8.12016, -19.6319 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="Props" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="Snowy Wallend" type="Sprite" parent="Props"]
+position = Vector2( 384, 464 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 384, 0, 64, 64 )
+
+[node name="Jump Platform" type="Sprite" parent="Props"]
+position = Vector2( 208, 416 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 448, 0, 64, 64 )
+
+[node name="Jump Platform2" type="Sprite" parent="Props"]
+position = Vector2( 320, 368 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 448, 0, 64, 64 )
 
