@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 9.96885, 9.96884 )
+extents = Vector2( 9.96886, 9.96884 )
+
+[sub_resource type="SegmentShape2D" id=2]
+
+a = Vector2( 3.1579, -0.134094 )
+b = Vector2( 1.72479, 17.5983 )
+
+[sub_resource type="SegmentShape2D" id=3]
+
+a = Vector2( 16.8963, -166.147 )
+b = Vector2( -16.8964, 166.147 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 64, 0 )
@@ -503,15 +513,12 @@ __meta__ = {
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Slope1"]
 scale = Vector2( 3.21, 3.21 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slope1/StaticBody2D"]
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -9.96887, -9.65733 )
+rotation = -0.796072
+scale = Vector2( 0.21, 1.59 )
+shape = SubResource( 2 )
 
 [node name="Slope2" type="Sprite" parent="."]
 editor/display_folded = true
@@ -530,10 +537,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slope2/StaticBody2D"]
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -10.2804, -9.34579 )
+rotation = -0.796072
+scale = Vector2( 0.21, 1.59 )
+shape = SubResource( 2 )
 
 [node name="Moon" type="Sprite" parent="."]
 position = Vector2( -32, 416 )
@@ -571,7 +578,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ramp reverse1" type="Sprite" parent="."]
+[node name="Slope reverse1" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 96, 416 )
 texture = ExtResource( 1 )
@@ -581,19 +588,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Slope reverse1"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse1/StaticBody2D"]
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slope reverse1/StaticBody2D"]
+scale = Vector2( 0.59, 0.06 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ramp reverse2" type="Sprite" parent="."]
+[node name="Slope reverse2" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 224, 416 )
 texture = ExtResource( 1 )
@@ -603,20 +611,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Slope reverse2"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse2/StaticBody2D"]
-shape = SubResource( 1 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Slope reverse2/StaticBody2D"]
+scale = Vector2( 0.59, 0.06 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Wood2" type="Sprite" parent="."]
-position = Vector2( 224, 416 )
+position = Vector2( -32, 673 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 384, 192, 64, 64 )
