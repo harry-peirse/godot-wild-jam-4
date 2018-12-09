@@ -21,7 +21,7 @@ func _ready():
 	self.connect( "damage", self, "damage" )
 	self.connect( "gain_health", self, "gain_health" )
 	self.connect( "lose_health", self, "lose_health" )
-	self.connect( "lost_all_health", self, "queue_free" )
+	self.connect( "lost_all_health", self, "health_gone"  )
 	
 	for child in get_children():
 		if child.has_method( "set_health_object" ):

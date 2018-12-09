@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://actors/Health.gd"
 
 #Signals are great for calling methods in
 #physics objects. Godot does not crash if it
@@ -95,6 +95,12 @@ func change_scale( new_scale : float ):
 	#Eventually we will better handle scaling.
 	$Col.shape.extents = original_col_extents * new_scale
 	$Sprite.scale = original_sprite_scale * new_scale
+
+
+func health_gone():
+	#My health has been depleted.
+	#Play the death animation and die.
+	pass
 
 
 func slope():

@@ -7,6 +7,8 @@ var timer_duration = 2 #In seconds.
 #If false, start free_timer to eventually queue_free.
 var permanent = true
 
+export var pushback = 0
+
 
 func _ready():
 	self.connect( "area_entered", self, "collided" )
@@ -20,6 +22,16 @@ func _ready():
 		free_timer.wait_time = timer_duration
 		call_deferred( "add_child", free_timer )
 		free_timer.start( timer_duration )
+
+
+func pushback( object ):
+	#Calculate which side the object is on.
+	var signed = sign( self.global_position.x - object.global_position.x )
+	if signed == 0 :
+		signed = 1
+	
+	#Now push my parent back.
+	get_parent().global_position.x += signed * pushback
 
 
 func set_duration( new_time ):
