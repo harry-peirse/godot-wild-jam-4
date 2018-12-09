@@ -1,8 +1,9 @@
 extends "res://actors/collisions/Colbox.gd"
 
 
-#How much the hitbox should be pushed back.
-#export var pushback = 0
+#All you have to do to use these
+#scenes is instance them as a child of
+#the physics body you want to have the box.
 
 
 func collided( area ):
