@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.png" type="Texture" id=1]
+[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -535,7 +536,6 @@ __meta__ = {
 }
 
 [node name="Moon" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( -32, 416 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -544,14 +544,127 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Moon"]
+[node name="Nightsky1" type="Sprite" parent="."]
+position = Vector2( -32, 544 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Nightsky2" type="Sprite" parent="."]
+position = Vector2( 96, 544 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Nightsky3" type="Sprite" parent="."]
+position = Vector2( 224, 544 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ramp reverse1" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 96, 416 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse1"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse1/StaticBody2D"]
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ramp reverse2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 224, 416 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse2"]
+scale = Vector2( 3.21, 3.21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse2/StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wood2" type="Sprite" parent="."]
+position = Vector2( 224, 416 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="House1" type="Sprite" parent="."]
+position = Vector2( 448, 512 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 256, 0, 192, 256 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chimney" type="Sprite" parent="."]
+position = Vector2( 640, 512 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 128, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PineTree1" type="Sprite" parent="."]
+position = Vector2( 736, 512 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PineTree2" type="Sprite" parent="."]
+position = Vector2( 864, 512 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Window" type="Sprite" parent="."]
+position = Vector2( 864, 512 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 128 )
 __meta__ = {
 "_edit_lock_": true
 }
