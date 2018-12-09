@@ -38,8 +38,11 @@ var allow_slope = false #Fixes slopes messing with jumps.
 var has_double_jump = true
 
 #Dash variables
-const DASH_DURATION = 0.011167 * 50
+const DASH_COOLDOWN_LENGTH = 0.011167 * 20
+const DASH_DURATION = 0.011167 * 40
 const DASH_SPEED = 500
+const DASH_PUSHBACK = 30
+var dash_cooldown = 0
 var dash_lasted = 0
 var dash_direction = 1
 
@@ -120,20 +123,30 @@ func process_dash( delta ):
 	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
-	if dash_lasted >= DASH_DURATION || is_on_wall() :
+	if is_on_wall():
+		self.position.x += DASH_PUSHBACK * sign(-dash_direction)
 		fsm_state = "Default"
 		dash_lasted = 0
+		dash_cooldown = DASH_COOLDOWN_LENGTH
+	
+	if dash_lasted >= DASH_DURATION :
+		fsm_state = "Default"
+		dash_lasted = 0
+		dash_cooldown = DASH_COOLDOWN_LENGTH
 
 
 func process_default( delta ):
 	#Start a dash if player inputs it.
-	if Input.is_action_just_pressed("dash") :
+	if( Input.is_action_just_pressed("dash") &&
+	dash_cooldown <= 0 ):
 		fsm_state = "Dash"
 		velocity.y = 0
 		dash_direction = sign(velocity.x)
 		if dash_direction == 0 :
 			dash_direction = 1
 		return
+	
+	dash_cooldown = max( dash_cooldown - delta, 0 )
 	
 	#Calculate velocity's y value.
 	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
