@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 9.96885, 9.96885 )
+extents = Vector2( 9.96885, 9.96884 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 64, 0 )
@@ -468,7 +468,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Present6" type="Sprite" parent="."]
+[node name="Lever" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 608, 288 )
 texture = ExtResource( 1 )
@@ -478,13 +478,79 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Present6"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Lever"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Present6/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever/StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Slope1" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 736, 288 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Slope1"]
+scale = Vector2( 3.21, 3.21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slope1/StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Slope2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 864, 288 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Slope2"]
+scale = Vector2( 3.21, 3.21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slope2/StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Moon" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( -32, 416 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Moon"]
+scale = Vector2( 3.21, 3.21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon/StaticBody2D"]
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
