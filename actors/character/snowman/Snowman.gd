@@ -48,7 +48,7 @@ func _process(delta):
 	#a controller input handling class.
 	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
-		
+	
 	#Calculate velocity's y value.
 	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
 				
@@ -68,7 +68,6 @@ func _process(delta):
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
-
 	
 	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
@@ -76,6 +75,11 @@ func _process(delta):
 				velocity.y = DOUBLE_JUMP
 				$AnimatedSprite.animation = "Jumping"
 				state = JUMP
+	
+	$Ceiling.update()
+	if $Ceiling.is_colliding() && velocity.y <= 0:
+		jump_held = 0
+		velocity.y = 0
 	
 	#Code for Animations states		
 	if state == JUMP and velocity.y > 0:
