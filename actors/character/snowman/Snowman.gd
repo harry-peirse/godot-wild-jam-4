@@ -128,11 +128,16 @@ func process_dash( delta ):
 		fsm_state = "Default"
 		dash_lasted = 0
 		dash_cooldown = DASH_COOLDOWN_LENGTH
+		$DashHitbox.is_activated( false )
+		$Hurtbox.is_activated( true )
+		return
 	
 	if dash_lasted >= DASH_DURATION :
 		fsm_state = "Default"
 		dash_lasted = 0
 		dash_cooldown = DASH_COOLDOWN_LENGTH
+		$DashHitbox.is_activated( false )
+		$Hurtbox.is_activated( true )
 
 
 func process_default( delta ):
@@ -141,6 +146,8 @@ func process_default( delta ):
 	dash_cooldown <= 0 ):
 		fsm_state = "Dash"
 		velocity.y = 0
+		$DashHitbox.is_activated( true )
+		$Hurtbox.is_activated( false )
 		dash_direction = sign(velocity.x)
 		if dash_direction == 0 :
 			dash_direction = 1

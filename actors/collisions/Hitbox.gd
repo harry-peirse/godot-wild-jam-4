@@ -12,7 +12,7 @@ func collided( area ):
 	pushback( area )
 	
 	#Let the area know I have collided with it.
-	area.hurt( damage )
+	area.hurt( damage, self )
 
 
 func hit( hurtbox ):

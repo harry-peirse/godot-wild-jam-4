@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
 [ext_resource path="res://Icon.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=8]
 [ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=9]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -69,14 +70,21 @@ position = Vector2( 10, 23 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 
+[node name="Ceiling" type="RayCast2D" parent="."]
+position = Vector2( 0, -17.3363 )
+enabled = true
+cast_to = Vector2( 0, -3 )
+
 [node name="Hurtbox" parent="." instance=ExtResource( 10 )]
 
 [node name="Col2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 0, 4.97058 )
 shape = SubResource( 2 )
 
-[node name="Ceiling" type="RayCast2D" parent="."]
-position = Vector2( 0, -17.3363 )
-enabled = true
-cast_to = Vector2( 0, -3 )
+[node name="DashHitbox" parent="." instance=ExtResource( 11 )]
+is_active = false
+
+[node name="Col3" type="CollisionShape2D" parent="DashHitbox"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
 

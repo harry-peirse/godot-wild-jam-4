@@ -13,4 +13,5 @@ func collided( area ):
 
 
 func hurt( damage, hitbox ):
-	get_parent().emit_signal( "damage", damage )
+	if is_active :
+		get_parent().emit_signal( "damage", damage )
