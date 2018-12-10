@@ -219,7 +219,7 @@ func pushback( push : Vector2 ):
 	#Dirty method first temporarily.
 	#Just place myself in this position
 	#globally.
-	self.global_position += push
+	velocity += push
 
 
 func slope():

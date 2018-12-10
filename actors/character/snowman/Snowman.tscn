@@ -2,29 +2,23 @@
 
 [ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=5]
 [ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=9]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=12]
 
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Falling",
+"name": "Running",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -32,9 +26,14 @@ animations = [ {
 "name": "Jumping",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Running",
+"name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
