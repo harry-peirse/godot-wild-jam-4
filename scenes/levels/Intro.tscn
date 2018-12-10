@@ -75,6 +75,8 @@ position = Vector2( -29.9169, 73.1302 )
 shape = SubResource( 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="EButton" type="Sprite" parent="Area2D2"]
