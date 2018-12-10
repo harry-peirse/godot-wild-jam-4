@@ -43,7 +43,7 @@ var allow_slope = false #Fixes slopes messing with jumps.
 var has_double_jump = true
 
 #Dash variables
-const DASH_COOLDOWN_LENGTH = 0.011167 * 20
+const DASH_COOLDOWN_LENGTH = 0.051167 * 20
 const DASH_DURATION = 0.011167 * 40
 const DASH_SPEED = 500
 const DASH_PUSHBACK = 30
@@ -60,6 +60,11 @@ func _process(delta):
 	#a controller input handling class.
 	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
+	
+	if Input.is_action_pressed("ui_left"):
+		dash_direction = -1
+	elif Input.is_action_pressed("ui_right"):
+		dash_direction = 1
 	
 	call( "process_" + FSM[fsm_state], delta )
 	
@@ -141,6 +146,8 @@ func process_dash( delta ):
 	#Start a dash.
 	dash_lasted += delta
 	
+	print(dash_direction)
+	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
 	if is_on_wall():
@@ -170,9 +177,6 @@ func process_default( delta ):
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
-		dash_direction = sign(velocity.x)
-		if dash_direction == 0 :
-			dash_direction = 1
 		#Make the sprite aim in the direction 
 		#we are travelling.
 		if dash_direction == 1:
