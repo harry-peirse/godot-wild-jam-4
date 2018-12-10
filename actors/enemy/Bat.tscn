@@ -13,15 +13,15 @@ radius = 6.55615
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "fly",
-"speed": 7.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "sleep",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 7.0
 } ]
 
 [node name="Bat" type="KinematicBody2D"]

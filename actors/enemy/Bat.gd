@@ -1,6 +1,9 @@
 tool
 extends "res://actors/Health.gd"
 
+const SHORTEST_WAKE_UP_INTERVAL = 0;
+const LONGEST_WAKE_UP_INTERVAL = 0.25;
+
 var speed = 400
 var time = 0.0
 
@@ -43,6 +46,16 @@ func _set_left_to_right(value):
 func _set_asleep(value):
 	asleep = value
 	update()
+
+func _awaken(body):
+	randomize()
+	var timer = Timer.new()
+	timer.set_wait_time(rand_range(SHORTEST_WAKE_UP_INTERVAL, LONGEST_WAKE_UP_INTERVAL))
+	timer.set_one_shot(true)
+	self.add_child(timer)
+	timer.start()	
+	yield(timer, "timeout")
+	asleep = false	
 	
 func _draw():
 	if not Engine.editor_hint:
