@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://actors/collisions/Hurtbox.gd" type="Script" id=1]
+[ext_resource path="res://actors/collisions/Footstool.gd" type="Script" id=1]
 
 [node name="Footstool" type="Area2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )
-push_other = Vector2( 0, 700 )
+push_other = Vector2( 0, -700 )
 

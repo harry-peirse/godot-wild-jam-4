@@ -47,16 +47,13 @@ func pushback( object ):
 	if y_signed == 0 :
 		y_signed = 1
 	
-	#Now push my parent back.
-#	get_parent().global_position.x += signed * pushback
-#	get_parent().global_position.y += y_signed * pushback_y
-	
 	get_parent().emit_signal( "pushback", Vector2( push_self.x * signed, push_self.y * y_signed ) )
 	var other = object.get_parent()
 	other.emit_signal( "pushback", Vector2( push_other.x * -signed, push_other.y * - y_signed ) )
 
 
 func set_duration( new_time ):
+	#Remove myself after a certain amount of time.
 	timer_duration = new_time
 
 
