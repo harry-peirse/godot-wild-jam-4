@@ -1,5 +1,8 @@
 extends Area2D
 
+const PLAYER_LAYER = 1
+const ENEMY_LAYER = 3
+
 #Base script for hitbox and hurtbox.
 var timer_duration = 2 #In seconds.
 
@@ -34,6 +37,13 @@ func is_activated( set_activate : bool ):
 	#are visible in game.
 	for child in get_children() :
 		child.visible = is_active
+	
+	#De-activate activity in layer.
+	make_layer_active( set_activate )
+
+
+func make_layer_active( set_active ):
+	pass
 
 
 func pushback( object ):

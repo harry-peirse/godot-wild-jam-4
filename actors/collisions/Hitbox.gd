@@ -17,3 +17,13 @@ func collided( area ):
 
 func hit( hurtbox ):
 	pass
+
+
+func make_layer_active( set_activate ):
+	if get_parent().has_method( "is_player" ) :
+		set_collision_mask_bit( ENEMY_LAYER, set_activate )
+		
+	else:
+		set_collision_mask_bit( PLAYER_LAYER, set_activate )
+		
+		
