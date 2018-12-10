@@ -6,10 +6,11 @@ func _ready():
 	set_process(true)
 	
 func _on_Area2D2_area_entered(area):
-	$EButton.visible = true
-	$Press.visible = true
-	in_range_E = true
-
+	get_node(
+	if(is_in_area):
+		$EButton.visible = true
+		$Press.visible = true
+		in_range_E = true
 
 func _on_Area2D2_area_exited(area):
 	$EButton.visible = false

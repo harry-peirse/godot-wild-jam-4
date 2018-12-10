@@ -441,23 +441,10 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Snowy Ground2" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 96, 288 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 128, 64, 64 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Snowy Ground2"]
-scale = Vector2( 3.21, 3.21 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowy Ground2/StaticBody2D"]
-shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
