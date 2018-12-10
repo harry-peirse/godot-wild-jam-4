@@ -11,8 +11,9 @@ var damage = 20
 func collided( area ):
 	pushback( area )
 	
-	#Let the area know I have collided with it.
-	area.hurt( damage, self )
+	if area.has_method("hurt"):
+		#Let the area know I have collided with it.
+		area.hurt( damage, self )
 
 
 func hit( hurtbox ):
