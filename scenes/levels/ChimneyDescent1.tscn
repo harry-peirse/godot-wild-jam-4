@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
+[ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 73.2817, 10 )
 
 [node name="ChimneyDescent1" type="Node"]
 
@@ -24,4 +29,14 @@ position = Vector2( 2.1585, -51.8032 )
 scale = Vector2( 5.7329, 2.4165 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Footstool" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 474.332, 354.079 )
+push_other = Vector2( 0, 60 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Footstool"]
+position = Vector2( 175.43, -258.654 )
+shape = SubResource( 1 )
 

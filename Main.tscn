@@ -10,13 +10,18 @@ script = ExtResource( 1 )
 margin_right = 476.0
 margin_bottom = 227.0
 rect_scale = Vector2( 2, 3 )
-text = "I always like to use RichTextLabels for leaving quick notes within scenes. It is pretty useful imo."
+text = "I always like to use RichTextLabels for leaving quick notes within scenes. It is pretty useful imo.
+
+If you want to use footstools, you have to instance one in the scene and set up a collision shape for it.
+ Then in the editor, you configure the footstools push_other's y value to whatever amount you want pushback.
+
+Note: ChimneyDescent1 has an example. Turn on visible collisions in Debug to see it."
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = 358.0
-margin_top = 205.0
-margin_right = 776.0
-margin_bottom = 472.0
+margin_left = 404.0
+margin_top = 457.0
+margin_right = 822.0
+margin_bottom = 724.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
