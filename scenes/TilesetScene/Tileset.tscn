@@ -290,6 +290,7 @@ __meta__ = {
 }
 
 [node name="Dirt" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 576, 672 )
 texture = ExtResource( 1 )
 region_enabled = true
