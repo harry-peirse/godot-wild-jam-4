@@ -604,4 +604,14 @@ extents = Vector2( 10, 11.0465 )
 "shape_transform": Transform2D( 6.4, 0, 0, 3.44, 64, 90 )
 } ]
 42/z_index = 0
+43/name = "BrickChimney"
+43/texture = ExtResource( 1 )
+43/tex_offset = Vector2( 0, 0 )
+43/modulate = Color( 1, 1, 1, 1 )
+43/region = Rect2( 0, 256, 64, 64 )
+43/tile_mode = 0
+43/occluder_offset = Vector2( 32, 32 )
+43/navigation_offset = Vector2( 32, 32 )
+43/shapes = [  ]
+43/z_index = 0
 

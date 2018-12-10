@@ -804,7 +804,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Wood3" type="Sprite" parent="."]
+[node name="BrickChimney" type="Sprite" parent="."]
 position = Vector2( -32, 800 )
 texture = ExtResource( 1 )
 region_enabled = true
