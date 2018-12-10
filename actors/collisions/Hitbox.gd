@@ -20,7 +20,7 @@ func hit( hurtbox ):
 
 
 func make_layer_active( set_activate ):
-	if get_parent().has_method( "is_player" ) :
+	if get_parent().has_method( "is_snowman" ) :
 		set_collision_mask_bit( ENEMY_LAYER, set_activate )
 		
 	else:
