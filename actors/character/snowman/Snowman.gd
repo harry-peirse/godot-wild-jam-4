@@ -61,6 +61,8 @@ func _process(delta):
 	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
 	
+	# Controlling the direction that the dash will be performed based on the direction of the snowman
+	# It's no longer necessary to hold down the direction button whilst dashing to prevent the snowman dashing right when facing left.
 	if Input.is_action_pressed("ui_left"):
 		dash_direction = -1
 	elif Input.is_action_pressed("ui_right"):
@@ -145,8 +147,6 @@ func on_floor():
 func process_dash( delta ):
 	#Start a dash.
 	dash_lasted += delta
-	
-	print(dash_direction)
 	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
