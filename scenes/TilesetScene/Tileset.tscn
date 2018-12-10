@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 9.96884, 9.96884 )
+extents = Vector2( 9.96916, 9.96884 )
 
 [sub_resource type="SegmentShape2D" id=2]
 
@@ -17,6 +17,10 @@ b = Vector2( 43.1833, 64.7881 )
 
 a = Vector2( 52.459, -41.0886 )
 b = Vector2( -52.459, 41.0887 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 10, 11.0465 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 64, 0 )
@@ -280,6 +284,27 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick Stone4/StaticBody2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dirt" type="Sprite" parent="."]
+position = Vector2( 576, 672 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 448, 192, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dirt"]
+scale = Vector2( 3.21, 3.21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dirt/StaticBody2D"]
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -669,14 +694,12 @@ __meta__ = {
 }
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Child1"]
-position = Vector2( 480, -416 )
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Child1/StaticBody2D2"]
-position = Vector2( -149.533, 129.595 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -693,14 +716,12 @@ __meta__ = {
 }
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Child2"]
-position = Vector2( 480, -416 )
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Child2/StaticBody2D2"]
-position = Vector2( -149.533, 129.595 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -717,14 +738,12 @@ __meta__ = {
 }
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Child3"]
-position = Vector2( 480, -416 )
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Child3/StaticBody2D2"]
-position = Vector2( -149.533, 129.595 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -741,15 +760,45 @@ __meta__ = {
 }
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Child4"]
-position = Vector2( 480, -416 )
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Child4/StaticBody2D2"]
-position = Vector2( -149.533, 129.595 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door1" type="Sprite" parent="."]
+position = Vector2( 704, 704 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SickSanta" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 416, 768 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 256, 0, 128, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SickSanta"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SickSanta/StaticBody2D"]
+position = Vector2( 0, 26 )
+scale = Vector2( 6.4, 3.44 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
