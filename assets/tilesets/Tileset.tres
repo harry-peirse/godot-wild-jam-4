@@ -317,12 +317,7 @@ extents = Vector2( 10, 11.0465 )
 19/tile_mode = 0
 19/occluder_offset = Vector2( 32, 32 )
 19/navigation_offset = Vector2( 32, 32 )
-19/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 3.21, 0, 0, 3.21, 32, 32 )
-} ]
+19/shapes = [  ]
 19/z_index = 0
 20/name = "Fire1"
 20/texture = ExtResource( 1 )
