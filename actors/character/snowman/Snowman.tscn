@@ -1,35 +1,36 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=8]
 [ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=9]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=12]
+[ext_resource path="res://actors/character/snowman/TemperatureCheck.gd" type="Script" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Running",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -48,6 +49,11 @@ extents = Vector2( 6.43671, 1.55908 )
 [sub_resource type="CircleShape2D" id=4]
 
 radius = 64.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+
+radius = 9.13113
+height = 23.2675
 
 [node name="Snowman" type="KinematicBody2D"]
 collision_layer = 0
@@ -120,4 +126,13 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
 shape = SubResource( 4 )
+
+[node name="TemperatureCheck" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 262144
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TemperatureCheck"]
+position = Vector2( 0.676376, 7.44017 )
+shape = SubResource( 5 )
 
