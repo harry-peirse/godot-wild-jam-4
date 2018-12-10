@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Art Tileset.png-5763a9e346034200c4d321480452404f.stex"
+path="res://.import/Dialogue.png-f7c4ceac06ec6d84eba47932cbdf0f50.stex"
 
 [deps]
 
-source_file="res://assets/tilesets/Art Tileset.png"
-dest_files=[ "res://.import/Art Tileset.png-5763a9e346034200c4d321480452404f.stex" ]
+source_file="res://assets/tilesets/Dialogue.png"
+dest_files=[ "res://.import/Dialogue.png-f7c4ceac06ec6d84eba47932cbdf0f50.stex" ]
 
 [params]
 
@@ -17,15 +17,15 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
