@@ -571,7 +571,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ramp reverse1" type="Sprite" parent="."]
+[node name="SlopeReverse1" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 96, 416 )
 texture = ExtResource( 1 )
@@ -581,19 +581,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="SlopeReverse1"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlopeReverse1/StaticBody2D"]
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ramp reverse2" type="Sprite" parent="."]
+[node name="SlopeReverse2" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 224, 416 )
 texture = ExtResource( 1 )
@@ -603,20 +603,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ramp reverse2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="SlopeReverse2"]
 scale = Vector2( 3.21, 3.21 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ramp reverse2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlopeReverse2/StaticBody2D"]
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Wood2" type="Sprite" parent="."]
-position = Vector2( 224, 416 )
+position = Vector2( -31, 673 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 384, 192, 64, 64 )
