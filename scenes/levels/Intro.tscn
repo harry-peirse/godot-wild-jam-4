@@ -4,12 +4,12 @@
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=3]
 [ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=4]
-[ext_resource path="res://scenes/levels/Input E (Intro).gd" type="Script" id=5]
-[ext_resource path="res://scenes/levels/Area2D.gd" type="Script" id=6]
+[ext_resource path="res://scenes/levels/Intro/Input E (Intro).gd" type="Script" id=5]
+[ext_resource path="res://scenes/levels/Intro/SickSanta.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 96.35, 142.586 )
+extents = Vector2( 64.9428, 40.417 )
 
 [node name="ChimneyDescent2" type="Node"]
 
@@ -61,8 +61,8 @@ script = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 159.65, 206.586 )
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="Dialogue" type="Sprite" parent="Area2D"]
@@ -73,6 +73,7 @@ region_enabled = true
 region_rect = Rect2( 64, 0, 128, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -29.9169, 73.1302 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]

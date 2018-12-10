@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -44,6 +44,10 @@ extents = Vector2( 10, 22.361 )
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 6.43671, 1.55908 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+radius = 64.0
 
 [node name="Snowman" type="KinematicBody2D"]
 collision_layer = 0
@@ -109,4 +113,11 @@ position = Vector2( 0, 28.5653 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FootStomp"]
 position = Vector2( 0, -0.791649 )
 shape = SubResource( 3 )
+
+[node name="Awareness" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Awareness"]
+shape = SubResource( 4 )
 
