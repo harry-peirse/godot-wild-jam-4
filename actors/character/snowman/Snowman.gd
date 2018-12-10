@@ -26,6 +26,8 @@ var FSM = {
 	}
 var fsm_state = "Default" 
 
+enum state {IDLE,RUN,JUMP,HURT,DEAD,DASH}
+var current_state = state.IDLE
 
 #Determines the velocity
 var velocity : Vector2 = Vector2( 0,0 )
@@ -53,12 +55,6 @@ var size = 1
 onready var original_col_extents = $Col.shape.extents
 onready var original_sprite_scale = $Sprite.scale
 
-var JUMP = 1
-var RUNNING = 2
-var IDLE = 3
-var state = JUMP
-
-
 func _process(delta):
 	#Quick left right handling.
 	#I will eventually replace this with
@@ -71,7 +67,7 @@ func _process(delta):
 
 func _ready():
 	self.connect( "pushback", self, "pushback" )
-
+	$AnimatedSprite.play()
 
 func change_scale( new_scale : float ):
 	#Change the size of the snowman
@@ -90,6 +86,8 @@ func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
+		current_state = state.JUMP
+		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ]
 		if jump_stage == 2 :
@@ -111,15 +109,21 @@ func on_floor():
 	var on_floor = false
 	$Floor1.update()
 	$Floor2.update()
-	if state == JUMP:
-		$AnimatedSprite.animation = "Idle"
-		state = IDLE
-	if state == RUNNING:
-		$AnimatedSprite.animation = "Running"
 	
 	if $Floor1.is_colliding() || $Floor2.is_colliding():
 		on_floor = true
-	
+		
+	if current_state == state.IDLE:
+		$AnimatedSprite.animation = "Idle"
+	if current_state == state.RUN:
+		$AnimatedSprite.animation = "Running"
+	if current_state == state.RUN and velocity.x == 0:
+		$AnimatedSprite.animation = "Idle"
+		current_state = state.IDLE
+	if current_state == state.JUMP and on_floor == true:
+		$AnimatedSprite.animation = "Idle"
+		current_state = state.IDLE	
+		
 	return on_floor
 
 
@@ -171,8 +175,12 @@ func process_default( delta ):
 	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
 				
 	$AnimatedSprite.play()
-	if velocity.x > 0 and state != JUMP:
-		state = RUNNING
+	if velocity.x != 0 and current_state != state.JUMP:
+		current_state = state.RUN
+	if current_state == state.JUMP and velocity.y > 0:
+		$AnimatedSprite.animation = "Falling"
+	if current_state == state.JUMP and velocity.y < 0:
+		$AnimatedSprite.animation = "Jumping"
 		
 	if jump_held > 0 :
 		jump_held( delta )
@@ -191,19 +199,14 @@ func process_default( delta ):
 			if Input.is_action_just_pressed( "jump" ) :
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
+				current_state = state.JUMP
 				$AnimatedSprite.animation = "Jumping"
-				state = JUMP
-	
+				
 	$Ceiling.update()
 	if $Ceiling.is_colliding() && velocity.y <= 0:
 		jump_held = 0
 		velocity.y = 0
 	
-	#Code for Animations states		
-	if state == JUMP and velocity.y > 0:
-		$AnimatedSprite.animation = "Falling"
-	#if state == JUMP and is_on_floor():
-		#$AnimatedSprite.animation = "idle"
 	if  velocity.x < 0 :
 		$AnimatedSprite.flip_h = true
 	if  velocity.x > 0 :
