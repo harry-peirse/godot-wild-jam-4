@@ -17,6 +17,7 @@ const JUMP_STAGE_2 = 0.011167 * 8
 const JUMP_STAGE_3 = 0.011167 * 10
 const JUMP_STAGE_MAX = 3
 
+signal foot_stomped
 signal pushback
 
 #State Machine
@@ -67,6 +68,7 @@ func _process(delta):
 
 func _ready():
 	self.connect( "pushback", self, "pushback" )
+	self.connect( "foot_stomped", self, "foot_stomped" )
 	$AnimatedSprite.play()
 
 func change_scale( new_scale : float ):
@@ -74,6 +76,11 @@ func change_scale( new_scale : float ):
 	#Eventually we will better handle scaling.
 	$Col.shape.extents = original_col_extents * new_scale
 	$Sprite.scale = original_sprite_scale * new_scale
+
+
+func foot_stomped( push : Vector2 ):
+	self.velocity.y = 0
+	velocity += push
 
 
 func health_gone():
@@ -219,9 +226,6 @@ func pushback( push : Vector2 ):
 	if push.y != 0 :
 		velocity.y = 0
 	
-	#Dirty method first temporarily.
-	#Just place myself in this position
-	#globally.
 	velocity += push
 
 
