@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actors/enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Godot.png" type="Texture" id=2]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,20 +23,45 @@ texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 4.61035 )
-push_other = Vector2( 300, 0 )
-damage = 10
 
 [node name="Col" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 1 )
+
+[node name="Footstool" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 16.8529 )
+push_other = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Footstool"]
+position = Vector2( 0, -44.4737 )
+shape = SubResource( 2 )
+
+[node name="FloorLeft" type="RayCast2D" parent="."]
+position = Vector2( -30.9554, 30.4727 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+
+[node name="FloorRight" type="RayCast2D" parent="."]
+position = Vector2( 31.4695, 30.4727 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+
+[node name="Falloff" type="RayCast2D" parent="."]
+position = Vector2( -0.144499, 30.4727 )
+enabled = true
+cast_to = Vector2( 0, 60 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+push_other = Vector2( 700, 0 )
+
+[node name="Col2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, 4.61035 )
 shape = SubResource( 1 )
 
 [node name="Col2" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.61035 )
 shape = SubResource( 1 )
 
-[node name="Footstool" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 16.8529 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Footstool"]
-position = Vector2( 0, -44.4737 )
-shape = SubResource( 2 )
+[node name="Ceiling" type="RayCast2D" parent="."]
+position = Vector2( 0, -34.4413 )
+cast_to = Vector2( 0, -5 )
 
