@@ -8,38 +8,46 @@ var start_position = Vector2()
 var direction_scal = 1
 
 export(float) var sine_amplitude = 80 setget _set_sine_amplitude
-export(bool) var left_to_right = true setget _set_left_to_right 
+export(bool) var left_to_right = true setget _set_left_to_right
+export(bool) var asleep = true setget _set_asleep
 
 
 func _ready():
 	start_position = position
-
-
+	
 func _physics_process(delta):
 	if Engine.editor_hint:
 		return
-
-	time += delta
-	position.x += speed * delta * direction_scal
-	position.y =  start_position.y + sin(time * 10) * sine_amplitude
-
-
+	if ! asleep:
+		$AnimatedSprite.play("fly")
+		if (left_to_right == true):
+			direction_scal = 1
+			$AnimatedSprite.flip_h = false
+		else:
+			direction_scal = -1
+			$AnimatedSprite.flip_h = true
+		time += delta
+		position.x += speed * delta * direction_scal
+		position.y =  start_position.y + sin(time * 10) * sine_amplitude
+	else:
+		$AnimatedSprite.play("sleep")	
+		
 func _set_sine_amplitude(value):
 	sine_amplitude = value
 	update()
 
 func _set_left_to_right(value):
 	left_to_right = value
-	if (left_to_right == true):
-		direction_scal = 1
-	else:
-		direction_scal = -1
 	update()
-
+	
+func _set_asleep(value):
+	asleep = value
+	update()
+	
 func _draw():
 	if not Engine.editor_hint:
 		return
-
+		
 	var points_array = PoolVector2Array()
 	var time_step = 0.02
 	for i in range(128):

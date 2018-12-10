@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://actors/enemy/Bat.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemies/bat/fly0.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/bat/fly1.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/bat/fly2.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 6.55615
 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 7.0
+}, {
 "frames": [  ],
 "loop": true,
-"name": "default",
+"name": "sleep",
 "speed": 5.0
 } ]
 
@@ -29,11 +37,12 @@ __meta__ = {
 endurance = 1
 sine_amplitude = 50.0
 left_to_right = true
+asleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "default"
+animation = "fly"
 
