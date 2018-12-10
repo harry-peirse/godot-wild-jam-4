@@ -62,6 +62,11 @@ func _process(delta):
 	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
 	
 	call( "process_" + FSM[fsm_state], delta )
+	
+	if current_state != state.DASH:
+		$DashFX.emitting = false
+	if current_state != state.JUMP:
+		$DoubleJumpFX.emitting = false
 
 
 func _physics_process(delta):
@@ -72,6 +77,8 @@ func _ready():
 	self.connect( "pushback", self, "pushback" )
 	self.connect( "foot_stomped", self, "foot_stomped" )
 	$AnimatedSprite.play()
+	$DashFX.emitting = false
+	$DoubleJumpFX.emitting = false
 
 
 func foot_stomped( push : Vector2 ):
@@ -157,6 +164,8 @@ func process_default( delta ):
 	#Start a dash if player inputs it.
 	if( Input.is_action_just_pressed("dash") &&
 	dash_cooldown <= 0 ):
+		current_state = state.DASH
+		$DashFX.emitting = true
 		fsm_state = "Dash"
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
@@ -204,6 +213,7 @@ func process_default( delta ):
 				velocity.y = DOUBLE_JUMP
 				current_state = state.JUMP
 				$AnimatedSprite.animation = "Jumping"
+				$DoubleJumpFX.emitting = true
 				
 	$Ceiling.update()
 	if $Ceiling.is_colliding() && velocity.y <= 0:
