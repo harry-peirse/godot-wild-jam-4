@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://actors/enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Godot.png" type="Texture" id=2]
+[ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 31.115, 26.3471 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 30.8076, 6.53754 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 4.61035 )
+push_other = Vector2( 300, 0 )
+damage = 10
+
+[node name="Col" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 1 )
+
+[node name="Col2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4.61035 )
+shape = SubResource( 1 )
+
+[node name="Footstool" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 16.8529 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Footstool"]
+position = Vector2( 0, -44.4737 )
+shape = SubResource( 2 )
+
