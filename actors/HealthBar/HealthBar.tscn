@@ -1,14 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Godot.png" type="Texture" id=1]
-[ext_resource path="res://actors/HealthBar/HealthBar.gd" type="Script" id=2]
-
+[ext_resource path="res://assets/characters/healthbar/Over.png" type="Texture" id=1]
+[ext_resource path="res://assets/characters/healthbar/under.png" type="Texture" id=2]
+[ext_resource path="res://actors/HealthBar/HealthBar.gd" type="Script" id=3]
+[ext_resource path="res://assets/characters/healthbar/Lights1.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/healthbar/Lights2.png" type="Texture" id=5]
 
 [node name="HealthBar" type="TextureProgress"]
-margin_right = 264.0
-margin_bottom = 168.0
-value = 50.0
-texture_progress = ExtResource( 1 )
-nine_patch_stretch = true
-script = ExtResource( 2 )
+margin_right = 128.0
+margin_bottom = 32.0
+value = 100.0
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Under" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 64.2161, 15.7779 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="Lights1" type="Sprite" parent="."]
+position = Vector2( 64.2161, 15.7779 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Lights2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 64.2161, 15.7779 )
+texture = ExtResource( 5 )
 
