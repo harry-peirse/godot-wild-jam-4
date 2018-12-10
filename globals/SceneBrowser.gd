@@ -11,7 +11,8 @@ var scene_list = {
 	"ChimneyDescent1" : "res://scenes/levels/ChimneyDescent1.tscn",
 	"ChimneyDescent2" : "res://scenes/levels/ChimneyDescent2.tscn",
 	"ChimneyDescent3" : "res://scenes/levels/ChimneyDescent3.tscn",
-	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn"
+	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn",
+	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn"
 }
 
 
