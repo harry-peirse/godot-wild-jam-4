@@ -15,7 +15,7 @@ var health = 100
 #Determines how resistant an entity is to damage.
 #Multiplier value. Lower means less damage from
 #attacks.
-var endurance = 1
+export var endurance = 1
 
 func _ready():
 	self.connect( "damage", self, "damage" )
