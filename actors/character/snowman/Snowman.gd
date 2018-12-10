@@ -157,6 +157,12 @@ func process_default( delta ):
 		dash_direction = sign(velocity.x)
 		if dash_direction == 0 :
 			dash_direction = 1
+		#Make the sprite aim in the direction 
+		#we are travelling.
+		if dash_direction == 1:
+			$AnimatedSprite.flip_h = false
+		else:
+			$AnimatedSprite.flip_h = true
 		return
 	
 	dash_cooldown = max( dash_cooldown - delta, 0 )
