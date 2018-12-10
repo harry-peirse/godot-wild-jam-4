@@ -50,10 +50,8 @@ var dash_cooldown = 0
 var dash_lasted = 0
 var dash_direction = 1
 
-#Determines how large the snowman is.
-var size = 1
-onready var original_col_extents = $Col.shape.extents
-onready var original_sprite_scale = $Sprite.scale
+onready var original_scale = Vector2(scale.x, scale.y)
+var size = 1;
 
 func _process(delta):
 	#Quick left right handling.
@@ -65,15 +63,13 @@ func _process(delta):
 	call( "process_" + FSM[fsm_state], delta )
 
 
+func _physics_process(delta):
+	scale = original_scale * size
+
+
 func _ready():
 	self.connect( "pushback", self, "pushback" )
 	$AnimatedSprite.play()
-
-func change_scale( new_scale : float ):
-	#Change the size of the snowman
-	#Eventually we will better handle scaling.
-	$Col.shape.extents = original_col_extents * new_scale
-	$Sprite.scale = original_sprite_scale * new_scale
 
 
 func health_gone():
@@ -89,7 +85,7 @@ func jump_held( delta ):
 		current_state = state.JUMP
 		$AnimatedSprite.animation = "Jumping"
 		
-		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ]
+		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
 		if jump_stage == 2 :
 			pass  
 		
