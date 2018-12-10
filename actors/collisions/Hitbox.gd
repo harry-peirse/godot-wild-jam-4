@@ -5,7 +5,7 @@ extends "res://actors/collisions/Colbox.gd"
 #the physics body you want to have the box.
 
 
-var damage = 20
+export var damage = 20
 
 
 func collided( area ):
