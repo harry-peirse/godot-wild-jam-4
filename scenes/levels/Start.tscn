@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=2]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=4]
+[ext_resource path="res://scenes/levels/Area2D.gd" type="Script" id=5]
+[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 160, 64 )
 
 [node name="ChimneyDescent2" type="Node"]
 
@@ -26,7 +33,7 @@ tile_data = PoolIntArray( 458752, 18, 0, 458753, 18, 0, 458754, 18, 0, 458755, 1
 z_index = -3
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( 65549, 26, 0, 327683, 35, 0, 327687, 34, 0, 327691, 35, 0, 393216, 19, 0, 393217, 19, 0, 393218, 19, 0, 393219, 19, 0, 393220, 19, 0, 393221, 19, 0, 393222, 19, 0, 393223, 19, 0, 393224, 19, 0, 393225, 19, 0, 393226, 19, 0, 393227, 19, 0, 393228, 5, 0, 393229, 19, 0, 393230, 19, 0, 393231, 19, 0, 393232, 19, 0, 393233, 19, 0 )
+tile_data = PoolIntArray( 65549, 26, 0, 327683, 35, 0, 327687, 34, 0, 327691, 35, 0, 393216, 19, 0, 393217, 19, 0, 393218, 19, 0, 393219, 19, 0, 393220, 19, 0, 393221, 19, 0, 393222, 19, 0, 393223, 19, 0, 393224, 19, 0, 393225, 19, 0, 393226, 19, 0, 393227, 19, 0, 393228, 19, 0, 393229, 19, 0, 393230, 19, 0, 393231, 19, 0, 393232, 19, 0, 393233, 19, 0 )
 
 [node name="Nightsky(-4)" type="TileMap" parent="."]
 z_index = -4
@@ -45,3 +52,34 @@ tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 327686, 34, 0, 327688, 34, 0 )
 
+[node name="Sledge" type="Sprite" parent="."]
+position = Vector2( 848, 400 )
+scale = Vector2( 1.25, 1.5 )
+z_index = 1
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 448, 128, 64 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 864, 384 )
+shape = SubResource( 1 )
+
+[node name="Dialogue1" type="Sprite" parent="Area2D"]
+visible = false
+position = Vector2( 832, 320 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 320, 64, 128, 64 )
+
+[node name="Dialogue2" type="Sprite" parent="Area2D"]
+visible = false
+position = Vector2( 896, 352 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]

@@ -11,6 +11,7 @@ func _ready():
 	
 func _on_Area2D_area_entered(area):
 	$Dialogue1.visible = true
+	$DialogueButton.visible = true
 	is_in_area = true
 	
 func _on_Area2D_area_exited(area):
@@ -55,6 +56,7 @@ func _process(delta):
 			$Dialogue7.visible = true
 			dialogue_counter = 7
 			dialogue_end = true
+			$DialogueButton.visible = false
 	if (in_range_E)&&(Input.is_key_pressed(KEY_E))&&(dialogue_end):
 		get_node("/root/SceneBrowser").load_scene("Start")
 	

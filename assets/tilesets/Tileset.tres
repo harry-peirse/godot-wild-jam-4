@@ -609,4 +609,14 @@ extents = Vector2( 10, 11.0465 )
 43/navigation_offset = Vector2( 32, 32 )
 43/shapes = [  ]
 43/z_index = 0
+44/name = "Torch1"
+44/texture = ExtResource( 1 )
+44/tex_offset = Vector2( 0, 0 )
+44/modulate = Color( 1, 1, 1, 1 )
+44/region = Rect2( 64, 256, 64, 64 )
+44/tile_mode = 0
+44/occluder_offset = Vector2( 32, 32 )
+44/navigation_offset = Vector2( 32, 32 )
+44/shapes = [  ]
+44/z_index = 0
 

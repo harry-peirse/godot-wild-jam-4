@@ -800,3 +800,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Torch1" type="Sprite" parent="."]
+position = Vector2( 576, 800 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 256, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
