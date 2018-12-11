@@ -1,8 +1,9 @@
 tool
 extends "res://actors/Health.gd"
 
-const SHORTEST_WAKE_UP_INTERVAL = 0;
-const LONGEST_WAKE_UP_INTERVAL = 0.25;
+const SHORTEST_WAKE_UP_INTERVAL = 0
+const LONGEST_WAKE_UP_INTERVAL = 0.25
+const MAX_LEVEL_WIDTH = 2200
 
 var speed = 400
 var time = 0.0
@@ -32,6 +33,10 @@ func _physics_process(delta):
 		time += delta
 		position.x += speed * delta * direction_scal
 		position.y =  start_position.y + sin(time * 10) * sine_amplitude
+		
+		# Remove the bats when they leave the level
+		if position.x < 0 || position.x > MAX_LEVEL_WIDTH:
+			queue_free()
 	else:
 		$AnimatedSprite.play("sleep")	
 		
@@ -55,6 +60,7 @@ func _awaken(body):
 	self.add_child(timer)
 	timer.start()	
 	yield(timer, "timeout")
+	timer.queue_free()
 	asleep = false	
 	
 func _draw():

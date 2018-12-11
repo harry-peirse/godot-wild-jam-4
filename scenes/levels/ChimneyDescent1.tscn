@@ -120,6 +120,6 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatTrigger1/Area2D"]
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
