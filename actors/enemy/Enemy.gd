@@ -8,6 +8,12 @@ export var is_still = false
 #in pursut.
 export var walk_speed = 100
 
+#Determines if I can spot the snowman behind myself.
+export var see_behind = true
+
+#Chase the object.
+var chase_object
+
 var fsm_dict = {
 	"Wander" : "wander",
 }
@@ -25,6 +31,13 @@ func _ready():
 func _process(delta):
 	handle_physics( delta )
 	call( "process_" + fsm_dict[ fsm_state ], delta )
+
+
+func chase_snowman( snowman ):
+	if snowman == null :
+		chase_object = null
+		self.queue_free()
+		return
 
 
 func process_wander( delta ):
@@ -62,3 +75,7 @@ func process_wander( delta ):
 		velocity.x = 0
 	
 	move_body()
+
+
+
+
