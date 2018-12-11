@@ -13,7 +13,7 @@ const HIGH_AIR_SPAWN_COORDINATES = Vector2(1125, 425)
 export(float) var ground_obstacle_frequency = 1.5 setget _set_ground_obstacle_frequency
 export(float) var sky_obstacle_frequency = 5 setget _set_sky_obstacle_frequency
 
-var obstacle_scene = preload("res://actors/enemy/Obstacle.tscn")
+var obstacle_scene = preload("res://actors/enemy/obstacles/Obstacle.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
