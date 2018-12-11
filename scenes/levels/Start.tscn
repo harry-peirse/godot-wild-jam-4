@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=4]
 [ext_resource path="res://scenes/levels/Start/Area2D.gd" type="Script" id=5]
 [ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=6]
+[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -83,6 +84,11 @@ position = Vector2( 896, 352 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="EButton" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="Area2D"]
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]

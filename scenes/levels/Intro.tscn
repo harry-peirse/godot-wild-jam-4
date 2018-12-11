@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/levels/Intro.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=4]
 [ext_resource path="res://scenes/levels/Intro/SickSanta.gd" type="Script" id=5]
 [ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=6]
+[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -51,7 +53,6 @@ format = 1
 tile_data = PoolIntArray( 0, 31, 0, 1, 31, 0, 2, 31, 0, 3, 31, 0, 4, 31, 0, 5, 31, 0, 6, 31, 0, 7, 31, 0, 8, 31, 0, 9, 31, 0, 10, 31, 0, 65536, 31, 0, 65537, 31, 0, 65538, 31, 0, 65539, 31, 0, 65540, 31, 0, 65541, 31, 0, 65542, 31, 0, 65543, 31, 0, 65544, 31, 0, 65545, 31, 0, 65546, 31, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 159.65, 206.586 )
 collision_layer = 0
 collision_mask = 1024
@@ -140,6 +141,16 @@ position = Vector2( 64, 32 )
 texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="EButtonSFX" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 7 )
+volume_db = -12.0
+
+[node name="DoorSFX" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 8 )
+volume_db = -12.0
+
+[node name="Timer" type="Timer" parent="Area2D"]
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]

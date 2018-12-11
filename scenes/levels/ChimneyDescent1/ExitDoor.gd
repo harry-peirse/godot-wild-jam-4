@@ -7,7 +7,7 @@ var already = false
 func _process(delta):
 	if (is_in_area)&&(Input.is_key_pressed(KEY_E)&&(!already)):
 		already=true
-		$EButtonSFX.play()
+		$DoorSFX.play()
 		t.set_wait_time(1)
 		t.start()
 		yield(t, "timeout")

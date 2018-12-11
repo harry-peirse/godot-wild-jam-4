@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/levels/OutsideDungeon1.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -10,16 +10,17 @@
 [ext_resource path="res://Art/Animation/Irongrid/Irongrid3.png" type="Texture" id=8]
 [ext_resource path="res://Art/Animation/Irongrid/Irongrid4.png" type="Texture" id=9]
 [ext_resource path="res://Art/Animation/Irongrid/Irongrid5.png" type="Texture" id=10]
+[ext_resource path="res://assets/SFX/IronGrid.wav" type="AudioStream" id=11]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 32, 64 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 extents = Vector2( 87, 95 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
@@ -69,7 +70,7 @@ position = Vector2( 1088, 448 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChimneyCollider"]
 position = Vector2( 96, 32 )
 scale = Vector2( 1, 0.5 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="EButton" type="Area2D" parent="."]
 position = Vector2( 1222, 410 )
@@ -85,15 +86,19 @@ region_rect = Rect2( 0, 16, 16, 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EButton"]
 position = Vector2( -39, 6 )
 scale = Vector2( 0.4, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="EButton"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="EButton"]
 position = Vector2( -38, 6 )
 z_index = 2
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "Open"
+
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="EButton"]
+stream = ExtResource( 11 )
+volume_db = -9.0
 
 [connection signal="area_entered" from="EButton" to="EButton" method="_on_EButton_area_entered"]
 [connection signal="area_exited" from="EButton" to="EButton" method="_on_EButton_area_exited"]
