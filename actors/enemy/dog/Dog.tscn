@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://actors/enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/enemy/EnemyInterface.gd" type="Script" id=2]
+[ext_resource path="res://assets/enemies/dog/rabid_dog.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 17.2119, 9.45562 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 16.5033, 3.40963 )
+
+[node name="Dog" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( 0, -0.595363 )
+
+[node name="Col" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( 0, -4.76837e-07 )
+shape = SubResource( 1 )
+
+[node name="Footstool" parent="." index="2"]
+position = Vector2( 0, 5.51668 )
+
+[node name="Col" type="CollisionShape2D" parent="Footstool" index="0"]
+position = Vector2( 0, -18.1095 )
+shape = SubResource( 2 )
+
+[node name="FloorLeft" parent="." index="3"]
+position = Vector2( -16, 8 )
+
+[node name="FloorRight" parent="." index="4"]
+position = Vector2( 16, 8 )
+
+[node name="Falloff" parent="." index="5"]
+position = Vector2( 0.610962, 9.86204 )
+cast_to = Vector2( 0, 8 )
+
+[node name="Hurtbox" parent="." index="6"]
+position = Vector2( 0, 0.66128 )
+
+[node name="Col" type="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -1.25664 )
+shape = SubResource( 1 )
+
+[node name="Ceiling" parent="." index="7"]
+position = Vector2( 0, -16.2227 )
+
+[node name="Col" type="CollisionShape2D" parent="." index="8"]
+position = Vector2( 0, -0.595364 )
+shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="." index="9"]
+texture = ExtResource( 3 )
+

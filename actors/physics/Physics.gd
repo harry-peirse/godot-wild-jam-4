@@ -4,9 +4,12 @@ const FLOOR = Vector2( 0,-1 )
 const GRAVITY_ADD = 70
 const GRAVITY_MAX = 600
 
+signal change_anim
+signal change_direction
 signal foot_stomped
 signal foot_stooled
 signal pushback
+
 
 #Determines the velocity
 var velocity : Vector2 = Vector2( 0,0 )
@@ -27,6 +30,15 @@ func been_hit( push : Vector2, damaged = false ):
 	pass
 
 
+func flip_h():
+	#Let sprites know to flip themselves.
+	var signed = sign( velocity.x )
+	if signed == 0 || signed == 1:
+		return true
+	else:
+		return false
+
+
 func handle_physics( delta ):
 	if run_physics == false :
 		return
@@ -38,6 +50,9 @@ func handle_physics( delta ):
 	if on_floor() && velocity.y >= 0:
 		allow_slope = true
 		velocity.y = 0
+	
+	#I am falling.
+	emit_signal( "change_anim", "falling" )
 
 				
 	$Ceiling.update()

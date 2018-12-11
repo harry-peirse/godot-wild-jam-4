@@ -15,6 +15,10 @@ export var chase_speed = 250
 #Determines if I can spot the snowman behind myself.
 export var see_behind = true
 
+#How far out the object should extend before
+#turning because of a drop off
+export var falloff_distance = 20
+
 #Chase the object.
 var chase_object
 
@@ -32,10 +36,15 @@ var ignore_falloff = false
 #Knockback variables.
 const PUSHBACK_WAIT = 0.011167 * 20
 var pushback_left = PUSHBACK_WAIT
+var is_damaged = false
+
 
 
 func _ready():
 	self.connect( "lost_all_health", self, "queue_free" )
+	
+	#Place falloff in the correct place.
+	$Falloff.position.x = falloff_distance
 
 
 func _process(delta):
@@ -47,12 +56,14 @@ func been_hit( push : Vector2, damaged = false):
 	#Eventually play the correct animation.
 	fsm_state = "Pushed"
 	velocity = push
+	is_damaged = damaged
 
 
 func chase_snowman( snowman ):
 	if snowman == null :
 		chase_object = null
 		fsm_state = "Wander"
+		emit_signal( "change_anim", "walk" )
 		return
 	
 	#Eventually check if player is behind me.
@@ -80,11 +91,20 @@ func process_pushed( delta ):
 			fsm_state = "Chase"
 		else:
 			fsm_state = "Wander"
+	
+	#Let the interface know I am being pushed.
+	elif is_damaged :
+		emit_signal( "change_anim", "hit" )
+	
+	else:
+		emit_signal( "change_anim", "idle" )
+	
 
 
 func process_wander( delta ):
 	#Don't wander if set to still.
 	if is_still :
+		emit_signal( "change_anim", "idle" )
 		return
 	
 	#Flip to the other direction if a drop off 
@@ -100,11 +120,11 @@ func process_wander( delta ):
 		if direction == "Left":
 			direction = "Right"
 			move_direction = 1
-			$Falloff.position.x = -20
+			$Falloff.position.x = -falloff_distance
 		else:
 			direction = "Left"
 			move_direction = -1
-			$Falloff.position.x = 20
+			$Falloff.position.x = falloff_distance
 		
 		#Wait until I get past this falloff
 		#before turning around.
