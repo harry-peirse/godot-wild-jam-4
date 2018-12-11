@@ -8,6 +8,10 @@ export var is_still = false
 #in pursut.
 export var walk_speed = 100
 
+#How fast the enemy runs after sighting the
+#player.
+export var chase_speed = 250
+
 #Determines if I can spot the snowman behind myself.
 export var see_behind = true
 
@@ -16,6 +20,7 @@ var chase_object
 
 var fsm_dict = {
 	"Wander" : "wander",
+	"Chase" : "chase"
 }
 var fsm_state = "Wander"
 
@@ -36,8 +41,21 @@ func _process(delta):
 func chase_snowman( snowman ):
 	if snowman == null :
 		chase_object = null
-		self.queue_free()
+		fsm_state = "Wander"
 		return
+	
+	#Eventually check if player is behind me.
+	#Right now just set chase_object to snowman.
+	chase_object = snowman
+	fsm_state = "Chase"
+
+
+func process_chase( delta ):
+	#Chase after the Snowman.
+	var chase_after = chase_speed
+	chase_after *= clamp( chase_object.global_position.x - self.global_position.x, -1, 1 )
+	velocity.x = chase_after
+	move_body()
 
 
 func process_wander( delta ):

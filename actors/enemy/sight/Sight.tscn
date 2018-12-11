@@ -15,3 +15,5 @@ script = ExtResource( 1 )
 position = Vector2( 0, -12.205 )
 shape = SubResource( 1 )
 
+[node name="CastTo" type="RayCast2D" parent="."]
+
