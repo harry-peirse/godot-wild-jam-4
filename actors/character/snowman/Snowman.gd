@@ -59,6 +59,8 @@ var dash_direction = 1
 onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
+var was_jumping = false #for Sound-implementation
+
 func _process(delta):
 	call( "process_" + FSM[fsm_state], delta )
 	
@@ -96,7 +98,7 @@ func jump_held( delta ):
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
 		current_state = state.JUMP
-		$AudioStreamPlayer2D.play()
+		$SFXLibrary/JumpSFX.play()
 		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
@@ -109,6 +111,7 @@ func jump_held( delta ):
 			if jump_stage > JUMP_STAGE_MAX :
 				jump_held = 0
 				jump_stage = 1
+		
 	
 	else:
 		jump_held = 0
@@ -126,11 +129,15 @@ func on_floor():
 	
 	if $Floor1.is_colliding() || $Floor2.is_colliding():
 		on_floor = true
-		
+		if(was_jumping == true):
+			was_jumping = false
+			$SFXLibrary/GroundImpactSFX.play()
+			
 	if current_state == state.IDLE:
 		$AnimatedSprite.animation = "Idle"
 	if current_state == state.RUN:
 		$AnimatedSprite.animation = "Running"
+	    
 	if current_state == state.RUN and velocity.x == 0:
 		$AnimatedSprite.animation = "Idle"
 		current_state = state.IDLE
@@ -139,7 +146,7 @@ func on_floor():
 		current_state = state.IDLE	
 		
 	return on_floor
-
+	
 
 func process_dash( delta ):
 	#Start a dash.
@@ -175,6 +182,7 @@ func process_default( delta ):
 	# It's no longer necessary to hold down the direction button whilst dashing to prevent the snowman dashing right when facing left.
 	if Input.is_action_pressed("ui_left"):
 		dash_direction = -1
+		
 	elif Input.is_action_pressed("ui_right"):
 		dash_direction = 1
 	
@@ -187,6 +195,7 @@ func process_default( delta ):
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
+		$SFXLibrary/DashSFX.play()
 		#Make the sprite aim in the direction 
 		#we are travelling.
 		if dash_direction == 1:
@@ -220,6 +229,7 @@ func process_default( delta ):
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
+			was_jumping = true
 	
 	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
@@ -228,6 +238,7 @@ func process_default( delta ):
 				current_state = state.JUMP
 				$AnimatedSprite.animation = "Jumping"
 				$DoubleJumpFX.emitting = true
+				$SFXLibrary/DoubleJumpSFX.play()
 				
 	$Ceiling.update()
 	if $Ceiling.is_colliding() && velocity.y <= 0:
