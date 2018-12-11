@@ -46,9 +46,9 @@ enabled = true
 cast_to = Vector2( 0, 10 )
 
 [node name="Falloff" type="RayCast2D" parent="."]
-position = Vector2( -0.144499, 30.4727 )
+position = Vector2( -20, 30.473 )
 enabled = true
-cast_to = Vector2( 0, 60 )
+cast_to = Vector2( 0, 20 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
 push_other = Vector2( 700, 0 )

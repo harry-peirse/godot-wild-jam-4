@@ -15,6 +15,7 @@ var current_state = "Wander"
 
 var direction = "Right"
 var move_direction = 1
+var ignore_falloff = false
 
 
 func _ready():
@@ -30,16 +31,29 @@ func process_wander( delta ):
 	#Flip to the other direction if a drop off 
 	#is imminent.
 	$Falloff.update()
-	if $Falloff.is_colliding() == false :
+	if ignore_falloff :
+		if $Falloff.is_colliding() :
+			ignore_falloff = false
+	
+	elif( $Falloff.is_colliding() == false ):
 		if direction == "Left":
 			direction = "Right"
 			move_direction = 1
+			$Falloff.position.x = -20
 		else:
 			direction = "Left"
 			move_direction = -1
+			$Falloff.position.x = 20
 		
+		#Wait until I get past this falloff
+		#before turning around.
+		ignore_falloff = true
 	
-	velocity.x = walk_speed * move_direction
+	if on_floor == true :
+		velocity.x = walk_speed * move_direction
+		
+	#Don't move if in air.
+	else :
+		velocity.x = 0
 	
-	move_and_slide_with_snap( velocity, Vector2(0,0), FLOOR )
-	
+	move_body()

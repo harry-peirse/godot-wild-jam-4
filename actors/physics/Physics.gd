@@ -14,11 +14,32 @@ var velocity : Vector2 = Vector2( 0,0 )
 #Slope handling.
 var allow_slope = false #Fixes slopes messing with jumps.
 
+var on_floor = false
+
 var run_physics : bool = true
 
 
+func handle_physics( delta ):
+	if run_physics == false :
+		return
+	
+	#Calculate velocity's y value.
+	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
+
+	allow_slope = false
+	if on_floor() && velocity.y >= 0:
+		allow_slope = true
+		velocity.y = 0
+
+				
+	$Ceiling.update()
+	if $Ceiling.is_colliding() && velocity.y <= 0:
+		velocity.y = 0
+
+
+
 func on_floor():
-	var on_floor = false
+	on_floor = false
 	$FloorLeft.update()
 	$FloorRight.update()
 	
@@ -28,43 +49,8 @@ func on_floor():
 	return on_floor
 
 
-func handle_physics( delta ):
-	if run_physics == false :
-		return
-	
-	#Calculate velocity's y value.
-	velocity.y = min( velocity.y + GRAVITY_ADD, GRAVITY_MAX )
-				
-	
-#	if jump_held > 0 :
-#		jump_held( delta )
-
-	allow_slope = false
-	if on_floor() && velocity.y >= 0:
-		allow_slope = true
-#		jump_held = 0
-		velocity.y = 0
-#		if Input.is_action_just_pressed( "jump" ) :
-#			velocity.y = JUMP_STRENGTH
-#			jump_held += delta
-	
-#	elif has_double_jump :
-#			if Input.is_action_just_pressed( "jump" ) :
-#				has_double_jump = false
-#				velocity.y = DOUBLE_JUMP
-#				current_state = state.JUMP
-#				$AnimatedSprite.animation = "Jumping"
-#				$DoubleJumpFX.emitting = true
-				
-	$Ceiling.update()
-	if $Ceiling.is_colliding() && velocity.y <= 0:
-#		jump_held = 0
-		velocity.y = 0
-	
-#	if  velocity.x < 0 :
-#		$AnimatedSprite.flip_h = true
-#	if  velocity.x > 0 :
-#		$AnimatedSprite.flip_h = false	
+func move_body( move_by = velocity.rotated( slope() ) ):
+	move_and_slide_with_snap( move_by , Vector2( 0, -1 ), FLOOR )
 
 
 func run_physics( boolean : bool = true ):
