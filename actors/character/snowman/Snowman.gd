@@ -290,8 +290,7 @@ func pushback( push : Vector2, damaged = false ):
 	velocity += push
 	
 	#If damaged, start hitstun state.
-	if damaged :
-		fsm_state = "Hitstun"
+	fsm_state = "Hitstun"
 
 
 func slope():

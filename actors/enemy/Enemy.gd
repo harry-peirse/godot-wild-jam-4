@@ -76,7 +76,10 @@ func process_pushed( delta ):
 	
 	if pushback_left <= 0 :
 		pushback_left = PUSHBACK_WAIT
-		fsm_state = "Chase"
+		if chase_object != null :
+			fsm_state = "Chase"
+		else:
+			fsm_state = "Wander"
 
 
 func process_wander( delta ):

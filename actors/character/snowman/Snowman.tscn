@@ -112,6 +112,7 @@ shape = SubResource( 2 )
 
 [node name="DashHitbox" parent="." instance=ExtResource( 12 )]
 is_active = false
+push_other = Vector2( 200, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DashHitbox"]
 position = Vector2( 0, 4.97058 )
