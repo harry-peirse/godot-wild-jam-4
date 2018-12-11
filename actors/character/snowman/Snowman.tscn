@@ -140,6 +140,7 @@ position = Vector2( 0.676376, 7.44017 )
 shape = SubResource( 5 )
 
 [node name="SFXLibrary" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="RunningSFX" type="AudioStreamPlayer2D" parent="SFXLibrary"]
 
@@ -158,4 +159,11 @@ volume_db = -23.0
 [node name="DashSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
 stream = ExtResource( 18 )
 volume_db = -12.0
+
+[node name="Sight" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="Col" type="CollisionShape2D" parent="Sight"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
 
