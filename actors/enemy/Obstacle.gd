@@ -8,5 +8,4 @@ func _process(delta):
 	position += OBJECT_SPEED * direction * delta
 	
 	if position.x < 0:
-		print("xD")
 		queue_free()

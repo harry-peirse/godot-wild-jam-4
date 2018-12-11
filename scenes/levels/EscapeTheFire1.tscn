@@ -6,7 +6,7 @@
 [node name="EscapeTheFire1" type="Node"]
 script = ExtResource( 1 )
 ground_obstacle_frequency = 1.5
-sky_obstacle_frequency = 6
+sky_obstacle_frequency = 5
 level_duration = 90
 
 [node name="TileMap" type="TileMap" parent="."]
