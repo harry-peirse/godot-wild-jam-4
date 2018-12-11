@@ -20,13 +20,18 @@ var chase_object
 
 var fsm_dict = {
 	"Wander" : "wander",
-	"Chase" : "chase"
+	"Chase" : "chase",
+	"Pushed" : "pushed"
 }
 var fsm_state = "Wander"
 
 var direction = "Right"
 var move_direction = 1
 var ignore_falloff = false
+
+#Knockback variables.
+const PUSHBACK_WAIT = 0.011167 * 20
+var pushback_left = PUSHBACK_WAIT
 
 
 func _ready():
@@ -36,6 +41,11 @@ func _ready():
 func _process(delta):
 	handle_physics( delta )
 	call( "process_" + fsm_dict[ fsm_state ], delta )
+
+
+func been_hit( push : Vector2, damaged = false):
+	#Eventually play the correct animation.
+	fsm_state = "Pushed"
 
 
 func chase_snowman( snowman ):
@@ -56,6 +66,16 @@ func process_chase( delta ):
 	chase_after *= clamp( chase_object.global_position.x - self.global_position.x, -1, 1 )
 	velocity.x = chase_after
 	move_body()
+
+
+func process_pushed( delta ):
+	pushback_left -= delta
+	
+	move_body()
+	
+	if pushback_left <= 0 :
+		pushback_left = PUSHBACK_WAIT
+		fsm_state = "Chase"
 
 
 func process_wander( delta ):

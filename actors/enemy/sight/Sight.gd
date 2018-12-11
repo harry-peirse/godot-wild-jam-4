@@ -9,6 +9,7 @@ extends Area2D
 #Determine if I am allowed to look behind myself.
 var direction = 1
 
+
 #This tells me to check if the snowman
 #is outside my range of sight after
 #starting a chase.
