@@ -46,6 +46,7 @@ func _process(delta):
 func been_hit( push : Vector2, damaged = false):
 	#Eventually play the correct animation.
 	fsm_state = "Pushed"
+	velocity = push
 
 
 func chase_snowman( snowman ):
@@ -75,7 +76,10 @@ func process_pushed( delta ):
 	
 	if pushback_left <= 0 :
 		pushback_left = PUSHBACK_WAIT
-		fsm_state = "Chase"
+		if chase_object != null :
+			fsm_state = "Chase"
+		else:
+			fsm_state = "Wander"
 
 
 func process_wander( delta ):
@@ -91,7 +95,8 @@ func process_wander( delta ):
 			ignore_falloff = false
 	
 	elif( $Falloff.is_colliding() == false &&
-	on_floor ):
+	on_floor ||
+	is_on_wall() ):
 		if direction == "Left":
 			direction = "Right"
 			move_direction = 1
