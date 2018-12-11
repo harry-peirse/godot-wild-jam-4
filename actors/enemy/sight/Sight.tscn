@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 219.12, 43.8857 )
+extents = Vector2( 180.313, 43.8857 )
 
 [node name="Sight" type="Area2D"]
 collision_layer = 0
