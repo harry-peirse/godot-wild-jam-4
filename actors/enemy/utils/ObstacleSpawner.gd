@@ -2,7 +2,7 @@ extends Node2D
 
 signal new_obstacle
 
-const NUMBER_OF_GROUND_OBSTACLE_TYPES = 4
+const NUMBER_OF_GROUND_OBSTACLE_TYPES = 5
 const GROUND_OBSTACLE_FREQUENCY_MIN_VARIANCE = 0
 const GROUND_OBSTACLE_FREQUENCY_MAX_VARIANCE = 0.75
 const SKY_OBSTACLE_SPAWN_PROBABILITY = 0.60
@@ -14,6 +14,10 @@ export(float) var ground_obstacle_frequency = 1.5 setget _set_ground_obstacle_fr
 export(float) var sky_obstacle_frequency = 5 setget _set_sky_obstacle_frequency
 
 var obstacle_scene = preload("res://actors/enemy/obstacles/Obstacle.tscn")
+var single_small_flame_scene = preload("res://actors/enemy/obstacles/SingleSmallFlame.tscn")
+var double_small_flame_scene = preload("res://actors/enemy/obstacles/DoubleSmallFlame.tscn")
+var single_large_flame_scene = preload("res://actors/enemy/obstacles/SingleLargeFlame.tscn")
+var single_deadly_large_flame_scene = preload("res://actors/enemy/obstacles/SingleDeadlyLargeFlame.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +30,18 @@ func _ready():
 	
 func _emit_ground_obstacle():
 	var obstacle_choice = randi() % NUMBER_OF_GROUND_OBSTACLE_TYPES
-	var obstacle = obstacle_scene.instance()
+	var obstacle;
+	match obstacle_choice:
+		0:
+			obstacle = single_small_flame_scene.instance()
+		1:
+			obstacle = double_small_flame_scene.instance()
+		2:
+			obstacle = single_large_flame_scene.instance()
+		3:
+			obstacle = single_deadly_large_flame_scene.instance()		
+		_:
+			obstacle = single_small_flame_scene.instance()
 	obstacle.position = GROUND_OBSTACLE_SPAWN_COORDINATES
 	emit_signal("new_obstacle", obstacle)
 	$GroundObstacleTimer.set_wait_time(ground_obstacle_frequency + rand_range(GROUND_OBSTACLE_FREQUENCY_MIN_VARIANCE, GROUND_OBSTACLE_FREQUENCY_MAX_VARIANCE))
