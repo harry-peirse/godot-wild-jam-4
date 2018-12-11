@@ -25,7 +25,6 @@ func _ready():
 	$SkyObstacleTimer.start()
 	
 func _emit_ground_obstacle():
-	print("ground")
 	var obstacle_choice = randi() % NUMBER_OF_GROUND_OBSTACLE_TYPES
 	var obstacle = obstacle_scene.instance()
 	obstacle.position = GROUND_OBSTACLE_SPAWN_COORDINATES
