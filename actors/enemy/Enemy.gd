@@ -46,6 +46,7 @@ func _process(delta):
 func been_hit( push : Vector2, damaged = false):
 	#Eventually play the correct animation.
 	fsm_state = "Pushed"
+	velocity = push
 
 
 func chase_snowman( snowman ):

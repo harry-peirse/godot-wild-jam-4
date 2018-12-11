@@ -23,7 +23,7 @@ func _ready():
 	self.connect( "pushback", self, "pushback" )
 
 
-func been_hit():
+func been_hit( push : Vector2, damaged = false ):
 	pass
 
 
@@ -70,8 +70,7 @@ func pushback( push : Vector2, damaged = false ):
 	
 	velocity += push
 	
-	if damaged :
-		been_hit()
+	been_hit( push, damaged )
 
 
 func run_physics( boolean : bool = true ):
