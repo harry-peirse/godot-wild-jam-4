@@ -250,3 +250,7 @@ func slope():
 	
 
 	return slope.rotated( 1.570796 ).angle() * int( allow_slope )
+
+
+func is_snowman():
+	return
