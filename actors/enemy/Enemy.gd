@@ -95,7 +95,8 @@ func process_wander( delta ):
 			ignore_falloff = false
 	
 	elif( $Falloff.is_colliding() == false &&
-	on_floor ):
+	on_floor ||
+	is_on_wall() ):
 		if direction == "Left":
 			direction = "Right"
 			move_direction = 1
