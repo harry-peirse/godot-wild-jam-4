@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/levels/ChimneyDescent1/ExitDoor.gd" type="Script" id=12]
 [ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=13]
 [ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=14]
+[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -157,8 +158,14 @@ texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
+[node name="Timer" type="Timer" parent="ExitDoor"]
+
+[node name="EButtonSFX" type="AudioStreamPlayer" parent="ExitDoor"]
+stream = ExtResource( 15 )
+volume_db = -6.0
+
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]

@@ -14,10 +14,10 @@
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=13]
 [ext_resource path="res://actors/character/snowman/TemperatureCheck.gd" type="Script" id=14]
-[ext_resource path="res://assets/SFX/Walking.wav" type="AudioStream" id=15]
-[ext_resource path="res://assets/SFX/DoubleJumpSFX.wav" type="AudioStream" id=16]
-[ext_resource path="res://assets/SFX/swoosh_metalpipe_06.wav" type="AudioStream" id=17]
-[ext_resource path="res://assets/SFX/GroundImpact.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/SFX/DoubleJumpSFX.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/SFX/swoosh_metalpipe_06.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/SFX/GroundImpact.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/SFX/Dash.wav" type="AudioStream" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -141,20 +141,21 @@ shape = SubResource( 5 )
 
 [node name="SFXLibrary" type="Node2D" parent="."]
 
-[node name="DashSFX" type="AudioStreamPlayer2D" parent="SFXLibrary"]
-stream = ExtResource( 15 )
-
 [node name="RunningSFX" type="AudioStreamPlayer2D" parent="SFXLibrary"]
 
 [node name="DoubleJumpSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
-stream = ExtResource( 16 )
+stream = ExtResource( 15 )
 volume_db = -9.0
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
-stream = ExtResource( 17 )
+stream = ExtResource( 16 )
 volume_db = -10.759
 
 [node name="GroundImpactSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
+stream = ExtResource( 17 )
+volume_db = -23.0
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
 stream = ExtResource( 18 )
-volume_db = -20.731
+volume_db = -12.0
 
