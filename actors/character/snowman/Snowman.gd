@@ -33,6 +33,8 @@ var current_state = state.IDLE
 
 #Determines the velocity
 var velocity : Vector2 = Vector2( 0,0 )
+var on_floor = false
+var was_in_air = true
 
 #Hitstun
 const HITSTUN_WAIT = 0.011167 * 15
@@ -59,7 +61,6 @@ var dash_direction = 1
 onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
-var was_jumping = false #for Sound-implementation
 
 func _process(delta):
 	call( "process_" + FSM[fsm_state], delta )
@@ -123,16 +124,13 @@ func move_body( move_by = velocity.rotated( slope() )  ):
 
 
 func on_floor():
-	var on_floor = false
+	var currently_on_floor = false
 	$Floor1.update()
 	$Floor2.update()
 	
-	if $Floor1.is_colliding() || $Floor2.is_colliding():
-		on_floor = true
-		if(was_jumping == true):
-			was_jumping = false
-			$SFXLibrary/GroundImpactSFX.play()
-			
+	if( $Floor1.is_colliding() || $Floor2.is_colliding() ):
+		currently_on_floor = true
+
 	if current_state == state.IDLE:
 		$AnimatedSprite.animation = "Idle"
 	if current_state == state.RUN:
@@ -141,11 +139,12 @@ func on_floor():
 	if current_state == state.RUN and velocity.x == 0:
 		$AnimatedSprite.animation = "Idle"
 		current_state = state.IDLE
-	if current_state == state.JUMP and on_floor == true:
+	if current_state == state.JUMP and currently_on_floor == true:
 		$AnimatedSprite.animation = "Idle"
 		current_state = state.IDLE	
-		
-	return on_floor
+	
+	on_floor = currently_on_floor
+	return currently_on_floor
 	
 
 func process_dash( delta ):
@@ -220,8 +219,9 @@ func process_default( delta ):
 	if jump_held > 0 :
 		jump_held( delta )
 
+	#Compute floor logic.
 	allow_slope = false
-	if on_floor() && velocity.y >= 0:
+	if on_floor() && velocity.y >= 0 :
 		has_double_jump = true
 		allow_slope = true
 		jump_held = 0
@@ -229,9 +229,9 @@ func process_default( delta ):
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
-			was_jumping = true
 	
 	elif has_double_jump :
+			was_in_air = true
 			if Input.is_action_just_pressed( "jump" ) :
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
@@ -239,7 +239,9 @@ func process_default( delta ):
 				$AnimatedSprite.animation = "Jumping"
 				$DoubleJumpFX.emitting = true
 				$SFXLibrary/DoubleJumpSFX.play()
-				
+	else:
+		was_in_air = true
+	#If I bop my head, stop traveling upwards.
 	$Ceiling.update()
 	if $Ceiling.is_colliding() && velocity.y <= 0:
 		jump_held = 0
@@ -249,6 +251,12 @@ func process_default( delta ):
 		$AnimatedSprite.flip_h = true
 	if  velocity.x > 0 :
 		$AnimatedSprite.flip_h = false	
+	
+	#If I have freshly landed,
+	#play the landed sound affect.
+	if on_floor && was_in_air && velocity.y >= 0 :
+		was_in_air = false
+		$SFXLibrary/GroundImpactSFX.play()
 	
 	move_body()
 
