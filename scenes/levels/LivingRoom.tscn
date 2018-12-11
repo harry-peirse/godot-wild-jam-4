@@ -65,19 +65,14 @@ position = Vector2( 64, 32 )
 scale = Vector2( 20, 10 )
 shape = SubResource( 1 )
 
-[node name="EButtonDialogue" type="Sprite" parent="Dialogue"]
-visible = false
-position = Vector2( 64, 32 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 16, 16, 16 )
-
 [node name="EButtonTree" type="Sprite" parent="Dialogue"]
 visible = false
 position = Vector2( 8, 40 )
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="Timer" type="Timer" parent="Dialogue"]
 
 [connection signal="area_entered" from="Dialogue" to="Dialogue" method="_on_Dialogue_area_entered"]
 [connection signal="area_exited" from="Dialogue" to="Dialogue" method="_on_Dialogue_area_exited"]

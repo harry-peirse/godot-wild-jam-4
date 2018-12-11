@@ -3,22 +3,13 @@
 [ext_resource path="res://scenes/levels/OutsideDungeon1.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=3]
-[ext_resource path="res://Art/Animation/Irongrid/Irongrid1.png" type="Texture" id=4]
-[ext_resource path="res://Art/Animation/Irongrid/Irongrid2.png" type="Texture" id=5]
-[ext_resource path="res://Art/Animation/Irongrid/Irongrid3.png" type="Texture" id=6]
-[ext_resource path="res://Art/Animation/Irongrid/Irongrid4.png" type="Texture" id=7]
-[ext_resource path="res://Art/Animation/Irongrid/Irongrid5.png" type="Texture" id=8]
-[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton.gd" type="Script" id=9]
-[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=10]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "default",
-"speed": 7.0
-} ]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton.gd" type="Script" id=4]
+[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/Irongrid/Irongrid1.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/Irongrid/Irongrid2.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/Irongrid/Irongrid3.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/Irongrid/Irongrid4.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/Irongrid/Irongrid5.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -27,6 +18,15 @@ extents = Vector2( 32, 64 )
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 87, 95 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Open",
+"speed": 7.0
+} ]
 
 [node name="OutsideDungeon1" type="Node"]
 script = ExtResource( 1 )
@@ -62,10 +62,6 @@ tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 393218, 35, 0, 393220, 34, 0, 393224, 34, 0, 393225, 35, 0, 458759, 40, 0, 458763, 40, 0 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1184, 416 )
-frames = SubResource( 1 )
-
 [node name="ChimneyCollider" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 1088, 448 )
@@ -78,17 +74,26 @@ shape = SubResource( 2 )
 [node name="EButton" type="Area2D" parent="."]
 position = Vector2( 1222, 410 )
 collision_mask = 1024
-script = ExtResource( 9 )
+script = ExtResource( 4 )
 
 [node name="Button" type="Sprite" parent="EButton"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EButton"]
-position = Vector2( -30, 6 )
+position = Vector2( -39, 6 )
+scale = Vector2( 0.4, 1 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="EButton"]
+
+[node name="IronGrid" type="AnimatedSprite" parent="EButton"]
+position = Vector2( -38, 6 )
+z_index = 2
+frames = SubResource( 1 )
+animation = "Open"
 
 [connection signal="area_entered" from="EButton" to="EButton" method="_on_EButton_area_entered"]
 [connection signal="area_exited" from="EButton" to="EButton" method="_on_EButton_area_exited"]

@@ -96,6 +96,7 @@ func jump_held( delta ):
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
 		current_state = state.JUMP
+		$AudioStreamPlayer2D.play()
 		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size

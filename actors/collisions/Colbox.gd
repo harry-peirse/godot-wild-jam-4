@@ -17,7 +17,7 @@ export var push_other = Vector2( 0,0 )
 func _ready():
 	self.connect( "area_entered", self, "collided" )
 	
-	is_activated( is_active )
+	is_activated(is_active)
 	
 	#Queue_free myself after a select amount of time passes.
 	if permanent != true :

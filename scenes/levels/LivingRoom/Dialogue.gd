@@ -2,6 +2,7 @@ extends Area2D
 
 var in_area
 var tree = false
+onready var t = get_node("Timer")
 
 func _on_Dialogue_area_entered(area):
 	in_area = true
@@ -14,12 +15,13 @@ func _on_Dialogue_area_exited(area):
 		$EButtonTree.visible = true
 	
 func _process(delta):
-	if(tree)&&(Input.is_key_pressed(KEY_E))&&(in_area):
-		get_node("/root/SceneBrowser").load_scene("Start")
-		
+
 	if(!tree)&&(Input.is_key_pressed(KEY_E))&&(in_area):
+		tree =true
 		$EButtonTree.visible = false
 		$Success.visible = true
-		$EButtonDialogue.visible = true
-		tree = true
+		t.set_wait_time(1)
+		t.start()
+		yield(t, "timeout")
+		get_node("/root/SceneBrowser").load_scene("Start")
 	

@@ -128,13 +128,12 @@ texture = ExtResource( 7 )
 [node name="Torch1" type="AnimatedSprite" parent="."]
 position = Vector2( 384, 95.425 )
 frames = SubResource( 3 )
-frame = 3
 playing = true
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 1280, 95.425 )
 frames = SubResource( 3 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="ExitDoor" type="Area2D" parent="."]
@@ -158,8 +157,8 @@ texture = ExtResource( 14 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
