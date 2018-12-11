@@ -19,6 +19,14 @@ var on_floor = false
 var run_physics : bool = true
 
 
+func _ready():
+	self.connect( "pushback", self, "pushback" )
+
+
+func been_hit():
+	pass
+
+
 func handle_physics( delta ):
 	if run_physics == false :
 		return
@@ -51,6 +59,19 @@ func on_floor():
 
 func move_body( move_by = velocity.rotated( slope() ) ):
 	move_and_slide_with_snap( move_by , Vector2( 0, -1 ), FLOOR )
+
+
+func pushback( push : Vector2, damaged = false ):
+	#Stop all movement so that pushback
+	#can have an affect.
+	velocity.x = 0
+	if push.y != 0 :
+		velocity.y = 0
+	
+	velocity += push
+	
+	if damaged :
+		been_hit()
 
 
 func run_physics( boolean : bool = true ):

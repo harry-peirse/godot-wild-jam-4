@@ -9,7 +9,7 @@ export var damage = 20
 
 
 func collided( area ):
-	pushback( area )
+	pushback( area, true )
 
 	#Let the area know I have collided with it.
 	area.hurt( damage, self )

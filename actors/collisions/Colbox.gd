@@ -46,20 +46,21 @@ func make_layer_active( set_active ):
 	pass
 
 
-func pushback( object ):
+func pushback( object, is_damaged = false ):
 	#Calculate which side the object is on in the x asis.
-	var signed = sign( self.global_position.x - object.global_position.x )
+	var signed = sign(  object.global_position.x - self.global_position.x )
 	if signed == 0 :
 		signed = 1
 	
 	#Y axis
-	var y_signed = sign( self.global_position.y - object.global_position.y )
+	var y_signed = sign( object.global_position.y - self.global_position.y )
 	if y_signed == 0 :
 		y_signed = 1
 	
-	get_parent().emit_signal( "pushback", Vector2( push_self.x * signed, push_self.y * y_signed ) )
 	var other = object.get_parent()
-	other.emit_signal( "pushback", Vector2( push_other.x * -signed, push_other.y * - y_signed ) )
+	var push = (push_other + object.push_self) * Vector2( signed, y_signed )
+	other.emit_signal( "pushback", push, is_damaged )
+	
 
 
 func set_duration( new_time ):

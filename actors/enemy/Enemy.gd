@@ -8,10 +8,10 @@ export var is_still = false
 #in pursut.
 export var walk_speed = 100
 
-var fsm_state = {
+var fsm_dict = {
 	"Wander" : "wander",
 }
-var current_state = "Wander"
+var fsm_state = "Wander"
 
 var direction = "Right"
 var move_direction = 1
@@ -24,10 +24,14 @@ func _ready():
 
 func _process(delta):
 	handle_physics( delta )
-	call( "process_" + fsm_state[ current_state ], delta )
+	call( "process_" + fsm_dict[ fsm_state ], delta )
 
 
 func process_wander( delta ):
+	#Don't wander if set to still.
+	if is_still :
+		return
+	
 	#Flip to the other direction if a drop off 
 	#is imminent.
 	$Falloff.update()
@@ -35,7 +39,8 @@ func process_wander( delta ):
 		if $Falloff.is_colliding() :
 			ignore_falloff = false
 	
-	elif( $Falloff.is_colliding() == false ):
+	elif( $Falloff.is_colliding() == false &&
+	on_floor ):
 		if direction == "Left":
 			direction = "Right"
 			move_direction = 1

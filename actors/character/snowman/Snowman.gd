@@ -23,7 +23,8 @@ signal pushback
 #State Machine
 var FSM = {
 	"Default" : "default",
-	"Dash" : "dash"
+	"Dash" : "dash",
+	"Hitstun" : "hitstun"
 	}
 var fsm_state = "Default" 
 
@@ -32,6 +33,10 @@ var current_state = state.IDLE
 
 #Determines the velocity
 var velocity : Vector2 = Vector2( 0,0 )
+
+#Hitstun
+const HITSTUN_WAIT = 0.011167 * 15
+var hitstun_left = HITSTUN_WAIT
 
 #Use this to determine jump height.
 var jump_held : float = 0
@@ -55,19 +60,6 @@ onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
 func _process(delta):
-	#Quick left right handling.
-	#I will eventually replace this with
-	#a controller input handling class.
-	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
-	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
-	
-	# Controlling the direction that the dash will be performed based on the direction of the snowman
-	# It's no longer necessary to hold down the direction button whilst dashing to prevent the snowman dashing right when facing left.
-	if Input.is_action_pressed("ui_left"):
-		dash_direction = -1
-	elif Input.is_action_pressed("ui_right"):
-		dash_direction = 1
-	
 	call( "process_" + FSM[fsm_state], delta )
 	
 	if current_state != state.DASH:
@@ -122,6 +114,10 @@ func jump_held( delta ):
 		jump_stage = 1
 
 
+func move_body( move_by = velocity.rotated( slope() )  ):
+	move_and_slide_with_snap( velocity.rotated( slope() ) , Vector2( 0, -1 ), FLOOR )
+
+
 func on_floor():
 	var on_floor = false
 	$Floor1.update()
@@ -168,6 +164,19 @@ func process_dash( delta ):
 
 
 func process_default( delta ):
+	#Quick left right handling.
+	#I will eventually replace this with
+	#a controller input handling class.
+	velocity.x = (int( Input.is_action_pressed("ui_right") ) - 
+	int( Input.is_action_pressed( "ui_left" ) ) ) * 200
+	
+	# Controlling the direction that the dash will be performed based on the direction of the snowman
+	# It's no longer necessary to hold down the direction button whilst dashing to prevent the snowman dashing right when facing left.
+	if Input.is_action_pressed("ui_left"):
+		dash_direction = -1
+	elif Input.is_action_pressed("ui_right"):
+		dash_direction = 1
+	
 	#Start a dash if player inputs it.
 	if( Input.is_action_just_pressed("dash") &&
 	dash_cooldown <= 0 ):
@@ -229,14 +238,40 @@ func process_default( delta ):
 	if  velocity.x > 0 :
 		$AnimatedSprite.flip_h = false	
 	
-	move_and_slide_with_snap( velocity.rotated( slope() ) , Vector2( 0, -1 ), FLOOR )
+	move_body()
 
 
-func pushback( push : Vector2 ):
+func process_hitstun( delta ):
+	#Move myself.
+	move_body()
+	
+	#I am invincible until the hitstun
+	#wears off.
+	$Hurtbox.is_activated( false )
+	$DashHitbox.is_activated( false )
+	
+	hitstun_left -= delta
+	if hitstun_left <= 0 :
+		hitstun_left = HITSTUN_WAIT
+		fsm_state = "Default"
+		if dash_lasted > 0 :
+			self.position.x += DASH_PUSHBACK * sign(-dash_direction)
+			dash_lasted = 0
+		$Hurtbox.is_activated( true )
+
+
+func pushback( push : Vector2, damaged = false ):
+	#Stop all movement so that pushback
+	#can have an affect.
+	velocity.x = 0
 	if push.y != 0 :
 		velocity.y = 0
 	
 	velocity += push
+	
+	#If damaged, start hitstun state.
+	if damaged :
+		fsm_state = "Hitstun"
 
 
 func slope():

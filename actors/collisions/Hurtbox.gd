@@ -7,7 +7,7 @@ extends "res://actors/collisions/Colbox.gd"
 
 
 func collided( area ):
-	pushback( area )
+	pushback( area, false )
 	
 	area.hit( self )
 
