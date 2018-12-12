@@ -27,6 +27,7 @@ func change_anim( new_anim ):
 func dash( is_dashing : bool ):
 	if is_dashing :
 		$DashFX.emitting = true
+		$SFXLibrary/DashSFX.play()
 	else:
 		$DashFX.emitting = false
 

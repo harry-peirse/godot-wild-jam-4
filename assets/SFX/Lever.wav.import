@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lever.wav-39b31bf26eb451fa4ecddd8486d11cab.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Lever.wav"
+dest_files=[ "res://.import/Lever.wav-39b31bf26eb451fa4ecddd8486d11cab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
