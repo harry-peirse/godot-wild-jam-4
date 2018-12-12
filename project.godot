@@ -21,8 +21,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SceneBrowser="*res://globals/SceneBrowser.tscn"
 Music="*res://globals/Music.tscn"
+Transition="*res://globals/Transition.tscn"
+SceneBrowser="*res://globals/SceneBrowser.tscn"
 
 [display]
 
