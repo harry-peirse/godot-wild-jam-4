@@ -75,7 +75,6 @@ func _physics_process(delta):
 
 func _ready():
 	self.connect( "pushback", self, "pushback" )
-	self.connect( "foot_stomped", self, "foot_stomped" )
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
@@ -91,11 +90,6 @@ func been_hit( push : Vector2, damaged = false ):
 #		emit_signal( "change_anim", "Hit" )
 
 
-func foot_stomped( push : Vector2 ):
-	self.velocity.y = 0
-	velocity += push
-
-	
 func handle_input( delta ):
 	#Quick left right handling.
 	#I will eventually replace this with
