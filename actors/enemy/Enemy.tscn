@@ -35,7 +35,6 @@ cast_to = Vector2( 0, 20 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
 push_self = Vector2( 300, 0 )
-push_other = Vector2( 900, 0 )
 
 [node name="Ceiling" type="RayCast2D" parent="."]
 position = Vector2( 0, -34.4413 )
