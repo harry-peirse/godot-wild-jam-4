@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actors/enemy/Bat.gd" type="Script" id=1]
-[ext_resource path="res://assets/enemies/bat/fly0.png" type="Texture" id=2]
-[ext_resource path="res://assets/enemies/bat/fly1.png" type="Texture" id=3]
-[ext_resource path="res://assets/enemies/bat/fly2.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/bat/sleep_bat.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/bat/fly0.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/bat/fly1.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/bat/fly2.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,12 +14,12 @@ radius = 6.55615
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "sleep",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "fly",
 "speed": 7.0
