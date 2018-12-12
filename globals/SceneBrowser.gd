@@ -17,6 +17,4 @@ var scene_list = {
 
 
 func load_scene( scene_name ):
-	var scene =load( scene_list[ scene_name ] )
-	scene = scene
-	get_tree().change_scene_to( scene )
+	Transition.fade_out(scene_list[ scene_name ])

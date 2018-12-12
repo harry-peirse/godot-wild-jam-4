@@ -32,6 +32,7 @@ var run_physics : bool = true
 
 func _ready():
 	self.connect( "pushback", self, "pushback" )
+	self.connect( "foot_stomped", self, "foot_stomped" )
 
 
 func been_hit( push : Vector2, damaged = false ):
@@ -46,6 +47,11 @@ func flip_h():
 			emit_signal( "flip_h", true )
 		else:
 			emit_signal( "flip_h", false )
+
+
+func foot_stomped( push : Vector2 ):
+	self.velocity.y = 0
+	velocity += push
 
 
 func handle_physics( delta ):

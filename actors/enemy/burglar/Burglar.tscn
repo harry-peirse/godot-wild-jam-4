@@ -6,18 +6,18 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 10, 15.2375 )
+extents = Vector2( 10, 14.8982 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 10.562, 4.60313 )
+extents = Vector2( 10.562, 8.22085 )
 
-[node name="Burglar" index="0" instance=ExtResource( 1 )]
+[node name="Burglar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 falloff_distance = 3
 
 [node name="Hitbox" parent="." index="1"]
-editor/display_folded = true
+position = Vector2( 0, 5.48776 )
 push_self = Vector2( -100, 0 )
 push_other = Vector2( 400, 0 )
 
@@ -25,7 +25,7 @@ push_other = Vector2( 400, 0 )
 shape = SubResource( 1 )
 
 [node name="Footstool" parent="." index="2"]
-position = Vector2( 0, -16.33 )
+position = Vector2( 0, -19.7143 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Footstool" index="0"]
 position = Vector2( 0, 1.03915 )

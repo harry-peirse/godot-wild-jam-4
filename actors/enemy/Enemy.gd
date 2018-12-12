@@ -85,7 +85,8 @@ func process_chase( delta ):
 	
 	if( on_floor ):
 		if( $FloorLeft.is_colliding() == false ||
-				$FloorRight.is_colliding() == false ):
+				$FloorRight.is_colliding() == false ||
+				is_on_wall() ):
 			jump()
 
 	move_body()
