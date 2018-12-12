@@ -17,6 +17,7 @@ const JUMP_STAGE_MAX = 3
 #This prevents the Snowman from walking or
 #dashing.
 export var can_navigate = true
+export var has_camera = true
 var can_jump = false
 
 
@@ -79,6 +80,7 @@ func _ready():
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
+	$Camera2D.current = has_camera
 
 
 func been_hit( push : Vector2, damaged = false ):
