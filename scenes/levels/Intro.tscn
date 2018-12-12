@@ -168,6 +168,7 @@ visible = false
 position = Vector2( 701.509, 209.471 )
 frames = SubResource( 3 )
 animation = "Hovering"
+frame = 5
 playing = true
 
 [node name="Dialogue1" type="AnimatedSprite" parent="Area2D"]
@@ -335,7 +336,7 @@ visible = false
 position = Vector2( 72.4132, 37.0826 )
 frames = SubResource( 7 )
 animation = "Hovering"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Camera Shade" type="Sprite" parent="."]

@@ -1,46 +1,30 @@
+[gd_scene load_steps=32 format=2]
 
-[gd_scene load_steps=50 format=2]
-
-[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
-[ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/enemy/Bat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=6]
-[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=7]
-[ext_resource path="res://Art/Animation/Torch/TorchAnimation1.png" type="Texture" id=8]
-[ext_resource path="res://Art/Animation/Torch/TorchAnimation2.png" type="Texture" id=9]
-[ext_resource path="res://Art/Animation/Torch/TorchAnimation3.png" type="Texture" id=10]
-[ext_resource path="res://Art/Animation/Torch/TorchAnimation4.png" type="Texture" id=11]
-[ext_resource path="res://scenes/levels/ChimneyDescent1/ExitDoor.gd" type="Script" id=12]
-[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=13]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=14]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=15]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=16]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=17]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=18]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=19]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=20]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=21]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=22]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=23]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=24]
-[ext_resource path="res://scenes/levels/Gate+Lever.gd" type="Script" id=25]
-[ext_resource path="res://Art/Animation/Lever/LeverAnim1.png" type="Texture" id=26]
-[ext_resource path="res://Art/Animation/Lever/LeverAnim2.png" type="Texture" id=27]
-[ext_resource path="res://Art/Animation/Lever/LeverAnim3.png" type="Texture" id=28]
-[ext_resource path="res://assets/SFX/Lever.wav" type="AudioStream" id=29]
-[ext_resource path="res://Art/Animation/Gate/GateAnim1.png" type="Texture" id=30]
-[ext_resource path="res://Art/Animation/Gate/GateAnim2.png" type="Texture" id=31]
-[ext_resource path="res://Art/Animation/Gate/GateAnim3.png" type="Texture" id=32]
-[ext_resource path="res://Art/Animation/Gate/GateAnim4.png" type="Texture" id=33]
-[ext_resource path="res://Art/Animation/Gate/GateAnim5.png" type="Texture" id=34]
-[ext_resource path="res://Art/Animation/Gate/GateAnim6.png" type="Texture" id=35]
-[ext_resource path="res://Art/Animation/Gate/GateAnim7.png" type="Texture" id=36]
-[ext_resource path="res://Art/Animation/Gate/GateAnim8.png" type="Texture" id=37]
-[ext_resource path="res://Art/Animation/Gate/GateAnim9.png" type="Texture" id=38]
-[ext_resource path="res://assets/SFX/Gate.wav" type="AudioStream" id=39]
-
+[ext_resource path="res://scenes/levels/ChimneyDescent1.gd" type="Script" id=1]
+[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=4]
+[ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/enemy/Bat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=7]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation1.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation2.png" type="Texture" id=10]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation3.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation4.png" type="Texture" id=12]
+[ext_resource path="res://scenes/levels/ChimneyDescent1/ExitDoor.gd" type="Script" id=13]
+[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=14]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=19]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=20]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=21]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=22]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=23]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=24]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,7 +45,7 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=4]
 
-extents = Vector2( 36.62, 64 )
+extents = Vector2( 49.3599, 64 )
 
 [sub_resource type="SpriteFrames" id=5]
 
@@ -81,39 +65,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
-
-animations = [ {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "Switch",
-"speed": 6.0
-} ]
-
-[sub_resource type="SpriteFrames" id=8]
-
-animations = [ {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": false,
-"name": "Open",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=9]
-
-extents = Vector2( 5.974, 65.0182 )
-
-[sub_resource type="RectangleShape2D" id=10]
-
-extents = Vector2( 155.453, 90.9863 )
-
 [node name="ChimneyDescent1" type="Node"]
 script = ExtResource( 1 )
 
 [node name="TileMap(structure)(0)" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 30, 1, 0, 31, 2, 0, 32, 0, 0, 65568, 0, 0, 131097, 9, 0, 131098, 9, 0, 131099, 10, 0, 131104, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 24, 0, 196620, 0, 0, 196621, 2, 0, 196624, 29, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 1, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 1, 0, 196638, 7, 0, 196639, 7, 0, 196640, 0, 0, 262144, 3, 0, 262145, 6, 0, 262146, 6, 0, 262147, 6, 0, 262148, 6, 0, 262149, 6, 0, 262150, 6, 0, 262151, 0, 0, 262152, 6, 0, 262153, 6, 0, 262156, 3, 0, 262157, 6, 0, 262160, 3, 0, 262161, 6, 0, 262162, 6, 0, 262163, 6, 0, 262164, 6, 0, 262165, 6, 0, 262166, 6, 0, 262167, 6, 0, 262168, 6, 0, 262169, 6, 0, 262170, 6, 0, 262171, 6, 0, 262172, 6, 0, 262173, 6, 0, 262174, 6, 0, 262175, 6, 0, 262176, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 917504, 21, 0, 917505, 21, 0, 917506, 21, 0, 917507, 21, 0, 917508, 21, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 20, 0, 917513, 21, 0, 917514, 21, 0, 917515, 20, 0, 917516, 21, 0, 917517, 20, 0, 917518, 21, 0, 917519, 20, 0, 917520, 21, 0, 917521, 21, 0, 917522, 21, 0, 917523, 21, 0, 917524, 20, 0, 917525, 21, 0, 917526, 21, 0, 917527, 20, 0, 917528, 21, 0, 917529, 21, 0, 917530, 21, 0, 917531, 21, 0, 917532, 21, 0, 917533, 20, 0, 917534, 20, 0, 917535, 20, 0, 983040, 8, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 8, 0, 983046, 8, 0, 983047, 8, 0, 983048, 8, 0, 983049, 8, 0, 983050, 8, 0, 983051, 8, 0, 983052, 8, 0, 983053, 8, 0, 983054, 8, 0, 983055, 8, 0, 983056, 8, 0, 983057, 8, 0, 983058, 8, 0, 983059, 8, 0, 983060, 8, 0, 983061, 8, 0, 983062, 8, 0, 983063, 8, 0, 983064, 8, 0, 983065, 8, 0, 983066, 8, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 8, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 11, 0, 1048607, 11, 0, 1114112, 11, 0, 1114113, 11, 0, 1114114, 11, 0, 1114115, 11, 0, 1114116, 11, 0, 1114117, 11, 0, 1114118, 11, 0, 1114119, 11, 0, 1114120, 11, 0, 1114121, 11, 0, 1114122, 11, 0, 1114123, 11, 0, 1114124, 11, 0, 1114125, 11, 0, 1114126, 11, 0, 1114127, 11, 0, 1114128, 11, 0, 1114129, 11, 0, 1114130, 11, 0, 1114131, 11, 0, 1114132, 11, 0, 1114133, 11, 0, 1114134, 11, 0, 1114135, 11, 0, 1114136, 11, 0, 1114137, 11, 0, 1114138, 11, 0, 1114139, 11, 0, 1114140, 11, 0, 1114141, 11, 0, 1114142, 11, 0, 1114143, 11, 0 )
+tile_data = PoolIntArray( 32, 0, 0, 65568, 0, 0, 131097, 9, 0, 131098, 9, 0, 131099, 10, 0, 131101, 22, 0, 131104, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 24, 0, 196620, 0, 0, 196621, 2, 0, 196624, 29, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 1, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 1, 0, 196638, 7, 0, 196639, 7, 0, 196640, 0, 0, 262144, 3, 0, 262145, 6, 0, 262146, 6, 0, 262147, 6, 0, 262148, 6, 0, 262149, 6, 0, 262150, 6, 0, 262151, 0, 0, 262152, 6, 0, 262153, 6, 0, 262156, 3, 0, 262157, 6, 0, 262160, 3, 0, 262161, 6, 0, 262162, 6, 0, 262163, 6, 0, 262164, 6, 0, 262165, 6, 0, 262166, 6, 0, 262167, 6, 0, 262168, 6, 0, 262169, 6, 0, 262170, 6, 0, 262171, 6, 0, 262172, 6, 0, 262173, 6, 0, 262174, 6, 0, 262175, 6, 0, 262176, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 917504, 21, 0, 917505, 21, 0, 917506, 21, 0, 917507, 21, 0, 917508, 21, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 20, 0, 917513, 21, 0, 917514, 21, 0, 917515, 20, 0, 917516, 21, 0, 917517, 20, 0, 917518, 21, 0, 917519, 20, 0, 917520, 21, 0, 917521, 21, 0, 917522, 21, 0, 917523, 21, 0, 917524, 20, 0, 917525, 21, 0, 917526, 21, 0, 917527, 20, 0, 917528, 21, 0, 917529, 21, 0, 917530, 21, 0, 917531, 21, 0, 917532, 21, 0, 917533, 20, 0, 917534, 20, 0, 917535, 20, 0, 983040, 8, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 8, 0, 983045, 8, 0, 983046, 8, 0, 983047, 8, 0, 983048, 8, 0, 983049, 8, 0, 983050, 8, 0, 983051, 8, 0, 983052, 8, 0, 983053, 8, 0, 983054, 8, 0, 983055, 8, 0, 983056, 8, 0, 983057, 8, 0, 983058, 8, 0, 983059, 8, 0, 983060, 8, 0, 983061, 8, 0, 983062, 8, 0, 983063, 8, 0, 983064, 8, 0, 983065, 8, 0, 983066, 8, 0, 983067, 8, 0, 983068, 8, 0, 983069, 8, 0, 983070, 8, 0, 983071, 8, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 11, 0, 1048607, 11, 0, 1114112, 11, 0, 1114113, 11, 0, 1114114, 11, 0, 1114115, 11, 0, 1114116, 11, 0, 1114117, 11, 0, 1114118, 11, 0, 1114119, 11, 0, 1114120, 11, 0, 1114121, 11, 0, 1114122, 11, 0, 1114123, 11, 0, 1114124, 11, 0, 1114125, 11, 0, 1114126, 11, 0, 1114127, 11, 0, 1114128, 11, 0, 1114129, 11, 0, 1114130, 11, 0, 1114131, 11, 0, 1114132, 11, 0, 1114133, 11, 0, 1114134, 11, 0, 1114135, 11, 0, 1114136, 11, 0, 1114137, 11, 0, 1114138, 11, 0, 1114139, 11, 0, 1114140, 11, 0, 1114141, 11, 0, 1114142, 11, 0, 1114143, 11, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -198,59 +156,23 @@ z_index = 5
 texture = ExtResource( 8 )
 
 [node name="Torch1" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 position = Vector2( 384, 95.425 )
 frames = SubResource( 3 )
-
-frame = 1
-
+frame = 2
 playing = true
-
-[node name="LightningTorch1" type="Light2D" parent="Torch1"]
-scale = Vector2( 3, 1 )
-z_as_relative = false
-texture = ExtResource( 6 )
-color = Color( 0.843137, 0.847059, 0.470588, 1 )
-energy = 2.69
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 position = Vector2( 1280, 95.425 )
 frames = SubResource( 3 )
-
+frame = 1
 playing = true
-
-[node name="LightningTorch2" type="Light2D" parent="Torch2"]
-position = Vector2( -64, 0 )
-scale = Vector2( 5.57, 1 )
-z_as_relative = false
-texture = ExtResource( 6 )
-color = Color( 0.843137, 0.847059, 0.470588, 1 )
-energy = 2.69
-
-[node name="Torch3" type="AnimatedSprite" parent="."]
-editor/display_folded = true
-position = Vector2( 2080, 28.5653 )
-frames = SubResource( 3 )
-frame = 3
-
-playing = true
-
-[node name="LightningTorch3" type="Light2D" parent="Torch3"]
-position = Vector2( -41.3601, 0 )
-scale = Vector2( 1.92, 2.07 )
-z_as_relative = false
-texture = ExtResource( 6 )
-color = Color( 0.913725, 0.917647, 0.631373, 0.545098 )
-energy = 2.69
 
 [node name="ExitDoor" type="Area2D" parent="."]
-editor/display_folded = true
 collision_mask = 1024
 script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
-position = Vector2( 2048, 128 )
+position = Vector2( 2011.38, 128 )
 shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="ExitDoor"]
@@ -270,58 +192,11 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 6 )
-frame = 3
-playing = true
-
-[node name="Gate+Lever" type="Area2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 25 )
-
-[node name="Lever" type="AnimatedSprite" parent="Gate+Lever"]
-position = Vector2( 1696.25, 95.9129 )
-frames = SubResource( 7 )
-animation = "Switch"
-
-[node name="LeverSFX" type="AudioStreamPlayer2D" parent="Gate+Lever/Lever"]
-stream = ExtResource( 29 )
-max_distance = 3000.0
-attenuation = 0.707107
-
-[node name="ButtonLever" type="AnimatedSprite" parent="Gate+Lever"]
-visible = false
-position = Vector2( 1656.33, 57.4868 )
-z_index = 2
-frames = SubResource( 6 )
 frame = 2
 playing = true
 
-[node name="Gate" type="AnimatedSprite" parent="Gate+Lever"]
-editor/display_folded = true
-position = Vector2( 1963.39, 128.185 )
-frames = SubResource( 8 )
-animation = "Open"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Gate+Lever/Gate"]
-editor/display_folded = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate+Lever/Gate/StaticBody2D"]
-position = Vector2( -31.0167, 0.953781 )
-shape = SubResource( 9 )
-
-[node name="GateSFX" type="AudioStreamPlayer2D" parent="Gate+Lever/Gate"]
-stream = ExtResource( 39 )
-attenuation = 0.378929
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate+Lever"]
-position = Vector2( 1635.99, 62.5518 )
-shape = SubResource( 10 )
-
-[node name="Timer" type="Timer" parent="Gate+Lever"]
-
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
-[connection signal="area_entered" from="Gate+Lever" to="Gate+Lever" method="_on_GateLever_area_entered"]
-[connection signal="area_exited" from="Gate+Lever" to="Gate+Lever" method="_on_GateLever_area_exited"]

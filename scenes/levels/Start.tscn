@@ -153,6 +153,7 @@ format = 1
 tile_data = PoolIntArray( 327686, 34, 0, 327688, 34, 0, 327703, 34, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource( 5 )
@@ -166,7 +167,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 763, 339 )
 frames = SubResource( 2 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Area2D/Dialogue1"]
@@ -208,7 +209,7 @@ shape = SubResource( 3 )
 visible = false
 position = Vector2( 748, 412 )
 frames = SubResource( 4 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="BurningSledge" type="AnimatedSprite" parent="."]
@@ -247,7 +248,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 64, 352 )
 frames = SubResource( 7 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label4" type="Label" parent="Tutorial/Running"]
@@ -263,6 +264,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 128, 352 )
 frames = SubResource( 8 )
+frame = 5
 playing = true
 
 [node name="Label1" type="Label" parent="Tutorial/Jump"]
@@ -278,7 +280,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 192, 352 )
 frames = SubResource( 9 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label2" type="Label" parent="Tutorial/DoubleJump"]
@@ -294,6 +296,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 256, 352 )
 frames = SubResource( 10 )
+frame = 5
 playing = true
 
 [node name="Label3" type="Label" parent="Tutorial/Dash"]
