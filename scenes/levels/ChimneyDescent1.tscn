@@ -71,7 +71,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 188.924, 10 )
+extents = Vector2( 579.992, 10 )
 
 [node name="ChimneyDescent1" type="Node"]
 script = ExtResource( 1 )
@@ -263,14 +263,14 @@ texture = ExtResource( 8 )
 position = Vector2( 384, 95.425 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 1280, 95.425 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="ExitDoor" type="Area2D" parent="."]
@@ -315,7 +315,7 @@ position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
+frame = 4
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -326,7 +326,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -9.6696, 3.4128 )
+position = Vector2( -11.828, 448.058 )
 rotation = 1.5708
 shape = SubResource( 7 )
 
