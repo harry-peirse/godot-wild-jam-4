@@ -3,7 +3,6 @@
 [ext_resource path="res://actors/collisions/FootStomp.gd" type="Script" id=1]
 
 [node name="FootStomp" type="Area2D"]
-collision_layer = 0
 collision_mask = 4
 script = ExtResource( 1 )
 

@@ -6,13 +6,13 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 17.2119, 9.45562 )
+extents = Vector2( 17.2119, 8.6292 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-extents = Vector2( 16.5033, 3.40963 )
+extents = Vector2( 16.5033, 4.48014 )
 
-[node name="Dog" index="0" instance=ExtResource( 1 )]
+[node name="Dog" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 falloff_distance = 12
 
@@ -26,7 +26,7 @@ position = Vector2( 0, -4.76837e-07 )
 shape = SubResource( 1 )
 
 [node name="Footstool" parent="." index="2"]
-position = Vector2( 0, 5.51668 )
+position = Vector2( 0, 4.43945 )
 
 [node name="Col" type="CollisionShape2D" parent="Footstool" index="0"]
 position = Vector2( 0, -18.1095 )
