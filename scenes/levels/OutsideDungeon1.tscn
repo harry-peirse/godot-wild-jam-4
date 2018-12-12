@@ -53,6 +53,9 @@ __meta__ = {
 position = Vector2( -2, 483 )
 z_index = 1
 collision_layer = 1
+camera_limit_left = -10
+camera_limit_bottom = 700
+camera_limit_right = 1350
 
 [node name="TileMap(Structure)(1)" type="TileMap" parent="."]
 z_index = 1
@@ -113,7 +116,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 
 [connection signal="area_entered" from="EButton" to="EButton" method="_on_EButton_area_entered"]
