@@ -119,7 +119,6 @@ func handle_input( delta ):
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
-		$SFXLibrary/DashSFX.play()
 	
 	dash_cooldown = max( dash_cooldown - delta, 0 )
 
