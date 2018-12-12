@@ -43,15 +43,8 @@ sky_obstacle_frequency = 1.5
 
 [node name="Snowman" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138.259, 506.795 )
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
 can_navigate = false
 has_camera = false
-camera_limit_top = null
-camera_limit_left = null
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1

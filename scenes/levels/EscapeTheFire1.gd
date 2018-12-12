@@ -22,6 +22,7 @@ func _start_level():
 	
 func _on_LevelDurationTimer_timeout():
 	_clean_up()
+	get_node("/root/SceneBrowser").load_scene("EscapeTheFireExit")
 	
 func _clean_up():
 	$LevelDurationTimer.queue_free()

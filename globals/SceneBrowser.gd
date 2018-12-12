@@ -12,9 +12,11 @@ var scene_list = {
 	"ChimneyDescent2" : "res://scenes/levels/ChimneyDescent2.tscn",
 	"ChimneyDescent3" : "res://scenes/levels/ChimneyDescent3.tscn",
 	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn",
-	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn"
+	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn",
+	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire1.tscn",
+	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFireExit.tscn",
 }
 
 
 func load_scene( scene_name ):
-	Transition.fade_out(scene_list[ scene_name ])
+ 	Transition.fade_out(scene_list[ scene_name ])
