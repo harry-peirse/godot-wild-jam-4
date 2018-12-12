@@ -50,7 +50,7 @@ animations = [ {
 
 extents = Vector2( 64, 64 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
@@ -59,7 +59,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -68,11 +68,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 extents = Vector2( 64.9428, 40.417 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
@@ -90,7 +90,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
 "frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
@@ -121,11 +121,11 @@ format = 1
 tile_data = PoolIntArray( 12, 26, 0, 13, 28, 0, 14, 27, 0, 15, 26, 0, 16, 26, 0, 65548, 28, 0, 65549, 27, 0, 65550, 26, 0, 65551, 25, 0, 65552, 27, 0, 131073, 36, 0, 131079, 36, 0, 131084, 26, 0, 131085, 28, 0, 131086, 27, 0, 131087, 26, 0, 131088, 28, 0, 196620, 27, 0, 196621, 26, 0, 196622, 28, 0, 196623, 27, 0, 196624, 26, 0, 262156, 28, 0, 262157, 27, 0, 262158, 26, 0, 262159, 28, 0, 262160, 27, 0, 327692, 28, 0, 327693, 28, 0, 327694, 26, 0, 327695, 26, 0 )
 
 [node name="Chimney" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 position = Vector2( 317.846, 189.89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Fire"
+frame = 4
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
@@ -168,17 +168,18 @@ shape = SubResource( 2 )
 [node name="EButton" type="AnimatedSprite" parent="Area2D/PressE"]
 visible = false
 position = Vector2( 701.509, 209.471 )
-frames = SubResource( 6 )
+frames = SubResource( 3 )
 animation = "Hovering"
-frame = 5
+frame = 1
 playing = true
 
 [node name="Dialogue1" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
+frame = 4
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue1"]
@@ -195,8 +196,9 @@ are here!"
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
+frame = 4
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue2"]
@@ -213,9 +215,9 @@ have won..."
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 3
 playing = true
 
 [node name="Label3" type="Label" parent="Area2D/Dialogue3"]
@@ -232,9 +234,9 @@ just too much."
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 3
 playing = true
 
 [node name="Label4" type="Label" parent="Area2D/Dialogue4"]
@@ -252,9 +254,9 @@ anymore...
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 2
 playing = true
 
 [node name="Label5" type="Label" parent="Area2D/Dialogue5"]
@@ -271,9 +273,9 @@ hurt."
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Label6" type="Label" parent="Area2D/Dialogue6"]
@@ -290,9 +292,9 @@ uninjured..."
 editor/display_folded = true
 visible = false
 position = Vector2( -0.527039, 0.527039 )
-frames = SubResource( 8 )
+frames = SubResource( 4 )
 animation = "Hovering"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Label7" type="Label" parent="Area2D/Dialogue7"]
@@ -307,7 +309,7 @@ the presents. "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -29.9169, 73.1302 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="EButtonSFX" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource( 25 )
@@ -321,7 +323,7 @@ volume_db = -12.0
 
 [node name="Door" type="AnimatedSprite" parent="Area2D"]
 position = Vector2( 576.35, 49.414 )
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "Door"
 
 [node name="LightningDialogue" type="Light2D" parent="Area2D"]
@@ -336,7 +338,7 @@ visible = false
 position = Vector2( 72.4132, 37.0826 )
 frames = SubResource( 7 )
 animation = "Hovering"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Camera Shade" type="Sprite" parent="."]
@@ -347,7 +349,7 @@ texture = ExtResource( 32 )
 
 [node name="Torch" type="AnimatedSprite" parent="."]
 position = Vector2( 97.7546, 160.299 )
-frames = SubResource( 5 )
+frames = SubResource( 8 )
 animation = "Torch"
 playing = true
 
@@ -359,7 +361,7 @@ color = Color( 0.964706, 0.921569, 0.698039, 1 )
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 672.018, 160.045 )
-frames = SubResource( 5 )
+frames = SubResource( 8 )
 animation = "Torch"
 frame = 3
 playing = true

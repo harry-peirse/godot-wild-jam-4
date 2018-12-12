@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
@@ -7,23 +7,26 @@
 [ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation3.png" type="Texture" id=5]
 [ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation4.png" type="Texture" id=6]
 [ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation5.png" type="Texture" id=7]
-[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=8]
-[ext_resource path="res://scenes/levels/LivingRoom/Dialogue.gd" type="Script" id=9]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=10]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=11]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=12]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=13]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=14]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=15]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=16]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=17]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=18]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=19]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=20]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=21]
-[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=22]
+[ext_resource path="res://assets/SFX/Chimney.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=9]
+[ext_resource path="res://scenes/levels/LivingRoom/Dialogue.gd" type="Script" id=10]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=14]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=19]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=20]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=21]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=22]
+[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=23]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=24]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=25]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -32,22 +35,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -56,65 +59,75 @@ animations = [ {
 [node name="ChimneyDescent2" type="Node"]
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
-position = Vector2( 10.2885, 418.399 )
+position = Vector2( 74.2885, 418.399 )
 z_index = 1
 
 [node name="TileMap(structure)(0)" type="TileMap" parent="."]
+position = Vector2( 64, 0 )
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 131071, 11, 0, 65536, 11, 0, 65537, 11, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 11, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 196607, 11, 0, 131083, 11, 0, 262143, 11, 0, 196619, 11, 0, 327679, 11, 0, 262155, 11, 0, 393215, 11, 0, 327691, 11, 0, 458751, 11, 0, 393224, 13, 0, 393225, 15, 0, 393226, 14, 0, 393227, 11, 0, 524287, 11, 0, 458752, 7, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 7, 0, 458763, 11, 0, 589823, 11, 0, 524288, 11, 0, 524289, 11, 0, 524290, 11, 0, 524291, 11, 0, 524292, 11, 0, 524293, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524299, 11, 0 )
+tile_data = PoolIntArray( 131071, 11, 0, 65536, 11, 0, 65537, 11, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 11, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 196607, 11, 0, 131083, 11, 0, 262143, 11, 0, 196619, 11, 0, 327679, 11, 0, 262155, 11, 0, 393215, 11, 0, 327691, 11, 0, 458751, 11, 0, 393224, 13, 0, 393225, 15, 0, 393226, 14, 0, 393227, 11, 0, 524287, 11, 0, 458752, 7, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 7, 0, 458763, 11, 0, 458764, 18, 0, 458765, 18, 0, 458766, 18, 0, 458767, 18, 0, 458768, 18, 0, 589823, 11, 0, 524288, 11, 0, 524289, 11, 0, 524290, 11, 0, 524291, 11, 0, 524292, 11, 0, 524293, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524299, 11, 0, 524300, 12, 0, 524301, 12, 0, 524302, 12, 0, 524303, 12, 0, 524304, 12, 0 )
 
 [node name="TileMap(Background)(-2)" type="TileMap" parent="."]
+position = Vector2( 64, 0 )
 z_index = -2
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196611, 31, 0, 196612, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0, 327680, 31, 0, 327681, 31, 0, 327682, 31, 0, 327683, 31, 0, 327684, 31, 0, 327685, 31, 0, 327686, 31, 0, 327687, 31, 0, 327688, 31, 0, 327689, 31, 0, 327690, 31, 0, 393216, 31, 0, 393217, 31, 0, 393218, 31, 0, 393219, 31, 0, 393220, 31, 0, 393221, 31, 0, 393222, 31, 0, 393223, 31, 0, 393224, 31, 0, 393225, 31, 0, 393226, 31, 0, 458752, 31, 0, 458753, 31, 0, 458754, 31, 0, 458755, 31, 0, 458756, 31, 0, 458757, 31, 0, 458758, 31, 0, 458759, 31, 0, 458760, 31, 0, 458761, 31, 0, 458762, 31, 0 )
+tile_data = PoolIntArray( 65535, 28, 0, 0, 26, 0, 1, 26, 0, 2, 26, 0, 3, 26, 0, 4, 26, 0, 5, 26, 0, 6, 26, 0, 7, 28, 0, 8, 26, 0, 9, 26, 0, 10, 28, 0, 11, 26, 0, 12, 27, 0, 13, 26, 0, 14, 27, 0, 15, 26, 0, 16, 27, 0, 65548, 27, 0, 65549, 26, 0, 65550, 27, 0, 65551, 26, 0, 65552, 27, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 131084, 27, 0, 131085, 25, 0, 131086, 27, 0, 131087, 26, 0, 131088, 26, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196611, 31, 0, 196612, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 196619, 27, 0, 196620, 27, 0, 196621, 27, 0, 196622, 26, 0, 196623, 26, 0, 196624, 27, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0, 262156, 27, 0, 262157, 26, 0, 262158, 26, 0, 262159, 27, 0, 262160, 26, 0, 327680, 31, 0, 327681, 31, 0, 327682, 31, 0, 327683, 31, 0, 327684, 31, 0, 327685, 31, 0, 327686, 31, 0, 327687, 31, 0, 327688, 31, 0, 327689, 31, 0, 327690, 31, 0, 327692, 27, 0, 327693, 26, 0, 327694, 26, 0, 327695, 27, 0, 327696, 26, 0, 393216, 31, 0, 393217, 31, 0, 393218, 31, 0, 393219, 31, 0, 393220, 31, 0, 393221, 31, 0, 393222, 31, 0, 393223, 31, 0, 393224, 31, 0, 393225, 31, 0, 393226, 31, 0, 393228, 27, 0, 393229, 27, 0, 393230, 27, 0, 393231, 27, 0, 393232, 27, 0, 458752, 31, 0, 458753, 31, 0, 458754, 31, 0, 458755, 31, 0, 458756, 31, 0, 458757, 31, 0, 458758, 31, 0, 458759, 31, 0, 458760, 31, 0, 458761, 31, 0, 458762, 31, 0 )
 
 [node name="TileMap(Background)(-1)" type="TileMap" parent="."]
+position = Vector2( 64, 0 )
 z_index = -1
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262150, 36, 0 )
+tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 327692, 34, 0, 327694, 34, 0, 327695, 34, 0 )
 
 [node name="Chimney" type="AnimatedSprite" parent="."]
-position = Vector2( 256, 288 )
+position = Vector2( 320, 288 )
 scale = Vector2( 2.707, 2.496 )
-frames = SubResource( 4 )
-frame = 4
+frames = SubResource( 1 )
 playing = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
+stream = ExtResource( 8 )
+volume_db = -6.0
+autoplay = true
+max_distance = 1000.0
+
 [node name="Christmas Tree" type="Sprite" parent="."]
-position = Vector2( 520, 130 )
+position = Vector2( 584, 130 )
 scale = Vector2( 2.7067, 2.49626 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 128 )
 
 [node name="Dialogue" type="Area2D" parent="."]
-position = Vector2( 512, 320 )
+editor/display_folded = true
+position = Vector2( 576, 320 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue"]
 position = Vector2( 64, 32 )
 scale = Vector2( 20, 10 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="Dialogue"]
 
 [node name="EButtonTree" type="AnimatedSprite" parent="Dialogue"]
 visible = false
 position = Vector2( 16, 48 )
-frames = SubResource( 2 )
-frame = 3
+frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="Dialogue"]
+editor/display_folded = true
 visible = false
-frames = SubResource( 3 )
-frame = 2
+frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Dialogue/Success"]
@@ -122,9 +135,27 @@ margin_left = -35.0
 margin_top = -9.0
 margin_right = 91.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 22 )
+custom_fonts/font = ExtResource( 23 )
 text = "Present 
 delivered!"
+
+[node name="Light2D" type="Light2D" parent="Dialogue/Success"]
+position = Vector2( 48, -32 )
+texture = ExtResource( 24 )
+color = Color( 0.980392, 0.913725, 0.65098, 1 )
+
+[node name="CameraShade" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.447059 )
+position = Vector2( 560, 288 )
+scale = Vector2( 5.83333, 3 )
+z_index = 4
+texture = ExtResource( 25 )
+
+[node name="ChimneyLight" type="Light2D" parent="."]
+position = Vector2( 320, 384 )
+scale = Vector2( 2.69, 1.71 )
+texture = ExtResource( 24 )
+color = Color( 0.952941, 0.909804, 0.709804, 1 )
 
 [connection signal="area_entered" from="Dialogue" to="Dialogue" method="_on_Dialogue_area_entered"]
 [connection signal="area_exited" from="Dialogue" to="Dialogue" method="_on_Dialogue_area_exited"]
