@@ -1,6 +1,9 @@
 extends "res://actors/physics/Physics.gd"
 
 
+const JUMP_STRENGTH = -800
+
+
 #When true, the enemy does not wander.
 export var is_still = false
 
@@ -42,9 +45,6 @@ var is_damaged = false
 
 func _ready():
 	self.connect( "lost_all_health", self, "queue_free" )
-	
-	#Place falloff in the correct place.
-	$Falloff.position.x = falloff_distance
 
 
 func _process(delta):
@@ -72,11 +72,22 @@ func chase_snowman( snowman ):
 	fsm_state = "Chase"
 
 
+func jump():
+	#Jump up to reach the sky.
+	velocity.y = JUMP_STRENGTH
+
+
 func process_chase( delta ):
 	#Chase after the Snowman.
 	var chase_after = chase_speed
 	chase_after *= clamp( chase_object.global_position.x - self.global_position.x, -1, 1 )
 	velocity.x = chase_after
+	
+	if( on_floor ):
+		if( $FloorLeft.is_colliding() == false ||
+				$FloorRight.is_colliding() == false ):
+			jump()
+
 	move_body()
 
 
