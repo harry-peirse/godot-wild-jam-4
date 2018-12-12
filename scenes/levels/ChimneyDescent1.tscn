@@ -148,7 +148,7 @@ energy = 2.69
 
 [node name="CameraShade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.611765 )
-position = Vector2( 1024, 474.742 )
+position = Vector2( 1051, 474.742 )
 scale = Vector2( 12, 7 )
 z_index = 5
 texture = ExtResource( 7 )
@@ -189,11 +189,11 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 6 )
-frame = 4
+frame = 2
 playing = true
 
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]

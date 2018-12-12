@@ -127,7 +127,6 @@ func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
-		$SFXLibrary/JumpSFX.play()
 		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
@@ -138,6 +137,8 @@ func jump_held( delta ):
 			jump_stage += 1
 			
 			if jump_stage > JUMP_STAGE_MAX :
+				
+				$SFXLibrary/JumpSFX.play()
 				jump_held = 0
 				jump_stage = 1
 		

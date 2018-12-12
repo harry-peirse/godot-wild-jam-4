@@ -86,6 +86,7 @@ tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 327692, 34, 0, 
 position = Vector2( 320, 288 )
 scale = Vector2( 2.707, 2.496 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
@@ -120,14 +121,14 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 16, 48 )
 frames = SubResource( 3 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="Dialogue"]
 editor/display_folded = true
 visible = false
 frames = SubResource( 4 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Dialogue/Success"]

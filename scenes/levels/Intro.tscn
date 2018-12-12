@@ -24,7 +24,7 @@
 [ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=22]
 [ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=23]
 [ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=24]
-[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/SFX/Button.wav" type="AudioStream" id=25]
 [ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=26]
 [ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=27]
 [ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=28]
@@ -125,10 +125,9 @@ position = Vector2( 317.846, 189.89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Fire"
-frame = 2
 playing = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
+[node name="ChimneySFX" type="AudioStreamPlayer2D" parent="Chimney"]
 position = Vector2( -1.28607, 48.442 )
 stream = ExtResource( 9 )
 volume_db = -6.0
@@ -149,7 +148,6 @@ format = 1
 tile_data = PoolIntArray( 0, 31, 0, 1, 31, 0, 2, 31, 0, 3, 31, 0, 4, 31, 0, 5, 31, 0, 6, 31, 0, 7, 31, 0, 8, 31, 0, 9, 31, 0, 10, 31, 0, 65536, 31, 0, 65537, 31, 0, 65538, 31, 0, 65539, 31, 0, 65540, 31, 0, 65541, 31, 0, 65542, 31, 0, 65543, 31, 0, 65544, 31, 0, 65545, 31, 0, 65546, 31, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 159.65, 206.586 )
 collision_layer = 0
 collision_mask = 1024
@@ -179,6 +177,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
+frame = 5
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue1"]
@@ -197,6 +196,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
+frame = 5
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue2"]
@@ -215,7 +215,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label3" type="Label" parent="Area2D/Dialogue3"]
@@ -234,7 +234,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label4" type="Label" parent="Area2D/Dialogue4"]
@@ -254,7 +254,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Label5" type="Label" parent="Area2D/Dialogue5"]
@@ -273,7 +273,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Label6" type="Label" parent="Area2D/Dialogue6"]
@@ -292,7 +292,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Label7" type="Label" parent="Area2D/Dialogue7"]
@@ -346,10 +346,11 @@ scale = Vector2( 5.913, 3.016 )
 texture = ExtResource( 32 )
 
 [node name="Torch" type="AnimatedSprite" parent="."]
+editor/display_folded = true
 position = Vector2( 97.7546, 160.299 )
 frames = SubResource( 8 )
 animation = "Torch"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch"]
@@ -359,10 +360,10 @@ texture = ExtResource( 10 )
 color = Color( 0.964706, 0.921569, 0.698039, 1 )
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
+editor/display_folded = true
 position = Vector2( 672.018, 160.045 )
 frames = SubResource( 8 )
 animation = "Torch"
-frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch2"]
