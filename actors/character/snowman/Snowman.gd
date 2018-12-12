@@ -44,6 +44,7 @@ var jump_stage : int = 1
 var jump_mod : Array = [ 0, -140, -200, -300 ]
 
 #This allows us to double jump.
+signal jump
 signal double_jump
 var has_double_jump = true
 
@@ -133,8 +134,6 @@ func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
-		$SFXLibrary/JumpSFX.play()
-		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
 		if jump_stage == 2 :
@@ -193,6 +192,7 @@ func process_default( delta ):
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
+			emit_signal( "jump" )
 	
 	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
@@ -200,7 +200,6 @@ func process_default( delta ):
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
 				$DoubleJumpFX.emitting = true
-				$SFXLibrary/DoubleJumpSFX.play()
 	  
 	move_body()
 

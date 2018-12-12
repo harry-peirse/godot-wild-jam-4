@@ -8,6 +8,7 @@ func flip_sprite( boolean ):
 func _ready():
 	self.connect( "double_jump", self, "double_jump" )
 	self.connect( "dash", self, "dash" )
+	self.connect( "jump", self, "jumped_from_floor" )
 	self.connect( "just_landed", self, "just_landed" )
 	self.connect( "change_anim", self, "change_anim" )
 	self.connect( "flip_h", self, "flip_sprite" )
@@ -33,7 +34,12 @@ func dash( is_dashing : bool ):
 func double_jump():
 	$DoubleJumpFX.emitting = true
 	$DoubleJumpFX.restart()
+	$SFXLibrary/DoubleJumpSFX.play()
 
+
+func jumped_from_floor():
+	$SFXLibrary/JumpSFX.play()
+	
 
 func just_landed():
 	$SFXLibrary/GroundImpactSFX.play()

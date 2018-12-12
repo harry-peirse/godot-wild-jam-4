@@ -144,7 +144,6 @@ position = Vector2( 0.676376, 7.44017 )
 shape = SubResource( 5 )
 
 [node name="SFXLibrary" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="RunningSFX" type="AudioStreamPlayer2D" parent="SFXLibrary"]
 
