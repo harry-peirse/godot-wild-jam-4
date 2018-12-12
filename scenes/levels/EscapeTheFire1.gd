@@ -4,6 +4,7 @@ export(float) var level_duration = 60 setget _set_level_duration
 
 func _ready():
 	_start_level()
+	Music.play_track(Music.tracks.panic)
 	
 func _start_level():
 	$LevelDurationTimer.set_wait_time(level_duration)
