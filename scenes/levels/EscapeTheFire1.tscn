@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/levels/EscapeTheFire1.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://actors/enemy/utils/ObstacleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/backgrounds/flames.png" type="Texture" id=5]
+[ext_resource path="res://assets/backgrounds/embers.png" type="Texture" id=6]
+[ext_resource path="res://assets/backgrounds/fire_foreground.png" type="Texture" id=7]
 
 [node name="EscapeTheFire1" type="Node"]
 script = ExtResource( 1 )
@@ -41,6 +43,11 @@ sky_obstacle_frequency = 1.5
 
 [node name="Snowman" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138.259, 506.795 )
+input_pickable = false
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+endurance = 1
 can_navigate = false
 has_camera = false
 
@@ -58,15 +65,48 @@ scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0.3 )
+motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1223, 1500 )
+motion_mirroring = Vector2( 1223, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 580.412, 367.715 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
-[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 300, 300 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1500, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxForeground/ParallaxLayer2"]
+position = Vector2( 188.942, 518.99 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+
 [connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
