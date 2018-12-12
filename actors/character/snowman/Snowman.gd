@@ -14,6 +14,10 @@ const JUMP_STAGE_2 = 0.011167 * 8
 const JUMP_STAGE_3 = 0.011167 * 10
 const JUMP_STAGE_MAX = 3
 
+#This prevents the Snowman from walking or
+#dashing.
+export var can_navigate = true
+
 
 #State Machine
 var FSM = {
@@ -42,8 +46,6 @@ var jump_mod : Array = [ 0, -140, -200, -300 ]
 signal double_jump
 var has_double_jump = true
 
-var is_handling_input : bool = true
-
 #Dash variables
 signal dash
 const DASH_COOLDOWN_LENGTH = 0.051167 * 20
@@ -59,7 +61,7 @@ var size = 1;
 
 
 func _process(delta):
-	if is_handling_input :
+	if can_navigate :
 		handle_input( delta )
 	call( "process_" + FSM[fsm_state], delta )
 
