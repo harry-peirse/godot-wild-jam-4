@@ -12,12 +12,13 @@ extends "res://actors/enemy/Enemy.gd"
 #Walk
 
 
-func _process(delta):
-	$Sprite2.flip_h = flip_h()
+func flip_sprite( boolean ):
+	$Sprite2.flip_h = boolean
 
 
 func _ready():
 	self.connect( "change_anim", self, "change_anim" )
+	self.connect( "flip_h", self, "flip_sprite" )
 
 
 func change_anim( new_anim ):

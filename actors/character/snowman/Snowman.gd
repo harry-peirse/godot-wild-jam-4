@@ -17,6 +17,7 @@ const JUMP_STAGE_MAX = 3
 #This prevents the Snowman from walking or
 #dashing.
 export var can_navigate = true
+var can_jump = false
 
 
 #State Machine
@@ -34,7 +35,7 @@ var fsm_state = "Default"
 #var was_in_air = true
 
 #Hitstun
-const HITSTUN_WAIT = 0.011167 * 15
+const HITSTUN_WAIT = 0.011167 * 20
 var hitstun_left = HITSTUN_WAIT
 
 #Use this to determine jump height.
@@ -43,6 +44,7 @@ var jump_stage : int = 1
 var jump_mod : Array = [ 0, -140, -200, -300 ]
 
 #This allows us to double jump.
+signal jump
 signal double_jump
 var has_double_jump = true
 
@@ -81,7 +83,12 @@ func _ready():
 
 func been_hit( push : Vector2, damaged = false ):
 	#Start hitstun state.
+	can_navigate = false
+	can_jump = false
 	fsm_state = "Hitstun"
+	emit_signal( "dash", false )
+#	if damaged == true :
+#		emit_signal( "change_anim", "Hit" )
 
 
 func foot_stomped( push : Vector2 ):
@@ -112,7 +119,6 @@ func handle_input( delta ):
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
-		$SFXLibrary/DashSFX.play()
 	
 	dash_cooldown = max( dash_cooldown - delta, 0 )
 
@@ -127,8 +133,6 @@ func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
-		$SFXLibrary/JumpSFX.play()
-		$AnimatedSprite.animation = "Jumping"
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
 		if jump_stage == 2 :
@@ -148,11 +152,13 @@ func jump_held( delta ):
 
 func process_dash( delta ):
 	#Start a dash.
+	can_navigate = false
 	dash_lasted += delta
 	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
 	if is_on_wall():
+		can_navigate = true
 		self.position.x += DASH_PUSHBACK * sign(-dash_direction)
 		fsm_state = "Default"
 		dash_lasted = 0
@@ -163,6 +169,7 @@ func process_dash( delta ):
 		return
 	
 	if dash_lasted >= DASH_DURATION :
+		can_navigate = true
 		fsm_state = "Default"
 		dash_lasted = 0
 		dash_cooldown = DASH_COOLDOWN_LENGTH
@@ -184,6 +191,7 @@ func process_default( delta ):
 		if Input.is_action_just_pressed( "jump" ) :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
+			emit_signal( "jump" )
 	
 	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
@@ -191,10 +199,6 @@ func process_default( delta ):
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
 				$DoubleJumpFX.emitting = true
-				$SFXLibrary/DoubleJumpSFX.play()
-
-	
-	$AnimatedSprite.flip_h = flip_h()
 	  
 	move_body()
 
@@ -203,6 +207,8 @@ func process_hitstun( delta ):
 	#Move myself.
 	move_body()
 	
+	can_navigate = false
+	
 	#I am invincible until the hitstun
 	#wears off.
 	$Hurtbox.is_activated( false )
@@ -210,6 +216,7 @@ func process_hitstun( delta ):
 	
 	hitstun_left -= delta
 	if hitstun_left <= 0 :
+		can_navigate = true
 		hitstun_left = HITSTUN_WAIT
 		fsm_state = "Default"
 		if dash_lasted > 0 :

@@ -12,6 +12,7 @@ signal change_anim #Possible anims:
 	#jump (not programmed yet)
 	#Running
 signal change_direction
+signal flip_h
 signal just_landed
 signal foot_stomped
 signal foot_stooled
@@ -40,10 +41,11 @@ func been_hit( push : Vector2, damaged = false ):
 func flip_h():
 	#Let sprites know to flip themselves.
 	var signed = sign( velocity.x )
-	if signed == 0 || signed == 1:
-		return true
-	else:
-		return false
+	if signed != 0 :
+		if signed == 1 :
+			emit_signal( "flip_h", true )
+		else:
+			emit_signal( "flip_h", false )
 
 
 func handle_physics( delta ):
@@ -97,6 +99,7 @@ func on_floor():
 
 func move_body( move_by = velocity.rotated( slope() ) ):
 	move_and_slide_with_snap( move_by , Vector2( 0, -1 ), FLOOR )
+	flip_h()
 
 
 func pushback( push : Vector2, damaged = false ):
