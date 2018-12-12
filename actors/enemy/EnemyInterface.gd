@@ -4,12 +4,12 @@ extends "res://actors/enemy/Enemy.gd"
 #Use this to handle animations.
 #Possible animations are:
 
-#die
-#falling
-#hit
-#idle
-#jump (not programmed yet)
-#walk
+#Die
+#Falling
+#Hit
+#Idle
+#Jump (not programmed yet)
+#Walk
 
 
 func _process(delta):

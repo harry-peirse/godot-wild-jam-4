@@ -4,8 +4,15 @@ const FLOOR = Vector2( 0,-1 )
 const GRAVITY_ADD = 70
 const GRAVITY_MAX = 600
 
-signal change_anim
+signal change_anim #Possible anims:
+	#die
+	#falling
+	#hit
+	#idle
+	#jump (not programmed yet)
+	#Running
 signal change_direction
+signal just_landed
 signal foot_stomped
 signal foot_stooled
 signal pushback
@@ -48,13 +55,29 @@ func handle_physics( delta ):
 
 	allow_slope = false
 	if on_floor() && velocity.y >= 0:
+		if on_floor == false :
+			emit_signal( "just_landed" )
+		on_floor = true
 		allow_slope = true
 		velocity.y = 0
+		
+		#Determine if I am running or standing idle.
+		if abs(velocity.x) > 0 :
+			emit_signal( "change_anim", "Running" )
+		else:
+			emit_signal( "change_anim", "Idle" )
 	
-	#I am falling.
-	emit_signal( "change_anim", "falling" )
+	#If I am falling downward.
+	elif velocity.y > 0:
+		on_floor = false
+		emit_signal( "change_anim", "Falling" )
+	
+	#Else I am moving upwards
+	else:
+		on_floor = false
+		emit_signal( "change_anim", "Jumping" )
 
-				
+	#If I bop my head, stop traveling upwards.
 	$Ceiling.update()
 	if $Ceiling.is_colliding() && velocity.y <= 0:
 		velocity.y = 0
@@ -62,14 +85,14 @@ func handle_physics( delta ):
 
 
 func on_floor():
-	on_floor = false
+	var currently_on_floor = false
 	$FloorLeft.update()
 	$FloorRight.update()
 	
 	if $FloorLeft.is_colliding() || $FloorRight.is_colliding():
-		on_floor = true
+		currently_on_floor = true
 		
-	return on_floor
+	return currently_on_floor
 
 
 func move_body( move_by = velocity.rotated( slope() ) ):

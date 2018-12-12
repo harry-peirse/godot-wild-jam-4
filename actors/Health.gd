@@ -12,6 +12,8 @@ signal health_changed
 #Amount of health from a hundred to zero.
 var health = 100
 
+var been_damaged = false
+
 #Determines how resistant an entity is to damage.
 #Multiplier value. Lower means less damage from
 #attacks.
@@ -31,6 +33,7 @@ func _ready():
 
 func damage( amount : float ):
 	health -= amount * endurance
+	been_damaged = true
 	
 	if health <= 0 :
 		emit_signal( "lost_all_health" )

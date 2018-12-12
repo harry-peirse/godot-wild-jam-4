@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://actors/character/snowman/Snowman.gd" type="Script" id=1]
+[ext_resource path="res://actors/character/snowman/SnowmanInterface.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/character/snowman/DoubleJumpFX.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=4]
@@ -8,8 +8,8 @@
 [ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=6]
 [ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=7]
 [ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=10]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=13]
@@ -34,13 +34,13 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "Jumping",
-"speed": 3.0
+"name": "Falling",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Falling",
-"speed": 5.0
+"name": "Jumping",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -80,7 +80,7 @@ drag_margin_right = 0.1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 3.71593 )
-scale = Vector2( 1, 1.1858 )
+scale = Vector2( -1, 1.186 )
 frames = SubResource( 1 )
 animation = "Idle"
 
@@ -88,12 +88,12 @@ animation = "Idle"
 position = Vector2( 0, 4.97058 )
 shape = SubResource( 2 )
 
-[node name="Floor1" type="RayCast2D" parent="."]
+[node name="FloorLeft" type="RayCast2D" parent="."]
 position = Vector2( -10, 23 )
 enabled = true
 cast_to = Vector2( 0, 10 )
 
-[node name="Floor2" type="RayCast2D" parent="."]
+[node name="FloorRight" type="RayCast2D" parent="."]
 position = Vector2( 10, 23 )
 enabled = true
 cast_to = Vector2( 0, 10 )
