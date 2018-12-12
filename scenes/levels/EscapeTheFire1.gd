@@ -1,6 +1,6 @@
 extends Node
 
-export(float) var level_duration = 90 setget _set_level_duration
+export(float) var level_duration = 60 setget _set_level_duration
 
 func _ready():
 	_start_level()

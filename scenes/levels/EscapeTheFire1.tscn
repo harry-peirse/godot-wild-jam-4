@@ -6,7 +6,7 @@
 
 [node name="EscapeTheFire1" type="Node"]
 script = ExtResource( 1 )
-level_duration = 90
+level_duration = 60
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 0
@@ -34,7 +34,9 @@ one_shot = false
 autostart = false
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource( 3 )]
+ground_obstacle_frequency = 1.25
+sky_obstacle_frequency = 2.5
 
-[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
