@@ -23,8 +23,8 @@ var FSM = {
 	}
 var fsm_state = "Default" 
 
-enum state {IDLE,RUN,JUMP,HURT,DEAD,DASH}
-var current_state = state.IDLE
+#enum state {IDLE,RUN,JUMP,HURT,DEAD,DASH}
+#var current_state = state.IDLE
 
 #Determines the velocity
 #var was_in_air = true
@@ -39,11 +39,13 @@ var jump_stage : int = 1
 var jump_mod : Array = [ 0, -140, -200, -300 ]
 
 #This allows us to double jump.
+signal double_jump
 var has_double_jump = true
 
 var is_handling_input : bool = true
 
 #Dash variables
+signal dash
 const DASH_COOLDOWN_LENGTH = 0.051167 * 20
 const DASH_DURATION = 0.011167 * 40
 const DASH_SPEED = 500
@@ -60,11 +62,7 @@ func _process(delta):
 	if is_handling_input :
 		handle_input( delta )
 	call( "process_" + FSM[fsm_state], delta )
-	
-	if current_state != state.DASH:
-		$DashFX.emitting = false
-	if current_state != state.JUMP:
-		$DoubleJumpFX.emitting = false
+
 
 
 func _physics_process(delta):
@@ -107,8 +105,7 @@ func handle_input( delta ):
 	#Start a dash if player inputs it.
 	if( Input.is_action_just_pressed("dash") &&
 	dash_cooldown <= 0 ):
-		current_state = state.DASH
-		$DashFX.emitting = true
+		emit_signal( "dash", true )
 		fsm_state = "Dash"
 		velocity.y = 0
 		$DashHitbox.is_activated( true )
@@ -128,7 +125,6 @@ func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
 		jump_held += delta
-		current_state = state.JUMP
 		$SFXLibrary/JumpSFX.play()
 		$AnimatedSprite.animation = "Jumping"
 		
@@ -143,7 +139,6 @@ func jump_held( delta ):
 				jump_held = 0
 				jump_stage = 1
 		
-	
 	else:
 		jump_held = 0
 		jump_stage = 1
@@ -162,6 +157,7 @@ func process_dash( delta ):
 		dash_cooldown = DASH_COOLDOWN_LENGTH
 		$DashHitbox.is_activated( false )
 		$Hurtbox.is_activated( true )
+		emit_signal( "dash", false )
 		return
 	
 	if dash_lasted >= DASH_DURATION :
@@ -170,6 +166,7 @@ func process_dash( delta ):
 		dash_cooldown = DASH_COOLDOWN_LENGTH
 		$DashHitbox.is_activated( false )
 		$Hurtbox.is_activated( true )
+		emit_signal( "dash", false )
 
 
 func process_default( delta ):
@@ -188,6 +185,7 @@ func process_default( delta ):
 	
 	elif has_double_jump :
 			if Input.is_action_just_pressed( "jump" ) :
+				emit_signal( "double_jump" )
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
 				$DoubleJumpFX.emitting = true
