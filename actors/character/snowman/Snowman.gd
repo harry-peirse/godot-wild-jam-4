@@ -18,6 +18,11 @@ const JUMP_STAGE_MAX = 3
 #dashing.
 export var can_navigate = true
 export var has_camera = true
+export var camera_limit_top : int = 0
+export var camera_limit_left : int = 0
+export var camera_limit_bottom : int = 10000
+export var camera_limit_right : int = 10000
+
 var can_jump = false
 
 
@@ -80,6 +85,10 @@ func _ready():
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
 	$Camera2D.current = has_camera
+	$Camera2D.limit_top = camera_limit_top
+	$Camera2D.limit_left = camera_limit_left
+	$Camera2D.limit_bottom = camera_limit_bottom
+	$Camera2D.limit_right = camera_limit_right
 
 
 func been_hit( push : Vector2, damaged = false ):

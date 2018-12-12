@@ -3,13 +3,13 @@
 [ext_resource path="res://actors/character/snowman/SnowmanInterface.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/character/snowman/DoubleJumpFX.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=10]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=13]
@@ -24,22 +24,22 @@
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Falling",
+"name": "Jumping",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Running",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Jumping",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Running",
+"name": "Falling",
 "speed": 5.0
 } ]
 
@@ -63,6 +63,8 @@ height = 23.2675
 [node name="Snowman" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 1 )
+camera_limit_bottom = 10000
+camera_limit_right = 10000
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
