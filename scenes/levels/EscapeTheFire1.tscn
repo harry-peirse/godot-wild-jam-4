@@ -50,6 +50,8 @@ motion/sync_to_physics = false
 endurance = 1
 can_navigate = false
 has_camera = false
+camera_limit_top = null
+camera_limit_left = null
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
