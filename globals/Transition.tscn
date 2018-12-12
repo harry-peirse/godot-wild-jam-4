@@ -55,10 +55,12 @@ anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -49.0
-margin_top = -49.0
-margin_right = 1070.0
-margin_bottom = 658.0
+margin_left = -4096.0
+margin_top = -4096.0
+margin_right = 4096.0
+margin_bottom = 4096.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
