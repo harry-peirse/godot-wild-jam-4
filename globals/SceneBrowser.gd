@@ -20,6 +20,3 @@ func load_scene( scene_name ):
 	var scene =load( scene_list[ scene_name ] )
 	scene = scene
 	get_tree().change_scene_to( scene )
-
-func _ready():
-	Music.at_title()

@@ -1,4 +1,4 @@
 extends Node
 
 func _ready():
-	Music.at_outside()
+	Music.play_track(Music.tracks.outside)
