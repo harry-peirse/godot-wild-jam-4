@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/levels/ChimneyDescent1.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
@@ -68,6 +68,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 188.924, 10 )
+
 [node name="ChimneyDescent1" type="Node"]
 script = ExtResource( 1 )
 
@@ -94,7 +99,7 @@ __meta__ = {
 }
 
 [node name="Snowman" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5, 0 )
+position = Vector2( 50, 100 )
 z_index = 1
 input_pickable = false
 collision_mask = 1
@@ -249,7 +254,7 @@ shadow_item_cull_mask = 1
 
 [node name="CameraShade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.611765 )
-position = Vector2( 1051, 474.742 )
+position = Vector2( 1076.97, 482.254 )
 scale = Vector2( 12, 7 )
 z_index = 5
 texture = ExtResource( 8 )
@@ -258,13 +263,14 @@ texture = ExtResource( 8 )
 position = Vector2( 384, 95.425 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 1280, 95.425 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="ExitDoor" type="Area2D" parent="."]
@@ -312,8 +318,20 @@ animation = "default"
 frame = 1
 playing = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -9.6696, 3.4128 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
