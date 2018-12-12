@@ -24,6 +24,7 @@ func _process(delta):
 		$Bag.visible=false
 		$Bag/StaticBody2D/CollisionShape2D.disabled = true
 		$BagButton.visible =false
+		$Dialogue1.visible=false
 		t.set_wait_time(.5)
 		t.start()
 		yield(t, "timeout")

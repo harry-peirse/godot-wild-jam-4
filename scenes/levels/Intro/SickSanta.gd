@@ -23,13 +23,11 @@ func _on_Area2D_area_exited(area):
 func _on_PressE_area_entered(area):
 	if(dialogue_end == true):
 		$PressE/EButton.visible = true
-		$PressE/Press.visible = true
 		in_range_E = true
 
 func _on_PressE_area_exited(area):
 	if(dialogue_end == true):
 		$PressE/EButton.visible = false
-		$PressE/Press.visible = false
 		in_range_E = false
 	
 func _process(delta):

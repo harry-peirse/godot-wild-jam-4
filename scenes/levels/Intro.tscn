@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/levels/Intro.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -9,17 +9,33 @@
 [ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation4.png" type="Texture" id=7]
 [ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation5.png" type="Texture" id=8]
 [ext_resource path="res://assets/SFX/Chimney.wav" type="AudioStream" id=9]
-[ext_resource path="res://scenes/levels/Intro/SickSanta.gd" type="Script" id=10]
-[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=11]
-[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=13]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=14]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=15]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=16]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=17]
-[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=18]
-[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=19]
-[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=20]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=10]
+[ext_resource path="res://scenes/levels/Intro/SickSanta.gd" type="Script" id=11]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=14]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=19]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=20]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=21]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=22]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=23]
+[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=24]
+[ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=26]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=27]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=28]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=29]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=30]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=31]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=32]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation1.png" type="Texture" id=33]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation2.png" type="Texture" id=34]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation3.png" type="Texture" id=35]
+[ext_resource path="res://Art/Animation/Torch/TorchAnimation4.png" type="Texture" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -34,6 +50,24 @@ animations = [ {
 
 extents = Vector2( 64, 64 )
 
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Hovering",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Hovering",
+"speed": 5.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 64.9428, 40.417 )
@@ -41,10 +75,28 @@ extents = Vector2( 64.9428, 40.417 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": false,
 "name": "Door",
 "speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Hovering",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "Torch",
+"speed": 5.0
 } ]
 
 [node name="Intro" type="Node"]
@@ -74,7 +126,6 @@ position = Vector2( 317.846, 189.89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Fire"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
@@ -84,6 +135,12 @@ volume_db = -6.0
 autoplay = true
 max_distance = 1000.0
 
+[node name="LightningChimney" type="Light2D" parent="Chimney"]
+position = Vector2( 1.077, 39.1535 )
+scale = Vector2( 0.945, 1.34 )
+texture = ExtResource( 10 )
+color = Color( 0.956863, 0.913725, 0.729412, 1 )
+
 [node name="TileMap(background)(-2)" type="TileMap" parent="."]
 position = Vector2( 64, 0 )
 z_index = -2
@@ -92,10 +149,11 @@ format = 1
 tile_data = PoolIntArray( 0, 31, 0, 1, 31, 0, 2, 31, 0, 3, 31, 0, 4, 31, 0, 5, 31, 0, 6, 31, 0, 7, 31, 0, 8, 31, 0, 9, 31, 0, 10, 31, 0, 65536, 31, 0, 65537, 31, 0, 65538, 31, 0, 65539, 31, 0, 65540, 31, 0, 65541, 31, 0, 65542, 31, 0, 65543, 31, 0, 65544, 31, 0, 65545, 31, 0, 65546, 31, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 159.65, 206.586 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
 [node name="PressE" type="Area2D" parent="Area2D"]
 editor/display_folded = true
@@ -103,90 +161,160 @@ position = Vector2( -159.65, -206.586 )
 collision_layer = 0
 collision_mask = 1024
 
-[node name="EButton" type="Sprite" parent="Area2D/PressE"]
-visible = false
-position = Vector2( 693.552, 201.836 )
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 0, 16, 16, 16 )
-
-[node name="Press" type="Sprite" parent="Area2D/PressE"]
-visible = false
-position = Vector2( 676.452, 181.886 )
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 16, 16, 48, 16 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/PressE"]
 position = Vector2( 768, 256 )
 shape = SubResource( 2 )
 
-[node name="Dialogue1" type="Sprite" parent="Area2D"]
+[node name="EButton" type="AnimatedSprite" parent="Area2D/PressE"]
 visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 64, 0, 128, 64 )
+position = Vector2( 701.509, 209.471 )
+frames = SubResource( 6 )
+animation = "Hovering"
+frame = 5
+playing = true
 
-[node name="Dialogue2" type="Sprite" parent="Area2D"]
+[node name="Dialogue1" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
 visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 192, 0, 128, 64 )
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+playing = true
 
-[node name="Dialogue3" type="Sprite" parent="Area2D"]
-visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 320, 0, 128, 64 )
+[node name="Label2" type="Label" parent="Area2D/Dialogue1"]
+margin_left = -52.0
+margin_top = -14.0
+margin_right = 109.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 24 )
+text = "Hello...
+Good that you 
+are here!"
 
-[node name="Dialogue4" type="Sprite" parent="Area2D"]
+[node name="Dialogue2" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
 visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 64, 64, 128, 64 )
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+playing = true
 
-[node name="Dialogue5" type="Sprite" parent="Area2D"]
-visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 192, 64, 128, 64 )
+[node name="Label2" type="Label" parent="Area2D/Dialogue2"]
+margin_left = -50.0
+margin_top = -11.0
+margin_right = 111.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 24 )
+text = "This year the
+Grinch might 
+have won..."
 
-[node name="Dialogue6" type="Sprite" parent="Area2D"]
+[node name="Dialogue3" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
 visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 320, 64, 128, 64 )
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+frame = 5
+playing = true
 
-[node name="Dialogue7" type="Sprite" parent="Area2D"]
+[node name="Label3" type="Label" parent="Area2D/Dialogue3"]
+margin_left = -51.0
+margin_top = -11.0
+margin_right = 110.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 24 )
+text = "His ambush 
+yesterday was 
+just too much."
+
+[node name="Dialogue4" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
 visible = false
-z_index = 3
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 64, 128, 128, 64 )
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+frame = 5
+playing = true
+
+[node name="Label4" type="Label" parent="Area2D/Dialogue4"]
+margin_left = -52.0
+margin_top = -11.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 24 )
+text = "I cant deliver 
+any presents
+anymore...
+"
+
+[node name="Dialogue5" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
+visible = false
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+frame = 4
+playing = true
+
+[node name="Label5" type="Label" parent="Area2D/Dialogue5"]
+margin_left = -52.0
+margin_top = -11.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 24 )
+text = "He blew up my 
+sledge and I am 
+hurt."
+
+[node name="Dialogue6" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
+visible = false
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+frame = 3
+playing = true
+
+[node name="Label6" type="Label" parent="Area2D/Dialogue6"]
+margin_left = -52.0
+margin_top = -11.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 24 )
+text = "You are the
+only one who is 
+uninjured..."
+
+[node name="Dialogue7" type="AnimatedSprite" parent="Area2D"]
+editor/display_folded = true
+visible = false
+position = Vector2( -0.527039, 0.527039 )
+frames = SubResource( 8 )
+animation = "Hovering"
+frame = 3
+playing = true
+
+[node name="Label7" type="Label" parent="Area2D/Dialogue7"]
+margin_left = -52.0
+margin_top = -11.0
+margin_right = 109.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 24 )
+text = "I beg you...
+please deliver
+the presents. "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -29.9169, 73.1302 )
 shape = SubResource( 3 )
 
-[node name="DialogueButton" type="Sprite" parent="Area2D"]
-visible = false
-position = Vector2( 64, 32 )
-texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 0, 16, 16, 16 )
-
 [node name="EButtonSFX" type="AudioStreamPlayer" parent="Area2D"]
-stream = ExtResource( 12 )
+stream = ExtResource( 25 )
 volume_db = -12.0
 
 [node name="DoorSFX" type="AudioStreamPlayer" parent="Area2D"]
-stream = ExtResource( 13 )
+stream = ExtResource( 26 )
 volume_db = -12.0
 
 [node name="Timer" type="Timer" parent="Area2D"]
@@ -200,20 +328,47 @@ animation = "Door"
 visible = false
 position = Vector2( 32.0584, -25.8528 )
 scale = Vector2( 0.71, 0.21 )
-texture = ExtResource( 19 )
+texture = ExtResource( 10 )
 color = Color( 0.917647, 0.713726, 0.101961, 1 )
+
+[node name="DialogueButton" type="AnimatedSprite" parent="Area2D"]
+visible = false
+position = Vector2( 72.4132, 37.0826 )
+frames = SubResource( 7 )
+animation = "Hovering"
+frame = 1
+playing = true
 
 [node name="Camera Shade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.301961 )
 position = Vector2( 566, 291.197 )
 scale = Vector2( 5.913, 3.016 )
-texture = ExtResource( 20 )
+texture = ExtResource( 32 )
 
-[node name="LightningChimney" type="Light2D" parent="."]
-position = Vector2( 320, 268.197 )
-scale = Vector2( 1.89, 2.68 )
-texture = ExtResource( 19 )
-color = Color( 0.898039, 0.47451, 0.360784, 1 )
+[node name="Torch" type="AnimatedSprite" parent="."]
+position = Vector2( 97.7546, 160.299 )
+frames = SubResource( 5 )
+animation = "Torch"
+playing = true
+
+[node name="Light2D" type="Light2D" parent="Torch"]
+position = Vector2( 26.644, -9.4791 )
+scale = Vector2( 1.66, 1.78 )
+texture = ExtResource( 10 )
+color = Color( 0.964706, 0.921569, 0.698039, 1 )
+
+[node name="Torch2" type="AnimatedSprite" parent="."]
+position = Vector2( 672.018, 160.045 )
+frames = SubResource( 5 )
+animation = "Torch"
+frame = 3
+playing = true
+
+[node name="Light2D" type="Light2D" parent="Torch2"]
+position = Vector2( 26.644, -9.4791 )
+scale = Vector2( 1.66, 1.78 )
+texture = ExtResource( 10 )
+color = Color( 0.964706, 0.921569, 0.698039, 1 )
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]

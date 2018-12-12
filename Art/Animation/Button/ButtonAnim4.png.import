@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dialogue.png-f7c4ceac06ec6d84eba47932cbdf0f50.stex"
+path="res://.import/ButtonAnim4.png-18b033e16ae58bbed975f942737cdfcf.stex"
 
 [deps]
 
-source_file="res://assets/tilesets/Dialogue.png"
-dest_files=[ "res://.import/Dialogue.png-f7c4ceac06ec6d84eba47932cbdf0f50.stex" ]
+source_file="res://Art/Animation/Button/ButtonAnim4.png"
+dest_files=[ "res://.import/ButtonAnim4.png-18b033e16ae58bbed975f942737cdfcf.stex" ]
 
 [params]
 

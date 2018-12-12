@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DialogueAnim1.png-a2550a710950e408d5a633b9564a75d6.stex"
+path="res://.import/ButtonAnim3.png-351bc3ad71cc181edfb049ba52173fd4.stex"
 
 [deps]
 
-source_file="res://Art/Animation/DialogueAnim/DialogueAnim1.png"
-dest_files=[ "res://.import/DialogueAnim1.png-a2550a710950e408d5a633b9564a75d6.stex" ]
+source_file="res://Art/Animation/Button/ButtonAnim3.png"
+dest_files=[ "res://.import/ButtonAnim3.png-351bc3ad71cc181edfb049ba52173fd4.stex" ]
 
 [params]
 
@@ -17,7 +17,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

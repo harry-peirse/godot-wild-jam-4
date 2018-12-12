@@ -23,6 +23,6 @@ sky_obstacle_frequency = 1.5
 [node name="Snowman" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138.259, 506.795 )
 
-[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
