@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -12,9 +12,13 @@
 [ext_resource path="res://Art/Animation/Torch/TorchAnimation3.png" type="Texture" id=10]
 [ext_resource path="res://Art/Animation/Torch/TorchAnimation4.png" type="Texture" id=11]
 [ext_resource path="res://scenes/levels/ChimneyDescent1/ExitDoor.gd" type="Script" id=12]
-[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=13]
-[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=14]
-[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=13]
+[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=14]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,6 +40,15 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 
 extents = Vector2( 49.3599, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "Door",
+"speed": 7.0
+} ]
 
 [node name="ChimneyDescent1" type="Node"]
 
@@ -129,24 +142,18 @@ texture = ExtResource( 7 )
 [node name="Torch1" type="AnimatedSprite" parent="."]
 position = Vector2( 384, 95.425 )
 frames = SubResource( 3 )
-frame = 2
 playing = true
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 1280, 95.425 )
 frames = SubResource( 3 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="ExitDoor" type="Area2D" parent="."]
+editor/display_folded = true
 collision_mask = 1024
 script = ExtResource( 12 )
-
-[node name="ExitDoor" type="Sprite" parent="ExitDoor"]
-position = Vector2( 2080, 128 )
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( 0, 128, 64, 128 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
 position = Vector2( 2011.38, 128 )
@@ -155,18 +162,24 @@ shape = SubResource( 4 )
 [node name="Button" type="Sprite" parent="ExitDoor"]
 visible = false
 position = Vector2( 2062.64, 64 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
 [node name="Timer" type="Timer" parent="ExitDoor"]
 
 [node name="DoorSFX" type="AudioStreamPlayer" parent="ExitDoor"]
-stream = ExtResource( 15 )
+stream = ExtResource( 14 )
 volume_db = -6.0
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
+[node name="ExitDoor" type="AnimatedSprite" parent="ExitDoor"]
+position = Vector2( 2079.31, 128 )
+z_index = 2
+frames = SubResource( 5 )
+animation = "Door"
+
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]

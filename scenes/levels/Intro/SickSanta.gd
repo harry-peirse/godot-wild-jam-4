@@ -14,6 +14,7 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	$Dialogue1.visible = true
 	$DialogueButton.visible = true
+	$LightningDialogue.visible = true
 	is_in_area = true
 	
 func _on_Area2D_area_exited(area):
@@ -67,6 +68,7 @@ func _process(delta):
 			$DialogueButton.visible = false
 	if (in_range_E)&&(Input.is_key_pressed(KEY_E))&&(dialogue_end)&&(!already):
 		already = true
+		$Door.play("Door")
 		$DoorSFX.play()
 		t.set_wait_time(1)
 		t.start()

@@ -809,3 +809,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Bag" type="Sprite" parent="."]
+position = Vector2( 864, 672 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 256, 64, 64 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sign" type="Sprite" parent="."]
+position = Vector2( 928, 672 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 64, 128 )
+__meta__ = {
+"_edit_lock_": true
+}
+

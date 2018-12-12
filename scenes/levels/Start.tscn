@@ -1,24 +1,51 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=2]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=3]
-[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=4]
-[ext_resource path="res://scenes/levels/Start/Area2D.gd" type="Script" id=5]
-[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/Start/Area2D.gd" type="Script" id=4]
+[ext_resource path="res://assets/tilesets/Dialogue.png" type="Texture" id=5]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=6]
 [ext_resource path="res://assets/SFX/EButton.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation1.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation2.png" type="Texture" id=10]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation3.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation4.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation5.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation6.png" type="Texture" id=14]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=15]
+[ext_resource path="res://scenes/levels/Tutorial.gd" type="Script" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 160, 64 )
 
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 21, 21 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 10, 145 )
+
 [node name="ChimneyDescent2" type="Node"]
 
 [node name="Snowman" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 384 )
+position = Vector2( 153, 421 )
 z_index = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 scale = Vector2( 5.7329, 2.4165 )
@@ -28,13 +55,13 @@ centered = false
 [node name="Stucture(0)" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( 458752, 18, 0, 458753, 18, 0, 458754, 18, 0, 458755, 18, 0, 458756, 18, 0, 458757, 18, 0, 458758, 18, 0, 458759, 18, 0, 458760, 18, 0, 458761, 18, 0, 458762, 18, 0, 458763, 18, 0, 458764, 18, 0, 458765, 18, 0, 458766, 18, 0, 458767, 18, 0, 458768, 18, 0, 458769, 18, 0, 524288, 12, 0, 524289, 12, 0, 524290, 12, 0, 524291, 12, 0, 524292, 12, 0, 524293, 12, 0, 524294, 12, 0, 524295, 12, 0, 524296, 12, 0, 524297, 12, 0, 524298, 12, 0, 524299, 12, 0, 524300, 12, 0, 524301, 12, 0, 524302, 12, 0, 524303, 12, 0, 524304, 12, 0, 524305, 12, 0, 589824, 12, 0, 589825, 12, 0, 589826, 12, 0, 589827, 12, 0, 589828, 12, 0, 589829, 12, 0, 589830, 12, 0, 589831, 12, 0, 589832, 12, 0, 589833, 12, 0, 589834, 12, 0, 589835, 12, 0, 589836, 12, 0, 589837, 12, 0, 589838, 12, 0, 589839, 12, 0, 589840, 12, 0, 589841, 12, 0 )
+tile_data = PoolIntArray( 327696, 48, 0, 458752, 18, 0, 458753, 18, 0, 458754, 18, 0, 458755, 18, 0, 458756, 18, 0, 458757, 18, 0, 458758, 18, 0, 458759, 18, 0, 458760, 18, 0, 458761, 18, 0, 458762, 18, 0, 458763, 18, 0, 458764, 18, 0, 458765, 18, 0, 458766, 18, 0, 458767, 18, 0, 458768, 18, 0, 458769, 18, 0, 524288, 12, 0, 524289, 12, 0, 524290, 12, 0, 524291, 12, 0, 524292, 12, 0, 524293, 12, 0, 524294, 12, 0, 524295, 12, 0, 524296, 12, 0, 524297, 12, 0, 524298, 12, 0, 524299, 12, 0, 524300, 12, 0, 524301, 12, 0, 524302, 12, 0, 524303, 12, 0, 524304, 12, 0, 524305, 12, 0, 589824, 12, 0, 589825, 12, 0, 589826, 12, 0, 589827, 12, 0, 589828, 12, 0, 589829, 12, 0, 589830, 12, 0, 589831, 12, 0, 589832, 12, 0, 589833, 12, 0, 589834, 12, 0, 589835, 12, 0, 589836, 12, 0, 589837, 12, 0, 589838, 12, 0, 589839, 12, 0, 589840, 12, 0, 589841, 12, 0 )
 
 [node name="Backgound(-3)" type="TileMap" parent="."]
 z_index = -3
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( 65549, 26, 0, 327683, 35, 0, 327687, 34, 0, 327691, 35, 0, 393216, 19, 0, 393217, 19, 0, 393218, 19, 0, 393219, 19, 0, 393220, 19, 0, 393221, 19, 0, 393222, 19, 0, 393223, 19, 0, 393224, 19, 0, 393225, 19, 0, 393226, 19, 0, 393227, 19, 0, 393228, 19, 0, 393229, 19, 0, 393230, 19, 0, 393231, 19, 0, 393232, 19, 0, 393233, 19, 0 )
+tile_data = PoolIntArray( 65549, 26, 0, 327683, 35, 0, 327687, 34, 0, 393216, 19, 0, 393217, 19, 0, 393218, 19, 0, 393219, 19, 0, 393220, 19, 0, 393221, 19, 0, 393222, 19, 0, 393223, 19, 0, 393224, 19, 0, 393225, 19, 0, 393226, 19, 0, 393227, 19, 0, 393228, 19, 0, 393229, 19, 0, 393230, 19, 0, 393231, 19, 0, 393232, 19, 0, 393233, 19, 0 )
 
 [node name="Nightsky(-4)" type="TileMap" parent="."]
 z_index = -4
@@ -53,42 +80,133 @@ tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 327686, 34, 0, 327688, 34, 0 )
 
-[node name="Sledge" type="Sprite" parent="."]
-position = Vector2( 848, 400 )
-scale = Vector2( 1.25, 1.5 )
-z_index = 1
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 448, 128, 64 )
-
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 864, 384 )
 shape = SubResource( 1 )
 
 [node name="Dialogue1" type="Sprite" parent="Area2D"]
-visible = false
+editor/display_folded = true
 position = Vector2( 832, 320 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 region_enabled = true
-region_rect = Rect2( 320, 64, 128, 64 )
+region_rect = Rect2( 128, 448, 128, 64 )
 
-[node name="Dialogue2" type="Sprite" parent="Area2D"]
-visible = false
-position = Vector2( 896, 352 )
+[node name="Light2D" type="Light2D" parent="Area2D/Dialogue1"]
+position = Vector2( 45, -31 )
+scale = Vector2( 0.83, 0.5 )
 texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 16, 16, 16 )
+color = Color( 0.933333, 0.768627, 0.329412, 1 )
 
 [node name="EButton" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource( 7 )
 
 [node name="Timer" type="Timer" parent="Area2D"]
 
+[node name="Bag" type="Sprite" parent="Area2D"]
+editor/display_folded = true
+position = Vector2( 728, 424 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 272, 48, 48 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D/Bag"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Bag/StaticBody2D"]
+position = Vector2( -4, 3 )
+shape = SubResource( 3 )
+
+[node name="BagButton" type="Sprite" parent="Area2D"]
+visible = false
+position = Vector2( 740, 404 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="BurningSledge" type="AnimatedSprite" parent="."]
+editor/display_folded = true
+position = Vector2( 848, 400 )
+scale = Vector2( 1.25, 1.5 )
+frames = SubResource( 2 )
+frame = 2
+playing = true
+
+[node name="Light2D" type="Light2D" parent="BurningSledge"]
+scale = Vector2( 2.5, 1.61 )
+texture = ExtResource( 6 )
+color = Color( 0.988235, 0.784314, 0.309804, 1 )
+
+[node name="CameraShade" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.388235 )
+position = Vector2( 576, 320 )
+scale = Vector2( 7.54425, 3.57076 )
+z_index = 5
+texture = ExtResource( 15 )
+
+[node name="NextScene" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextScene"]
+position = Vector2( 1090, 300 )
+shape = SubResource( 4 )
+
+[node name="Tutorial" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 16 )
+
+[node name="Jump" type="Sprite" parent="Tutorial"]
+visible = false
+position = Vector2( 128, 352 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 64, 16, 128, 48 )
+
+[node name="DoubleJump" type="Sprite" parent="Tutorial"]
+visible = false
+position = Vector2( 192, 352 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 64, 16, 128, 48 )
+
+[node name="Dash" type="Sprite" parent="Tutorial"]
+visible = false
+position = Vector2( 256, 352 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 64, 16, 128, 48 )
+
+[node name="Running" type="Sprite" parent="Tutorial"]
+visible = false
+position = Vector2( 64, 352 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 64, 16, 128, 48 )
+
+[node name="Timer" type="Timer" parent="Tutorial"]
+
+[node name="Lights" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Lantern" type="Light2D" parent="Lights"]
+position = Vector2( 226, 332 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Light2D" type="Light2D" parent="Lights"]
+position = Vector2( 516, 203 )
+scale = Vector2( 8, 3 )
+texture = ExtResource( 6 )
+color = Color( 1, 1, 1, 0.619608 )
+shadow_enabled = true
+shadow_color = Color( 0.0941176, 0.0784314, 0.0784314, 0 )
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="NextScene" to="Area2D" method="_on_NextScene_area_entered"]
