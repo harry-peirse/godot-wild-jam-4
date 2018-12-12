@@ -1,4 +1,4 @@
 extends Node
 
 func _ready():
-	Music.silence()
+	Music.play_track(Music.tracks.safe)
