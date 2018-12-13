@@ -125,6 +125,7 @@ position = Vector2( 317.846, 189.89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Fire"
+frame = 4
 playing = true
 
 [node name="ChimneySFX" type="AudioStreamPlayer2D" parent="Chimney"]
@@ -168,7 +169,6 @@ visible = false
 position = Vector2( 701.509, 209.471 )
 frames = SubResource( 3 )
 animation = "Hovering"
-frame = 5
 playing = true
 
 [node name="Dialogue1" type="AnimatedSprite" parent="Area2D"]
@@ -177,7 +177,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 2
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue1"]
@@ -196,7 +196,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 2
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue2"]
@@ -215,7 +215,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Label3" type="Label" parent="Area2D/Dialogue3"]
@@ -234,7 +234,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Label4" type="Label" parent="Area2D/Dialogue4"]
@@ -254,7 +254,6 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 3
 playing = true
 
 [node name="Label5" type="Label" parent="Area2D/Dialogue5"]
@@ -273,7 +272,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Label6" type="Label" parent="Area2D/Dialogue6"]
@@ -292,7 +291,7 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Label7" type="Label" parent="Area2D/Dialogue7"]
@@ -336,7 +335,7 @@ visible = false
 position = Vector2( 72.4132, 37.0826 )
 frames = SubResource( 7 )
 animation = "Hovering"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Camera Shade" type="Sprite" parent="."]
@@ -350,7 +349,7 @@ editor/display_folded = true
 position = Vector2( 97.7546, 160.299 )
 frames = SubResource( 8 )
 animation = "Torch"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch"]
@@ -364,6 +363,7 @@ editor/display_folded = true
 position = Vector2( 672.018, 160.045 )
 frames = SubResource( 8 )
 animation = "Torch"
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch2"]
