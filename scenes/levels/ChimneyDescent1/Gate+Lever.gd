@@ -1,26 +1,31 @@
-extends Area2D
+extends Node
 
 onready var t = get_node("Timer")
-var in_area = false
-var already = false
 
-func _on_GateLever_area_entered(area):
-	if(!already):
-		in_area=true
-		$Button.visible = true
+var L1_area = false
+var L1_done = false
 
+var L2_area = false
+var L2_done = false
 
-func _on_GateLever_area_exited(area):
-	if(!already):
-		in_area=false
-		$Button.visible = true
+var gate_done = false
 	
 func _process(delta):
-	if (in_area)&&(Input.is_action_just_pressed("ConfirmButton")&&(!already)):
-		already = true
-		$Button.visible = false
-		$Lever.play("Switch")
-		$Lever/LeverSFX.play()
+	if (L1_area)&&(Input.is_action_just_pressed("ConfirmButton")&&(!L1_done)):
+		L1_done = true
+		$Lever1/Button.visible = false
+		$Lever1/Lever.play("Switch")
+		$LeverSFX.play()
+		
+	if(L2_area)&&(Input.is_action_just_pressed("ConfirmButton")&&(!L2_done)):
+		L2_done = true
+		$Lever2/Button.visible = false
+		$Lever2/Lever.play("Switch")
+		$LeverSFX.play()
+		
+	if(L1_done)&&(L2_done)&&(!gate_done):
+		gate_done=true
+		print("hello")
 		t.set_wait_time(1)
 		t.start()
 		yield(t, "timeout")
@@ -30,3 +35,27 @@ func _process(delta):
 		t.start()
 		yield(t, "timeout")
 		$Gate/StaticBody2D/CollisionShape2D.disabled =true
+		
+
+func _on_Lever1_area_entered(area):
+	if(!L1_done):
+		L1_area=true
+		$Lever1/Button.visible = true
+
+
+func _on_Lever1_area_exited(area):
+	if(!L1_done):
+		L1_area=false
+		$Lever1/Button.visible = true
+
+
+func _on_Lever2_area_entered(area):
+	if(!L2_done):
+		L2_area=true
+		$Lever2/Button.visible = true
+
+
+func _on_Lever2_area_exited(area):
+	if(!L2_done):
+		L2_area=false
+		$Lever2/Button.visible = false
