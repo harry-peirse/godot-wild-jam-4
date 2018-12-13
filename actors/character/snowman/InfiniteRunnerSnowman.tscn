@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.gd" type="Script" id=2]
 
 [node name="Snowman" instance=ExtResource( 1 )]
 input_pickable = false
 collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
+script = ExtResource( 2 )
 endurance = 1
 can_navigate = true
 has_camera = true
 camera_limit_top = null
 camera_limit_left = null
+camera_limit_bottom = null
+camera_limit_right = null
 
 [node name="Camera2D" parent="." index="0"]
 anchor_mode = 1
@@ -129,6 +133,9 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+
+[node name="SFXLibrary" parent="." index="13"]
+editor/display_folded = true
 
 [node name="RunningSFX" parent="SFXLibrary" index="0"]
 stream = null
