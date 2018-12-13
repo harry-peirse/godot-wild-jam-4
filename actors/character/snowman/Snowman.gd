@@ -17,6 +17,7 @@ const JUMP_STAGE_MAX = 3
 #This prevents the Snowman from walking or
 #dashing.
 export var can_navigate = true
+var can_handle_input = true
 export var has_camera = true
 export var camera_limit_top : int = 0
 export var camera_limit_left : int = 0
@@ -71,8 +72,11 @@ var size = 1;
 
 
 func process_frame(delta):
-	if can_navigate :
+	if can_navigate && can_handle_input :
 		handle_input( delta )
+		handle_jump_input()
+	elif can_handle_input :
+		handle_jump_input()
 	call( "process_" + FSM[fsm_state], delta )
 
 
@@ -95,7 +99,7 @@ func _ready():
 
 func been_hit( push : Vector2, damaged = false ):
 	#Start hitstun state.
-	can_navigate = false
+	can_handle_input = false
 	can_jump = false
 	fsm_state = "Hitstun"
 	emit_signal( "dash", false )
@@ -127,6 +131,11 @@ func handle_input( delta ):
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
 	
+	dash_cooldown = max( dash_cooldown - delta, 0 )
+
+
+func handle_jump_input():
+	#We need to check for jumpin.
 	#Prevent myself from jumping and double 
 	#jumping in one frame.
 	if( Input.is_action_just_pressed( "jump" ) &&
@@ -139,8 +148,6 @@ func handle_input( delta ):
 	elif( Input.is_action_pressed( "jump" ) == false ):
 		check_just_jumped = false
 		just_jumped = false
-	
-	dash_cooldown = max( dash_cooldown - delta, 0 )
 
 
 func health_gone():
@@ -171,13 +178,13 @@ func jump_held( delta ):
 
 func process_dash( delta ):
 	#Start a dash.
-	can_navigate = false
+	can_handle_input = false
 	dash_lasted += delta
 	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
 	if is_on_wall():
-		can_navigate = true
+		can_handle_input = true
 		self.position.x += DASH_PUSHBACK * sign(-dash_direction)
 		fsm_state = "Default"
 		dash_lasted = 0
@@ -188,7 +195,7 @@ func process_dash( delta ):
 		return
 	
 	if dash_lasted >= DASH_DURATION :
-		can_navigate = true
+		can_handle_input = true
 		fsm_state = "Default"
 		dash_lasted = 0
 		dash_cooldown = DASH_COOLDOWN_LENGTH
@@ -226,7 +233,7 @@ func process_hitstun( delta ):
 	#Move myself.
 	move_body()
 	
-	can_navigate = false
+	can_handle_input = false
 	
 	#I am invincible until the hitstun
 	#wears off.
@@ -235,7 +242,7 @@ func process_hitstun( delta ):
 	
 	hitstun_left -= delta
 	if hitstun_left <= 0 :
-		can_navigate = true
+		can_handle_input = true
 		hitstun_left = HITSTUN_WAIT
 		fsm_state = "Default"
 		if dash_lasted > 0 :
