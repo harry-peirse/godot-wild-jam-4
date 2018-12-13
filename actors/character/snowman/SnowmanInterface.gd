@@ -26,10 +26,8 @@ func change_anim( new_anim ):
 	
 	if($AnimatedSprite.animation == "Running")&&(!is_running):
 		is_running=true
-		print("active")
 		$SFXLibrary/Running2.playing = true
 	elif($AnimatedSprite.animation != "Running"):
-		print("inactive")
 		$SFXLibrary/Running2.playing =false
 		is_running = false
 		_running()

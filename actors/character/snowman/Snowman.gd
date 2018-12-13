@@ -261,9 +261,10 @@ func slope():
 	elif $FloorRight.is_colliding() :
 		slope = $FloorRight.get_collision_normal()
 	
-
 	return slope.rotated( 1.570796 ).angle() * int( allow_slope )
 
+func _on_Fountain_fountain_entered():
+	emit_signal("gain_health", 100)
 
 func is_snowman():
 	return
