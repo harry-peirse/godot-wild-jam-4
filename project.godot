@@ -25,6 +25,7 @@ Music="*res://globals/Music.tscn"
 Transition="*res://globals/Transition.tscn"
 SceneBrowser="*res://globals/SceneBrowser.tscn"
 SnowmanStats="*res://globals/SnowmanStats.tscn"
+Pause="*res://globals/Pause.tscn"
 
 [display]
 
