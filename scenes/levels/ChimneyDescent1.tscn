@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://scenes/levels/ChimneyDescent1.gd" type="Script" id=1]
 [ext_resource path="res://actors/enemy/dog/Dog.tscn" type="PackedScene" id=2]
@@ -42,26 +42,36 @@
 [ext_resource path="res://Art/Animation/Slope/SlopeAnim3.png" type="Texture" id=40]
 [ext_resource path="res://Art/Animation/Slope/SlopeAnim4.png" type="Texture" id=41]
 [ext_resource path="res://Art/Animation/Slope/SlopeAnim5.png" type="Texture" id=42]
-[ext_resource path="res://assets/SFX/Lever.wav" type="AudioStream" id=43]
-[ext_resource path="res://assets/Scene Props/Fire.tscn" type="PackedScene" id=44]
-[ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=45]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain1.png" type="Texture" id=46]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain2.png" type="Texture" id=47]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain3.png" type="Texture" id=48]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain4.png" type="Texture" id=49]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain5.png" type="Texture" id=50]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain6.png" type="Texture" id=51]
-[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=52]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim1.png" type="Texture" id=53]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim2.png" type="Texture" id=54]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim3.png" type="Texture" id=55]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim4.png" type="Texture" id=56]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim5.png" type="Texture" id=57]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim6.png" type="Texture" id=58]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim7.png" type="Texture" id=59]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim8.png" type="Texture" id=60]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim9.png" type="Texture" id=61]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim10.png" type="Texture" id=62]
+[ext_resource path="res://assets/SFX/Slope.wav" type="AudioStream" id=43]
+[ext_resource path="res://assets/SFX/Lever.wav" type="AudioStream" id=44]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=45]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=46]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=47]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=48]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=49]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=50]
+[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=51]
+[ext_resource path="res://assets/Scene Props/Fire.tscn" type="PackedScene" id=52]
+[ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=53]
+[ext_resource path="res://scenes/levels/Fountain.gd" type="Script" id=54]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain1.png" type="Texture" id=55]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain2.png" type="Texture" id=56]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain3.png" type="Texture" id=57]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain4.png" type="Texture" id=58]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain5.png" type="Texture" id=59]
+[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain6.png" type="Texture" id=60]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=61]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim1.png" type="Texture" id=62]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim2.png" type="Texture" id=63]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim3.png" type="Texture" id=64]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim4.png" type="Texture" id=65]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim5.png" type="Texture" id=66]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim6.png" type="Texture" id=67]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim7.png" type="Texture" id=68]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim8.png" type="Texture" id=69]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim9.png" type="Texture" id=70]
+[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim10.png" type="Texture" id=71]
+[ext_resource path="res://assets/SFX/Fountain.wav" type="AudioStream" id=72]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -153,16 +163,38 @@ b = Vector2( -32, 0 )
 [sub_resource type="SpriteFrames" id=15]
 
 animations = [ {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
 "loop": true,
-"name": "Fire",
+"name": "default",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=16]
 
 animations = [ {
-"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
+"loop": true,
+"name": "Fire",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+
+animations = [ {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=18]
+
+extents = Vector2( 93.0209, 67.1718 )
+
+[sub_resource type="SpriteFrames" id=19]
+
+animations = [ {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ) ],
 "loop": true,
 "name": "Hovering",
 "speed": 8.0
@@ -301,7 +333,6 @@ rotation = 1.5708
 shape = SubResource( 6 )
 
 [node name="Gate+Levers" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 24 )
 
 [node name="Lever1" type="Area2D" parent="Gate+Levers"]
@@ -325,7 +356,7 @@ playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
 editor/display_folded = true
-position = Vector2( 1992.24, 120.865 )
+position = Vector2( 1987.38, 128 )
 frames = SubResource( 10 )
 animation = "Open"
 
@@ -344,7 +375,6 @@ pitch_scale = 0.9
 [node name="Timer" type="Timer" parent="Gate+Levers"]
 
 [node name="Lever2" type="Area2D" parent="Gate+Levers"]
-editor/display_folded = true
 
 [node name="Lever" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
 position = Vector2( 31.8501, 735.733 )
@@ -362,7 +392,6 @@ frames = SubResource( 9 )
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
-editor/display_folded = true
 position = Vector2( 288, 768 )
 z_index = -1
 frames = SubResource( 13 )
@@ -374,30 +403,51 @@ animation = "Surface"
 shape = SubResource( 14 )
 disabled = true
 
-[node name="LeverSFX" type="AudioStreamPlayer" parent="Gate+Levers"]
+[node name="SlopeSFX" type="AudioStreamPlayer2D" parent="Gate+Levers/Lever2/Slope"]
+position = Vector2( 7.99994, -22.9998 )
 stream = ExtResource( 43 )
 volume_db = -6.0
+max_distance = 100.0
 
-[node name="Fire1" parent="." instance=ExtResource( 44 )]
+[node name="LeverSFX" type="AudioStreamPlayer" parent="Gate+Levers"]
+stream = ExtResource( 44 )
+volume_db = -6.0
+
+[node name="LockedDialogue" type="AnimatedSprite" parent="Gate+Levers"]
+editor/display_folded = true
+position = Vector2( 1888, 62.4906 )
+frames = SubResource( 15 )
+playing = true
+
+[node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
+margin_left = -46.0
+margin_top = -4.0
+margin_right = 46.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 51 )
+text = "Mhh...locked.
+"
+
+[node name="Fire1" parent="." instance=ExtResource( 52 )]
 position = Vector2( 224, 992 )
 
-[node name="Fire2" parent="." instance=ExtResource( 44 )]
+[node name="Fire2" parent="." instance=ExtResource( 52 )]
 position = Vector2( 608, 992 )
 
-[node name="Fire3" parent="." instance=ExtResource( 44 )]
-position = Vector2( 1004, 960 )
+[node name="Fire3" parent="." instance=ExtResource( 52 )]
+position = Vector2( 992.827, 992.822 )
 
-[node name="Fire4" parent="." instance=ExtResource( 44 )]
+[node name="Fire4" parent="." instance=ExtResource( 52 )]
 position = Vector2( 1632, 992 )
 
-[node name="Burglar" parent="." instance=ExtResource( 45 )]
+[node name="Burglar" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 416, 928 )
 
 [node name="Sight" parent="Burglar" instance=ExtResource( 3 )]
 scale = Vector2( 0.9, 1 )
 
-[node name="Burglar2" parent="." instance=ExtResource( 45 )]
+[node name="Burglar2" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 800, 927.405 )
 
@@ -416,33 +466,79 @@ position = Vector2( 1152, 671.385 )
 
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
 
-[node name="Fountain" type="AnimatedSprite" parent="."]
+[node name="Fountain" type="Area2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 54 )
+
+[node name="Fountain" type="AnimatedSprite" parent="Fountain"]
+editor/display_folded = true
 position = Vector2( 2016, 416 )
-frames = SubResource( 15 )
+frames = SubResource( 16 )
 animation = "Fire"
 frame = 1
 playing = true
 
-[node name="Light2D" type="Light2D" parent="Fountain"]
+[node name="Light2D" type="Light2D" parent="Fountain/Fountain"]
 position = Vector2( 0, -17.5094 )
 scale = Vector2( 4, 1 )
-texture = ExtResource( 52 )
+texture = ExtResource( 61 )
 color = Color( 0.309804, 0.741176, 0.721569, 0.607843 )
 energy = 2.0
 
-[node name="Snowflake" type="AnimatedSprite" parent="."]
-position = Vector2( 2016, 384 )
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 16 )
-animation = "Hovering"
+[node name="FountainDialogue" type="AnimatedSprite" parent="Fountain/Fountain"]
+editor/display_folded = true
+visible = false
+position = Vector2( -96.1021, -123.56 )
+frames = SubResource( 17 )
+frame = 5
 playing = true
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
+[node name="Label" type="Label" parent="Fountain/Fountain/FountainDialogue"]
+margin_left = -53.0
+margin_top = -13.0
+margin_right = 80.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 51 )
+text = "A fountain...
+Time to rest 
+a bit."
+
+[node name="Light2D" type="Light2D" parent="Fountain/Fountain/FountainDialogue"]
+position = Vector2( 35.357, -14.397 )
+scale = Vector2( 1.52, 0.67 )
+texture = ExtResource( 61 )
+color = Color( 0.905882, 0.901961, 0.603922, 0.584314 )
+energy = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fountain"]
+position = Vector2( 1969.91, 386.215 )
+shape = SubResource( 18 )
+
+[node name="Snowflake" type="AnimatedSprite" parent="Fountain"]
+position = Vector2( 2016, 384 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 19 )
+animation = "Hovering"
+frame = 3
+playing = true
+
+[node name="Timer" type="Timer" parent="Fountain"]
+
+[node name="Fountain2" type="AudioStreamPlayer2D" parent="Fountain"]
+position = Vector2( 1968.02, 388.185 )
+stream = ExtResource( 72 )
+volume_db = -12.0
+autoplay = true
+max_distance = 500.0
+
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_entered"]
 [connection signal="area_exited" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever2" to="Gate+Levers" method="_on_Lever2_area_entered"]
 [connection signal="area_exited" from="Gate+Levers/Lever2" to="Gate+Levers" method="_on_Lever2_area_exited"]
+[connection signal="area_entered" from="Fountain" to="Fountain" method="_on_Fountain_area_entered"]
+[connection signal="area_exited" from="Fountain" to="Fountain" method="_on_Fountain_area_exited"]

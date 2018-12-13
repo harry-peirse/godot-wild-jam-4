@@ -23,6 +23,7 @@ func _process(delta):
 		$Lever2/Lever.play("Switch")
 		$LeverSFX.play()
 		$Lever2/Slope.play("Surface")
+		$Lever2/Slope/SlopeSFX.play()
 		$Lever2/Slope/StaticBody2D/CollisionShape2D.disabled=false
 		
 	if(L1_done)&&(L2_done)&&(!gate_done):
@@ -37,6 +38,9 @@ func _process(delta):
 		t.start()
 		yield(t, "timeout")
 		$Gate/StaticBody2D/CollisionShape2D.disabled =true
+		
+	if(L1_done)||(L2_done):
+		$LockedDialogue.visible = false
 		
 
 func _on_Lever1_area_entered(area):
