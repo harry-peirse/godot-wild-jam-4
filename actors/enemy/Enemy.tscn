@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://actors/enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/collisions/Footstool.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=5]
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 0
@@ -40,4 +41,10 @@ push_self = Vector2( 300, 0 )
 [node name="Ceiling" type="RayCast2D" parent="."]
 position = Vector2( 0, -34.4413 )
 cast_to = Vector2( 0, -5 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 5 )]
+margin_left = -60.0
+margin_top = 56.0
+margin_right = 68.0
+margin_bottom = 88.0
 
