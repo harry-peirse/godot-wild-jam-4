@@ -95,6 +95,10 @@ func _ready():
 	$Camera2D.limit_left = camera_limit_left
 	$Camera2D.limit_bottom = camera_limit_bottom
 	$Camera2D.limit_right = camera_limit_right
+	
+	#Get what my current health is from SnowmanStats
+	set_health( SnowmanStats.current_health )
+	self.connect( "health_changed", SnowmanStats, "change_health" )
 
 
 func been_hit( push : Vector2, damaged = false ):

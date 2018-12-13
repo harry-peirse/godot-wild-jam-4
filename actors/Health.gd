@@ -66,3 +66,8 @@ func lost_health( amount : float ):
 		emit_signal( "lost_all_health" ) 
 	
 	return health_changed()
+
+
+func set_health( new_health ):
+	health = new_health
+	health_changed()
