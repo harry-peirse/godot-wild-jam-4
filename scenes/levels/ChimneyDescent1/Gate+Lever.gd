@@ -22,6 +22,8 @@ func _process(delta):
 		$Lever2/Button.visible = false
 		$Lever2/Lever.play("Switch")
 		$LeverSFX.play()
+		$Lever2/Slope.play("Surface")
+		$Lever2/Slope/StaticBody2D/CollisionShape2D.disabled=false
 		
 	if(L1_done)&&(L2_done)&&(!gate_done):
 		gate_done=true
