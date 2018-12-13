@@ -8,7 +8,7 @@ extends "res://actors/physics/Physics.gd"
 #These are the constants that will always be
 #affecting us.
 const DOUBLE_JUMP = -1000
-const JUMP_STRENGTH = -300
+const JUMP_STRENGTH = -350
 const JUMP_STAGE_1 = 0.011167 * 5
 const JUMP_STAGE_2 = 0.011167 * 8
 const JUMP_STAGE_3 = 0.011167 * 10
