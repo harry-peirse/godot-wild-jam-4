@@ -28,7 +28,8 @@ var chase_object
 var fsm_dict = {
 	"Wander" : "wander",
 	"Chase" : "chase",
-	"Pushed" : "pushed"
+	"Pushed" : "pushed",
+	"Die" : "die"
 }
 var fsm_state = "Wander"
 
@@ -36,19 +37,25 @@ var direction = "Right"
 var move_direction = 1
 var ignore_falloff = false
 
+#Death last for this long.
+var is_alive = true
+var death_wait = 0.016667 * 120
+
 #Knockback variables.
 const PUSHBACK_WAIT = 0.011167 * 20
 var pushback_left = PUSHBACK_WAIT
 var is_damaged = false
 
 
-
 func _ready():
-	self.connect( "lost_all_health", self, "queue_free" )
+	self.connect( "lost_all_health", self, "ready_to_die" )
+	
+	$AnimSprite.play()
 
 
 func _process(delta):
-	handle_physics( delta )
+	if is_alive :
+		handle_physics( delta )
 	call( "process_" + fsm_dict[ fsm_state ], delta )
 
 
@@ -60,6 +67,10 @@ func been_hit( push : Vector2, damaged = false):
 
 
 func chase_snowman( snowman ):
+	#Ignore everything if dead.
+	if is_alive == false:
+		return
+	
 	if snowman == null :
 		chase_object = null
 		fsm_state = "Wander"
@@ -90,6 +101,13 @@ func process_chase( delta ):
 			jump()
 
 	move_body()
+
+
+func process_die( delta ): 
+	death_wait -= delta
+	
+	if death_wait <= 0 :
+		self.queue_free()
 
 
 func process_pushed( delta ):
@@ -151,6 +169,22 @@ func process_wander( delta ):
 	
 	move_body()
 
+
+func ready_to_die():
+	#Get ready to die.
+	#First remove all hitbox collisions.
+	for child in get_children() :
+		if child.has_method( "is_activated" ) :
+			child.is_activated( false )
+	
+	#Play the sprite and wait for a while before free'ing.
+	is_alive = false
+	chase_object = null
+	self.emit_signal( "change_anim", "Die" )
+	fsm_state = "Die"
+	
+	#Let everything else be in front of me.
+	self.z_index = -1
 
 
 
