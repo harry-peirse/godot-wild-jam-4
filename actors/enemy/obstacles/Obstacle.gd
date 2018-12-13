@@ -15,4 +15,3 @@ func _process(delta):
 		
 func _on_RigidBody2D_area_entered(actor):
 	actor.get_parent().been_hit(Vector2(0,0), true)
-	pass # Replace with function body.

@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://actors/enemy/obstacles/Obstacle.gd" type="Script" id=1]
-
-[sub_resource type="CapsuleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
 
 [node name="Obstacle" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,8 +14,5 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 1 )
 
 [connection signal="area_entered" from="RigidBody2D" to="." method="_on_RigidBody2D_area_entered"]
