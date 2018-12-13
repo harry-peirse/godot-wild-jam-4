@@ -53,6 +53,8 @@ var jump_mod : Array = [ 0, -140, -200, -300 ]
 signal jump
 signal double_jump
 var has_double_jump = true
+var just_jumped = false
+var check_just_jumped = false
 
 #Dash variables
 signal dash
@@ -68,7 +70,7 @@ onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
 
-func _process(delta):
+func process_frame(delta):
 	if can_navigate :
 		handle_input( delta )
 	call( "process_" + FSM[fsm_state], delta )
@@ -125,6 +127,19 @@ func handle_input( delta ):
 		$DashHitbox.is_activated( true )
 		$Hurtbox.is_activated( false )
 	
+	#Prevent myself from jumping and double 
+	#jumping in one frame.
+	if( Input.is_action_just_pressed( "jump" ) &&
+	check_just_jumped == false ):
+		just_jumped = true
+		check_just_jumped = true
+	elif( Input.is_action_pressed( "jump" ) &&
+	check_just_jumped == true ):
+		just_jumped = false
+	elif( Input.is_action_pressed( "jump" ) == false ):
+		check_just_jumped = false
+		just_jumped = false
+	
 	dash_cooldown = max( dash_cooldown - delta, 0 )
 
 
@@ -137,7 +152,7 @@ func health_gone():
 func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
-		jump_held += delta
+		jump_held += FRAME
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
 		if jump_stage == 2 :
@@ -149,7 +164,6 @@ func jump_held( delta ):
 			if jump_stage > JUMP_STAGE_MAX :
 				jump_held = 0
 				jump_stage = 1
-		
 	else:
 		jump_held = 0
 		jump_stage = 1
@@ -193,19 +207,19 @@ func process_default( delta ):
 	if on_floor :
 		has_double_jump = true
 		jump_held = 0
-		if Input.is_action_just_pressed( "jump" ) :
+		if just_jumped :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
 			emit_signal( "jump" )
 	
 	elif has_double_jump :
-			if Input.is_action_just_pressed( "jump" ) :
+			if just_jumped :
 				emit_signal( "double_jump" )
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
 				$DoubleJumpFX.emitting = true
 	  
-	move_body()
+	move_body( velocity, delta)
 
 
 func process_hitstun( delta ):

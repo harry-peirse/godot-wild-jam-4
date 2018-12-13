@@ -29,6 +29,19 @@ var on_floor = false
 
 var run_physics : bool = true
 
+#This will allow us to get the same results from
+#calculations even at different frame rates.
+const FRAME = 0.016667
+var time_passed = 0
+
+
+func _process(delta):
+	#Handle the frame rate.
+	time_passed += delta
+	while time_passed >= FRAME :
+		process_frame( delta )
+		time_passed -= FRAME
+
 
 func _ready():
 	self.connect( "pushback", self, "pushback" )
@@ -109,9 +122,13 @@ func on_floor():
 	return currently_on_floor
 
 
-func move_body( move_by = velocity.rotated( slope() ) ):
-	move_and_slide_with_snap( move_by , Vector2( 0, -1 ), FLOOR )
+func move_body( move_by = velocity.rotated( slope() ), delta = FRAME ):
+	move_and_slide_with_snap( (move_by / delta) * FRAME, Vector2( 0, -1 ), FLOOR )
 	flip_h()
+
+
+func process_frame( delta ):
+	pass
 
 
 func pushback( push : Vector2, damaged = false ):
