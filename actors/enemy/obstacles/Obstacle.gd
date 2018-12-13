@@ -13,5 +13,6 @@ func _process(delta):
 	if position.x < 0:
 		queue_free()
 		
-func _on_RigidBody2D_area_shape_entered(area_id, area, area_shape, self_shape):
-	emit_signal("hit_obstacle", damage_amount)
+func _on_RigidBody2D_area_entered(actor):
+	actor.get_parent().been_hit(Vector2(0,0), true)
+	pass # Replace with function body.
