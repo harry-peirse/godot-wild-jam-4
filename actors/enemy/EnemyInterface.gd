@@ -13,7 +13,7 @@ extends "res://actors/enemy/Enemy.gd"
 
 
 func flip_sprite( boolean ):
-	$Sprite2.flip_h = boolean
+	$AnimSprite.flip_h = boolean
 
 
 func _ready():
@@ -22,4 +22,4 @@ func _ready():
 
 
 func change_anim( new_anim ):
-	pass
+	$AnimSprite.animation = new_anim

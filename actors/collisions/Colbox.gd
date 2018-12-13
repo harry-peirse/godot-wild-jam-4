@@ -1,6 +1,7 @@
 extends Area2D
 
 const PLAYER_LAYER = 1
+const FOOTSTOOL_LAYER = 2
 const ENEMY_LAYER = 3
 
 #Base script for hitbox and hurtbox.

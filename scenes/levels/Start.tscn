@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/levels/Start.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -27,8 +27,9 @@
 [ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation4.png" type="Texture" id=25]
 [ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation5.png" type="Texture" id=26]
 [ext_resource path="res://Art/Animation/SledgeBurningAnimation/SledgeBurningAnimation6.png" type="Texture" id=27]
-[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=28]
-[ext_resource path="res://scenes/levels/Tutorial.gd" type="Script" id=29]
+[ext_resource path="res://assets/SFX/FireSledge.wav" type="AudioStream" id=28]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=29]
+[ext_resource path="res://scenes/levels/Start/Tutorial.gd" type="Script" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -167,7 +168,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 763, 339 )
 frames = SubResource( 2 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Area2D/Dialogue1"]
@@ -209,15 +210,13 @@ shape = SubResource( 3 )
 visible = false
 position = Vector2( 748, 412 )
 frames = SubResource( 4 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="BurningSledge" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 position = Vector2( 848, 400 )
 scale = Vector2( 1.25, 1.5 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="BurningSledge"]
@@ -225,12 +224,19 @@ scale = Vector2( 2.5, 1.61 )
 texture = ExtResource( 12 )
 color = Color( 0.988235, 0.784314, 0.309804, 1 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BurningSledge"]
+stream = ExtResource( 28 )
+pitch_scale = 1.1
+autoplay = true
+max_distance = 500.0
+attenuation = 1.51572
+
 [node name="CameraShade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.388235 )
 position = Vector2( 832, 300 )
 scale = Vector2( 9.38823, 3.57076 )
 z_index = 5
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="NextScene" type="Area2D" parent="."]
 collision_layer = 0
@@ -241,14 +247,14 @@ position = Vector2( 1090, 300 )
 shape = SubResource( 6 )
 
 [node name="Tutorial" type="Node" parent="."]
-script = ExtResource( 29 )
+script = ExtResource( 30 )
 
 [node name="Running" type="AnimatedSprite" parent="Tutorial"]
 editor/display_folded = true
 visible = false
 position = Vector2( 64, 352 )
 frames = SubResource( 7 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="Label4" type="Label" parent="Tutorial/Running"]
@@ -264,7 +270,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 128, 352 )
 frames = SubResource( 8 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label1" type="Label" parent="Tutorial/Jump"]
@@ -280,7 +286,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 192, 352 )
 frames = SubResource( 9 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="Label2" type="Label" parent="Tutorial/DoubleJump"]
@@ -296,7 +302,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 256, 352 )
 frames = SubResource( 10 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label3" type="Label" parent="Tutorial/Dash"]

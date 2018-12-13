@@ -33,9 +33,15 @@ var run_physics : bool = true
 func _ready():
 	self.connect( "pushback", self, "pushback" )
 	self.connect( "foot_stomped", self, "foot_stomped" )
+	self.connect( "foot_stooled", self, "foot_stooled" )
 
 
 func been_hit( push : Vector2, damaged = false ):
+	pass
+
+
+func foot_stooled():
+	#I am angry with a bug right now.
 	pass
 
 
