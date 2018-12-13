@@ -1,5 +1,7 @@
 extends "res://actors/character/snowman/Snowman.gd"
 
+var is_running =false
+
 
 func flip_sprite( boolean ):
 	$AnimatedSprite.flip_h = boolean
@@ -17,13 +19,26 @@ func _ready():
 	#right when level has just started.
 	flip_sprite( true )
 
-
 func change_anim( new_anim ):
 	if $AnimatedSprite.animation != new_anim :
 		$AnimatedSprite.animation = new_anim
 	$AnimatedSprite.play()
+	
+	if($AnimatedSprite.animation == "Running")&&(!is_running):
+		is_running=true
+		print("active")
+		$SFXLibrary/Running2.playing = true
+	elif($AnimatedSprite.animation != "Running"):
+		print("inactive")
+		$SFXLibrary/Running2.playing =false
+		is_running = false
+		_running()
 
 
+func _running():
+	pass
+	
+	
 func dash( is_dashing : bool ):
 	if is_dashing :
 		$DashFX.emitting = true

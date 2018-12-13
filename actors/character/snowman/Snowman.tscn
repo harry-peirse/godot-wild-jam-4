@@ -1,15 +1,15 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://actors/character/snowman/SnowmanInterface.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/character/snowman/DoubleJumpFX.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=10]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=13]
@@ -18,29 +18,32 @@
 [ext_resource path="res://assets/SFX/swoosh_metalpipe_06.wav" type="AudioStream" id=16]
 [ext_resource path="res://assets/SFX/GroundImpact.wav" type="AudioStream" id=17]
 [ext_resource path="res://assets/SFX/Dash.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/SFX/Running1.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/SFX/Running2.wav" type="AudioStream" id=20]
+[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
+"name": "Jumping",
+"speed": 3.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Running",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Falling",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Jumping",
-"speed": 3.0
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -63,8 +66,6 @@ height = 23.2675
 [node name="Snowman" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 1 )
-camera_limit_bottom = 10000
-camera_limit_right = 10000
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -147,8 +148,6 @@ shape = SubResource( 5 )
 
 [node name="SFXLibrary" type="Node2D" parent="."]
 
-[node name="RunningSFX" type="AudioStreamPlayer2D" parent="SFXLibrary"]
-
 [node name="DoubleJumpSFX" type="AudioStreamPlayer" parent="SFXLibrary"]
 stream = ExtResource( 15 )
 volume_db = -9.0
@@ -165,10 +164,23 @@ volume_db = -23.0
 stream = ExtResource( 18 )
 volume_db = -9.0
 
+[node name="Running1" type="AudioStreamPlayer" parent="SFXLibrary"]
+stream = ExtResource( 19 )
+volume_db = -26.0
+pitch_scale = 0.8
+
+[node name="Running2" type="AudioStreamPlayer" parent="SFXLibrary"]
+stream = ExtResource( 20 )
+volume_db = -30.0
+pitch_scale = 0.8
+
 [node name="Sight" type="Area2D" parent="."]
 collision_layer = 16
+collision_mask = 0
 
 [node name="Col" type="CollisionShape2D" parent="Sight"]
 position = Vector2( 0, 4.97058 )
 shape = SubResource( 2 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 21 )]
 

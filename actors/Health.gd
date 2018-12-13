@@ -29,6 +29,10 @@ func _ready():
 		if child.has_method( "set_health_object" ):
 			child.set_health_object( self )
 			child.update_value( health )
+		
+		#Check if we have a health bar.
+		if child.has_method( "is_health_bar" ) :
+			self.connect( "health_changed", child, "update_value" )
 
 
 func damage( amount : float ):

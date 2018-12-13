@@ -8,7 +8,7 @@ extends "res://actors/physics/Physics.gd"
 #These are the constants that will always be
 #affecting us.
 const DOUBLE_JUMP = -1000
-const JUMP_STRENGTH = -300
+const JUMP_STRENGTH = -350
 const JUMP_STAGE_1 = 0.011167 * 5
 const JUMP_STAGE_2 = 0.011167 * 8
 const JUMP_STAGE_3 = 0.011167 * 10
@@ -17,6 +17,7 @@ const JUMP_STAGE_MAX = 3
 #This prevents the Snowman from walking or
 #dashing.
 export var can_navigate = true
+var can_handle_input = true
 export var has_camera = true
 export var camera_limit_top : int = 0
 export var camera_limit_left : int = 0
@@ -53,6 +54,8 @@ var jump_mod : Array = [ 0, -140, -200, -300 ]
 signal jump
 signal double_jump
 var has_double_jump = true
+var just_jumped = false
+var check_just_jumped = false
 
 #Dash variables
 signal dash
@@ -68,9 +71,12 @@ onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
 
-func _process(delta):
-	if can_navigate :
+func process_frame(delta):
+	if can_navigate && can_handle_input :
 		handle_input( delta )
+		handle_jump_input()
+	elif can_handle_input :
+		handle_jump_input()
 	call( "process_" + FSM[fsm_state], delta )
 
 
@@ -93,7 +99,8 @@ func _ready():
 
 func been_hit( push : Vector2, damaged = false ):
 	#Start hitstun state.
-	can_navigate = false
+	jump_held = 0
+	can_handle_input = false
 	can_jump = false
 	fsm_state = "Hitstun"
 	emit_signal( "dash", false )
@@ -128,6 +135,22 @@ func handle_input( delta ):
 	dash_cooldown = max( dash_cooldown - delta, 0 )
 
 
+func handle_jump_input():
+	#We need to check for jumpin.
+	#Prevent myself from jumping and double 
+	#jumping in one frame.
+	if( Input.is_action_just_pressed( "jump" ) &&
+	check_just_jumped == false ):
+		just_jumped = true
+		check_just_jumped = true
+	elif( Input.is_action_pressed( "jump" ) &&
+	check_just_jumped == true ):
+		just_jumped = false
+	elif( Input.is_action_pressed( "jump" ) == false ):
+		check_just_jumped = false
+		just_jumped = false
+
+
 func health_gone():
 	#My health has been depleted.
 	#Play the death animation and die.
@@ -137,7 +160,7 @@ func health_gone():
 func jump_held( delta ):
 	#Determines how strong the jump should be.
 	if Input.is_action_pressed( "jump" ) :
-		jump_held += delta
+		jump_held += FRAME
 		
 		velocity.y = JUMP_STRENGTH + jump_mod[ jump_stage ] * size
 		if jump_stage == 2 :
@@ -149,7 +172,6 @@ func jump_held( delta ):
 			if jump_stage > JUMP_STAGE_MAX :
 				jump_held = 0
 				jump_stage = 1
-		
 	else:
 		jump_held = 0
 		jump_stage = 1
@@ -157,13 +179,13 @@ func jump_held( delta ):
 
 func process_dash( delta ):
 	#Start a dash.
-	can_navigate = false
+	can_handle_input = false
 	dash_lasted += delta
 	
 	move_and_slide( Vector2( dash_direction * DASH_SPEED, 0 ) )
 	
 	if is_on_wall():
-		can_navigate = true
+		can_handle_input = true
 		self.position.x += DASH_PUSHBACK * sign(-dash_direction)
 		fsm_state = "Default"
 		dash_lasted = 0
@@ -174,7 +196,7 @@ func process_dash( delta ):
 		return
 	
 	if dash_lasted >= DASH_DURATION :
-		can_navigate = true
+		can_handle_input = true
 		fsm_state = "Default"
 		dash_lasted = 0
 		dash_cooldown = DASH_COOLDOWN_LENGTH
@@ -193,26 +215,26 @@ func process_default( delta ):
 	if on_floor :
 		has_double_jump = true
 		jump_held = 0
-		if Input.is_action_just_pressed( "jump" ) :
+		if just_jumped :
 			velocity.y = JUMP_STRENGTH
 			jump_held += delta
 			emit_signal( "jump" )
 	
 	elif has_double_jump :
-			if Input.is_action_just_pressed( "jump" ) :
+			if just_jumped :
 				emit_signal( "double_jump" )
 				has_double_jump = false
 				velocity.y = DOUBLE_JUMP
 				$DoubleJumpFX.emitting = true
 	  
-	move_body()
+	move_body( velocity, delta)
 
 
 func process_hitstun( delta ):
 	#Move myself.
 	move_body()
 	
-	can_navigate = false
+	can_handle_input = false
 	
 	#I am invincible until the hitstun
 	#wears off.
@@ -221,7 +243,7 @@ func process_hitstun( delta ):
 	
 	hitstun_left -= delta
 	if hitstun_left <= 0 :
-		can_navigate = true
+		can_handle_input = true
 		hitstun_left = HITSTUN_WAIT
 		fsm_state = "Default"
 		if dash_lasted > 0 :

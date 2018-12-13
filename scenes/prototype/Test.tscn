@@ -13,6 +13,7 @@ show_behind_parent = true
 position = Vector2( 1187.55, 725.471 )
 
 [node name="Burglar" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 1521.18, 665.801 )
 
 [node name="Sight" parent="Burglar" instance=ExtResource( 3 )]

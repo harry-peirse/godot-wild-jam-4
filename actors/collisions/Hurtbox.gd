@@ -15,6 +15,7 @@ func collided( area ):
 func hurt( damage, hitbox ):
 	if is_active :
 		get_parent().emit_signal( "damage", damage )
+		
 
 
 func make_layer_active( set_activate ):
