@@ -219,9 +219,6 @@ __meta__ = {
 [node name="Snowman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 50, 100 )
 z_index = 1
-camera_limit_top = -49
-camera_limit_bottom = 1120
-camera_limit_right = 2112
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.49508, -49.1532 )
@@ -313,7 +310,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -352,6 +349,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -389,6 +387,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
+frame = 1
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -406,7 +405,8 @@ disabled = true
 [node name="SlopeSFX" type="AudioStreamPlayer2D" parent="Gate+Levers/Lever2/Slope"]
 position = Vector2( 7.99994, -22.9998 )
 stream = ExtResource( 43 )
-volume_db = -6.0
+volume_db = -7.0
+pitch_scale = 0.7
 max_distance = 100.0
 
 [node name="LeverSFX" type="AudioStreamPlayer" parent="Gate+Levers"]
@@ -417,6 +417,7 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -475,7 +476,7 @@ editor/display_folded = true
 position = Vector2( 2016, 416 )
 frames = SubResource( 16 )
 animation = "Fire"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Fountain/Fountain"]
@@ -490,7 +491,6 @@ editor/display_folded = true
 visible = false
 position = Vector2( -96.1021, -123.56 )
 frames = SubResource( 17 )
-frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="Fountain/Fountain/FountainDialogue"]
