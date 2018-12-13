@@ -99,6 +99,7 @@ func _ready():
 
 func been_hit( push : Vector2, damaged = false ):
 	#Start hitstun state.
+	jump_held = 0
 	can_handle_input = false
 	can_jump = false
 	fsm_state = "Hitstun"
