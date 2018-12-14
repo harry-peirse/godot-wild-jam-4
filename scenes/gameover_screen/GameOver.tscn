@@ -1,40 +1,56 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://scenes/basic_screen.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/gameover_screen/gameover.gd" type="Script" id=2]
-[ext_resource path="res://scenes/levels/LivingRoom.gd" type="Script" id=3]
-[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=4]
-[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation1.png" type="Texture" id=5]
-[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation2.png" type="Texture" id=6]
-[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation3.png" type="Texture" id=7]
-[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation4.png" type="Texture" id=8]
-[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation5.png" type="Texture" id=9]
-[ext_resource path="res://assets/SFX/Chimney.wav" type="AudioStream" id=10]
-[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=11]
-[ext_resource path="res://scenes/levels/LivingRoom/Dialogue.gd" type="Script" id=12]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=13]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=14]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=15]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=16]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=17]
-[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=18]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=19]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=20]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=21]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=22]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=23]
-[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=24]
-[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=25]
-[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=26]
-[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=27]
-[ext_resource path="res://assets/Scene Props/interface/game_over/Child.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/tilesets/NPC-Tileset.png" type="Texture" id=29]
-[ext_resource path="res://assets/Scene Props/interface/game_over/GameOverText.gd" type="Script" id=30]
+[ext_resource path="res://scenes/levels/LivingRoom.gd" type="Script" id=2]
+[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation3.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation4.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/Chimney/ChimneyAnimation5.png" type="Texture" id=8]
+[ext_resource path="res://assets/SFX/Chimney.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/tilesets/Big-Tileset.png" type="Texture" id=10]
+[ext_resource path="res://scenes/levels/LivingRoom/Dialogue.gd" type="Script" id=11]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=14]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=19]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=20]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=21]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=22]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=23]
+[ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=24]
+[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=25]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=26]
+[ext_resource path="res://assets/Scene Props/interface/game_over/Child.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking1.png" type="Texture" id=28]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking2.png" type="Texture" id=29]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking3.png" type="Texture" id=30]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking4.png" type="Texture" id=31]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying1.png" type="Texture" id=32]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying2.png" type="Texture" id=33]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying3.png" type="Texture" id=34]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying4.png" type="Texture" id=35]
+[ext_resource path="res://scenes/gameover_screen/gameover.gd" type="Script" id=36]
+[ext_resource path="res://assets/characters/healthbar/under.png" type="Texture" id=37]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking1.png" type="Texture" id=38]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking2.png" type="Texture" id=39]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking3.png" type="Texture" id=40]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking4.png" type="Texture" id=41]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying1.png" type="Texture" id=42]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying2.png" type="Texture" id=43]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying3.png" type="Texture" id=44]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying4.png" type="Texture" id=45]
+[ext_resource path="res://assets/Scene Props/interface/game_over/GameOverText.gd" type="Script" id=46]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -46,7 +62,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -55,66 +71,66 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "Crying",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "Crying",
+"speed": 5.0
+} ]
+
 [node name="Gameover" index="0" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+script = null
 
 [node name="Overlays" parent="." index="1"]
 editor/display_folded = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="2"]
-editor/display_folded = true
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 140.0
-margin_top = -290.0
-margin_right = -160.0
-margin_bottom = 110.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
-margin_right = 724.0
-margin_bottom = 400.0
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" index="0"]
-margin_top = 184.0
-margin_right = 724.0
-margin_bottom = 215.0
-size_flags_horizontal = 3
-text = "GAMEOVER
-"
-align = 1
-autowrap = true
-
-[node name="LivingRoom" type="Node" parent="." index="3"]
-script = ExtResource( 3 )
+[node name="LivingRoom" type="Node" parent="." index="2"]
+script = ExtResource( 2 )
 
 [node name="TileMap(structure)(0)" type="TileMap" parent="LivingRoom" index="0"]
 position = Vector2( 64, 0 )
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 131071, 11, 0, 65536, 11, 0, 65537, 11, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 11, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 196607, 11, 0, 131083, 11, 0, 262143, 11, 0, 196619, 11, 0, 327679, 11, 0, 262155, 11, 0, 393215, 11, 0, 327691, 11, 0, 458751, 11, 0, 393227, 11, 0, 524287, 11, 0, 458752, 7, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 7, 0, 458763, 11, 0, 458764, 18, 0, 458765, 18, 0, 458766, 18, 0, 458767, 18, 0, 458768, 18, 0, 589823, 11, 0, 524288, 11, 0, 524289, 11, 0, 524290, 11, 0, 524291, 11, 0, 524292, 11, 0, 524293, 11, 0, 524294, 11, 0, 524295, 11, 0, 524296, 11, 0, 524297, 11, 0, 524298, 11, 0, 524299, 11, 0, 524300, 12, 0, 524301, 12, 0, 524302, 12, 0, 524303, 12, 0, 524304, 12, 0 )
 
 [node name="TileMap(Background)(-2)" type="TileMap" parent="LivingRoom" index="1"]
 position = Vector2( 64, 0 )
 z_index = -2
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 65529, 28, 0, 65530, 1610612762, 0, 65531, 28, 0, 65532, 536870939, 0, 65533, 28, 0, 65534, 1610612764, 0, 65535, 28, 0, 0, 26, 0, 1, 26, 0, 2, 26, 0, 3, 26, 0, 4, 26, 0, 5, 26, 0, 6, 26, 0, 7, 28, 0, 8, 26, 0, 9, 26, 0, 10, 28, 0, 11, 26, 0, 12, 27, 0, 13, 26, 0, 14, 27, 0, 15, 26, 0, 16, 27, 0, 131065, 28, 0, 131066, 28, 0, 131067, 28, 0, 131068, 536870939, 0, 131069, 536870939, 0, 131070, 536870939, 0, 65548, 27, 0, 65549, 26, 0, 65550, 27, 0, 65551, 26, 0, 65552, 27, 0, 196601, 28, 0, 196602, 26, 0, 196603, 26, 0, 196604, 28, 0, 196605, 28, 0, 196606, 28, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 131084, 27, 0, 131085, 25, 0, 131086, 27, 0, 131087, 26, 0, 131088, 26, 0, 262137, 28, 0, 262138, 28, 0, 262139, 26, 0, 262140, 26, 0, 262141, 28, 0, 262142, 1073741850, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196611, 31, 0, 196612, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 196619, 27, 0, 196620, 27, 0, 196621, 27, 0, 196622, 26, 0, 196623, 26, 0, 196624, 27, 0, 327673, 536870939, 0, 327674, 28, 0, 327675, 26, 0, 327676, 28, 0, 327677, 26, 0, 327678, 1610612762, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0, 262156, 27, 0, 262157, 26, 0, 262158, 26, 0, 262159, 27, 0, 262160, 26, 0, 393209, 28, 0, 393210, 28, 0, 393211, 28, 0, 393212, 28, 0, 393213, 28, 0, 393214, 28, 0, 327680, 31, 0, 327681, 31, 0, 327682, 31, 0, 327683, 31, 0, 327684, 31, 0, 327685, 31, 0, 327686, 31, 0, 327687, 31, 0, 327688, 31, 0, 327689, 31, 0, 327690, 31, 0, 327692, 27, 0, 327693, 26, 0, 327694, 26, 0, 327695, 27, 0, 327696, 26, 0, 458745, 27, 0, 458746, 27, 0, 458747, 27, 0, 458748, 27, 0, 458749, 27, 0, 458750, 27, 0, 393216, 31, 0, 393217, 31, 0, 393218, 31, 0, 393219, 31, 0, 393220, 31, 0, 393221, 31, 0, 393222, 31, 0, 393223, 31, 0, 393224, 31, 0, 393225, 31, 0, 393226, 31, 0, 393228, 27, 0, 393229, 27, 0, 393230, 27, 0, 393231, 27, 0, 393232, 27, 0, 524281, 536870930, 0, 524282, 536870930, 0, 524283, 536870930, 0, 524284, 536870930, 0, 524285, 536870930, 0, 524286, 536870930, 0, 458752, 31, 0, 458753, 31, 0, 458754, 31, 0, 458755, 31, 0, 458756, 31, 0, 458757, 31, 0, 458758, 31, 0, 458759, 31, 0, 458760, 31, 0, 458761, 31, 0, 458762, 31, 0, 589817, 12, 0, 589818, 536870924, 0, 589819, 12, 0, 589820, 536870924, 0, 589821, 12, 0, 589822, 12, 0 )
 
 [node name="TileMap(Background)(-1)" type="TileMap" parent="LivingRoom" index="2"]
 position = Vector2( 64, 0 )
 z_index = -1
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 393210, 34, 0, 393212, 34, 0, 393214, 34, 0, 327692, 34, 0, 327694, 34, 0, 327695, 34, 0 )
 
@@ -122,11 +138,11 @@ tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 393210, 34, 0, 
 position = Vector2( 320, 288 )
 scale = Vector2( 2.707, 2.496 )
 frames = SubResource( 1 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LivingRoom/Chimney" index="0"]
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 volume_db = -6.0
 autoplay = true
 max_distance = 1000.0
@@ -134,7 +150,7 @@ max_distance = 1000.0
 [node name="Christmas Tree" type="Sprite" parent="LivingRoom" index="4"]
 position = Vector2( 584, 130 )
 scale = Vector2( 2.7067, 2.49626 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 128 )
@@ -144,7 +160,7 @@ editor/display_folded = true
 position = Vector2( 576, 320 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LivingRoom/Dialogue" index="0"]
 position = Vector2( 64, 32 )
@@ -157,14 +173,13 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 16, 48 )
 frames = SubResource( 3 )
-frame = 4
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="LivingRoom/Dialogue" index="3"]
 editor/display_folded = true
 visible = false
 frames = SubResource( 4 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="LivingRoom/Dialogue/Success" index="0"]
@@ -172,13 +187,13 @@ margin_left = -35.0
 margin_top = -9.0
 margin_right = 91.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = ExtResource( 24 )
 text = "Present 
 delivered!"
 
 [node name="Light2D" type="Light2D" parent="LivingRoom/Dialogue/Success" index="1"]
 position = Vector2( 48, -32 )
-texture = ExtResource( 26 )
+texture = ExtResource( 25 )
 color = Color( 0.980392, 0.913725, 0.65098, 1 )
 
 [node name="CameraShade" type="Sprite" parent="LivingRoom" index="6"]
@@ -186,48 +201,20 @@ modulate = Color( 1, 1, 1, 0.447059 )
 position = Vector2( 366.259, 288 )
 scale = Vector2( 8.66916, 3 )
 z_index = 4
-texture = ExtResource( 27 )
+texture = ExtResource( 26 )
 
 [node name="ChimneyLight" type="Light2D" parent="LivingRoom" index="7"]
-position = Vector2( 350.736, 382.156 )
+position = Vector2( 319.224, 382.156 )
 scale = Vector2( 2.69, 1.71 )
-texture = ExtResource( 26 )
+texture = ExtResource( 25 )
 color = Color( 0.952941, 0.909804, 0.709804, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LivingRoom" index="8"]
-margin_left = 272.763
-margin_top = 476.0
-margin_right = 413.763
-margin_bottom = 586.0
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Movement" type="Node2D" parent="." index="3"]
 
-[node name="Rematch" type="Button" parent="LivingRoom/VBoxContainer" index="0"]
-margin_right = 141.0
-margin_bottom = 20.0
-text = "Rematch"
-
-[node name="Menu" type="Button" parent="LivingRoom/VBoxContainer" index="1"]
-margin_top = 24.0
-margin_right = 141.0
-margin_bottom = 44.0
-text = "Back to menu"
-
-[node name="Quit" type="Button" parent="LivingRoom/VBoxContainer" index="2"]
-margin_top = 48.0
-margin_right = 141.0
-margin_bottom = 68.0
-text = "Quit"
-
-[node name="Movement" type="Node2D" parent="." index="4"]
-
-[node name="Child" parent="Movement" index="0" instance=ExtResource( 28 )]
-editor/display_folded = true
+[node name="Child" parent="Movement" index="0" instance=ExtResource( 27 )]
 position = Vector2( 204.816, 417.857 )
-texture = ExtResource( 29 )
-region_enabled = true
-region_rect = Rect2( 64, 0, 64, 64 )
+frames = SubResource( 5 )
+animation = "Crying"
 destination = 497
 
 [node name="Camera2D" type="Camera2D" parent="Movement/Child" index="0"]
@@ -235,25 +222,57 @@ position = Vector2( 112, -51 )
 current = true
 zoom = Vector2( 0.45, 0.45 )
 
-[node name="Child2" parent="Movement" index="1" instance=ExtResource( 28 )]
+[node name="Node" type="Node" parent="Movement/Child/Camera2D" index="0"]
+
+[node name="Menu" type="Sprite" parent="Movement/Child/Camera2D/Node" index="0"]
+position = Vector2( 289.085, 366.857 )
+z_index = 700
+script = ExtResource( 36 )
+
+[node name="Sprite" type="Sprite" parent="Movement/Child/Camera2D/Node/Menu" index="0"]
+modulate = Color( 1, 1, 1, 0.686275 )
+position = Vector2( 8.50834, 103.361 )
+scale = Vector2( 3.13294, 1.21219 )
+z_index = -3
+texture = ExtResource( 37 )
+
+[node name="Continue" type="RichTextLabel" parent="Movement/Child/Camera2D/Node/Menu" index="1"]
+modulate = Color( 0, 1, 0.227451, 1 )
+margin_top = 90.7559
+margin_right = 138.0
+margin_bottom = 130.756
+rect_scale = Vector2( 3, 2 )
+text = "CONTINUE
+"
+
+[node name="Quit" type="RichTextLabel" parent="Movement/Child/Camera2D/Node/Menu" index="2"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -177.73
+margin_top = 90.7559
+margin_right = -39.7303
+margin_bottom = 130.756
+rect_scale = Vector2( 3, 2 )
+text = "QUIT"
+
+[node name="Child2" parent="Movement" index="1" instance=ExtResource( 27 )]
 position = Vector2( 256.458, 417.857 )
-texture = ExtResource( 29 )
-region_enabled = true
-region_rect = Rect2( 128, 0, 64, 64 )
+frames = SubResource( 6 )
+animation = "Walk"
 destination = 548
 
-[node name="GameOver" type="RichTextLabel" parent="Movement/Child2" index="0"]
+[node name="Node2D" type="Node2D" parent="Movement/Child2" index="0"]
+z_index = 700
+
+[node name="GameOver" type="RichTextLabel" parent="Movement/Child2/Node2D" index="0"]
+modulate = Color( 1, 0, 0, 1 )
 margin_left = -149.265
 margin_top = -236.857
 margin_right = 38.7348
 margin_bottom = -196.857
 rect_scale = Vector2( 4, 4 )
 text = "GAME OVER"
-script = ExtResource( 30 )
+script = ExtResource( 46 )
 
 [connection signal="area_entered" from="LivingRoom/Dialogue" to="LivingRoom/Dialogue" method="_on_Dialogue_area_entered"]
 [connection signal="area_exited" from="LivingRoom/Dialogue" to="LivingRoom/Dialogue" method="_on_Dialogue_area_exited"]
-[connection signal="pressed" from="LivingRoom/VBoxContainer/Rematch" to="." method="_on_Rematch_pressed"]
-[connection signal="pressed" from="LivingRoom/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
-[connection signal="pressed" from="LivingRoom/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="reached_destination" from="Movement/Child2" to="Movement/Child2/GameOver" method="begin_playing"]
+[connection signal="reached_destination" from="Movement/Child2" to="Movement/Child2/Node2D/GameOver" method="begin_playing"]
