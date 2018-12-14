@@ -22,11 +22,17 @@ func _process(delta):
 			#the center of the screen.
 			pause = false
 			current_button = 0
+			self.show()
 		else:
 			pause = true
+			self.hide()
 	
 	if get_tree().paused :
 		process_pause( delta )
+
+
+func _ready():
+	self.hide()
 
 
 func process_pause( delta ):

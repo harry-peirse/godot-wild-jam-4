@@ -1,27 +1,49 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://globals/Pause.gd" type="Script" id=1]
+[ext_resource path="res://assets/characters/healthbar/under.png" type="Texture" id=2]
 
 [node name="Pause" type="Node2D"]
 pause_mode = 2
+visible = false
+z_index = 900
 script = ExtResource( 1 )
 
+[node name="TextBackdrop" type="Sprite" parent="."]
+modulate = Color( 0.211765, 0.835294, 0.835294, 0.6 )
+scale = Vector2( 2, 7 )
+texture = ExtResource( 2 )
+
 [node name="Continue" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -91.552
+margin_left = -86.1634
 margin_top = -40.0
-margin_right = -2.552
+margin_right = 2.83661
 rect_scale = Vector2( 3, 2 )
 text = "Continue"
 
 [node name="Quit" type="RichTextLabel" parent="."]
-margin_left = -51.0834
+margin_left = -46.2935
 margin_top = 40.0
-margin_right = 7.91663
+margin_right = 12.7065
 margin_bottom = 80.0
 rect_scale = Vector2( 3, 2 )
 text = "Quit"
+
+[node name="Highlight" type="RichTextLabel" parent="."]
+modulate = Color( 0, 1, 0, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -86.1634
+margin_top = -40.0
+margin_right = 2.83658
+rect_scale = Vector2( 3, 2 )
+visible_characters = 0
+text = "Continue"
 
