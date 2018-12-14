@@ -1,9 +1,74 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/levels/ChimneyDescent2.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=3]
-[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/Scene Props/Fire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=6]
+[ext_resource path="res://assets/Scene Props/Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://actors/enemy/sight/Sight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actors/enemy/dog/Dog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=14]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=15]
+[ext_resource path="res://Art/Animation/Gate/GateAnim1.png" type="Texture" id=16]
+[ext_resource path="res://Art/Animation/Gate/GateAnim2.png" type="Texture" id=17]
+[ext_resource path="res://Art/Animation/Gate/GateAnim3.png" type="Texture" id=18]
+[ext_resource path="res://Art/Animation/Gate/GateAnim4.png" type="Texture" id=19]
+[ext_resource path="res://Art/Animation/Gate/GateAnim5.png" type="Texture" id=20]
+[ext_resource path="res://Art/Animation/Gate/GateAnim6.png" type="Texture" id=21]
+[ext_resource path="res://Art/Animation/Gate/GateAnim7.png" type="Texture" id=22]
+[ext_resource path="res://Art/Animation/Gate/GateAnim8.png" type="Texture" id=23]
+[ext_resource path="res://Art/Animation/Gate/GateAnim9.png" type="Texture" id=24]
+[ext_resource path="res://Art/Animation/Lever/LeverAnim1.png" type="Texture" id=25]
+[ext_resource path="res://Art/Animation/Lever/LeverAnim2.png" type="Texture" id=26]
+[ext_resource path="res://Art/Animation/Lever/LeverAnim3.png" type="Texture" id=27]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=28]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=29]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=30]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=31]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=32]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="ChimneyDescent2" type="Node"]
 script = ExtResource( 1 )
@@ -20,8 +85,76 @@ scale = Vector2( 5.7329, 2.4165 )
 texture = ExtResource( 3 )
 centered = false
 
+[node name="Fire" parent="." instance=ExtResource( 4 )]
+position = Vector2( 223.798, 864.393 )
+
+[node name="Fire2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1632.11, 992.085 )
+
+[node name="Fire3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1826.42, 992.085 )
+
 [node name="Structure" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 5 )
 format = 1
-tile_data = PoolIntArray( -655320, 0, 0, -65536, 2, 0, -65535, 1, 0, -65534, 2, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, -65502, 0, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, 4, 0, 0, 12, 0, 0, 38, 5, 0, 65540, 5, 0, 65548, 0, 0, 65574, 5, 0, 65575, 5, 0, 65576, 5, 0, 65577, 5, 0, 196607, 0, 0, 131072, 0, 0, 131073, 2, 0, 131074, 23, 0, 131076, 4, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131084, 0, 0, 131113, 0, 0, 196610, 0, 0, 196612, 4, 0, 196613, 0, 0, 196614, 0, 0, 196620, 0, 0, 196649, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 6, 0, 262148, 0, 0, 262149, 0, 0, 262155, 0, 0, 262172, 0, 0, 262173, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 327680, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327696, 0, 0, 327697, 0, 0, 327700, 0, 0, 327704, 0, 0, 327713, 0, 0, 327714, 0, 0, 327715, 0, 0, 327718, 5, 0, 393216, 0, 0, 393223, 0, 0, 393229, 0, 0, 393254, 5, 0, 458752, 0, 0, 458754, 4, 0, 458755, 5, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458764, 0, 0, 458765, 0, 0, 458790, 5, 0, 524288, 0, 0, 524300, 0, 0, 524314, 0, 0, 524315, 0, 0, 524324, 0, 0, 524326, 0, 0, 524335, 5, 0, 524336, 5, 0, 524337, 5, 0, 524338, 5, 0, 589824, 0, 0, 589836, 0, 0, 589839, 0, 0, 589840, 0, 0, 589845, 0, 0, 589862, 0, 0, 589870, 5, 0, 589874, 5, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655364, 5, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655392, 0, 0, 655393, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 5, 0, 655403, 5, 0, 655404, 5, 0, 655405, 5, 0, 655408, 5, 0, 655409, 5, 0, 655410, 5, 0, 720898, 5, 0, 720900, 5, 0, 720901, 5, 0, 720902, 5, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 5, 0, 720907, 5, 0, 720908, 0, 0, 720943, 5, 0, 786434, 5, 0, 786436, 5, 0, 786437, 5, 0, 786438, 5, 0, 786439, 5, 0, 786440, 5, 0, 786441, 5, 0, 786442, 5, 0, 786443, 5, 0, 786444, 5, 0, 786456, 0, 0, 786462, 0, 0, 786470, 0, 0, 786471, 0, 0, 786472, 0, 0, 786473, 0, 0, 786474, 5, 0, 786475, 5, 0, 786477, 5, 0, 786478, 5, 0, 786479, 5, 0, 786480, 5, 0, 786481, 5, 0, 786482, 5, 0, 851970, 5, 0, 851986, 0, 0, 851987, 0, 0, 852006, 0, 0, 852011, 5, 0, 852018, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 5, 0, 917512, 5, 0, 917513, 5, 0, 917514, 5, 0, 917515, 5, 0, 917516, 5, 0, 917542, 0, 0, 917548, 5, 0, 917549, 5, 0, 917550, 5, 0, 917551, 5, 0, 917552, 5, 0, 917553, 5, 0, 917554, 5, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 1048600, 5, 0, 1048601, 5, 0, 1048602, 5, 0, 1048603, 5, 0, 1048604, 5, 0, 1048605, 5, 0 )
+tile_data = PoolIntArray( -655320, 0, 0, -65536, 2, 0, -65535, 1, 0, -65534, 2, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, -65502, 0, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, 4, 0, 0, 12, 0, 0, 38, 5, 0, 65540, 5, 0, 65548, 0, 0, 65574, 5, 0, 65575, 5, 0, 65576, 5, 0, 65577, 5, 0, 196607, 0, 0, 131072, 0, 0, 131073, 2, 0, 131074, 23, 0, 131076, 4, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131084, 0, 0, 131113, 0, 0, 196610, 0, 0, 196612, 4, 0, 196613, 0, 0, 196614, 0, 0, 196620, 0, 0, 196649, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 6, 0, 262148, 0, 0, 262149, 0, 0, 262155, 0, 0, 262172, 0, 0, 262173, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 327680, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327696, 0, 0, 327697, 0, 0, 327700, 0, 0, 327704, 0, 0, 327713, 0, 0, 327714, 0, 0, 327715, 0, 0, 327718, 5, 0, 393216, 0, 0, 393223, 0, 0, 393229, 0, 0, 393254, 5, 0, 458752, 0, 0, 458754, 4, 0, 458755, 5, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458764, 0, 0, 458765, 0, 0, 458790, 5, 0, 524288, 1, 0, 524300, 0, 0, 524314, 0, 0, 524315, 0, 0, 524324, 0, 0, 524326, 0, 0, 524335, 5, 0, 524336, 5, 0, 524337, 5, 0, 524338, 5, 0, 589824, 0, 0, 589836, 0, 0, 589839, 0, 0, 589840, 0, 0, 589845, 0, 0, 589862, 0, 0, 589870, 5, 0, 589874, 5, 0, 655360, 0, 0, 655361, 0, 0, 655362, 1, 0, 655364, 1, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655392, 0, 0, 655393, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 5, 0, 655403, 5, 0, 655404, 5, 0, 655405, 5, 0, 655408, 5, 0, 655409, 5, 0, 655410, 5, 0, 720898, 5, 0, 720900, 5, 0, 720901, 1, 0, 720902, 1, 0, 720903, 5, 0, 720904, 5, 0, 720905, 5, 0, 720906, 5, 0, 720907, 5, 0, 720908, 0, 0, 720943, 5, 0, 786434, 1, 0, 786436, 5, 0, 786437, 5, 0, 786438, 5, 0, 786439, 5, 0, 786440, 5, 0, 786441, 5, 0, 786442, 5, 0, 786443, 5, 0, 786444, 5, 0, 786456, 0, 0, 786462, 0, 0, 786469, 1, 0, 786470, 0, 0, 786471, 0, 0, 786472, 0, 0, 786473, 0, 0, 786474, 5, 0, 786475, 5, 0, 786477, 5, 0, 786478, 5, 0, 786479, 5, 0, 786480, 5, 0, 786481, 5, 0, 786482, 5, 0, 851970, 5, 0, 851986, 0, 0, 851987, 0, 0, 852006, 0, 0, 852011, 5, 0, 852018, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 1, 0, 917512, 5, 0, 917513, 5, 0, 917514, 1, 0, 917515, 5, 0, 917516, 5, 0, 917542, 0, 0, 917548, 5, 0, 917549, 5, 0, 917550, 5, 0, 917551, 5, 0, 917552, 5, 0, 917553, 5, 0, 917554, 5, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 1048600, 5, 0, 1048601, 5, 0, 1048602, 5, 0, 1048603, 5, 0, 1048604, 5, 0, 1048605, 5, 0 )
+
+[node name="CameraShade" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0.537255 )
+position = Vector2( 2475.51, 563.107 )
+scale = Vector2( 41.188, 27.4223 )
+texture = ExtResource( 6 )
+
+[node name="Torch" parent="." instance=ExtResource( 7 )]
+position = Vector2( 219.331, 41.2245 )
+
+[node name="Torch2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 477.602, 222.585 )
+
+[node name="Torch3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 738.219, 550.504 )
+
+[node name="Torch4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1186.26, 355.703 )
+
+[node name="Torch5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1953.77, 361.547 )
+
+[node name="Torch6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2645.31, 86.8788 )
+
+[node name="Burglar" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2403.3, 723.736 )
+
+[node name="Sight" parent="Burglar" instance=ExtResource( 9 )]
+position = Vector2( 170.194, 26.6569 )
+
+[node name="Dog" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
+position = Vector2( 993.226, 946.845 )
+
+[node name="Sight" parent="Dog" instance=ExtResource( 9 )]
+
+[node name="Torch7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2911.87, 729.477 )
+
+[node name="Door" type="AnimatedSprite" parent="."]
+position = Vector2( 2591.54, 192.88 )
+frames = SubResource( 1 )
+
+[node name="Gate" type="AnimatedSprite" parent="."]
+position = Vector2( 2498.48, 192.315 )
+frames = SubResource( 2 )
+
+[node name="Lever" type="AnimatedSprite" parent="."]
+position = Vector2( 3160.87, 607.453 )
+frames = SubResource( 3 )
+
+[node name="Lever2" type="AnimatedSprite" parent="."]
+position = Vector2( 3166.9, 863.699 )
+frames = SubResource( 3 )
+
+[node name="DialougeChoose" type="AnimatedSprite" parent="."]
+position = Vector2( 2806.64, 676.79 )
+frames = SubResource( 4 )
 
