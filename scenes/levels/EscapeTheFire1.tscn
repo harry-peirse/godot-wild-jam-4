@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/levels/EscapeTheFire1.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/EscapeTheFire.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://actors/enemy/utils/ObstacleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 
 [node name="EscapeTheFire1" type="Node"]
 script = ExtResource( 1 )
+difficulty = 0
 level_duration = 45
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -36,8 +37,8 @@ one_shot = false
 autostart = false
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource( 3 )]
-ground_obstacle_frequency = 0.75
-sky_obstacle_frequency = 1.5
+max_obstacle_type = 5
+spawn_sky_obstacles = true
 
 [node name="Snowman" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138.259, 506.795 )

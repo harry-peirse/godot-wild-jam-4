@@ -10,8 +10,11 @@ const GROUND_OBSTACLE_SPAWN_COORDINATES = Vector2(1125, 530)
 const LOW_AIR_SPAWN_COORDINATES = Vector2(1125, 450)
 const HIGH_AIR_SPAWN_COORDINATES = Vector2(1125, 425)
 
-export(float) var ground_obstacle_frequency = 0.75 setget _set_ground_obstacle_frequency
-export(float) var sky_obstacle_frequency = 1.5 setget _set_sky_obstacle_frequency
+var ground_obstacle_frequency = 0.75
+var sky_obstacle_frequency = 1.5
+
+export(int) var max_obstacle_type = NUMBER_OF_GROUND_OBSTACLE_TYPES
+export(bool) var spawn_sky_obstacles = true
 
 var smoke_scene = preload("res://actors/enemy/obstacles/Smoke.tscn")
 var single_small_flame_scene = preload("res://actors/enemy/obstacles/SingleSmallFlame.tscn")
@@ -28,7 +31,7 @@ func _ready():
 	$SkyObstacleTimer.start()
 	
 func _emit_ground_obstacle():
-	var obstacle_choice = randi() % NUMBER_OF_GROUND_OBSTACLE_TYPES
+	var obstacle_choice = randi() % max_obstacle_type
 	var obstacle;
 	match obstacle_choice:
 		0:
@@ -47,11 +50,12 @@ func _emit_ground_obstacle():
 	pass
 	
 func _emit_sky_obstacle():
-	var chance = rand_range(0, 1)
-	if chance <= SKY_OBSTACLE_SPAWN_PROBABILITY:
-		var obstacle = smoke_scene.instance()
-		obstacle.position = LOW_AIR_SPAWN_COORDINATES
-		emit_signal("new_obstacle", obstacle)
+	if spawn_sky_obstacles:
+		var chance = rand_range(0, 1)
+		if chance <= SKY_OBSTACLE_SPAWN_PROBABILITY:
+			var obstacle = smoke_scene.instance()
+			obstacle.position = LOW_AIR_SPAWN_COORDINATES
+			emit_signal("new_obstacle", obstacle)
 	
 func _clean_up():
 	$GroundObstacleTimer.stop()
@@ -59,15 +63,8 @@ func _clean_up():
 	$SkyObstacleTimer.stop()
 	$SkyObstacleTimer.queue_free()
 	
-func _set_ground_obstacle_frequency(value):
-	ground_obstacle_frequency = value
-	
-func _set_sky_obstacle_frequency(value):
-	sky_obstacle_frequency = value	
-
 func _on_LevelDurationTimer_timeout():
 	_clean_up()
-
-
+	
 func _on_Snowman_lost_all_health():
 	_clean_up()
