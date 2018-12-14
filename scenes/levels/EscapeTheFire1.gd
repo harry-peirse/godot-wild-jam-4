@@ -3,6 +3,8 @@ extends Node
 const PARALLAX_BACKGROUND_SCROLL_SPEED = Vector2(-3,0);
 const PARALLAX_FOREGROUND_SCROLL_SPEED = Vector2(-3,0);
 
+var continue_scrolling = true;
+
 export(float) var level_duration = 45 setget _set_level_duration
 
 func _ready():
@@ -12,8 +14,9 @@ func _ready():
 	$Snowman/AnimatedSprite.play("running")
 	
 func _process(delta):
-	$ParallaxBackground.set_scroll_offset($ParallaxBackground.scroll_offset + PARALLAX_BACKGROUND_SCROLL_SPEED)
-	$ParallaxForeground.set_scroll_offset($ParallaxForeground.scroll_offset + PARALLAX_FOREGROUND_SCROLL_SPEED)
+	if continue_scrolling:
+		$ParallaxBackground.set_scroll_offset($ParallaxBackground.scroll_offset + PARALLAX_BACKGROUND_SCROLL_SPEED)
+		$ParallaxForeground.set_scroll_offset($ParallaxForeground.scroll_offset + PARALLAX_FOREGROUND_SCROLL_SPEED)
 	
 func _start_level():
 	$LevelDurationTimer.set_wait_time(level_duration)
@@ -32,3 +35,8 @@ func _set_level_duration(value):
 
 func _on_ObstacleSpawner_new_obstacle(obstacle):
 	add_child(obstacle)
+
+
+func _on_Snowman_lost_all_health():
+	continue_scrolling = false
+	_clean_up()
