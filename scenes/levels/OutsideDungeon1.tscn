@@ -51,7 +51,7 @@ __meta__ = {
 }
 
 [node name="Snowman" parent="." instance=ExtResource( 2 )]
-position = Vector2( 563.413, 1335.34 )
+position = Vector2( 657, 1265 )
 z_index = 1
 collision_layer = 1
 camera_limit_left = -10
@@ -59,6 +59,7 @@ camera_limit_bottom = 700
 camera_limit_right = 1350
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 position = Vector2( 1146.59, 1125.31 )
@@ -102,6 +103,7 @@ scale = Vector2( 1, 0.5 )
 shape = SubResource( 1 )
 
 [node name="EButton" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1787.41, 1262.34 )
 collision_layer = 0
 collision_mask = 1024
@@ -128,7 +130,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 4
 playing = true
 
 [connection signal="area_entered" from="EButton" to="EButton" method="_on_EButton_area_entered"]
