@@ -1,9 +1,11 @@
 #extends "res://screens/basic_screen.gd"
 extends Node
 
-onready var containerPlayer = $MarginContainer/HBoxContainer
+var continue_chosen = true
 
-func _ready():
-	$MarginContainer/HBoxContainer/Label.text = "GAME OVER"
-	pass
+
+func _process(delta):
+	self.position = get_node( "../../" ).get_camera_screen_center()
 	
+	#Center the camera just a bit better.
+	self.position.x = self.position.x - 10
