@@ -16,6 +16,7 @@ var scene_list = {
 	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire1.tscn",
 	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFireExit.tscn",
 	"GameOver": "res://scenes/gameover_screen/GameOver.tscn",
+	"CarlsEnding": "res://scenes/levels/CarlsEnding.tscn",
 }
 
 

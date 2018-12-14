@@ -54,11 +54,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=2]
 
 extents = Vector2( 42.157, 78.6312 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -67,7 +67,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
@@ -76,11 +76,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 extents = Vector2( 118.776, 63.5101 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -89,7 +89,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
@@ -187,13 +187,12 @@ stream = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2( -4.08643, 2.92992 )
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="Button" type="AnimatedSprite" parent="Door"]
 visible = false
 position = Vector2( -42.2517, -41.3716 )
-frames = SubResource( 10 )
-frame = 1
+frames = SubResource( 3 )
 playing = true
 
 [node name="Timer" type="Timer" parent="Door"]
@@ -203,31 +202,30 @@ position = Vector2( 3166.9, 863.699 )
 script = ExtResource( 24 )
 
 [node name="Lever2" type="AnimatedSprite" parent="Lever2"]
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 
 [node name="leverSFX" type="AudioStreamPlayer" parent="Lever2/Lever2"]
 stream = ExtResource( 28 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lever2"]
 position = Vector2( -22.4392, 10.8328 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Button" type="AnimatedSprite" parent="Lever2"]
 visible = false
 position = Vector2( -23.2134, -13.1542 )
-frames = SubResource( 7 )
-frame = 1
+frames = SubResource( 6 )
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Lever2"]
 position = Vector2( -668.42, -671.384 )
-frames = SubResource( 2 )
+frames = SubResource( 7 )
 
 [node name="DialougeChoose" type="AnimatedSprite" parent="."]
 editor/display_folded = true
 position = Vector2( 2806.64, 676.79 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="DialougeChoose"]
