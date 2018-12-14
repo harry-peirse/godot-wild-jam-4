@@ -5,11 +5,13 @@
 
 [node name="Snowman" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+can_navigate = false
+always_running = true
 
-[node name="Hurtbox" parent="." index="8"]
+[node name="Hurtbox" parent="." index="7"]
 collision_layer = 524288
 push_self = Vector2( 0, 0 )
 
-[node name="DashHitbox" parent="." index="9"]
+[node name="DashHitbox" parent="." index="8"]
 push_self = Vector2( 0, 0 )
 
