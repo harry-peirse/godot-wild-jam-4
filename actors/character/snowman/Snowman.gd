@@ -33,7 +33,8 @@ var can_jump = false
 var FSM = {
 	"Default" : "default",
 	"Dash" : "dash",
-	"Hitstun" : "hitstun"
+	"Hitstun" : "hitstun",
+	"Dead" : "dead"
 	}
 var fsm_state = "Default" 
 
@@ -72,6 +73,10 @@ var dash_direction = 1
 onready var original_scale = Vector2(scale.x, scale.y)
 var size = 1;
 
+#Death variables Wait this long before moving to game over.
+var death_wait = 0.016667 * 60
+var is_dead = false
+
 
 func process_frame(delta):
 	if can_navigate && can_handle_input :
@@ -91,6 +96,7 @@ func _ready():
 	emit_signal("get_health")
 	emit_signal("get_scale")
 	self.connect( "pushback", self, "pushback" )
+	self.connect( "lost_all_health", self, "health_gone"  )
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
@@ -157,15 +163,21 @@ func handle_jump_input():
 		check_just_jumped = false
 		just_jumped = false
 
-func _on_Snowman_dead():
-	# Any resource clean up necessary? 
-	health_gone()
 	
 func health_gone():
 	emit_signal("change_anim", "Dead")
 	#My health has been depleted.
 	#Play the death animation and die.
-	get_node("/root/SceneBrowser").load_scene("GameOver")
+	
+	#Prevent collisions from happening.
+	for child in get_children() :
+		if child.has_method( "is_activated" ) :
+			child.is_activated( false )
+	
+	fsm_state = "Dead"
+	can_navigate = false
+	can_handle_input = false
+	is_dead = true
 
 
 func jump_held( delta ):
@@ -214,6 +226,19 @@ func process_dash( delta ):
 		$DashHitbox.is_activated( false )
 		$Hurtbox.is_activated( true )
 		emit_signal( "dash", false )
+
+
+func process_dead( delta ):
+	#Make all enemies stop chasing me.
+	get_tree().call_group( "Enemy", "chase_snowman", null )
+	
+	death_wait -= delta
+	emit_signal( "change_anim", "Dead" )
+	$Camera2D.zoom.x -= 0.005
+	$Camera2D.zoom.y -= 0.005
+	
+	if death_wait <= 0 :
+		SceneBrowser.load_scene("GameOver")
 
 
 func process_default( delta ):

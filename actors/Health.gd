@@ -12,6 +12,9 @@ signal health_changed
 #Amount of health from a hundred to zero.
 var health = 100
 
+#Free myself after this amount of time has passed.
+var dead_wait = 0.016667 * 60
+
 var been_damaged = false
 
 #Determines how resistant an entity is to damage.
@@ -23,7 +26,7 @@ func _ready():
 	self.connect( "damage", self, "damage" )
 	self.connect( "gain_health", self, "gain_health" )
 	self.connect( "lose_health", self, "lose_health" )
-	self.connect( "lost_all_health", self, "health_gone"  )
+	
 	
 	for child in get_children():
 		if child.has_method( "set_health_object" ):
@@ -58,7 +61,7 @@ func health_changed():
 	emit_signal( "health_changed", health )
 	return health
 
-	
+
 func lost_health( amount : float ):
 	health -= amount
 	
