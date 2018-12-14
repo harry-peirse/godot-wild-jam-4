@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Scene Props/interface/game_over/Child.gd" type="Script" id=1]
+
+[node name="Child" type="Sprite"]
+script = ExtResource( 1 )
+
