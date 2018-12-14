@@ -5,7 +5,6 @@
 
 [node name="Pause" type="Node2D"]
 pause_mode = 2
-visible = false
 z_index = 900
 script = ExtResource( 1 )
 
@@ -27,23 +26,11 @@ rect_scale = Vector2( 3, 2 )
 text = "Continue"
 
 [node name="Quit" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
 margin_left = -46.2935
 margin_top = 40.0
 margin_right = 12.7065
 margin_bottom = 80.0
 rect_scale = Vector2( 3, 2 )
 text = "Quit"
-
-[node name="Highlight" type="RichTextLabel" parent="."]
-modulate = Color( 0, 1, 0, 1 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -86.1634
-margin_top = -40.0
-margin_right = 2.83658
-rect_scale = Vector2( 3, 2 )
-visible_characters = 0
-text = "Continue"
 
