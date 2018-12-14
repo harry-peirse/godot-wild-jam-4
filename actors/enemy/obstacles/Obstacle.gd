@@ -14,4 +14,4 @@ func _process(delta):
 		queue_free()
 		
 func _on_RigidBody2D_area_entered(actor):
-	actor.get_parent().been_hit(Vector2(0,0), true)
+	actor.get_parent().get_hurt_box().hurt(damage_amount, self)

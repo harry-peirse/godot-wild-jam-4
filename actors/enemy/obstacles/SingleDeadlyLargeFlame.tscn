@@ -10,6 +10,7 @@ radius = 14.8523
 height = 15.1358
 
 [node name="Obstacle" index="0" instance=ExtResource( 1 )]
+damage_amount = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
 position = Vector2( -0.307358, -4.30299 )

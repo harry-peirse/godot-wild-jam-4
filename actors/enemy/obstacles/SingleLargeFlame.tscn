@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 14.563
 height = 9.60934
 
-[node name="Obstacle" index="0" instance=ExtResource( 1 )]
+[node name="Obstacle" instance=ExtResource( 1 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
 position = Vector2( 0.429276, -4.07813 )
