@@ -43,8 +43,4 @@ position = Vector2( 0, -34.4413 )
 cast_to = Vector2( 0, -5 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 5 )]
-margin_left = -60.0
-margin_top = 56.0
-margin_right = 68.0
-margin_bottom = 88.0
 

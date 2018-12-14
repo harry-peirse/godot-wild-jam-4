@@ -23,7 +23,7 @@ export var see_behind = true
 
 #How far out the object should extend before
 #turning because of a drop off
-export var falloff_distance = 20
+var falloff_distance = 20
 
 #Chase the object.
 var chase_object

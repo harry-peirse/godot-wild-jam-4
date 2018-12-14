@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://actors/enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actors/enemy/EnemyInterface.gd" type="Script" id=2]
+[ext_resource path="res://actors/enemy/dog/Dog.gd" type="Script" id=2]
 [ext_resource path="res://assets/enemies/dog/dog_idle01.png" type="Texture" id=3]
 [ext_resource path="res://assets/enemies/dog/dog_idle02.png" type="Texture" id=4]
 [ext_resource path="res://assets/enemies/dog/dog_idle03.png" type="Texture" id=5]
@@ -73,7 +73,7 @@ push_self = Vector2( 200, 0 )
 push_other = Vector2( 0, 0 )
 
 [node name="Col" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0, -4.76837e-007 )
+position = Vector2( 0, -4.76837e-07 )
 shape = SubResource( 2 )
 
 [node name="Footstool" parent="." index="2"]
