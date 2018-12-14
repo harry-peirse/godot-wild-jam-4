@@ -1,41 +1,41 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://actors/character/snowman/SnowmanInterface.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/character/snowman/DoubleJumpFX.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/characters/snowman/hurt01.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=8]
-[ext_resource path="res://assets/characters/snowman/death1.png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/snowman/death2.png" type="Texture" id=10]
-[ext_resource path="res://assets/characters/snowman/death3.png" type="Texture" id=11]
-[ext_resource path="res://assets/characters/snowman/death4.png" type="Texture" id=12]
-[ext_resource path="res://assets/characters/snowman/death5.png" type="Texture" id=13]
-[ext_resource path="res://assets/characters/snowman/death6.png" type="Texture" id=14]
-[ext_resource path="res://assets/characters/snowman/death7.png" type="Texture" id=15]
-[ext_resource path="res://assets/characters/snowman/death8.png" type="Texture" id=16]
-[ext_resource path="res://assets/characters/snowman/death9.png" type="Texture" id=17]
-[ext_resource path="res://assets/characters/snowman/death10.png" type="Texture" id=18]
-[ext_resource path="res://assets/characters/snowman/death11.png" type="Texture" id=19]
-[ext_resource path="res://assets/characters/snowman/death12.png" type="Texture" id=20]
-[ext_resource path="res://assets/characters/snowman/death13.png" type="Texture" id=21]
-[ext_resource path="res://assets/characters/snowman/death14.png" type="Texture" id=22]
-[ext_resource path="res://assets/characters/snowman/death15.png" type="Texture" id=23]
-[ext_resource path="res://assets/characters/snowman/death16.png" type="Texture" id=24]
-[ext_resource path="res://assets/characters/snowman/death17.png" type="Texture" id=25]
-[ext_resource path="res://assets/characters/snowman/death18.png" type="Texture" id=26]
-[ext_resource path="res://assets/characters/snowman/death19.png" type="Texture" id=27]
-[ext_resource path="res://assets/characters/snowman/death20.png" type="Texture" id=28]
-[ext_resource path="res://assets/characters/snowman/death21.png" type="Texture" id=29]
-[ext_resource path="res://assets/characters/snowman/death22.png" type="Texture" id=30]
-[ext_resource path="res://assets/characters/snowman/death23.png" type="Texture" id=31]
-[ext_resource path="res://assets/characters/snowman/death24.png" type="Texture" id=32]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=33]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=34]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=35]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=36]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/death1.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/death2.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/death3.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/death4.png" type="Texture" id=11]
+[ext_resource path="res://assets/characters/snowman/death5.png" type="Texture" id=12]
+[ext_resource path="res://assets/characters/snowman/death6.png" type="Texture" id=13]
+[ext_resource path="res://assets/characters/snowman/death7.png" type="Texture" id=14]
+[ext_resource path="res://assets/characters/snowman/death8.png" type="Texture" id=15]
+[ext_resource path="res://assets/characters/snowman/death9.png" type="Texture" id=16]
+[ext_resource path="res://assets/characters/snowman/death10.png" type="Texture" id=17]
+[ext_resource path="res://assets/characters/snowman/death11.png" type="Texture" id=18]
+[ext_resource path="res://assets/characters/snowman/death12.png" type="Texture" id=19]
+[ext_resource path="res://assets/characters/snowman/death13.png" type="Texture" id=20]
+[ext_resource path="res://assets/characters/snowman/death14.png" type="Texture" id=21]
+[ext_resource path="res://assets/characters/snowman/death15.png" type="Texture" id=22]
+[ext_resource path="res://assets/characters/snowman/death16.png" type="Texture" id=23]
+[ext_resource path="res://assets/characters/snowman/death17.png" type="Texture" id=24]
+[ext_resource path="res://assets/characters/snowman/death18.png" type="Texture" id=25]
+[ext_resource path="res://assets/characters/snowman/death19.png" type="Texture" id=26]
+[ext_resource path="res://assets/characters/snowman/death20.png" type="Texture" id=27]
+[ext_resource path="res://assets/characters/snowman/death21.png" type="Texture" id=28]
+[ext_resource path="res://assets/characters/snowman/death22.png" type="Texture" id=29]
+[ext_resource path="res://assets/characters/snowman/death23.png" type="Texture" id=30]
+[ext_resource path="res://assets/characters/snowman/death24.png" type="Texture" id=31]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=32]
+[ext_resource path="res://assets/characters/snowman/hurt01.png" type="Texture" id=33]
+[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=34]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=35]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=36]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=37]
 [ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=38]
 [ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=39]
@@ -47,38 +47,39 @@
 [ext_resource path="res://assets/SFX/Running5.wav" type="AudioStream" id=45]
 [ext_resource path="res://assets/SFX/Snowman_hit.wav" type="AudioStream" id=46]
 [ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=47]
+[ext_resource path="res://actors/camera/Camera2D.tscn" type="PackedScene" id=48]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Running",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 36 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -102,9 +103,6 @@ height = 23.2675
 [node name="Snowman" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="DashFX" parent="." instance=ExtResource( 2 )]
 
@@ -212,4 +210,14 @@ position = Vector2( 0, 4.97058 )
 shape = SubResource( 2 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 47 )]
+
+[node name="Camera2D" parent="." instance=ExtResource( 48 )]
+current = true
+zoom = Vector2( 0.65, 0.65 )
+limit_left = 0
+limit_top = 0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+drag_margin_left = 0.1
+drag_margin_right = 0.1
 
