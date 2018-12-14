@@ -9,7 +9,6 @@
 [node name="EscapeTheFire1" type="Node"]
 script = ExtResource( 1 )
 difficulty = 0
-level_duration = 45
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 0
@@ -37,8 +36,6 @@ one_shot = false
 autostart = false
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource( 3 )]
-max_obstacle_type = 5
-spawn_sky_obstacles = true
 
 [node name="Snowman" parent="." instance=ExtResource( 4 )]
 position = Vector2( 138.259, 506.795 )
@@ -56,8 +53,8 @@ camera_limit_right = null
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
 
-[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
 [connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
-[connection signal="lost_all_health" from="Snowman" to="ObstacleSpawner" method="_on_Snowman_lost_all_health"]
 [connection signal="lost_all_health" from="Snowman" to="." method="_on_Snowman_lost_all_health"]
+[connection signal="lost_all_health" from="Snowman" to="ObstacleSpawner" method="_on_Snowman_lost_all_health"]

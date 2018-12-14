@@ -4,8 +4,9 @@
 
 [node name="ObstacleSpawner" type="Node2D"]
 script = ExtResource( 1 )
-ground_obstacle_frequency = 1.5
-sky_obstacle_frequency = 5
+max_obstacle_type = 5
+spawn_sky_obstacles = true
+obstacle_frequency_modifier = 0
 
 [node name="GroundObstacleTimer" type="Timer" parent="."]
 process_mode = 1

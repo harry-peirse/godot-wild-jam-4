@@ -6,15 +6,18 @@ const NUMBER_OF_GROUND_OBSTACLE_TYPES = 5
 const GROUND_OBSTACLE_FREQUENCY_MIN_VARIANCE = 0
 const GROUND_OBSTACLE_FREQUENCY_MAX_VARIANCE = 0.75
 const SKY_OBSTACLE_SPAWN_PROBABILITY = 0.55
+const MIN_GROUND_OBSTACLE_FREQUENCY = 0.75
+const MIN_SKY_OBSTACLE_FREQUENCY = 0.2
 const GROUND_OBSTACLE_SPAWN_COORDINATES = Vector2(1125, 530)
 const LOW_AIR_SPAWN_COORDINATES = Vector2(1125, 450)
 const HIGH_AIR_SPAWN_COORDINATES = Vector2(1125, 425)
 
 var ground_obstacle_frequency = 0.75
-var sky_obstacle_frequency = 1.5
+var sky_obstacle_frequency = 1
 
 export(int) var max_obstacle_type = NUMBER_OF_GROUND_OBSTACLE_TYPES
 export(bool) var spawn_sky_obstacles = true
+export(float) var obstacle_frequency_modifier = 0
 
 var smoke_scene = preload("res://actors/enemy/obstacles/Smoke.tscn")
 var single_small_flame_scene = preload("res://actors/enemy/obstacles/SingleSmallFlame.tscn")
@@ -25,9 +28,9 @@ var single_deadly_large_flame_scene = preload("res://actors/enemy/obstacles/Sing
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	$GroundObstacleTimer.set_wait_time(ground_obstacle_frequency)
+	$GroundObstacleTimer.set_wait_time(max(ground_obstacle_frequency-obstacle_frequency_modifier, MIN_GROUND_OBSTACLE_FREQUENCY))
 	$GroundObstacleTimer.start()
-	$SkyObstacleTimer.set_wait_time(sky_obstacle_frequency)
+	$SkyObstacleTimer.set_wait_time(max(sky_obstacle_frequency - obstacle_frequency_modifier, MIN_SKY_OBSTACLE_FREQUENCY))
 	$SkyObstacleTimer.start()
 	
 func _emit_ground_obstacle():
@@ -46,7 +49,8 @@ func _emit_ground_obstacle():
 			obstacle = single_small_flame_scene.instance()
 	obstacle.position = GROUND_OBSTACLE_SPAWN_COORDINATES
 	emit_signal("new_obstacle", obstacle)
-	$GroundObstacleTimer.set_wait_time(ground_obstacle_frequency + rand_range(GROUND_OBSTACLE_FREQUENCY_MIN_VARIANCE, GROUND_OBSTACLE_FREQUENCY_MAX_VARIANCE))
+	var new_frequency = max(ground_obstacle_frequency - obstacle_frequency_modifier + rand_range(GROUND_OBSTACLE_FREQUENCY_MIN_VARIANCE, GROUND_OBSTACLE_FREQUENCY_MAX_VARIANCE), MIN_GROUND_OBSTACLE_FREQUENCY)
+	$GroundObstacleTimer.set_wait_time(new_frequency)
 	pass
 	
 func _emit_sky_obstacle():
