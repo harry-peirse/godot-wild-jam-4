@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/levels/EscapeTheFire.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/EscapeTheFire/EscapeTheFire.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://actors/enemy/utils/ObstacleSpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.tscn" type="PackedScene" id=4]
@@ -56,8 +56,8 @@ camera_limit_right = null
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
 
-[connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
 [connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
 [connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
-[connection signal="lost_all_health" from="Snowman" to="." method="_on_Snowman_lost_all_health"]
 [connection signal="lost_all_health" from="Snowman" to="ObstacleSpawner" method="_on_Snowman_lost_all_health"]
+[connection signal="lost_all_health" from="Snowman" to="." method="_on_Snowman_lost_all_health"]

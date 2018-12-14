@@ -13,8 +13,8 @@ var scene_list = {
 	"ChimneyDescent3" : "res://scenes/levels/ChimneyDescent3.tscn",
 	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn",
 	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn",
-	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire1.tscn",
-	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFireExit.tscn",
+	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire/EscapeTheFire1.tscn",
+	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFire/EscapeTheFireExit.tscn",
 	"GameOver": "res://scenes/gameover_screen/GameOver.tscn",
 	"CarlsEnding": "res://scenes/levels/CarlsEnding.tscn",
 }
