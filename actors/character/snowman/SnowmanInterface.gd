@@ -62,3 +62,6 @@ func just_landed():
 	#Make the particle physics stop emitting.
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
+
+func get_hurt_box():
+	return $Hurtbox	

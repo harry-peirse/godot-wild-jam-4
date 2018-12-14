@@ -4,6 +4,8 @@ extends "res://actors/physics/Physics.gd"
 #physics objects. Godot does not crash if it
 #attempts to emit a signal inside a body
 #that does not exist.
+signal get_health
+signal get_scale
 
 #These are the constants that will always be
 #affecting us.
@@ -86,6 +88,8 @@ func _physics_process(delta):
 
 
 func _ready():
+	emit_signal("get_health")
+	emit_signal("get_scale")
 	self.connect( "pushback", self, "pushback" )
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
@@ -95,21 +99,20 @@ func _ready():
 	$Camera2D.limit_left = camera_limit_left
 	$Camera2D.limit_bottom = camera_limit_bottom
 	$Camera2D.limit_right = camera_limit_right
-	
-	#Get what my current health is from SnowmanStats
-	set_health( SnowmanStats.current_health )
-	self.connect( "health_changed", SnowmanStats, "change_health" )
 
+func _on_health(amount):
+	prints("health: ", amount)
+	emit_signal("health_changed", amount)
 
-func been_hit( push : Vector2, damaged = false ):
+func been_hit( push : Vector2, damageAmount = 0 ):
 	#Start hitstun state.
 	jump_held = 0
 	can_handle_input = false
 	can_jump = false
 	fsm_state = "Hitstun"
 	emit_signal( "dash", false )
-#	if damaged == true :
-#		emit_signal( "change_anim", "Hit" )
+	#if damageAmount > 0 :
+	#	emit_signal( "change_anim", "Hit" )
 
 
 func handle_input( delta ):
@@ -154,11 +157,15 @@ func handle_jump_input():
 		check_just_jumped = false
 		just_jumped = false
 
-
+func _on_Snowman_dead():
+	# Any resource clean up necessary? 
+	health_gone()
+	
 func health_gone():
+	emit_signal("change_anim", "Dead")
 	#My health has been depleted.
 	#Play the death animation and die.
-	pass
+	get_node("/root/SceneBrowser").load_scene("GameOver")
 
 
 func jump_held( delta ):

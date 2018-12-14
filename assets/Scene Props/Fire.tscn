@@ -34,7 +34,7 @@ damage_interval = 1
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Burning"
-frame = 6
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]

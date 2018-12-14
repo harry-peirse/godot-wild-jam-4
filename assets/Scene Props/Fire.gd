@@ -10,11 +10,9 @@ func _ready():
 
 func _on_Area2D_area_entered(actor):
 	emit_signal("burn_damage_taken", damage_per_second)
+	actor.get_parent().get_hurt_box().hurt(damage_per_second, self)
 	$DamageTimer.start()
 
 
 func _on_DamageTimer_timeout():
 	emit_signal("burn_damage_taken", damage_per_second)
-
-func _on_Area2D_area_exited(area):
-	$DamageTimer.stop()

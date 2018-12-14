@@ -15,6 +15,7 @@ var scene_list = {
 	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn",
 	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire1.tscn",
 	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFireExit.tscn",
+	"GameOver": "res://scenes/gameover_screen/GameOver.tscn",
 }
 
 
