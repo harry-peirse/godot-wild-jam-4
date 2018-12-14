@@ -9,7 +9,8 @@ custom_solver_bias = 0.0
 radius = 15.5737
 height = 17.4421
 
-[node name="Obstacle" index="0" instance=ExtResource( 1 )]
+[node name="Obstacle" instance=ExtResource( 1 )]
+damage_amount = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="0"]
 rotation = 1.309
