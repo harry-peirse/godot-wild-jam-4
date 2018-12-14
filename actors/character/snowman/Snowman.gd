@@ -124,6 +124,11 @@ func been_hit( push : Vector2, damageAmount = 0 ):
 	#	emit_signal( "change_anim", "Hit" )
 
 
+func fully_dead():
+	SceneBrowser.load_scene( "GameOver" )
+	Transition.change_scene()
+
+
 func handle_input( delta ):
 	#Quick left right handling.
 	#I will eventually replace this with
@@ -181,6 +186,8 @@ func health_gone():
 	can_navigate = false
 	can_handle_input = false
 	is_dead = true
+	
+	$AnimatedSprite.connect( "animation_finished", self, "fully_dead" )
 
 
 func jump_held( delta ):
@@ -237,8 +244,8 @@ func process_dead( delta ):
 	
 	death_wait -= delta
 	emit_signal( "change_anim", "Dead" )
-	$Camera2D.zoom.x -= 0.005
-	$Camera2D.zoom.y -= 0.005
+	$Camera2D.zoom.x -= 0.003
+	$Camera2D.zoom.y -= 0.003
 	
 	if death_wait <= 0 :
 		SceneBrowser.load_scene("GameOver")
