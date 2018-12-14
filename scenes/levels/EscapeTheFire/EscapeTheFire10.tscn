@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/levels/EscapeTheFire/EscapeTheFire.gd" type="Script" id=1]
+[ext_resource path="res://assets/tilesets/TestLevelTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://actors/enemy/utils/ObstacleSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/parallax.tscn" type="PackedScene" id=5]
+
+[node name="EscapeTheFire10" type="Node"]
+script = ExtResource( 1 )
+difficulty = 9
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 1114112, 6, 0, 1114113, 6, 0, 1114114, 6, 0, 1114115, 6, 0, 1114116, 6, 0, 1114117, 6, 0, 1114118, 6, 0, 1114119, 6, 0, 1114120, 6, 0, 1114121, 6, 0, 1114122, 6, 0, 1114123, 6, 0, 1114124, 6, 0, 1114125, 6, 0, 1114126, 6, 0, 1114127, 6, 0, 1114128, 6, 0, 1114129, 6, 0, 1114130, 6, 0, 1114131, 6, 0, 1114132, 6, 0, 1114133, 6, 0, 1114134, 6, 0, 1114135, 6, 0, 1114136, 6, 0, 1114137, 6, 0, 1114138, 6, 0, 1114139, 6, 0, 1114140, 6, 0, 1114141, 6, 0, 1114142, 6, 0, 1114143, 6, 0, 1114144, 6, 0, 1114145, 6, 0, 1114146, 6, 0, 1114147, 6, 0, 1179648, 8, 0, 1179649, 8, 0, 1179650, 8, 0, 1179651, 8, 0, 1179652, 8, 0, 1179653, 8, 0, 1179654, 8, 0, 1179655, 8, 0, 1179656, 8, 0, 1179657, 8, 0, 1179658, 8, 0, 1179659, 8, 0, 1179660, 8, 0, 1179661, 8, 0, 1179662, 8, 0, 1179663, 8, 0, 1179664, 8, 0, 1179665, 8, 0, 1179666, 8, 0, 1179667, 8, 0, 1179668, 8, 0, 1179669, 8, 0, 1179670, 8, 0, 1179671, 8, 0, 1179672, 8, 0, 1179673, 8, 0, 1179674, 8, 0, 1179675, 8, 0, 1179676, 8, 0, 1179677, 8, 0, 1179678, 8, 0, 1179679, 8, 0, 1179680, 8, 0, 1179681, 8, 0, 1179682, 8, 0, 1179683, 8, 0 )
+
+[node name="LevelDurationTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="ObstacleSpawner" parent="." instance=ExtResource( 3 )]
+
+[node name="Snowman" parent="." instance=ExtResource( 4 )]
+position = Vector2( 138.259, 506.795 )
+input_pickable = false
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+endurance = 1
+can_navigate = false
+has_camera = false
+camera_limit_top = null
+camera_limit_left = null
+camera_limit_bottom = null
+camera_limit_right = null
+
+[node name="Background" parent="." instance=ExtResource( 5 )]
+
+[connection signal="timeout" from="LevelDurationTimer" to="." method="_on_LevelDurationTimer_timeout"]
+[connection signal="timeout" from="LevelDurationTimer" to="ObstacleSpawner" method="_on_LevelDurationTimer_timeout"]
+[connection signal="new_obstacle" from="ObstacleSpawner" to="." method="_on_ObstacleSpawner_new_obstacle"]
+[connection signal="lost_all_health" from="Snowman" to="." method="_on_Snowman_lost_all_health"]
+[connection signal="lost_all_health" from="Snowman" to="ObstacleSpawner" method="_on_Snowman_lost_all_health"]
