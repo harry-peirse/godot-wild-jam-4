@@ -27,14 +27,9 @@ func change_anim( new_anim ):
 	if($AnimatedSprite.animation == "Running")&&(!is_running):
 		is_running=true
 		$SFXLibrary/Running1.playing = true
-	elif($AnimatedSprite.animation != "Running"):
+	elif($AnimatedSprite.animation != "Running")&&(is_running):
 		$SFXLibrary/Running1.playing =false
 		is_running = false
-		_running()
-
-
-func _running():
-	pass
 	
 	
 func dash( is_dashing : bool ):

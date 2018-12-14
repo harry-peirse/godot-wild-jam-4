@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Running5.wav-e4dd2374fafd086077dbf47b1cf66af2.sample"
+path="res://.import/Burglar_hit.wav-61e1604ae4e8de64ecfed2fd76992239.sample"
 
 [deps]
 
-source_file="res://assets/SFX/Running5.wav"
-dest_files=[ "res://.import/Running5.wav-e4dd2374fafd086077dbf47b1cf66af2.sample" ]
+source_file="res://assets/SFX/Burglar_hit.wav"
+dest_files=[ "res://.import/Burglar_hit.wav-61e1604ae4e8de64ecfed2fd76992239.sample" ]
 
 [params]
 

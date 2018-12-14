@@ -311,7 +311,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -350,7 +350,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -389,7 +389,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -419,7 +419,7 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -446,6 +446,7 @@ position = Vector2( 1632, 992 )
 [node name="Burglar" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 416, 928 )
+falloff_distance = 20
 
 [node name="Sight" parent="Burglar" instance=ExtResource( 3 )]
 scale = Vector2( 0.9, 1 )
@@ -453,6 +454,7 @@ scale = Vector2( 0.9, 1 )
 [node name="Burglar2" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 800, 927.405 )
+falloff_distance = 20
 
 [node name="Sight" parent="Burglar2" instance=ExtResource( 3 )]
 scale = Vector2( 0.8, 1 )
@@ -464,11 +466,13 @@ position = Vector2( 1280, 933.488 )
 [node name="Sight" parent="Dog2" instance=ExtResource( 3 )]
 
 [node name="Dog3" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 position = Vector2( 1152, 671.385 )
 
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
 
 [node name="Fountain" type="Area2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 54 )
 
 [node name="Fountain" type="AnimatedSprite" parent="Fountain"]
@@ -476,7 +480,7 @@ editor/display_folded = true
 position = Vector2( 2016, 416 )
 frames = SubResource( 16 )
 animation = "Fire"
-frame = 4
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Fountain/Fountain"]
@@ -492,7 +496,6 @@ editor/display_folded = true
 visible = false
 position = Vector2( -96.1021, -123.56 )
 frames = SubResource( 17 )
-frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Fountain/Fountain/FountainDialogue"]
@@ -521,7 +524,7 @@ position = Vector2( 2016, 384 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 19 )
 animation = "Hovering"
-frame = 2
+frame = 7
 playing = true
 
 [node name="Timer" type="Timer" parent="Fountain"]
@@ -533,9 +536,9 @@ volume_db = -12.0
 autoplay = true
 max_distance = 500.0
 
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Burglar_death.wav-94e689d4e2d8e6c5deb835a3c7c6cb04.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Burglar_death.wav"
+dest_files=[ "res://.import/Burglar_death.wav-94e689d4e2d8e6c5deb835a3c7c6cb04.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
