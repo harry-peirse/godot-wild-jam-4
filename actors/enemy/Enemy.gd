@@ -49,6 +49,7 @@ var is_damaged = false
 
 func _ready():
 	self.connect( "lost_all_health", self, "ready_to_die" )
+	self.add_to_group( "Enemy" )
 	
 	$AnimSprite.play()
 
@@ -89,6 +90,11 @@ func jump():
 
 
 func process_chase( delta ):
+	#If the snowman is dead, do not
+	#chase it.
+	if chase_object.get_parent().is_dead :
+		fsm_state = "Wander"
+	
 	#Chase after the Snowman.
 	var chase_after = chase_speed
 	chase_after *= clamp( chase_object.global_position.x - self.global_position.x, -1, 1 )
