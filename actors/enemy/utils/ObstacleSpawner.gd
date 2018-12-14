@@ -67,3 +67,7 @@ func _set_sky_obstacle_frequency(value):
 
 func _on_LevelDurationTimer_timeout():
 	_clean_up()
+
+
+func _on_Snowman_lost_all_health():
+	_clean_up()
