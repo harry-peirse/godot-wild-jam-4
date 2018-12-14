@@ -12,7 +12,7 @@ func _process(delta):
 		t.set_wait_time(1)
 		t.start()
 		yield(t, "timeout")
-		get_node("/root/SceneBrowser").load_scene("EscapeTheFire1")
+		get_node("/root/SceneBrowser").load_scene("ChimneyDescent2")
 
 func _on_ExitDoor_area_entered(area):
 	$Button.visible = true
