@@ -75,17 +75,14 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-custom_solver_bias = 0.0
 extents = Vector2( 73.2817, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-custom_solver_bias = 0.0
 extents = Vector2( 207.405, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-custom_solver_bias = 0.0
 extents = Vector2( 49.3599, 64 )
 
 [sub_resource type="SpriteFrames" id=4]
@@ -108,7 +105,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=6]
 
-custom_solver_bias = 0.0
 extents = Vector2( 645.861, 9.59082 )
 
 [sub_resource type="SpriteFrames" id=7]
@@ -122,7 +118,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=8]
 
-custom_solver_bias = 0.0
 extents = Vector2( 87.1776, 87.469 )
 
 [sub_resource type="SpriteFrames" id=9]
@@ -145,12 +140,10 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=11]
 
-custom_solver_bias = 0.0
 extents = Vector2( 4.84021, 64.5046 )
 
 [sub_resource type="RectangleShape2D" id=12]
 
-custom_solver_bias = 0.0
 extents = Vector2( 36.5676, 35.3163 )
 
 [sub_resource type="SpriteFrames" id=13]
@@ -164,7 +157,6 @@ animations = [ {
 
 [sub_resource type="SegmentShape2D" id=14]
 
-custom_solver_bias = 0.0
 a = Vector2( 32, -64 )
 b = Vector2( -32, 0 )
 
@@ -197,7 +189,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=18]
 
-custom_solver_bias = 0.0
 extents = Vector2( 70.7726, 62.7142 )
 
 [sub_resource type="SpriteFrames" id=19]
@@ -219,21 +210,7 @@ position = Vector2( 145.289, 744.354 )
 [node name="Sight" parent="Dog" instance=ExtResource( 3 )]
 
 [node name="TileMap(structure)(0)" type="TileMap" parent="."]
-mode = 0
 tile_set = ExtResource( 4 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 30, 3, 0, 31, 2, 0, 32, 0, 0, 65568, 0, 0, 131104, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 24, 0, 196620, 0, 0, 196621, 2, 0, 196624, 29, 0, 196625, 1, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 1, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 1, 0, 196638, 7, 0, 196639, 7, 0, 196640, 0, 0, 262144, 3, 0, 262145, 6, 0, 262146, 6, 0, 262147, 6, 0, 262148, 6, 0, 262149, 6, 0, 262150, 6, 0, 262151, 0, 0, 262152, 6, 0, 262153, 6, 0, 262156, 3, 0, 262157, 6, 0, 262160, 3, 0, 262161, 6, 0, 262162, 6, 0, 262163, 6, 0, 262164, 6, 0, 262165, 6, 0, 262166, 6, 0, 262167, 6, 0, 262168, 6, 0, 262169, 6, 0, 262170, 6, 0, 262171, 6, 0, 262172, 6, 0, 262173, 6, 0, 262174, 6, 0, 262175, 6, 0, 262176, 0, 0, 327712, 0, 0, 393230, 0, 0, 393248, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 524288, 5, 0, 524293, 5, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 655359, 5, 0, 589824, 5, 0, 589829, 5, 0, 589830, 5, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 720895, 5, 0, 655365, 0, 0, 786431, 5, 0, 720901, 3, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 851967, 5, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 4, 0, 786436, 4, 0, 786437, 5, 0, 786461, 0, 0, 786462, 0, 0, 786463, 0, 0, 786464, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851991, 0, 0, 851992, 0, 0, 983040, 8, 0, 983041, 8, 0, 983042, 8, 0, 983044, 8, 0, 983045, 8, 0, 983046, 8, 0, 983047, 8, 0, 983048, 8, 0, 983050, 8, 0, 983051, 8, 0, 983052, 8, 0, 983053, 8, 0, 983054, 8, 0, 983056, 8, 0, 983057, 8, 0, 983058, 8, 0, 983059, 8, 0, 983060, 8, 0, 983061, 8, 0, 983062, 8, 0, 983063, 8, 0, 983064, 11, 0, 983066, 11, 0, 983067, 11, 0, 983068, 11, 0, 983069, 8, 0, 983070, 8, 0, 983071, 8, 0, 983072, 8, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 11, 0, 1048607, 11, 0, 1048608, 10, 0, 1114112, 11, 0, 1114113, 11, 0, 1114114, 11, 0, 1114115, 11, 0, 1114116, 11, 0, 1114117, 11, 0, 1114118, 11, 0, 1114119, 11, 0, 1114120, 11, 0, 1114121, 11, 0, 1114122, 11, 0, 1114123, 11, 0, 1114124, 11, 0, 1114125, 11, 0, 1114126, 11, 0, 1114127, 11, 0, 1114128, 11, 0, 1114129, 11, 0, 1114130, 11, 0, 1114131, 11, 0, 1114132, 11, 0, 1114133, 11, 0, 1114134, 11, 0, 1114135, 11, 0, 1114136, 11, 0, 1114137, 11, 0, 1114138, 11, 0, 1114139, 11, 0, 1114140, 11, 0, 1114141, 11, 0, 1114142, 11, 0, 1114143, 11, 0, 1114144, 10, 0 )
 __meta__ = {
@@ -243,17 +220,6 @@ __meta__ = {
 [node name="Snowman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 50, 100 )
 z_index = 1
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-can_navigate = true
-has_camera = true
-camera_limit_top = null
-camera_limit_left = null
-camera_limit_bottom = null
-camera_limit_right = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.49508, -49.1532 )
@@ -267,15 +233,6 @@ editor/display_folded = true
 
 [node name="Footstool" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 474.332, 354.079 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-is_active = true
-push_self = Vector2( 0, 0 )
 push_other = Vector2( 0, 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Footstool"]
@@ -305,13 +262,6 @@ editor/display_folded = true
 position = Vector2( 828.56, 372.072 )
 
 [node name="Area2D" type="Area2D" parent="BatTrigger1"]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatTrigger1/Area2D"]
 shape = SubResource( 2 )
@@ -337,14 +287,7 @@ position = Vector2( 2080, 32 )
 
 [node name="ExitDoor" type="Area2D" parent="."]
 editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_mask = 1024
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
@@ -352,19 +295,10 @@ position = Vector2( 2060.85, 128 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="ExitDoor"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="DoorSFX" type="AudioStreamPlayer" parent="ExitDoor"]
 stream = ExtResource( 12 )
 volume_db = -6.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
 
 [node name="ExitDoor" type="AnimatedSprite" parent="ExitDoor"]
 position = Vector2( 2079.31, 128 )
@@ -377,17 +311,10 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-animation = "default"
-frame = 5
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -11.828, 448.058 )
@@ -396,11 +323,6 @@ shape = SubResource( 6 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 2121.45, 352.656 )
@@ -413,13 +335,6 @@ script = ExtResource( 24 )
 [node name="Lever1" type="Area2D" parent="Gate+Levers"]
 editor/display_folded = true
 position = Vector2( 1759.84, 94.4906 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Lever" type="AnimatedSprite" parent="Gate+Levers/Lever1"]
 position = Vector2( -191.057, 706.187 )
@@ -434,8 +349,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
-animation = "default"
-frame = 4
+frame = 5
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -446,11 +360,6 @@ animation = "Open"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Gate+Levers/Gate"]
 editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate+Levers/Gate/StaticBody2D"]
 position = Vector2( -31.8712, -0.157776 )
@@ -460,28 +369,11 @@ shape = SubResource( 11 )
 stream = ExtResource( 37 )
 volume_db = -3.0
 pitch_scale = 0.9
-autoplay = false
-stream_paused = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Timer" type="Timer" parent="Gate+Levers"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="Lever2" type="Area2D" parent="Gate+Levers"]
 editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Lever" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
 position = Vector2( 31.8501, 735.733 )
@@ -496,8 +388,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
-animation = "default"
-frame = 4
+frame = 5
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -507,11 +398,6 @@ frames = SubResource( 13 )
 animation = "Surface"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Gate+Levers/Lever2/Slope"]
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate+Levers/Lever2/Slope/StaticBody2D"]
 shape = SubResource( 14 )
@@ -522,51 +408,27 @@ position = Vector2( 7.99994, -22.9998 )
 stream = ExtResource( 43 )
 volume_db = -7.0
 pitch_scale = 0.7
-autoplay = false
-stream_paused = false
 max_distance = 100.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="LeverSFX" type="AudioStreamPlayer" parent="Gate+Levers"]
 stream = ExtResource( 44 )
 volume_db = -6.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
 
 [node name="LockedDialogue" type="AnimatedSprite" parent="Gate+Levers"]
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
-animation = "default"
-frame = 4
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -46.0
 margin_top = -4.0
 margin_right = 46.0
 margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 51 )
 text = "Mhh...locked.
 "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Fire1" parent="." instance=ExtResource( 52 )]
 position = Vector2( 224, 992 )
@@ -583,101 +445,30 @@ position = Vector2( 1632, 992 )
 [node name="Burglar" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 416, 928 )
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-is_still = false
-walk_speed = 100
-chase_speed = 250
-see_behind = true
 
 [node name="Sight" parent="Burglar" instance=ExtResource( 3 )]
 scale = Vector2( 0.9, 1 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Burglar2" parent="." instance=ExtResource( 53 )]
 editor/display_folded = true
 position = Vector2( 800, 927.405 )
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-is_still = false
-walk_speed = 100
-chase_speed = 250
-see_behind = true
 
 [node name="Sight" parent="Burglar2" instance=ExtResource( 3 )]
 scale = Vector2( 0.8, 1 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Dog2" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 1280, 933.488 )
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-is_still = false
-walk_speed = 100
-chase_speed = 250
-see_behind = true
 
 [node name="Sight" parent="Dog2" instance=ExtResource( 3 )]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Dog3" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 1152, 671.385 )
-input_pickable = false
-collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-is_still = false
-walk_speed = 100
-chase_speed = 250
-see_behind = true
 
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="Fountain" type="Area2D" parent="."]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 54 )
 
 [node name="Fountain" type="AnimatedSprite" parent="Fountain"]
@@ -685,91 +476,40 @@ editor/display_folded = true
 position = Vector2( 2016, 416 )
 frames = SubResource( 16 )
 animation = "Fire"
-frame = 5
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Fountain/Fountain"]
 position = Vector2( 4.16679, -11.0006 )
 rotation = 1.5708
 scale = Vector2( 1.0879, 1 )
-enabled = true
-editor_only = false
 texture = ExtResource( 61 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.309804, 0.741176, 0.721569, 0.607843 )
 energy = 2.1
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="FountainDialogue" type="AnimatedSprite" parent="Fountain/Fountain"]
 editor/display_folded = true
 visible = false
 position = Vector2( -96.1021, -123.56 )
 frames = SubResource( 17 )
-animation = "default"
-frame = 3
+frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="Fountain/Fountain/FountainDialogue"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -53.0
 margin_top = -13.0
 margin_right = 80.0
 margin_bottom = 10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 51 )
 text = "A fountain...
 Time to rest 
 a bit."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Light2D" type="Light2D" parent="Fountain/Fountain/FountainDialogue"]
 position = Vector2( 35.357, -14.397 )
 scale = Vector2( 1.52, 0.67 )
-enabled = true
-editor_only = false
 texture = ExtResource( 61 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.905882, 0.901961, 0.603922, 0.584314 )
 energy = 2.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fountain"]
 position = Vector2( 1977.03, 384.597 )
@@ -780,26 +520,17 @@ position = Vector2( 2016, 384 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 19 )
 animation = "Hovering"
-frame = 9
+frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Fountain"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="Fountain2" type="AudioStreamPlayer2D" parent="Fountain"]
 position = Vector2( 1968.02, 388.185 )
 stream = ExtResource( 72 )
 volume_db = -12.0
-pitch_scale = 1.0
 autoplay = true
-stream_paused = false
 max_distance = 500.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
