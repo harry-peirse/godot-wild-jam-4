@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kid1_walking2.png-992cb9ba46c137729ccade026f406ea0.stex"
+path="res://.import/fire_test.png-ad14693c66a9f52532ba394aeb8063b6.stex"
 
 [deps]
 
-source_file="res://Art/Animation/Kid_walking/Kid1_walking2.png"
-dest_files=[ "res://.import/Kid1_walking2.png-992cb9ba46c137729ccade026f406ea0.stex" ]
+source_file="res://assets/fire_test.png"
+dest_files=[ "res://.import/fire_test.png-ad14693c66a9f52532ba394aeb8063b6.stex" ]
 
 [params]
 
