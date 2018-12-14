@@ -90,7 +90,6 @@ func been_hit( push : Vector2, damaged = false):
 
 
 func chase_snowman( snowman ):
-	#Ignore everything if dead.
 	if is_alive == false:
 		return
 	
@@ -99,6 +98,12 @@ func chase_snowman( snowman ):
 		fsm_state = "Wander"
 		emit_signal( "change_anim", "walk" )
 		return
+	
+	#Maybe this will fix that strange bug
+	#where the enemy gets super uppercutted.
+	#Ignore everything if dead.
+	if chase_object != null :
+		return	
 	
 	#Eventually check if player is behind me.
 	#Right now just set chase_object to snowman.
