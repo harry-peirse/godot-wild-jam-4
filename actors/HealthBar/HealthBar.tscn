@@ -7,8 +7,10 @@
 [ext_resource path="res://assets/characters/healthbar/Lights2.png" type="Texture" id=5]
 
 [node name="HealthBar" type="Node2D"]
-position = Vector2( -45, 0 )
+visible = false
+position = Vector2( -45, 20 )
 scale = Vector2( 0.7, 0.7 )
+z_index = 3
 script = ExtResource( 1 )
 
 [node name="Health" type="TextureProgress" parent="."]
@@ -28,12 +30,15 @@ position = Vector2( 64.0702, 16.0253 )
 texture = ExtResource( 3 )
 
 [node name="Lights1" type="Sprite" parent="."]
-visible = false
 position = Vector2( 64.2161, 15.7779 )
 z_index = 1
 texture = ExtResource( 4 )
 
 [node name="Lights2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 64.2161, 15.7779 )
 texture = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 

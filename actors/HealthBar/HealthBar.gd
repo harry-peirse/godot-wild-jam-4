@@ -30,9 +30,16 @@ func _process(delta):
 
 	change = 0.011167 * 175
 	
+	
+func _ready():
+	$Timer.connect( "timeout", self, "hide" )	
+	
 
 func update_value( new_value ):
 	$Health.value = new_value
+	
+	#Show myself for a brief time.
+	self.show()
 	
 	if new_value > 75 :
 		$Health.modulate = HEALTH_75
@@ -40,6 +47,10 @@ func update_value( new_value ):
 		$Health.modulate = HEALTH_25
 	elif new_value > 0 :
 		$Health.modulate = HEALTH_0
+		$Timer.stop()
+		return
+	
+	$Timer.start()
 
 
 func set_health_object( new_object ):
