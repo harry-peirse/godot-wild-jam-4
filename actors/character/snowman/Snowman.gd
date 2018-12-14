@@ -97,6 +97,7 @@ func _ready():
 	emit_signal("get_scale")
 	self.connect( "pushback", self, "pushback" )
 	self.connect( "lost_all_health", self, "health_gone"  )
+	self.connect( "health_changed", SnowmanStats, "change_health" )
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
@@ -105,6 +106,8 @@ func _ready():
 	$Camera2D.limit_left = camera_limit_left
 	$Camera2D.limit_bottom = camera_limit_bottom
 	$Camera2D.limit_right = camera_limit_right
+	
+	set_health( SnowmanStats.current_health )
 
 func _on_health(amount):
 	prints("health: ", amount)
