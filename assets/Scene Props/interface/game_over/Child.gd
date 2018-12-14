@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 
 
 #Move to the right a little while,
@@ -17,9 +17,15 @@ signal reached_destination
 func _process(delta):
 	if has_not_reached_destination :
 		self.position.x += walk_speed * delta
+		self.animation = "Walk"
 	
 	
 	if position.x >= destination :
 		has_not_reached_destination = false
 		self.emit_signal( "reached_destination" )
 		#Start crying.
+		self.animation = "Crying"
+	
+	
+func _ready():
+	self.play()
