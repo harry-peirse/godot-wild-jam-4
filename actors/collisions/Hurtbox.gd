@@ -15,8 +15,7 @@ func collided( area ):
 func hurt( damage, hitbox ):
 	if is_active :
 		get_parent().emit_signal( "damage", damage )
-		
-
+		get_parent().emit_signal( "change_anim", "Hit" )
 
 func make_layer_active( set_activate ):
 	if get_parent().has_method( "is_snowman" ) :
