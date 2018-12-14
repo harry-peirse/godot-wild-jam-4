@@ -3,6 +3,9 @@ extends "res://actors/physics/Physics.gd"
 
 const JUMP_STRENGTH = -800
 
+#Prevent something random from getting played.
+var can_handle_physics : bool = true
+
 
 #When true, the enemy does not wander.
 export var is_still = false
@@ -42,7 +45,7 @@ var is_alive = true
 var death_wait = 0.016667 * 120
 
 #Knockback variables.
-const PUSHBACK_WAIT = 0.011167 * 20
+const PUSHBACK_WAIT = 0.011167 * 25
 var pushback_left = PUSHBACK_WAIT
 var is_damaged = false
 
@@ -55,8 +58,14 @@ func _ready():
 
 
 func _process(delta):
+	#Prevent the enemy from glitch
+	#jumping super high.
+	if velocity.y <= JUMP_STRENGTH :
+		velocity.y = JUMP_STRENGTH
+	
 	if is_alive :
-		handle_physics( delta )
+		if can_handle_physics :
+			handle_physics( delta )
 	call( "process_" + fsm_dict[ fsm_state ], delta )
 
 
@@ -64,6 +73,7 @@ func been_hit( push : Vector2, damaged = false):
 	#Eventually play the correct animation.
 	fsm_state = "Pushed"
 	velocity = push
+	can_handle_physics = false
 	is_damaged = damaged
 
 
@@ -110,6 +120,7 @@ func process_chase( delta ):
 
 
 func process_die( delta ): 
+	emit_signal( "change_anim", "Die" )
 	death_wait -= delta
 	
 	if death_wait <= 0 :
@@ -117,23 +128,28 @@ func process_die( delta ):
 
 
 func process_pushed( delta ):
+	#Spaghetti code for the win.
+	if is_damaged:
+		emit_signal( "change_anim", "Hit" )
+	else:
+		emit_signal( "change_anim", "Idle" )
+	
 	pushback_left -= delta
 	
 	move_body()
 	
 	if pushback_left <= 0 :
+		can_handle_physics = true
+		is_damaged = false
 		pushback_left = PUSHBACK_WAIT
+		
+		#Why.
+		emit_signal( "change_anim", "Running" )
 		if chase_object != null :
 			fsm_state = "Chase"
 		else:
 			fsm_state = "Wander"
 	
-	#Let the interface know I am being pushed.
-	elif is_damaged :
-		emit_signal( "change_anim", "hit" )
-	
-	else:
-		emit_signal( "change_anim", "idle" )
 	
 
 
