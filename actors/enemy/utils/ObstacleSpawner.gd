@@ -21,7 +21,6 @@ var single_deadly_large_flame_scene = preload("res://actors/enemy/obstacles/Sing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("ready")
 	randomize()
 	$GroundObstacleTimer.set_wait_time(ground_obstacle_frequency)
 	$GroundObstacleTimer.start()

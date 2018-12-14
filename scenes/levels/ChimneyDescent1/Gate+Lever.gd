@@ -28,7 +28,6 @@ func _process(delta):
 		
 	if(L1_done)&&(L2_done)&&(!gate_done):
 		gate_done=true
-		print("hello")
 		t.set_wait_time(1)
 		t.start()
 		yield(t, "timeout")
