@@ -101,11 +101,11 @@ func _ready():
 	$AnimatedSprite.play()
 	$DashFX.emitting = false
 	$DoubleJumpFX.emitting = false
-	$Camera2D.current = has_camera
-	$Camera2D.limit_top = camera_limit_top
-	$Camera2D.limit_left = camera_limit_left
-	$Camera2D.limit_bottom = camera_limit_bottom
-	$Camera2D.limit_right = camera_limit_right
+	#$Camera2D.current = has_camera
+	#$Camera2D.limit_top = camera_limit_top
+	#$Camera2D.limit_left = camera_limit_left
+	#$Camera2D.limit_bottom = camera_limit_bottom
+	#$Camera2D.limit_right = camera_limit_right
 	
 	set_health( SnowmanStats.current_health )
 

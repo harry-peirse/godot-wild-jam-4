@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://scenes/levels/ChimneyDescent1.gd" type="Script" id=1]
 [ext_resource path="res://actors/enemy/dog/Dog.tscn" type="PackedScene" id=2]
@@ -53,25 +53,7 @@
 [ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=51]
 [ext_resource path="res://assets/Scene Props/Fire.tscn" type="PackedScene" id=52]
 [ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=53]
-[ext_resource path="res://scenes/levels/Fountain.gd" type="Script" id=54]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain1.png" type="Texture" id=55]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain2.png" type="Texture" id=56]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain3.png" type="Texture" id=57]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain4.png" type="Texture" id=58]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain5.png" type="Texture" id=59]
-[ext_resource path="res://Art/Animation/Health Fountain/FountainFire/HealthFountain6.png" type="Texture" id=60]
-[ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=61]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim1.png" type="Texture" id=62]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim2.png" type="Texture" id=63]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim3.png" type="Texture" id=64]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim4.png" type="Texture" id=65]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim5.png" type="Texture" id=66]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim6.png" type="Texture" id=67]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim7.png" type="Texture" id=68]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim8.png" type="Texture" id=69]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim9.png" type="Texture" id=70]
-[ext_resource path="res://Art/Animation/Health Fountain/Snowflake/SnowflakeAnim10.png" type="Texture" id=71]
-[ext_resource path="res://assets/SFX/Fountain.wav" type="AudioStream" id=72]
+[ext_resource path="res://scenes/Fountain.tscn" type="PackedScene" id=54]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -167,37 +149,6 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=16]
-
-animations = [ {
-"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
-"loop": true,
-"name": "Fire",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=17]
-
-animations = [ {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=18]
-
-extents = Vector2( 70.7726, 62.7142 )
-
-[sub_resource type="SpriteFrames" id=19]
-
-animations = [ {
-"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ) ],
-"loop": true,
-"name": "Hovering",
-"speed": 8.0
 } ]
 
 [node name="ChimneyDescent1" type="Node"]
@@ -311,7 +262,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -351,7 +302,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -390,7 +341,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -420,7 +371,7 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -470,71 +421,7 @@ position = Vector2( 1152, 671.385 )
 
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
 
-[node name="Fountain" type="Area2D" parent="."]
-editor/display_folded = true
-script = ExtResource( 54 )
-
-[node name="Fountain" type="AnimatedSprite" parent="Fountain"]
-editor/display_folded = true
-position = Vector2( 2016, 416 )
-frames = SubResource( 16 )
-animation = "Fire"
-frame = 3
-playing = true
-
-[node name="Light2D" type="Light2D" parent="Fountain/Fountain"]
-position = Vector2( 4.16679, -11.0006 )
-rotation = 1.5708
-scale = Vector2( 1.0879, 1 )
-texture = ExtResource( 61 )
-color = Color( 0.309804, 0.741176, 0.721569, 0.607843 )
-energy = 2.1
-
-[node name="FountainDialogue" type="AnimatedSprite" parent="Fountain/Fountain"]
-editor/display_folded = true
-visible = false
-position = Vector2( -96.1021, -123.56 )
-frames = SubResource( 17 )
-frame = 1
-playing = true
-
-[node name="Label" type="Label" parent="Fountain/Fountain/FountainDialogue"]
-margin_left = -53.0
-margin_top = -13.0
-margin_right = 80.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 51 )
-text = "A fountain...
-Time to rest 
-a bit."
-
-[node name="Light2D" type="Light2D" parent="Fountain/Fountain/FountainDialogue"]
-position = Vector2( 35.357, -14.397 )
-scale = Vector2( 1.52, 0.67 )
-texture = ExtResource( 61 )
-color = Color( 0.905882, 0.901961, 0.603922, 0.584314 )
-energy = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fountain"]
-position = Vector2( 1977.03, 384.597 )
-shape = SubResource( 18 )
-
-[node name="Snowflake" type="AnimatedSprite" parent="Fountain"]
-position = Vector2( 2016, 384 )
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 19 )
-animation = "Hovering"
-frame = 5
-playing = true
-
-[node name="Timer" type="Timer" parent="Fountain"]
-
-[node name="Fountain2" type="AudioStreamPlayer2D" parent="Fountain"]
-position = Vector2( 1968.02, 388.185 )
-stream = ExtResource( 72 )
-volume_db = -12.0
-autoplay = true
-max_distance = 500.0
+[node name="Fountain" parent="." instance=ExtResource( 54 )]
 
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
@@ -545,6 +432,3 @@ max_distance = 500.0
 [connection signal="area_exited" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever2" to="Gate+Levers" method="_on_Lever2_area_entered"]
 [connection signal="area_exited" from="Gate+Levers/Lever2" to="Gate+Levers" method="_on_Lever2_area_exited"]
-[connection signal="area_entered" from="Fountain" to="Fountain" method="_on_Fountain_area_entered"]
-[connection signal="area_exited" from="Fountain" to="Fountain" method="_on_Fountain_area_exited"]
-[connection signal="fountain_entered" from="Fountain" to="Snowman" method="_on_Fountain_fountain_entered"]
