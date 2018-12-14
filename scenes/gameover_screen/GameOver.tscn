@@ -27,24 +27,24 @@
 [ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=25]
 [ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=26]
 [ext_resource path="res://assets/Scene Props/interface/game_over/Child.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying1.png" type="Texture" id=28]
-[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying2.png" type="Texture" id=29]
-[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying3.png" type="Texture" id=30]
-[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying4.png" type="Texture" id=31]
-[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking1.png" type="Texture" id=32]
-[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking2.png" type="Texture" id=33]
-[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking3.png" type="Texture" id=34]
-[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking4.png" type="Texture" id=35]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking1.png" type="Texture" id=28]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking2.png" type="Texture" id=29]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking3.png" type="Texture" id=30]
+[ext_resource path="res://Art/Animation/Kid1_walking/Kid1_walking4.png" type="Texture" id=31]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying1.png" type="Texture" id=32]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying2.png" type="Texture" id=33]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying3.png" type="Texture" id=34]
+[ext_resource path="res://Art/Animation/Kid_crying/Kid1_crying4.png" type="Texture" id=35]
 [ext_resource path="res://scenes/gameover_screen/gameover.gd" type="Script" id=36]
 [ext_resource path="res://assets/characters/healthbar/under.png" type="Texture" id=37]
-[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying1.png" type="Texture" id=38]
-[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying2.png" type="Texture" id=39]
-[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying3.png" type="Texture" id=40]
-[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying4.png" type="Texture" id=41]
-[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking1.png" type="Texture" id=42]
-[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking2.png" type="Texture" id=43]
-[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking3.png" type="Texture" id=44]
-[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking4.png" type="Texture" id=45]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking1.png" type="Texture" id=38]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking2.png" type="Texture" id=39]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking3.png" type="Texture" id=40]
+[ext_resource path="res://Art/Animation/Kid2_walking/Kid2_walking4.png" type="Texture" id=41]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying1.png" type="Texture" id=42]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying2.png" type="Texture" id=43]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying3.png" type="Texture" id=44]
+[ext_resource path="res://Art/Animation/Kid2_crying/Kid2_crying4.png" type="Texture" id=45]
 [ext_resource path="res://assets/Scene Props/interface/game_over/GameOverText.gd" type="Script" id=46]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -82,12 +82,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "Crying",
+"name": "Walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
-"name": "Walk",
+"name": "Crying",
 "speed": 5.0
 } ]
 
@@ -96,12 +96,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": true,
-"name": "Crying",
+"name": "Walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": true,
-"name": "Walk",
+"name": "Crying",
 "speed": 5.0
 } ]
 
@@ -138,6 +138,7 @@ tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 393210, 34, 0, 
 position = Vector2( 320, 288 )
 scale = Vector2( 2.707, 2.496 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LivingRoom/Chimney" index="0"]
@@ -172,13 +173,13 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 16, 48 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="LivingRoom/Dialogue" index="3"]
 editor/display_folded = true
 visible = false
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="LivingRoom/Dialogue/Success" index="0"]
@@ -225,11 +226,11 @@ zoom = Vector2( 0.45, 0.45 )
 
 [node name="Menu" type="Sprite" parent="Movement/Child/Camera2D/Node" index="0"]
 position = Vector2( 289.085, 366.857 )
-z_index = 40
+z_index = 700
 script = ExtResource( 36 )
 
 [node name="Sprite" type="Sprite" parent="Movement/Child/Camera2D/Node/Menu" index="0"]
-modulate = Color( 1, 1, 1, 0.894118 )
+modulate = Color( 1, 1, 1, 0.686275 )
 position = Vector2( 8.50834, 103.361 )
 scale = Vector2( 3.13294, 1.21219 )
 z_index = -3
@@ -259,7 +260,11 @@ frames = SubResource( 6 )
 animation = "Walk"
 destination = 548
 
-[node name="GameOver" type="RichTextLabel" parent="Movement/Child2" index="0"]
+[node name="Node2D" type="Node2D" parent="Movement/Child2" index="0"]
+z_index = 700
+
+[node name="GameOver" type="RichTextLabel" parent="Movement/Child2/Node2D" index="0"]
+modulate = Color( 1, 0, 0, 1 )
 margin_left = -149.265
 margin_top = -236.857
 margin_right = 38.7348
@@ -270,4 +275,4 @@ script = ExtResource( 46 )
 
 [connection signal="area_entered" from="LivingRoom/Dialogue" to="LivingRoom/Dialogue" method="_on_Dialogue_area_entered"]
 [connection signal="area_exited" from="LivingRoom/Dialogue" to="LivingRoom/Dialogue" method="_on_Dialogue_area_exited"]
-[connection signal="reached_destination" from="Movement/Child2" to="Movement/Child2/GameOver" method="begin_playing"]
+[connection signal="reached_destination" from="Movement/Child2" to="Movement/Child2/Node2D/GameOver" method="begin_playing"]
