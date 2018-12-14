@@ -69,6 +69,18 @@ func _process(delta):
 	call( "process_" + fsm_dict[ fsm_state ], delta )
 
 
+func foot_stooled( ):
+	fsm_state = "Pushed"
+	can_handle_physics = false
+	is_damaged = true
+	velocity.x = 0
+	velocity.y = 200
+	
+	#Why do I have to do this to make it work?
+	if health <= 0 :
+		ready_to_die()
+
+
 func been_hit( push : Vector2, damaged = false):
 	#Eventually play the correct animation.
 	fsm_state = "Pushed"

@@ -22,4 +22,5 @@ func _ready():
 
 
 func change_anim( new_anim ):
-	$AnimSprite.animation = new_anim
+	if $AnimSprite.animation != new_anim :
+		$AnimSprite.animation = new_anim

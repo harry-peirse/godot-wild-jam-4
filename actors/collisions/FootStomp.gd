@@ -9,7 +9,7 @@ export var damage = 20
 
 func collided( area ):
 	area.get_parent().emit_signal( "damage", damage )
-	area.get_parent().emit_signal( "footstooled" )
+	area.get_parent().emit_signal( "foot_stooled" )
 
 
 func make_layer_active( boolean ):

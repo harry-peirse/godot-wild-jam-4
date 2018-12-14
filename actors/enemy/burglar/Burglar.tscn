@@ -2,53 +2,53 @@
 
 [ext_resource path="res://actors/enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/enemy/EnemyInterface.gd" type="Script" id=2]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle01.png" type="Texture" id=3]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle02.png" type="Texture" id=4]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle03.png" type="Texture" id=5]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking1.png" type="Texture" id=6]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking2.png" type="Texture" id=7]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking3.png" type="Texture" id=8]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking4.png" type="Texture" id=9]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking5.png" type="Texture" id=10]
-[ext_resource path="res://assets/enemies/burglar/burglar_dead.png" type="Texture" id=11]
-[ext_resource path="res://assets/enemies/burglar/bruglar_falling.png" type="Texture" id=12]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit1.png" type="Texture" id=13]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit2.png" type="Texture" id=14]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit3.png" type="Texture" id=15]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit4.png" type="Texture" id=16]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking1.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/burglar/bruglar_falling.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle01.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle02.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle03.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit1.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit2.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit3.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit4.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/burglar/burglar_dead.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking2.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking3.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking4.png" type="Texture" id=15]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking5.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Running",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Die",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "Falling",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
-"name": "Hurt",
+"name": "Hit",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -66,7 +66,7 @@ falloff_distance = 3
 [node name="AnimSprite" parent="." index="0"]
 scale = Vector2( -1, 1 )
 frames = SubResource( 1 )
-animation = "Hurt"
+animation = "Hit"
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( 0, 5.48776 )
