@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://actors/character/snowman/SnowmanInterface.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=2]
@@ -9,9 +9,9 @@
 [ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=7]
 [ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=8]
 [ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=9]
-[ext_resource path="res://assets/characters/snowman/hurt01.png" type="Texture" id=10]
-[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=11]
-[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=12]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/hurt01.png" type="Texture" id=11]
+[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=12]
 [ext_resource path="res://assets/characters/snowman/death1.png" type="Texture" id=13]
 [ext_resource path="res://assets/characters/snowman/death2.png" type="Texture" id=14]
 [ext_resource path="res://assets/characters/snowman/death3.png" type="Texture" id=15]
@@ -45,7 +45,8 @@
 [ext_resource path="res://assets/SFX/GroundImpact.wav" type="AudioStream" id=43]
 [ext_resource path="res://assets/SFX/Dash.wav" type="AudioStream" id=44]
 [ext_resource path="res://assets/SFX/Running5.wav" type="AudioStream" id=45]
-[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=46]
+[ext_resource path="res://assets/SFX/Snowman_hit.wav" type="AudioStream" id=46]
+[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=47]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -65,14 +66,14 @@ animations = [ {
 "name": "Jumping",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "Hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Hit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
@@ -204,6 +205,10 @@ stream = ExtResource( 45 )
 volume_db = -26.0
 pitch_scale = 0.8
 
+[node name="Hit" type="AudioStreamPlayer" parent="SFXLibrary"]
+stream = ExtResource( 46 )
+volume_db = -9.0
+
 [node name="Sight" type="Area2D" parent="."]
 editor/display_folded = true
 collision_layer = 16
@@ -213,5 +218,5 @@ collision_mask = 0
 position = Vector2( 0, 4.97058 )
 shape = SubResource( 2 )
 
-[node name="HealthBar" parent="." instance=ExtResource( 46 )]
+[node name="HealthBar" parent="." instance=ExtResource( 47 )]
 

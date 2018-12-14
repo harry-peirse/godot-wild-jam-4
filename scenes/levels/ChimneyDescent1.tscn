@@ -524,7 +524,7 @@ position = Vector2( 2016, 384 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 19 )
 animation = "Hovering"
-frame = 7
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="Fountain"]
@@ -537,8 +537,8 @@ autoplay = true
 max_distance = 500.0
 
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_entered"]

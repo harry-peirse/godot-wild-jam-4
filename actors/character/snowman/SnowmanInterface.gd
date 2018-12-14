@@ -1,7 +1,7 @@
 extends "res://actors/character/snowman/Snowman.gd"
 
 var is_running =false
-
+var is_hit = false
 
 func flip_sprite( boolean ):
 	$AnimatedSprite.flip_h = boolean
@@ -30,6 +30,13 @@ func change_anim( new_anim ):
 	elif($AnimatedSprite.animation != "Running")&&(is_running):
 		$SFXLibrary/Running1.playing =false
 		is_running = false
+	
+	if($AnimatedSprite.animation == "Hit")&&(!is_hit):
+		is_hit = true
+		$SFXLibrary/Hit.playing = true
+	elif($AnimatedSprite.animation != "Hit")&&(is_hit):
+		is_hit = false
+		$SFXLibrary/Hit.playing = false
 	
 	
 func dash( is_dashing : bool ):
