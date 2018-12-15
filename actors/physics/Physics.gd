@@ -73,7 +73,7 @@ func foot_stomped( push : Vector2 ):
 	velocity += push
 
 
-func handle_physics( delta ):
+func handle_physics( delta, can_run = true ):
 	if run_physics == false :
 		return
 	
@@ -89,20 +89,23 @@ func handle_physics( delta ):
 		velocity.y = 0
 		
 		#Determine if I am running or standing idle.
-		if abs(velocity.x) > 0 :
-			emit_signal( "change_anim", "Running" )
-		else:
-			emit_signal( "change_anim", "Idle" )
+		if can_run == true :
+			if abs(velocity.x) > 0 :
+				emit_signal( "change_anim", "Running" )
+			else:
+				emit_signal( "change_anim", "Idle" )
 	
 	#If I am falling downward.
 	elif velocity.y > 0:
 		on_floor = false
-		emit_signal( "change_anim", "Falling" )
+		if can_run :
+			emit_signal( "change_anim", "Falling" )
 	
 	#Else I am moving upwards
 	else:
 		on_floor = false
-		emit_signal( "change_anim", "Jumping" )
+		if can_run :
+			emit_signal( "change_anim", "Jumping" )
 
 	#If I bop my head, stop traveling upwards.
 	$Ceiling.update()
