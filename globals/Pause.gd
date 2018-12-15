@@ -92,8 +92,7 @@ func process_pause( delta ):
 		
 		if current_color >= color.size() :
 			current_color = 0
-		
-		
-		
-		
-		
+
+
+func enabled( boolean : bool ):
+	set_process( boolean )
