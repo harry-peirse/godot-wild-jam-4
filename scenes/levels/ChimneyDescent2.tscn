@@ -180,6 +180,7 @@ position = Vector2( 2592.31, 192.88 )
 script = ExtResource( 11 )
 
 [node name="Door" type="AnimatedSprite" parent="Door"]
+editor/display_folded = true
 frames = SubResource( 1 )
 
 [node name="DoorSFX" type="AudioStreamPlayer" parent="Door/Door"]
@@ -193,7 +194,6 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( -42.2517, -41.3716 )
 frames = SubResource( 3 )
-frame = 5
 playing = true
 
 [node name="Timer" type="Timer" parent="Door"]
@@ -216,7 +216,6 @@ shape = SubResource( 5 )
 visible = false
 position = Vector2( -23.2134, -13.1542 )
 frames = SubResource( 6 )
-frame = 5
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Lever2"]
@@ -227,7 +226,7 @@ frames = SubResource( 7 )
 editor/display_folded = true
 position = Vector2( 2806.64, 676.79 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="DialougeChoose"]
