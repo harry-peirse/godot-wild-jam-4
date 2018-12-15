@@ -248,6 +248,7 @@ func process_dead( delta ):
 	$Camera2D.zoom.y -= 0.003
 	
 	if death_wait <= 0 :
+		set_health( 100 )
 		SceneBrowser.load_scene("GameOver")
 
 
