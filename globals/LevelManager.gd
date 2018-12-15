@@ -14,9 +14,9 @@ var waiting_houses = []
 
 func house_beaten():
 	var house_at
-	house_at = completed_houses.find( attempt )
-	completed_houses.remove( house_at )
-	waiting_houses.append( attempt )
+	house_at = waiting_houses.find( attempt )
+	waiting_houses.remove( house_at )
+	completed_houses.append( attempt )
 	attempt = null
 
 
@@ -25,12 +25,14 @@ func house_started( house_name ):
 
 
 func house_ready( house_name ):
-	if( completed_houses.has( house_name ) ||
-	waiting_houses.has( house_name ) ) :
+	if completed_houses.has( house_name ) :
+		return true
+	
+	if waiting_houses.has( house_name ) :
 		return false
 	
 	waiting_houses.append( house_name )
-	return true
+	return false
 	
 	
 	
