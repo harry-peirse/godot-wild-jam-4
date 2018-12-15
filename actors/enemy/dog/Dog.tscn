@@ -1,51 +1,57 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://actors/enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/enemy/dog/Dog.gd" type="Script" id=2]
-[ext_resource path="res://assets/enemies/dog/dog_idle01.png" type="Texture" id=3]
-[ext_resource path="res://assets/enemies/dog/dog_idle02.png" type="Texture" id=4]
-[ext_resource path="res://assets/enemies/dog/dog_idle03.png" type="Texture" id=5]
-[ext_resource path="res://assets/enemies/dog/running_dog1.png" type="Texture" id=6]
-[ext_resource path="res://assets/enemies/dog/running_dog2.png" type="Texture" id=7]
-[ext_resource path="res://assets/enemies/dog/running_dog3.png" type="Texture" id=8]
-[ext_resource path="res://assets/enemies/dog/running_dog4.png" type="Texture" id=9]
-[ext_resource path="res://assets/enemies/dog/dog_dmg2.png" type="Texture" id=10]
-[ext_resource path="res://assets/enemies/dog/dog_dmg4.png" type="Texture" id=11]
-[ext_resource path="res://assets/enemies/dog/dog_dmg6.png" type="Texture" id=12]
-[ext_resource path="res://assets/enemies/dog/falling_dog.png" type="Texture" id=13]
-[ext_resource path="res://assets/enemies/dog/dead_dog.png" type="Texture" id=14]
-[ext_resource path="res://assets/SFX/Dog_Footstool.wav" type="AudioStream" id=15]
-[ext_resource path="res://assets/SFX/dog_death.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/enemies/dog/running_dog1.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/dog/running_dog2.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/dog/running_dog3.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/dog/running_dog4.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/dog/dog_attack.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/dog/dog_dmg2.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/dog/dog_dmg4.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/dog/dog_dmg6.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/dog/falling_dog.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/dog/dog_idle03.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/dog/dog_idle01.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemies/dog/dog_idle02.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemies/dog/dead_dog.png" type="Texture" id=15]
+[ext_resource path="res://assets/SFX/Dog_Footstool.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/SFX/dog_death.wav" type="AudioStream" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Running",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Jumping",
+"name": "Attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Hit",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "Falling",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "Die",
 "speed": 5.0
@@ -64,8 +70,7 @@ script = ExtResource( 2 )
 
 [node name="AnimSprite" parent="." index="0"]
 frames = SubResource( 1 )
-animation = "Hurt"
-frame = 4
+animation = "Attack"
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( 0, -0.595363 )
@@ -110,10 +115,13 @@ shape = SubResource( 2 )
 [node name="SFX" type="Node2D" parent="." index="9"]
 
 [node name="Footstool" type="AudioStreamPlayer" parent="SFX" index="0"]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -9.0
 
 [node name="Death" type="AudioStreamPlayer" parent="SFX" index="1"]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = -9.0
+
+[node name="FootstoolTimer" type="Timer" parent="." index="11"]
+wait_time = 0.5
 
