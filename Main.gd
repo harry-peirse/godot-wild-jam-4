@@ -14,6 +14,11 @@ func _process(delta):
 		_animate_character(delta)
 	elif start_intro:
 		_start_intro()
+
+
+func _ready():
+	#Tell Pause not to pause.
+	Pause.enabled( false )
 		
 func _wait_for_enter_to_be_pressed():
 	if Input.is_action_pressed("ConfirmButton") || Input.is_action_pressed("ui_accept"):
@@ -29,5 +34,6 @@ func _animate_character(delta):
 		start_intro = true
 
 func _start_intro():
+	Pause.enabled( true )
 	SceneBrowser.load_scene("Intro")
 	start_intro = false
