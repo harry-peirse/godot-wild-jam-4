@@ -3,11 +3,11 @@
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://assets/Font/basis33.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/characters/snowman/Snowman.png" type="Texture" id=4]
-[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=5]
-[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=6]
-[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=7]
-[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/Snowman.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -31,14 +31,14 @@ font_data = ExtResource( 3 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -80,6 +80,5 @@ text = "Press Enter to play"
 position = Vector2( 391.776, 491.034 )
 frames = SubResource( 3 )
 animation = "Idle"
-frame = 7
 playing = true
 

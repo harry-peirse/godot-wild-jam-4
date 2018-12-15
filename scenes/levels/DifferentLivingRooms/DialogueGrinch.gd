@@ -2,7 +2,6 @@ extends Area2D
 
 var in_area
 var counter = 1
-onready var t = get_node("Timer")
 
 func _on_GrinchDialogue_area_entered(area):
 	in_area = true
