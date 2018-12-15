@@ -18,8 +18,16 @@ var snowman
 
 var face_left = false
 
+#Randomly decide to jump every once in a while.
+const JUMP_COOL_WAIT = 0.016667 * 30
+var jump_random = 40
+var jump_cooldown = 0
+
+
 #Shot variables.
+const FIRE_FROM_IDLE_WAIT = 90
 var fire_round = 0
+var fire_from_idle = FIRE_FROM_IDLE_WAIT
 
 
 #Don't do anything if I am dead.
@@ -27,6 +35,8 @@ var is_alive = true
 
 
 func _ready():
+	randomize()
+	
 	$AnimSprite.connect( "animation_finished", self, "change_to_idle" )
 	
 	$AnimSprite.animation = "Idle"
@@ -35,7 +45,7 @@ func _ready():
 	#De activate attack hitboxes.
 	$Shot.is_activated( false )
 	
-	endurance = 0.3
+	endurance = 0.4
 
 
 func been_hit( push : Vector2, damaged = false ):
@@ -89,6 +99,17 @@ func fire_shot():
 func process_frame( delta ) :
 	#Rotate to face the Snowman.
 	if is_alive :
+		handle_physics( delta )
+		
+		jump_cooldown -= delta
+		
+		if( jump_cooldown <= 0 &&
+		randi() % jump_random == 0 &&
+		on_floor ):
+			velocity.y = -700
+			jump_cooldown = JUMP_COOL_WAIT
+		
+		
 		if snowman != null :
 			var face = snowman.global_position.x - self.global_position.x
 			if face <= 0 :
@@ -101,15 +122,20 @@ func process_frame( delta ) :
 
 
 func process_idle( delta ) :
-	
-
-
-	handle_physics( delta )
+	#If I have reached fire_from_idle 
+	#countdown.
+	if fire_from_idle == 0 :
+		fire_from_idle = FIRE_FROM_IDLE_WAIT
+		change_state("Shot")
+		return
+	fire_from_idle -= 1
 	
 	move_body()
 
 
 func process_shot( delta ):
+	move_body()
+	
 	#Turn on my hitbox.
 	$Shot.is_activated( true )
 	
