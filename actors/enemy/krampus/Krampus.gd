@@ -53,6 +53,36 @@ func _ready():
 	endurance = 0.4
 
 
+
+func _on_Area2D_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_Area2D_area_exited(area):
+	pass # Replace with function body.
+	
+var counter = 0
+func _process(delta):
+	if (Input.is_action_just_pressed("ConfirmButton")):
+		if  counter==0:
+			$Dialogue/Label1.visible = false
+			$Dialogue/Label2.visible = true
+			counter = 1
+		elif counter==1:
+			$Dialogue/Label2.visible = false
+			$Dialogue/Label3.visible = true
+			counter = 2
+		elif counter==2:
+			$Dialogue/Label3.visible = false
+			$Dialogue.visible = false
+			$Dialogue/Button.visible = false
+			begin_fighting()
+
+		
+	
+
+
+
 func been_hit( push : Vector2, damaged = false ):
 	change_state( "Shot" )
 
@@ -182,4 +212,6 @@ func process_shot( delta ):
 
 func pushback( push : Vector2, damaged = false ):
 	been_hit( push, damaged )
+
+
 
