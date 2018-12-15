@@ -1,0 +1,273 @@
+[gd_scene load_steps=56 format=2]
+
+[ext_resource path="res://scenes/main_menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://actors/character/snowman/InfiniteRunnerSnowman.gd" type="Script" id=2]
+[ext_resource path="res://actors/character/snowman/DashFX.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/character/snowman/DoubleJumpFX.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/characters/snowman/s_idle01.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_idle02.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/Snowman_falling.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=8]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=9]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=10]
+[ext_resource path="res://assets/characters/snowman/Snowman_jumping.png" type="Texture" id=11]
+[ext_resource path="res://assets/characters/snowman/death1.png" type="Texture" id=12]
+[ext_resource path="res://assets/characters/snowman/death2.png" type="Texture" id=13]
+[ext_resource path="res://assets/characters/snowman/death3.png" type="Texture" id=14]
+[ext_resource path="res://assets/characters/snowman/death4.png" type="Texture" id=15]
+[ext_resource path="res://assets/characters/snowman/death5.png" type="Texture" id=16]
+[ext_resource path="res://assets/characters/snowman/death6.png" type="Texture" id=17]
+[ext_resource path="res://assets/characters/snowman/death7.png" type="Texture" id=18]
+[ext_resource path="res://assets/characters/snowman/death8.png" type="Texture" id=19]
+[ext_resource path="res://assets/characters/snowman/death9.png" type="Texture" id=20]
+[ext_resource path="res://assets/characters/snowman/death10.png" type="Texture" id=21]
+[ext_resource path="res://assets/characters/snowman/death11.png" type="Texture" id=22]
+[ext_resource path="res://assets/characters/snowman/death12.png" type="Texture" id=23]
+[ext_resource path="res://assets/characters/snowman/death13.png" type="Texture" id=24]
+[ext_resource path="res://assets/characters/snowman/death14.png" type="Texture" id=25]
+[ext_resource path="res://assets/characters/snowman/death15.png" type="Texture" id=26]
+[ext_resource path="res://assets/characters/snowman/death16.png" type="Texture" id=27]
+[ext_resource path="res://assets/characters/snowman/death17.png" type="Texture" id=28]
+[ext_resource path="res://assets/characters/snowman/death18.png" type="Texture" id=29]
+[ext_resource path="res://assets/characters/snowman/death19.png" type="Texture" id=30]
+[ext_resource path="res://assets/characters/snowman/death20.png" type="Texture" id=31]
+[ext_resource path="res://assets/characters/snowman/death21.png" type="Texture" id=32]
+[ext_resource path="res://assets/characters/snowman/death22.png" type="Texture" id=33]
+[ext_resource path="res://assets/characters/snowman/death23.png" type="Texture" id=34]
+[ext_resource path="res://assets/characters/snowman/death24.png" type="Texture" id=35]
+[ext_resource path="res://assets/characters/snowman/hurt01.png" type="Texture" id=36]
+[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=37]
+[ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=38]
+[ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=39]
+[ext_resource path="res://actors/collisions/FootStomp.tscn" type="PackedScene" id=40]
+[ext_resource path="res://actors/character/snowman/TemperatureCheck.gd" type="Script" id=41]
+[ext_resource path="res://assets/SFX/DoubleJumpSFX.wav" type="AudioStream" id=42]
+[ext_resource path="res://assets/SFX/swoosh_metalpipe_06.wav" type="AudioStream" id=43]
+[ext_resource path="res://assets/SFX/GroundImpact.wav" type="AudioStream" id=44]
+[ext_resource path="res://assets/SFX/Dash.wav" type="AudioStream" id=45]
+[ext_resource path="res://assets/SFX/Running5.wav" type="AudioStream" id=46]
+[ext_resource path="res://assets/SFX/Snowman_hit.wav" type="AudioStream" id=47]
+[ext_resource path="res://actors/camera/Camera2D.tscn" type="PackedScene" id=48]
+[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=49]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 10, 20.189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+extents = Vector2( 9.37159, 3.34312 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+radius = 64.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+
+radius = 9.13113
+height = 23.2675
+
+[sub_resource type="RectangleShape2D" id=6]
+
+extents = Vector2( 522.6, 102.05 )
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ -975.3 ]
+}
+
+[node name="Enter" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 405.72
+margin_top = 406.133
+margin_right = 605.72
+margin_bottom = 446.133
+rect_scale = Vector2( 3, 2 )
+text = "PRESS ENTER
+"
+
+[node name="Snowman" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 523.45, 339.15 )
+collision_layer = 0
+script = ExtResource( 2 )
+can_navigate = false
+always_running = true
+
+[node name="DashFX" parent="Snowman" instance=ExtResource( 3 )]
+
+[node name="DoubleJumpFX" parent="Snowman" instance=ExtResource( 4 )]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Snowman"]
+position = Vector2( 0, 3.71593 )
+scale = Vector2( -1, 1.186 )
+frames = SubResource( 1 )
+animation = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
+
+[node name="FloorLeft" type="RayCast2D" parent="Snowman"]
+position = Vector2( -10, 23 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+
+[node name="FloorRight" type="RayCast2D" parent="Snowman"]
+position = Vector2( 10, 23 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+
+[node name="Ceiling" type="RayCast2D" parent="Snowman"]
+position = Vector2( 0, -17.3363 )
+enabled = true
+cast_to = Vector2( 0, -3 )
+
+[node name="Hurtbox" parent="Snowman" instance=ExtResource( 38 )]
+collision_layer = 524288
+push_other = Vector2( 300, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman/Hurtbox"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
+
+[node name="DashHitbox" parent="Snowman" instance=ExtResource( 39 )]
+is_active = false
+push_other = Vector2( 200, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman/DashHitbox"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
+
+[node name="FootStomp" parent="Snowman" instance=ExtResource( 40 )]
+position = Vector2( 0, 29.2103 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman/FootStomp"]
+position = Vector2( 0, -0.791649 )
+shape = SubResource( 3 )
+
+[node name="Awareness" type="Area2D" parent="Snowman"]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman/Awareness"]
+shape = SubResource( 4 )
+
+[node name="TemperatureCheck" type="Area2D" parent="Snowman"]
+collision_layer = 524288
+collision_mask = 262144
+script = ExtResource( 41 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snowman/TemperatureCheck"]
+position = Vector2( 0.676376, 7.44017 )
+shape = SubResource( 5 )
+
+[node name="SFXLibrary" type="Node2D" parent="Snowman"]
+
+[node name="DoubleJumpSFX" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 42 )
+volume_db = -9.0
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 43 )
+volume_db = -10.759
+
+[node name="GroundImpactSFX" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 44 )
+volume_db = -23.0
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 45 )
+volume_db = -9.0
+
+[node name="Running1" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 46 )
+volume_db = -26.0
+pitch_scale = 0.8
+
+[node name="Hit" type="AudioStreamPlayer" parent="Snowman/SFXLibrary"]
+stream = ExtResource( 47 )
+volume_db = -9.0
+
+[node name="Sight" type="Area2D" parent="Snowman"]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="Col" type="CollisionShape2D" parent="Snowman/Sight"]
+position = Vector2( 0, 4.97058 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" parent="Snowman" instance=ExtResource( 48 )]
+zoom = Vector2( 0.65, 0.65 )
+limit_left = 0
+limit_top = 0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+drag_margin_left = 0.1
+drag_margin_right = 0.1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 515.85, 477.85 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 49 )
+format = 1
+tile_data = PoolIntArray( 196593, 32, 0, 327669, 34, 0, 327671, 34, 0, 327673, 34, 0, 327675, 34, 0, 327677, 34, 0, 327679, 34, 0, 262145, 34, 0, 262147, 34, 0, 262149, 34, 0, 262151, 34, 0, 262153, 34, 0, 262155, 34, 0, 262157, 34, 0, 262159, 34, 0, 262161, 34, 0, 262163, 34, 0, 458730, 18, 0, 458731, 18, 0, 458732, 18, 0, 458733, 18, 0, 458734, 18, 0, 458735, 18, 0, 458736, 18, 0, 458737, 18, 0, 458738, 18, 0, 458739, 18, 0, 458740, 18, 0, 458741, 18, 0, 458742, 18, 0, 458743, 18, 0, 458744, 18, 0, 458745, 18, 0, 458746, 18, 0, 458747, 18, 0, 458748, 18, 0, 458749, 18, 0, 458750, 18, 0, 458751, 18, 0, 393216, 18, 0, 393217, 18, 0, 393218, 18, 0, 393219, 18, 0, 393220, 18, 0, 393221, 18, 0, 393222, 18, 0, 393223, 18, 0, 393224, 18, 0, 393225, 18, 0, 393226, 18, 0, 393227, 18, 0, 393228, 18, 0, 393229, 18, 0, 393230, 18, 0, 393231, 18, 0, 393232, 18, 0, 393233, 18, 0, 393234, 18, 0, 393235, 18, 0, 393236, 18, 0, 393237, 18, 0, 393238, 18, 0, 393239, 18, 0, 393240, 18, 0, 393241, 18, 0, 393242, 18, 0, 393243, 18, 0, 393244, 18, 0, 393245, 18, 0, 393246, 18, 0, 524266, 12, 0, 524267, 12, 0, 524268, 12, 0, 524269, 12, 0, 524270, 12, 0, 524271, 12, 0, 524272, 12, 0, 524273, 12, 0, 524274, 12, 0, 524275, 12, 0, 524276, 12, 0, 524277, 12, 0, 524278, 12, 0, 524279, 12, 0, 524280, 12, 0, 524281, 12, 0, 524282, 12, 0, 524283, 12, 0, 524284, 12, 0, 524285, 12, 0, 524286, 12, 0, 524287, 12, 0, 458752, 12, 0, 458753, 12, 0, 458754, 12, 0, 458755, 12, 0, 458756, 12, 0, 458757, 12, 0, 458758, 12, 0, 458759, 12, 0, 458760, 12, 0, 458761, 12, 0, 458762, 12, 0, 458763, 12, 0, 458764, 12, 0, 458765, 12, 0, 458766, 12, 0, 458767, 12, 0, 458768, 12, 0, 458769, 12, 0, 458770, 12, 0, 458771, 12, 0, 458772, 12, 0, 458773, 12, 0, 458774, 12, 0, 458775, 12, 0, 458776, 12, 0, 458777, 12, 0, 458778, 12, 0, 458779, 12, 0, 458780, 12, 0, 458781, 12, 0, 458782, 12, 0, 589802, 12, 0, 589803, 12, 0, 589804, 12, 0, 589805, 12, 0, 589806, 12, 0, 589807, 12, 0, 589808, 12, 0, 589809, 12, 0, 589810, 12, 0, 589811, 12, 0, 589812, 12, 0, 589813, 12, 0, 589814, 12, 0, 589815, 12, 0, 589816, 12, 0, 589817, 12, 0, 589818, 12, 0, 589819, 12, 0, 589820, 12, 0, 589821, 12, 0, 589822, 12, 0, 589823, 12, 0, 524288, 12, 0, 524289, 12, 0, 524290, 12, 0, 524291, 12, 0, 524292, 12, 0, 524293, 12, 0, 524294, 12, 0, 524295, 12, 0, 524296, 12, 0, 524297, 12, 0, 524298, 12, 0, 524299, 12, 0, 524300, 12, 0, 524301, 12, 0, 524302, 12, 0, 524303, 12, 0, 524304, 12, 0, 524305, 12, 0, 524306, 12, 0, 524307, 12, 0, 524308, 12, 0, 524309, 12, 0, 524310, 12, 0, 524311, 12, 0, 524312, 12, 0, 524313, 12, 0, 524314, 12, 0, 524315, 12, 0, 524316, 12, 0, 524317, 12, 0, 524318, 12, 0, 655338, 3, 0, 655339, 3, 0, 655340, 3, 0, 655341, 3, 0, 655342, 3, 0, 655343, 3, 0, 655344, 3, 0, 655345, 3, 0, 655346, 3, 0, 655347, 3, 0, 655348, 3, 0, 655349, 3, 0, 655350, 3, 0, 655351, 3, 0, 655352, 3, 0, 655353, 3, 0, 655354, 3, 0, 655355, 3, 0, 655356, 3, 0, 655357, 3, 0, 655358, 3, 0, 655359, 3, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 12, 0, 589843, 12, 0, 589844, 12, 0, 589845, 12, 0, 589846, 12, 0, 589847, 12, 0, 589848, 12, 0, 589849, 12, 0, 589850, 12, 0, 589851, 12, 0, 589852, 12, 0, 589853, 12, 0, 589854, 12, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 49 )
+format = 1
+tile_data = PoolIntArray( 65514, 28, 0, 65515, 28, 0, 65516, 28, 0, 65517, 28, 0, 65518, 28, 0, 65519, 28, 0, 65520, 28, 0, 65521, 28, 0, 65522, 28, 0, 65523, 28, 0, 65524, 28, 0, 65525, 28, 0, 65526, 28, 0, 65527, 28, 0, 65528, 28, 0, 65529, 28, 0, 65530, 28, 0, 65531, 28, 0, 65532, 28, 0, 65533, 28, 0, 65534, 28, 0, 65535, 28, 0, 0, 28, 0, 1, 28, 0, 2, 28, 0, 3, 28, 0, 4, 28, 0, 5, 28, 0, 6, 28, 0, 7, 28, 0, 8, 28, 0, 9, 28, 0, 10, 28, 0, 11, 28, 0, 12, 28, 0, 13, 28, 0, 14, 28, 0, 15, 28, 0, 16, 28, 0, 131050, 28, 0, 131051, 28, 0, 131052, 28, 0, 131053, 28, 0, 131054, 28, 0, 131055, 28, 0, 131056, 28, 0, 131057, 28, 0, 131058, 28, 0, 131059, 28, 0, 131060, 28, 0, 131061, 28, 0, 131062, 28, 0, 131063, 28, 0, 131064, 28, 0, 131065, 28, 0, 131066, 28, 0, 131067, 28, 0, 131068, 28, 0, 131069, 28, 0, 131070, 28, 0, 131071, 28, 0, 65536, 28, 0, 65537, 28, 0, 65538, 28, 0, 65539, 28, 0, 65540, 28, 0, 65541, 28, 0, 65542, 28, 0, 65543, 28, 0, 65544, 28, 0, 65545, 28, 0, 65546, 28, 0, 65547, 28, 0, 65548, 28, 0, 65549, 28, 0, 65550, 28, 0, 65551, 28, 0, 65552, 28, 0, 196586, 28, 0, 196587, 28, 0, 196588, 28, 0, 196589, 28, 0, 196590, 28, 0, 196591, 28, 0, 196592, 28, 0, 196593, 28, 0, 196594, 28, 0, 196595, 28, 0, 196596, 28, 0, 196597, 28, 0, 196598, 28, 0, 196599, 28, 0, 196600, 28, 0, 196601, 28, 0, 196602, 28, 0, 196603, 28, 0, 196604, 28, 0, 196605, 28, 0, 196606, 28, 0, 196607, 28, 0, 131072, 28, 0, 131073, 28, 0, 131074, 28, 0, 131075, 28, 0, 131076, 28, 0, 131077, 28, 0, 131078, 28, 0, 131079, 28, 0, 131080, 28, 0, 131081, 28, 0, 131082, 28, 0, 131083, 28, 0, 131084, 28, 0, 131085, 28, 0, 131086, 28, 0, 131087, 28, 0, 131088, 28, 0, 262122, 28, 0, 262123, 28, 0, 262124, 28, 0, 262125, 28, 0, 262126, 28, 0, 262127, 28, 0, 262128, 28, 0, 262129, 28, 0, 262130, 28, 0, 262131, 28, 0, 262132, 28, 0, 262133, 28, 0, 262134, 28, 0, 262135, 28, 0, 262136, 28, 0, 262137, 28, 0, 262138, 28, 0, 262139, 28, 0, 262140, 28, 0, 262141, 28, 0, 262142, 28, 0, 262143, 28, 0, 196608, 28, 0, 196609, 28, 0, 196610, 28, 0, 196611, 28, 0, 196612, 28, 0, 196613, 28, 0, 196614, 28, 0, 196615, 28, 0, 196616, 28, 0, 196617, 28, 0, 196618, 28, 0, 196619, 28, 0, 196620, 28, 0, 196621, 28, 0, 196622, 28, 0, 196623, 28, 0, 196624, 28, 0, 327658, 28, 0, 327659, 28, 0, 327660, 28, 0, 327661, 28, 0, 327662, 28, 0, 327663, 28, 0, 327664, 28, 0, 327665, 28, 0, 327666, 28, 0, 327667, 28, 0, 327668, 28, 0, 327669, 28, 0, 327670, 28, 0, 327671, 28, 0, 327672, 28, 0, 327673, 28, 0, 327674, 28, 0, 327675, 28, 0, 327676, 28, 0, 327677, 28, 0, 327678, 28, 0, 327679, 28, 0, 262144, 28, 0, 262145, 28, 0, 262146, 28, 0, 262147, 28, 0, 262148, 28, 0, 262149, 28, 0, 262150, 28, 0, 262151, 28, 0, 262152, 28, 0, 262153, 28, 0, 262154, 28, 0, 262155, 28, 0, 262156, 28, 0, 262157, 28, 0, 262158, 28, 0, 262159, 28, 0, 262160, 28, 0, 393194, 28, 0, 393195, 28, 0, 393196, 28, 0, 393197, 28, 0, 393198, 28, 0, 393199, 28, 0, 393200, 28, 0, 393201, 28, 0, 393202, 28, 0, 393203, 28, 0, 393204, 28, 0, 393205, 28, 0, 393206, 28, 0, 393207, 28, 0, 393208, 28, 0, 393209, 28, 0, 393210, 28, 0, 393211, 28, 0, 393212, 28, 0, 393213, 28, 0, 393214, 28, 0, 393215, 28, 0, 327680, 28, 0, 327681, 28, 0, 327682, 28, 0, 327683, 28, 0, 327684, 28, 0, 327685, 28, 0, 327686, 28, 0, 327687, 28, 0, 327688, 28, 0, 327689, 28, 0, 327690, 28, 0, 327691, 28, 0, 327692, 28, 0, 327693, 28, 0, 327694, 28, 0, 327695, 28, 0, 327696, 28, 0 )
+
+[node name="Camera2D2" parent="." instance=ExtResource( 48 )]
+position = Vector2( 523.45, 454.376 )
+current = true
+zoom = Vector2( 0.65, 0.65 )
+limit_left = 0
+limit_top = 0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+drag_margin_left = 0.1
+drag_margin_right = 0.1
+
