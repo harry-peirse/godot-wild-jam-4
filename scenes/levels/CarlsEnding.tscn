@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Animation/Carl/Idle/carl-idle1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Animation/Carl/Idle/carl-idle2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/Carl/Idle/carl-idle3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/Carl/Idle/carl-idle4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,4 +25,8 @@ tile_data = PoolIntArray( 15, 3, 0, 65551, 3, 0, 131087, 3, 0, 196623, 3, 0, 262
 
 [node name="Snowman" parent="." instance=ExtResource( 2 )]
 position = Vector2( 70, 480 )
+
+[node name="Carl" type="AnimatedSprite" parent="."]
+position = Vector2( 650, 430 )
+frames = SubResource( 1 )
 

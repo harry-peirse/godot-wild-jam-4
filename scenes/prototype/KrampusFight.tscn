@@ -8,7 +8,6 @@
 
 [node name="Carl" parent="." instance=ExtResource( 1 )]
 position = Vector2( 552.632, 289.474 )
-endurance = 1.0
 
 [node name="Snowman" parent="." instance=ExtResource( 2 )]
 position = Vector2( 131.516, 290.526 )

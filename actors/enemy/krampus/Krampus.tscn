@@ -5,14 +5,14 @@
 [ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle3.png" type="Texture" id=4]
 [ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle4.png" type="Texture" id=5]
-[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit1.png" type="Texture" id=6]
-[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit2.png" type="Texture" id=7]
-[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit3.png" type="Texture" id=8]
-[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit4.png" type="Texture" id=9]
-[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile1.png" type="Texture" id=10]
-[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile2.png" type="Texture" id=11]
-[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile3.png" type="Texture" id=12]
-[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile4.png" type="Texture" id=13]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile1.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile2.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile3.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile4.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit1.png" type="Texture" id=10]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit2.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit3.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit4.png" type="Texture" id=13]
 [ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=14]
 [ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actors/enemy/sight/Sight.gd" type="Script" id=16]
@@ -26,15 +26,15 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Swipe",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Shot",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Swipe",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
