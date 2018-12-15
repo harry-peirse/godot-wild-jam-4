@@ -46,7 +46,6 @@ func process_attack( delta ):
 	#Play the correct animation.
 	emit_signal( "change_anim", "Attack" )
 	
-	
 	#If I have landed, than the
 	#state is finished.
 	if on_floor :
@@ -63,6 +62,10 @@ func process_pushed( delta ):
 		emit_signal( "change_anim", "Hit" )
 	else:
 		emit_signal( "change_anim", "Idle" )
+	
+	#Does this fix the rotation issue?
+	$AnimSprite.rotation_degrees = 0
+	
 	
 	pushback_left -= delta
 	
