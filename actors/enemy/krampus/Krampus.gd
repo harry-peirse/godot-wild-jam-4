@@ -7,6 +7,9 @@ extends "res://actors/physics/Physics.gd"
 #Shot scene
 var shot = preload( "res://actors/enemy/burglar/Shot.tscn" )
 
+var is_fighting = false
+
+
 var fsm_dict = {
 	"Idle" : "idle",
 	"Shot" : "shot",
@@ -52,6 +55,10 @@ func _ready():
 
 func been_hit( push : Vector2, damaged = false ):
 	change_state( "Shot" )
+
+
+func begin_fighting( boolean ):
+	is_fighting = true
 
 
 func change_state( new_state ):
@@ -112,6 +119,11 @@ func process_die( delta ):
 
 
 func process_frame( delta ) :
+	if is_fighting == false:
+		handle_physics( delta )
+		move_body()
+		return
+	
 	#Rotate to face the Snowman.
 	if is_alive :
 		handle_physics( delta )
