@@ -57,7 +57,7 @@ func been_hit( push : Vector2, damaged = false ):
 	change_state( "Shot" )
 
 
-func begin_fighting( boolean ):
+func begin_fighting( boolean = true ):
 	is_fighting = true
 
 
