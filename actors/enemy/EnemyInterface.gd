@@ -27,7 +27,7 @@ func _ready():
 func change_anim( new_anim ):
 	if $AnimSprite.animation != new_anim :
 		$AnimSprite.animation = new_anim
-		
+	
 	#Hit
 	if ($AnimSprite.animation == "Hit")&&(!is_hit):
 		is_hit= true

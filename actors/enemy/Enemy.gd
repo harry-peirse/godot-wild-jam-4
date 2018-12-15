@@ -58,7 +58,7 @@ func _ready():
 	$AnimSprite.play()
 
 
-func _process(delta):
+func process_frame(delta):
 	#Prevent the enemy from glitch
 	#jumping super high.
 	if velocity.y <= JUMP_STRENGTH :
