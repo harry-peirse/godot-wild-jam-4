@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://actors/enemy/krampus/Krampus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=9]
+[ext_resource path="res://scenes/prototype/DialogueKrampus.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="KrampusFight" type="Node2D"]
 
@@ -16,4 +32,42 @@ position = Vector2( 131.516, 290.526 )
 tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 65535, 6, 0, 11, 6, 0, 131071, 6, 0, 65547, 6, 0, 196607, 6, 0, 131083, 6, 0, 262143, 6, 0, 196619, 6, 0, 327679, 6, 0, 262155, 6, 0, 393215, 6, 0, 327691, 6, 0, 458751, 6, 0, 393216, 18, 0, 393217, 18, 0, 393218, 18, 0, 393219, 18, 0, 393220, 18, 0, 393221, 18, 0, 393222, 18, 0, 393223, 18, 0, 393224, 18, 0, 393225, 18, 0, 393226, 18, 0, 393227, 6, 0 )
+
+[node name="DialogueKrampus" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 430.403, 198.054 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+frame = 4
+playing = true
+script = ExtResource( 10 )
+
+[node name="Label1" type="Label" parent="."]
+visible = false
+margin_left = 353.0
+margin_top = 181.0
+margin_right = 520.0
+margin_bottom = 229.0
+text = "Interesting... 
+Killing the Grinch was not 
+enough to scare you off."
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 353.0
+margin_top = 181.0
+margin_right = 520.0
+margin_bottom = 229.0
+text = "He was tiresome to me. 
+And was ruining the plans."
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+margin_left = 353.0
+margin_top = 181.0
+margin_right = 520.0
+margin_bottom = 229.0
+text = "Why did he even tried to 
+save christmas. 
+Stupid little bug."
 
