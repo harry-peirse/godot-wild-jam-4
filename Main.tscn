@@ -14,6 +14,7 @@
 size = 90
 outline_size = 3
 outline_color = Color( 0.0666667, 0.356863, 0.101961, 1 )
+use_filter = false
 extra_spacing_top = -2
 extra_spacing_char = 8
 font_data = ExtResource( 3 )
@@ -23,6 +24,7 @@ font_data = ExtResource( 3 )
 size = 35
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
+use_filter = false
 extra_spacing_top = -2
 extra_spacing_bottom = -4
 font_data = ExtResource( 3 )
@@ -79,6 +81,6 @@ text = "Press Enter to play"
 position = Vector2( 391.776, 491.034 )
 frames = SubResource( 3 )
 animation = "Idle"
-frame = 6
+frame = 5
 playing = true
 
