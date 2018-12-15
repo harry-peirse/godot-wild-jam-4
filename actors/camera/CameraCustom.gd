@@ -7,6 +7,8 @@ func _process(delta):
 	
 	limit_bottom = 10000
 	limit_right = 10000
+	limit_left = -10000
+	limit_top = -10000
 
 
 
