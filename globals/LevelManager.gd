@@ -36,9 +36,13 @@ func house_ready( house ):
 	if house.name == "CarlsEnd" && completed_houses.size() < 11 :
 		house.queue_free()
 	
+	#If house is already beaten,
+	#do not go back into it.
 	if completed_houses.has( house.name ) :
 		house.queue_free()
 	
+	#House is in the list already,
+	#do not add it again.
 	if waiting_houses.has( house.name ) :
 		return
 	
