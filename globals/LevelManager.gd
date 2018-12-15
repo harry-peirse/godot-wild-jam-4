@@ -13,6 +13,9 @@ var waiting_houses = []
 
 
 func house_beaten():
+	if attempt == null :
+		return
+	
 	var house_at
 	house_at = waiting_houses.find( attempt )
 	waiting_houses.remove( house_at )
