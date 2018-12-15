@@ -47,7 +47,7 @@ func _ready():
 	#De activate attack hitboxes.
 	$Shot.is_activated( false )
 	
-	endurance = 5000
+	endurance = 0.4
 
 
 func been_hit( push : Vector2, damaged = false ):
@@ -65,6 +65,7 @@ func change_to_idle():
 		
 	if $AnimSprite.animation == "Die" :
 		get_tree().quit()
+		return
 	
 	$AnimSprite.animation = "Idle"
 	fsm_state = "Idle"
