@@ -56,4 +56,4 @@ func _process(delta):
 		
 func continue_pressed():
 	#Please put continue logic inside here.
-	pass
+	SceneBrowser.load_scene( "OutsideDungeon1" )
