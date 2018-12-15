@@ -262,7 +262,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -302,7 +302,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -341,7 +341,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -371,7 +371,7 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -422,6 +422,7 @@ position = Vector2( 1152, 671.385 )
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
 
 [node name="Fountain" parent="." instance=ExtResource( 54 )]
+position = Vector2( 1945, 416.727 )
 
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]

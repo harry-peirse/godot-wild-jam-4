@@ -102,7 +102,7 @@ format = 1
 tile_data = PoolIntArray( 393218, 35, 0, 393220, 34, 0, 458759, 40, 0, 458763, 40, 0, 589822, 28, 0, 1245179, 9, 0, 1245181, 9, 0, 1245182, 9, 0, 1179648, 9, 0, 1310715, 9, 0, 1310717, 9, 0, 1310718, 9, 0, 1245184, 9, 0, 1376251, 9, 0, 1376253, 9, 0, 1310720, 9, 0 )
 
 [node name="Fountain" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1593.38, 2346.85 )
+position = Vector2( 3645.26, 2759.07 )
 
 [node name="buttons" type="Node" parent="."]
 editor/display_folded = true
@@ -143,7 +143,7 @@ volume_db = -9.0
 [node name="Button" type="AnimatedSprite" parent="buttons/EButton"]
 position = Vector2( 10.9937, 36.7393 )
 frames = SubResource( 4 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="EButton2" type="Area2D" parent="buttons"]
@@ -174,7 +174,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="EButton3" type="Area2D" parent="buttons"]
@@ -205,7 +205,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="EButton4" type="Area2D" parent="buttons"]
@@ -236,7 +236,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="EButton5" type="Area2D" parent="buttons"]
@@ -267,7 +267,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="EButton6" type="Area2D" parent="buttons"]
@@ -298,7 +298,6 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="EButton7" type="Area2D" parent="buttons"]
@@ -329,7 +328,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="EButton8" type="Area2D" parent="buttons"]
@@ -360,6 +359,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 4
 playing = true
 
 [node name="EButton9" type="Area2D" parent="buttons"]
@@ -390,7 +390,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="EButton10" type="Area2D" parent="buttons"]
@@ -421,7 +421,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="EButton11" type="Area2D" parent="buttons"]
@@ -452,7 +452,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="EButton12" type="Area2D" parent="buttons"]
@@ -483,7 +483,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="enemys" type="Node" parent="."]
