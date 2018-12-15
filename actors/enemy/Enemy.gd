@@ -32,7 +32,8 @@ var fsm_dict = {
 	"Wander" : "wander",
 	"Chase" : "chase",
 	"Pushed" : "pushed",
-	"Die" : "die"
+	"Die" : "die",
+	"Attack" : "attack"
 }
 var fsm_state = "Wander"
 
@@ -108,12 +109,17 @@ func chase_snowman( snowman ):
 	#Eventually check if player is behind me.
 	#Right now just set chase_object to snowman.
 	chase_object = snowman
-	fsm_state = "Chase"
+	fsm_state = "Attack"
 
 
 func jump():
 	#Jump up to reach the sky.
 	velocity.y = JUMP_STRENGTH
+
+
+func process_attack( delta ):
+	fsm_state = "Chase"
+	process_chase( delta )
 
 
 func process_chase( delta ):

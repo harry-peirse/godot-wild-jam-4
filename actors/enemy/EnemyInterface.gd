@@ -22,6 +22,8 @@ func _ready():
 	self.connect( "flip_h", self, "flip_sprite" )
 
 
+
+
 func change_anim( new_anim ):
 	if $AnimSprite.animation != new_anim :
 		$AnimSprite.animation = new_anim

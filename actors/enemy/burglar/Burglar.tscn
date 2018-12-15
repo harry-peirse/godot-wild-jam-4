@@ -1,45 +1,56 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://actors/enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/enemy/burglar/Burglar.gd" type="Script" id=2]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle01.png" type="Texture" id=3]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle02.png" type="Texture" id=4]
-[ext_resource path="res://assets/enemies/burglar/burglar_idle03.png" type="Texture" id=5]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit1.png" type="Texture" id=6]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit2.png" type="Texture" id=7]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit3.png" type="Texture" id=8]
-[ext_resource path="res://assets/enemies/burglar/burglar_hit4.png" type="Texture" id=9]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking1.png" type="Texture" id=10]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking2.png" type="Texture" id=11]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking3.png" type="Texture" id=12]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking4.png" type="Texture" id=13]
-[ext_resource path="res://assets/enemies/burglar/burglar_walking5.png" type="Texture" id=14]
-[ext_resource path="res://assets/enemies/burglar/bruglar_falling.png" type="Texture" id=15]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit1.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit2.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit3.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemies/burglar/burglar_hit4.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemies/burglar/bruglar_falling.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking1.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle01.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle02.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/burglar/burglar_idle03.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking2.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking3.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking4.png" type="Texture" id=14]
+[ext_resource path="res://assets/enemies/burglar/burglar_walking5.png" type="Texture" id=15]
 [ext_resource path="res://assets/enemies/burglar/burglar_dead.png" type="Texture" id=16]
-[ext_resource path="res://assets/SFX/Burglar_death.wav" type="AudioStream" id=17]
-[ext_resource path="res://assets/SFX/Burglar_hit.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/enemies/burglar/burglar_gun.png" type="Texture" id=17]
+[ext_resource path="res://assets/SFX/Burglar_death.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/SFX/Burglar_hit.wav" type="AudioStream" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "Hit",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Running",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Falling",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Running",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -47,9 +58,9 @@ animations = [ {
 "name": "Die",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "Jumping",
+"name": "Attack",
 "speed": 5.0
 } ]
 
@@ -112,11 +123,11 @@ position = Vector2( 0, -19.9876 )
 [node name="SFX" type="Node" parent="." index="10"]
 
 [node name="Death" type="AudioStreamPlayer" parent="SFX" index="0"]
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = -13.0
 
 [node name="Footstool" type="AudioStreamPlayer" parent="SFX" index="1"]
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = -13.0
 pitch_scale = 0.76
 
