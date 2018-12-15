@@ -3,6 +3,9 @@ extends "res://actors/character/snowman/Snowman.gd"
 var is_running =false
 var is_hit = false
 
+export var always_running = false
+
+
 func flip_sprite( boolean ):
 	$AnimatedSprite.flip_h = boolean
 
@@ -21,7 +24,16 @@ func _ready():
 
 func change_anim( new_anim ):
 	if $AnimatedSprite.animation != new_anim :
-		$AnimatedSprite.animation = new_anim
+		#If I am infinitely running,
+		#never play Idle.
+		if always_running && new_anim == "Idle" :
+			$AnimatedSprite.animation = "Running"
+		
+		else:
+			$AnimatedSprite.animation = new_anim
+		
+		
+		
 	$AnimatedSprite.play()
 	
 	if($AnimatedSprite.animation == "Running")&&(!is_running):
