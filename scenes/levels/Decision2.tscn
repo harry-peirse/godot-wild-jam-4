@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/levels/Decision2.gd" type="Script" id=1]
+[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=2]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim4.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim5.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 672.954, 316.324 )
+scale = Vector2( 7.1349, 2.26095 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 523.406, 312.751 )
+scale = Vector2( 6, 6 )
+frames = SubResource( 1 )
+frame = 5
+playing = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 268.0
+margin_top = 279.0
+margin_right = 392.0
+margin_bottom = 355.0
+text = "You joined Carl and together you killed Santa and ended Christmas forever. 
+You became one of the rulers of the world.
+But a world without christmas..."
+

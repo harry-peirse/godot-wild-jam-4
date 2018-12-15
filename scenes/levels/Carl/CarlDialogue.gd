@@ -26,9 +26,9 @@ func _process(delta):
 			t.set_wait_time(10)
 			t.start()
 			yield(t, "timeout")
-			get_node("/root/SceneBrowser").load_scene("Start")
+			get_node("/root/SceneBrowser").load_scene("DeadEnd")
 		elif counter==5:
-			get_node("/root/SceneBrowser").load_scene("Intro")
+			get_node("/root/SceneBrowser").load_scene("JoinEnd")
 			
 	
 

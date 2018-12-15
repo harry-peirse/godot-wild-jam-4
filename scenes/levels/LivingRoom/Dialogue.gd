@@ -19,6 +19,7 @@ func _process(delta):
 	if(!tree)&&(Input.is_key_pressed(KEY_E))&&(in_area):
 		tree =true
 		$EButtonTree.visible = false
+		$ButtonSFX.play()
 		$Success.visible = true
 		t.set_wait_time(2)
 		t.start()

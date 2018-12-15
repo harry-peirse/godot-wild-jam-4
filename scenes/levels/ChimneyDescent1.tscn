@@ -55,8 +55,6 @@
 [ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=53]
 [ext_resource path="res://scenes/Fountain.tscn" type="PackedScene" id=54]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 73.2817, 10 )
@@ -159,6 +157,11 @@ script = ExtResource( 1 )
 [node name="Dog" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 145.289, 744.354 )
+endurance = 1
+is_still = false
+walk_speed = 100
+chase_speed = 250
+see_behind = true
 
 [node name="Sight" parent="Dog" instance=ExtResource( 3 )]
 
@@ -264,7 +267,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 5 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -304,7 +307,7 @@ shape = SubResource( 8 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 9 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -343,7 +346,7 @@ shape = SubResource( 12 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 9 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -373,7 +376,7 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 15 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -414,21 +417,31 @@ scale = Vector2( 0.8, 1 )
 [node name="Dog2" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 1280, 933.488 )
+endurance = 1
+is_still = false
+walk_speed = 100
+chase_speed = 250
+see_behind = true
 
 [node name="Sight" parent="Dog2" instance=ExtResource( 3 )]
 
 [node name="Dog3" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 position = Vector2( 1152, 671.385 )
+endurance = 1
+is_still = false
+walk_speed = 100
+chase_speed = 250
+see_behind = true
 
 [node name="Sight" parent="Dog3" instance=ExtResource( 3 )]
 
 [node name="Fountain" parent="." instance=ExtResource( 54 )]
 position = Vector2( 1945, 416.727 )
 
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
-[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
 [connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat4" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat3" method="_awaken" flags=6]
+[connection signal="body_entered" from="BatTrigger1/Area2D" to="Bat2" method="_awaken" flags=6]
 [connection signal="area_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_entered"]
 [connection signal="area_exited" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_area_exited"]
 [connection signal="area_entered" from="Gate+Levers/Lever1" to="Gate+Levers" method="_on_Lever1_area_entered"]

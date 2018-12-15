@@ -5,9 +5,15 @@ var is_in_area
 onready var t = get_node("Timer")
 var already = false
 
+func _ready():
+	#LevelManager.house_ready(self)
+	pass
+
+
 func _process(delta):
 	if (is_in_area)&&(Input.is_key_pressed(KEY_E))&&(!already):
 		already = true
+		#LevelManager.house_started(self)
 		$IronGrid.play(anim)
 		$ironGridSFX.play()
 		t.set_wait_time(1)

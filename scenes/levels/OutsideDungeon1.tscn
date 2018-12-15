@@ -158,7 +158,7 @@ volume_db = -9.0
 [node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
 position = Vector2( 10.9937, 36.7393 )
 frames = SubResource( 4 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="EscapeTheFire" type="Area2D" parent="buttons"]
@@ -189,7 +189,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="buttons/EscapeTheFire"]
@@ -224,7 +224,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="buttons/ChimneyDescent2"]
@@ -259,7 +259,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="buttons/Free5"]
@@ -294,7 +294,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="buttons/ChimneyDescent3"]
@@ -329,7 +329,6 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="buttons/Free4"]
@@ -364,7 +363,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="buttons/Free3"]
@@ -399,7 +398,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="buttons/Krampus"]
@@ -434,6 +433,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="buttons/Free"]
@@ -444,6 +444,7 @@ position = Vector2( -35.9688, -2.27368 )
 shape = SubResource( 5 )
 
 [node name="ChimneyDescent4" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 6446.18, 2970.59 )
 collision_layer = 0
 collision_mask = 1024
@@ -470,6 +471,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="buttons/ChimneyDescent4"]
@@ -504,6 +506,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="buttons/Free2"]
@@ -538,7 +541,7 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="buttons/CarlsEnding"]

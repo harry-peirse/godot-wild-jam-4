@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/levels/LivingRoom.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -25,9 +25,10 @@
 [ext_resource path="res://Art/Animation/DialogboxAnim/DialogueBoxAnim6.png" type="Texture" id=23]
 [ext_resource path="res://assets/Font/Basis33.tres" type="DynamicFont" id=24]
 [ext_resource path="res://assets/tilesets/LightningTorch.png" type="Texture" id=25]
-[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=26]
-[ext_resource path="res://scenes/levels/Presents.gd" type="Script" id=27]
-[ext_resource path="res://assets/tilesets/Tileset.png" type="Texture" id=28]
+[ext_resource path="res://assets/SFX/Button.wav" type="AudioStream" id=26]
+[ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=27]
+[ext_resource path="res://scenes/levels/Presents.gd" type="Script" id=28]
+[ext_resource path="res://assets/tilesets/Tileset.png" type="Texture" id=29]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -90,6 +91,7 @@ tile_data = PoolIntArray( 0, 262151, 0, 35, 0, 0, 262151, 36, 0, 327692, 34, 0, 
 position = Vector2( 320, 288 )
 scale = Vector2( 2.707, 2.496 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chimney"]
@@ -107,7 +109,6 @@ region_enabled = true
 region_rect = Rect2( 64, 0, 64, 128 )
 
 [node name="Dialogue" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 576, 320 )
 collision_layer = 0
 collision_mask = 1024
@@ -124,14 +125,14 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 16, 48 )
 frames = SubResource( 3 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="Dialogue"]
 editor/display_folded = true
 visible = false
 frames = SubResource( 4 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="Dialogue/Success"]
@@ -148,12 +149,15 @@ position = Vector2( 48, -32 )
 texture = ExtResource( 25 )
 color = Color( 0.980392, 0.913725, 0.65098, 1 )
 
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="Dialogue"]
+stream = ExtResource( 26 )
+
 [node name="CameraShade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.447059 )
 position = Vector2( 560, 288 )
 scale = Vector2( 5.83333, 3 )
 z_index = 4
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 
 [node name="ChimneyLight" type="Light2D" parent="."]
 position = Vector2( 350.736, 382.156 )
@@ -164,25 +168,25 @@ color = Color( 0.952941, 0.909804, 0.709804, 1 )
 [node name="Presents" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
-script = ExtResource( 27 )
+script = ExtResource( 28 )
 
 [node name="Sprite" type="Sprite" parent="Presents"]
 position = Vector2( 736, 418 )
 z_index = -1
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 region_enabled = true
 region_rect = Rect2( 448, 0, 64, 64 )
 
 [node name="Sprite2" type="Sprite" parent="Presents"]
 position = Vector2( 608, 416 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 region_enabled = true
 region_rect = Rect2( 384, 0, 64, 64 )
 
 [node name="Sprite3" type="Sprite" parent="Presents"]
 position = Vector2( 672, 426 )
 z_index = -1
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 region_enabled = true
 region_rect = Rect2( 384, 80, 64, 48 )
 
