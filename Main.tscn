@@ -80,6 +80,6 @@ text = "Press Enter to play"
 position = Vector2( 391.776, 491.034 )
 frames = SubResource( 3 )
 animation = "Idle"
-frame = 2
+frame = 5
 playing = true
 

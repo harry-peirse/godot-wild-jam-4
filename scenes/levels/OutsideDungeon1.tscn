@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/levels/OutsideDungeon1.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -18,8 +18,19 @@
 [ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=16]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=17]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=18]
-[ext_resource path="res://actors/enemy/dog/Dog.tscn" type="PackedScene" id=19]
-[ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton2.gd" type="Script" id=19]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton3.gd" type="Script" id=20]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton4.gd" type="Script" id=21]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton5.gd" type="Script" id=22]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton6.gd" type="Script" id=23]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton7.gd" type="Script" id=24]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton8.gd" type="Script" id=25]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton9.gd" type="Script" id=26]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton10.gd" type="Script" id=27]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton11.gd" type="Script" id=28]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton12.gd" type="Script" id=29]
+[ext_resource path="res://actors/enemy/dog/Dog.tscn" type="PackedScene" id=30]
+[ext_resource path="res://actors/enemy/burglar/Burglar.tscn" type="PackedScene" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -112,6 +123,7 @@ position = Vector2( 3645.26, 2759.07 )
 [node name="buttons" type="Node" parent="."]
 
 [node name="ChimneyCollider" type="StaticBody2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 3901.74, 4635.18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyCollider"]
@@ -119,467 +131,468 @@ position = Vector2( 0.313843, 46.0391 )
 scale = Vector2( 1, 0.5 )
 shape = SubResource( 1 )
 
-[node name="EButton" type="Area2D" parent="buttons"]
+[node name="ChimneyDescent1" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 3855.34, 4582.54 )
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyDescent1"]
 position = Vector2( 45.4039, 34.5068 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton"]
+[node name="Timer" type="Timer" parent="buttons/ChimneyDescent1"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
 position = Vector2( 43.8678, 31.0632 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/ChimneyDescent1"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton"]
+[node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
 position = Vector2( 10.9937, 36.7393 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
-[node name="EButton2" type="Area2D" parent="buttons"]
+[node name="EscapeTheFire" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 1106.86, 3420.37 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 19 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EscapeTheFire"]
 position = Vector2( -52.8986, 16.1926 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton2"]
+[node name="Timer" type="Timer" parent="buttons/EscapeTheFire"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton2"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/EscapeTheFire"]
 position = Vector2( -51.4128, -2.75854 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton2"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EscapeTheFire"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton2"]
+[node name="Button" type="AnimatedSprite" parent="buttons/EscapeTheFire"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="buttons/EButton2"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="buttons/EscapeTheFire"]
 position = Vector2( -70.1541, 52.9553 )
 shape = SubResource( 5 )
 
-[node name="EButton3" type="Area2D" parent="buttons"]
+[node name="ChimneyDescent2" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 2500.85, 2137.66 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 20 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyDescent2"]
 position = Vector2( -39, 6 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton3"]
+[node name="Timer" type="Timer" parent="buttons/ChimneyDescent2"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton3"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/ChimneyDescent2"]
 position = Vector2( -34.7568, 0.44043 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton3"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/ChimneyDescent2"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton3"]
+[node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent2"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="buttons/EButton3"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="buttons/ChimneyDescent2"]
 position = Vector2( -59.1577, 57.1794 )
 shape = SubResource( 5 )
 
-[node name="EButton4" type="Area2D" parent="buttons"]
+[node name="Free5" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 2128.01, 1358.52 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 21 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free5"]
 position = Vector2( -49.7544, 29.6602 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton4"]
+[node name="Timer" type="Timer" parent="buttons/Free5"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton4"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Free5"]
 position = Vector2( -48.7544, 11.7358 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton4"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Free5"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton4"]
-visible = false
-position = Vector2( 8, 8 )
-frames = SubResource( 4 )
-frame = 5
-playing = true
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="buttons/EButton4"]
-position = Vector2( -68.2283, 68.7548 )
-shape = SubResource( 5 )
-
-[node name="EButton5" type="Area2D" parent="buttons"]
-editor/display_folded = true
-position = Vector2( 1682.41, 1358.52 )
-collision_layer = 0
-collision_mask = 1024
-script = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton5"]
-position = Vector2( -49.8301, 9.60999 )
-scale = Vector2( 0.4, 1 )
-shape = SubResource( 2 )
-
-[node name="Timer" type="Timer" parent="buttons/EButton5"]
-
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton5"]
-position = Vector2( -47.4312, 9.42944 )
-z_index = 2
-frames = SubResource( 3 )
-animation = "Open"
-
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton5"]
-stream = ExtResource( 12 )
-volume_db = -9.0
-
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton5"]
-visible = false
-position = Vector2( 8, 8 )
-frames = SubResource( 4 )
-frame = 5
-playing = true
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="buttons/EButton5"]
-position = Vector2( -69.7377, 68.7349 )
-shape = SubResource( 5 )
-
-[node name="EButton6" type="Area2D" parent="buttons"]
-editor/display_folded = true
-position = Vector2( 4499.89, 915.287 )
-collision_layer = 0
-collision_mask = 1024
-script = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton6"]
-position = Vector2( -60.6758, 24.6819 )
-scale = Vector2( 0.4, 1 )
-shape = SubResource( 2 )
-
-[node name="Timer" type="Timer" parent="buttons/EButton6"]
-
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton6"]
-position = Vector2( -49.9746, 6 )
-z_index = 2
-frames = SubResource( 3 )
-animation = "Open"
-
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton6"]
-stream = ExtResource( 12 )
-volume_db = -9.0
-
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton6"]
+[node name="Button" type="AnimatedSprite" parent="buttons/Free5"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 frame = 4
 playing = true
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="buttons/EButton6"]
-position = Vector2( -75.561, 58.5013 )
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="buttons/Free5"]
+position = Vector2( -68.2283, 68.7548 )
 shape = SubResource( 5 )
 
-[node name="EButton7" type="Area2D" parent="buttons"]
+[node name="ChimneyDescent3" type="Area2D" parent="buttons"]
 editor/display_folded = true
-position = Vector2( 6219.37, 910.257 )
+position = Vector2( 1682.41, 1358.52 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 22 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton7"]
-position = Vector2( -50.6289, 22.303 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyDescent3"]
+position = Vector2( -49.8301, 9.60999 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton7"]
+[node name="Timer" type="Timer" parent="buttons/ChimneyDescent3"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton7"]
-position = Vector2( -43.019, 10.6603 )
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/ChimneyDescent3"]
+position = Vector2( -47.4312, 9.42944 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton7"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/ChimneyDescent3"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton7"]
+[node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent3"]
+visible = false
+position = Vector2( 8, 8 )
+frames = SubResource( 4 )
+frame = 4
+playing = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="buttons/ChimneyDescent3"]
+position = Vector2( -69.7377, 68.7349 )
+shape = SubResource( 5 )
+
+[node name="Free4" type="Area2D" parent="buttons"]
+editor/display_folded = true
+position = Vector2( 4499.89, 915.287 )
+collision_layer = 0
+collision_mask = 1024
+script = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free4"]
+position = Vector2( -60.6758, 24.6819 )
+scale = Vector2( 0.4, 1 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="buttons/Free4"]
+
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Free4"]
+position = Vector2( -49.9746, 6 )
+z_index = 2
+frames = SubResource( 3 )
+animation = "Open"
+
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Free4"]
+stream = ExtResource( 12 )
+volume_db = -9.0
+
+[node name="Button" type="AnimatedSprite" parent="buttons/Free4"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 frame = 3
 playing = true
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="buttons/EButton7"]
-position = Vector2( -69.4312, 68.8036 )
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="buttons/Free4"]
+position = Vector2( -75.561, 58.5013 )
 shape = SubResource( 5 )
 
-[node name="EButton8" type="Area2D" parent="buttons"]
+[node name="Free3" type="Area2D" parent="buttons"]
 editor/display_folded = true
-position = Vector2( 5072.66, 2069.33 )
+position = Vector2( 6219.37, 910.257 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 24 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton8"]
-position = Vector2( -49.563, 9.96118 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free3"]
+position = Vector2( -50.6289, 22.303 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton8"]
+[node name="Timer" type="Timer" parent="buttons/Free3"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton8"]
-position = Vector2( -47.6826, 5.56006 )
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Free3"]
+position = Vector2( -43.019, 10.6603 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton8"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Free3"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton8"]
+[node name="Button" type="AnimatedSprite" parent="buttons/Free3"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 frame = 2
 playing = true
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="buttons/EButton8"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="buttons/Free3"]
+position = Vector2( -69.4312, 68.8036 )
+shape = SubResource( 5 )
+
+[node name="Krampus" type="Area2D" parent="buttons"]
+editor/display_folded = true
+position = Vector2( 5072.66, 2069.33 )
+collision_layer = 0
+collision_mask = 1024
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Krampus"]
+position = Vector2( -49.563, 9.96118 )
+scale = Vector2( 0.4, 1 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="buttons/Krampus"]
+
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Krampus"]
+position = Vector2( -47.6826, 5.56006 )
+z_index = 2
+frames = SubResource( 3 )
+animation = "Open"
+
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Krampus"]
+stream = ExtResource( 12 )
+volume_db = -9.0
+
+[node name="Button" type="AnimatedSprite" parent="buttons/Krampus"]
+visible = false
+position = Vector2( 8, 8 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="buttons/Krampus"]
 position = Vector2( -1226.31, 1280.85 )
 shape = SubResource( 5 )
 
-[node name="EButton9" type="Area2D" parent="buttons"]
+[node name="Free" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 4470.61, 2523.57 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 26 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free"]
 position = Vector2( -17.6885, 9.24292 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton9"]
+[node name="Timer" type="Timer" parent="buttons/Free"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton9"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Free"]
 position = Vector2( -9.73877, -1.41284 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton9"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Free"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton9"]
+[node name="Button" type="AnimatedSprite" parent="buttons/Free"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="buttons/EButton9"]
+[node name="StaticBody2D" type="StaticBody2D" parent="buttons/Free"]
 position = Vector2( -4.62744, 57.6538 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton9/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free/StaticBody2D"]
 position = Vector2( -35.9688, -2.27368 )
 shape = SubResource( 5 )
 
-[node name="EButton10" type="Area2D" parent="buttons"]
-editor/display_folded = true
+[node name="ChimneyDescent4" type="Area2D" parent="buttons"]
 position = Vector2( 6446.18, 2970.59 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 27 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyDescent4"]
 position = Vector2( -13.0566, -0.949463 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton10"]
+[node name="Timer" type="Timer" parent="buttons/ChimneyDescent4"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton10"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/ChimneyDescent4"]
 position = Vector2( -12.9819, 0.903809 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton10"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/ChimneyDescent4"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton10"]
+[node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent4"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="buttons/EButton10"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="buttons/ChimneyDescent4"]
 position = Vector2( -31.7983, 55.2771 )
 shape = SubResource( 5 )
 
-[node name="EButton11" type="Area2D" parent="buttons"]
+[node name="Free2" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 4169.32, 3302.07 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 28 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/Free2"]
 position = Vector2( -40.0806, 2.75781 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton11"]
+[node name="Timer" type="Timer" parent="buttons/Free2"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton11"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/Free2"]
 position = Vector2( -38.5405, -11.8318 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton11"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/Free2"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton11"]
+[node name="Button" type="AnimatedSprite" parent="buttons/Free2"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="buttons/EButton11"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="buttons/Free2"]
 position = Vector2( -59.0781, 43.5488 )
 shape = SubResource( 5 )
 
-[node name="EButton12" type="Area2D" parent="buttons"]
+[node name="CarlsEnding" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 3919.1, 3288.5 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 6 )
+script = ExtResource( 29 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton12"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/CarlsEnding"]
 position = Vector2( -52.7437, 19.8037 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="buttons/EButton12"]
+[node name="Timer" type="Timer" parent="buttons/CarlsEnding"]
 
-[node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton12"]
+[node name="IronGrid" type="AnimatedSprite" parent="buttons/CarlsEnding"]
 position = Vector2( -43.0068, 2.57422 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
 
-[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/EButton12"]
+[node name="ironGridSFX" type="AudioStreamPlayer" parent="buttons/CarlsEnding"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 
-[node name="Button" type="AnimatedSprite" parent="buttons/EButton12"]
+[node name="Button" type="AnimatedSprite" parent="buttons/CarlsEnding"]
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="buttons/EButton12"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="buttons/CarlsEnding"]
 position = Vector2( 1086.25, -1156.38 )
 shape = SubResource( 5 )
 
 [node name="enemys" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Dog" parent="enemys" instance=ExtResource( 19 )]
+[node name="Dog" parent="enemys" instance=ExtResource( 30 )]
 position = Vector2( 6066.59, 3281.15 )
 
-[node name="Dog2" parent="enemys" instance=ExtResource( 19 )]
+[node name="Dog2" parent="enemys" instance=ExtResource( 30 )]
 position = Vector2( 1663.13, 2826.87 )
 
-[node name="Dog3" parent="enemys" instance=ExtResource( 19 )]
+[node name="Dog3" parent="enemys" instance=ExtResource( 30 )]
 position = Vector2( 1306.93, 1587.91 )
 
-[node name="Burglar" parent="enemys" instance=ExtResource( 20 )]
+[node name="Burglar" parent="enemys" instance=ExtResource( 31 )]
 position = Vector2( 2625.28, 3660.6 )
 
-[node name="Burglar2" parent="enemys" instance=ExtResource( 20 )]
+[node name="Burglar2" parent="enemys" instance=ExtResource( 31 )]
 position = Vector2( 3480.28, 4473.45 )
 
-[node name="Burglar3" parent="enemys" instance=ExtResource( 20 )]
+[node name="Burglar3" parent="enemys" instance=ExtResource( 31 )]
 position = Vector2( 3052.78, 4684.18 )
 
-[node name="Burglar4" parent="enemys" instance=ExtResource( 20 )]
+[node name="Burglar4" parent="enemys" instance=ExtResource( 31 )]
 position = Vector2( 6119.2, 2128.83 )
 
-[node name="Burglar5" parent="enemys" instance=ExtResource( 20 )]
+[node name="Burglar5" parent="enemys" instance=ExtResource( 31 )]
 position = Vector2( 5494.56, 1524.84 )
 
-[connection signal="area_entered" from="buttons/EButton" to="buttons/EButton" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton" to="buttons/EButton" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton2" to="buttons/EButton2" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton2" to="buttons/EButton2" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton3" to="buttons/EButton3" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton3" to="buttons/EButton3" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton4" to="buttons/EButton4" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton4" to="buttons/EButton4" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton5" to="buttons/EButton5" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton5" to="buttons/EButton5" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton6" to="buttons/EButton6" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton6" to="buttons/EButton6" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton7" to="buttons/EButton7" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton7" to="buttons/EButton7" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton8" to="buttons/EButton8" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton8" to="buttons/EButton8" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton9" to="buttons/EButton9" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton9" to="buttons/EButton9" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton10" to="buttons/EButton10" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton10" to="buttons/EButton10" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton11" to="buttons/EButton11" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton11" to="buttons/EButton11" method="_on_EButton_area_exited"]
-[connection signal="area_entered" from="buttons/EButton12" to="buttons/EButton12" method="_on_EButton_area_entered"]
-[connection signal="area_exited" from="buttons/EButton12" to="buttons/EButton12" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/ChimneyDescent1" to="buttons/ChimneyDescent1" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/ChimneyDescent1" to="buttons/ChimneyDescent1" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/EscapeTheFire" to="buttons/EscapeTheFire" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/EscapeTheFire" to="buttons/EscapeTheFire" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/ChimneyDescent2" to="buttons/ChimneyDescent2" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/ChimneyDescent2" to="buttons/ChimneyDescent2" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Free5" to="buttons/Free5" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Free5" to="buttons/Free5" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/ChimneyDescent3" to="buttons/ChimneyDescent3" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/ChimneyDescent3" to="buttons/ChimneyDescent3" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Free4" to="buttons/Free4" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Free4" to="buttons/Free4" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Free3" to="buttons/Free3" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Free3" to="buttons/Free3" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Krampus" to="buttons/Krampus" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Krampus" to="buttons/Krampus" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Free" to="buttons/Free" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Free" to="buttons/Free" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/ChimneyDescent4" to="buttons/ChimneyDescent4" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/ChimneyDescent4" to="buttons/ChimneyDescent4" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/Free2" to="buttons/Free2" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/Free2" to="buttons/Free2" method="_on_EButton_area_exited"]
+[connection signal="area_entered" from="buttons/CarlsEnding" to="buttons/CarlsEnding" method="_on_EButton_area_entered"]
+[connection signal="area_exited" from="buttons/CarlsEnding" to="buttons/CarlsEnding" method="_on_EButton_area_exited"]

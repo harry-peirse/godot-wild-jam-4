@@ -11,6 +11,7 @@ var scene_list = {
 	"ChimneyDescent1" : "res://scenes/levels/ChimneyDescent1.tscn",
 	"ChimneyDescent2" : "res://scenes/levels/ChimneyDescent2.tscn",
 	"ChimneyDescent3" : "res://scenes/levels/ChimneyDescent3.tscn",
+	"ChimneyDescent4" : "res://scenes/levels/ChimneyDescent4.tscn",
 	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn",
 	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn",
 	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire/EscapeTheFire1.tscn",
@@ -28,6 +29,10 @@ var scene_list = {
 	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFire/EscapeTheFireExit.tscn",
 	"GameOver": "res://scenes/gameover_screen/GameOver.tscn",
 	"CarlsEnding": "res://scenes/levels/CarlsEnding.tscn",
+	"LivingRoom2": "res://scenes/levels/DifferentLivingRooms/LivingRoom2.tscn",
+	"LivingRoom3": "res://scenes/levels/DifferentLivingRooms/LivingRoom3.tscn",
+	"LivingRoom4": "res://scenes/levels/DifferentLivingRooms/LivingRoom4.tscn",
+	"KrampusFight": "res://prototype//KrampusFight.tscn",
 }
 
 
