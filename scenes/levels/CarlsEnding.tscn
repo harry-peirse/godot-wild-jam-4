@@ -29,4 +29,12 @@ position = Vector2( 70, 480 )
 [node name="Carl" type="AnimatedSprite" parent="."]
 position = Vector2( 650, 430 )
 frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="Carl2" type="AnimatedSprite" parent="."]
+position = Vector2( 650, 430 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
 

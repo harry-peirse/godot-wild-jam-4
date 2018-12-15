@@ -20,7 +20,7 @@ func _process(delta):
 		tree =true
 		$EButtonTree.visible = false
 		$Success.visible = true
-		t.set_wait_time(1)
+		t.set_wait_time(2)
 		t.start()
 		yield(t, "timeout")
 		get_node("/root/SceneBrowser").load_scene("OutsideDungeon1")

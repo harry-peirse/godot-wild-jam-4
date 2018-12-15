@@ -31,6 +31,8 @@
 [ext_resource path="res://assets/tilesets/CameraShade.png" type="Texture" id=29]
 [ext_resource path="res://scenes/levels/Start/Tutorial.gd" type="Script" id=30]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 
 extents = Vector2( 160, 64 )
