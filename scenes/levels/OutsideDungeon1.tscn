@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/levels/OutsideDungeon1.gd" type="Script" id=1]
 [ext_resource path="res://actors/character/snowman/Snowman.tscn" type="PackedScene" id=2]
@@ -47,6 +47,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 53.3989, 25.4265 )
+
 [node name="OutsideDungeon1" type="Node"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -65,6 +69,7 @@ camera_limit_right = 1350
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( 2845.93, 2212.39 )
 motion_mirroring = Vector2( 1024, 600 )
 
@@ -105,10 +110,8 @@ tile_data = PoolIntArray( 393218, 35, 0, 393220, 34, 0, 458759, 40, 0, 458763, 4
 position = Vector2( 3645.26, 2759.07 )
 
 [node name="buttons" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="ChimneyCollider" type="StaticBody2D" parent="buttons"]
-editor/display_folded = true
 position = Vector2( 3901.74, 4635.18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyCollider"]
@@ -146,21 +149,20 @@ frames = SubResource( 4 )
 playing = true
 
 [node name="EButton2" type="Area2D" parent="buttons"]
-editor/display_folded = true
 position = Vector2( 1106.86, 3420.37 )
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton2"]
-position = Vector2( -39, 6 )
+position = Vector2( -52.8986, 16.1926 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton2"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton2"]
-position = Vector2( -38, 6 )
+position = Vector2( -51.4128, -2.75854 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -174,6 +176,10 @@ visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 playing = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="buttons/EButton2"]
+position = Vector2( -70.1541, 52.9553 )
+shape = SubResource( 5 )
 
 [node name="EButton3" type="Area2D" parent="buttons"]
 editor/display_folded = true
@@ -190,7 +196,7 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="buttons/EButton3"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton3"]
-position = Vector2( -38, 6 )
+position = Vector2( -34.7568, 0.44043 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -205,6 +211,10 @@ position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 playing = true
 
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="buttons/EButton3"]
+position = Vector2( -59.1577, 57.1794 )
+shape = SubResource( 5 )
+
 [node name="EButton4" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 2128.01, 1358.52 )
@@ -213,14 +223,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton4"]
-position = Vector2( -39, 6 )
+position = Vector2( -49.7544, 29.6602 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton4"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton4"]
-position = Vector2( -38, 6 )
+position = Vector2( -48.7544, 11.7358 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -236,6 +246,10 @@ frames = SubResource( 4 )
 frame = 5
 playing = true
 
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="buttons/EButton4"]
+position = Vector2( -68.2283, 68.7548 )
+shape = SubResource( 5 )
+
 [node name="EButton5" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 1682.41, 1358.52 )
@@ -244,14 +258,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton5"]
-position = Vector2( -39, 6 )
+position = Vector2( -49.8301, 9.60999 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton5"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton5"]
-position = Vector2( -38, 6 )
+position = Vector2( -47.4312, 9.42944 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -267,6 +281,10 @@ frames = SubResource( 4 )
 frame = 5
 playing = true
 
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="buttons/EButton5"]
+position = Vector2( -69.7377, 68.7349 )
+shape = SubResource( 5 )
+
 [node name="EButton6" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 4499.89, 915.287 )
@@ -275,14 +293,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton6"]
-position = Vector2( -39, 6 )
+position = Vector2( -60.6758, 24.6819 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton6"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton6"]
-position = Vector2( -38, 6 )
+position = Vector2( -49.9746, 6 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -298,6 +316,10 @@ frames = SubResource( 4 )
 frame = 4
 playing = true
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="buttons/EButton6"]
+position = Vector2( -75.561, 58.5013 )
+shape = SubResource( 5 )
+
 [node name="EButton7" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 6219.37, 910.257 )
@@ -306,14 +328,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton7"]
-position = Vector2( -39, 6 )
+position = Vector2( -50.6289, 22.303 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton7"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton7"]
-position = Vector2( -38, 6 )
+position = Vector2( -43.019, 10.6603 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -329,6 +351,10 @@ frames = SubResource( 4 )
 frame = 3
 playing = true
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="buttons/EButton7"]
+position = Vector2( -69.4312, 68.8036 )
+shape = SubResource( 5 )
+
 [node name="EButton8" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 5072.66, 2069.33 )
@@ -337,14 +363,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton8"]
-position = Vector2( -39, 6 )
+position = Vector2( -49.563, 9.96118 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton8"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton8"]
-position = Vector2( -38, 6 )
+position = Vector2( -47.6826, 5.56006 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -360,6 +386,10 @@ frames = SubResource( 4 )
 frame = 2
 playing = true
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="buttons/EButton8"]
+position = Vector2( -1226.31, 1280.85 )
+shape = SubResource( 5 )
+
 [node name="EButton9" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 4470.61, 2523.57 )
@@ -368,14 +398,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton9"]
-position = Vector2( -39, 6 )
+position = Vector2( -17.6885, 9.24292 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton9"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton9"]
-position = Vector2( -38, 6 )
+position = Vector2( -9.73877, -1.41284 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -391,6 +421,13 @@ frames = SubResource( 4 )
 frame = 1
 playing = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="buttons/EButton9"]
+position = Vector2( -4.62744, 57.6538 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton9/StaticBody2D"]
+position = Vector2( -35.9688, -2.27368 )
+shape = SubResource( 5 )
+
 [node name="EButton10" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 6446.18, 2970.59 )
@@ -399,14 +436,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton10"]
-position = Vector2( -39, 6 )
+position = Vector2( -13.0566, -0.949463 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton10"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton10"]
-position = Vector2( -38, 6 )
+position = Vector2( -12.9819, 0.903809 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -422,6 +459,10 @@ frames = SubResource( 4 )
 frame = 1
 playing = true
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="buttons/EButton10"]
+position = Vector2( -31.7983, 55.2771 )
+shape = SubResource( 5 )
+
 [node name="EButton11" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 4169.32, 3302.07 )
@@ -430,14 +471,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton11"]
-position = Vector2( -39, 6 )
+position = Vector2( -40.0806, 2.75781 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton11"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton11"]
-position = Vector2( -38, 6 )
+position = Vector2( -38.5405, -11.8318 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -453,6 +494,10 @@ frames = SubResource( 4 )
 frame = 1
 playing = true
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="buttons/EButton11"]
+position = Vector2( -59.0781, 43.5488 )
+shape = SubResource( 5 )
+
 [node name="EButton12" type="Area2D" parent="buttons"]
 editor/display_folded = true
 position = Vector2( 3919.1, 3288.5 )
@@ -461,14 +506,14 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EButton12"]
-position = Vector2( -39, 6 )
+position = Vector2( -52.7437, 19.8037 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/EButton12"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/EButton12"]
-position = Vector2( -38, 6 )
+position = Vector2( -43.0068, 2.57422 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -483,7 +528,12 @@ position = Vector2( 8, 8 )
 frames = SubResource( 4 )
 playing = true
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="buttons/EButton12"]
+position = Vector2( 1086.25, -1156.38 )
+shape = SubResource( 5 )
+
 [node name="enemys" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Dog" parent="enemys" instance=ExtResource( 19 )]
 position = Vector2( 6066.59, 3281.15 )
