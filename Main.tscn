@@ -1,26 +1,156 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/tilesets/Tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/Font/basis33.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/characters/snowman/Snowman.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/snowman/hurt02.png" type="Texture" id=5]
+[ext_resource path="res://assets/characters/snowman/s_run01.png" type="Texture" id=6]
+[ext_resource path="res://assets/characters/snowman/s_run02.png" type="Texture" id=7]
+[ext_resource path="res://assets/characters/snowman/s_run03.png" type="Texture" id=8]
 
-[node name="TemporyMain" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 90
+outline_size = 3
+outline_color = Color( 0.0666667, 0.356863, 0.101961, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -2
+extra_spacing_char = 8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 35
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -2
+extra_spacing_bottom = -4
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="NOTE" type="RichTextLabel" parent="."]
-margin_left = 7.0
-margin_top = 15.0
-margin_right = 364.0
-margin_bottom = 242.0
-rect_scale = Vector2( 2, 3 )
-text = "I always like to use RichTextLabels for leaving quick notes within scenes. It is pretty useful imo.
+[node name="Skyline" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 27, 0, 1, 26, 0, 2, 26, 0, 3, 26, 0, 4, 28, 0, 5, 26, 0, 6, 27, 0, 7, 26, 0, 8, 28, 0, 9, 26, 0, 10, 27, 0, 11, 27, 0, 12, 27, 0, 13, 26, 0, 14, 27, 0, 15, 28, 0, 16, 26, 0, 17, 26, 0, 18, 26, 0, 65536, 27, 0, 65537, 28, 0, 65538, 26, 0, 65539, 26, 0, 65540, 27, 0, 65541, 27, 0, 65542, 27, 0, 65543, 28, 0, 65544, 26, 0, 65545, 26, 0, 65546, 27, 0, 65547, 26, 0, 65548, 27, 0, 65549, 27, 0, 65550, 26, 0, 65551, 27, 0, 65552, 26, 0, 65553, 27, 0, 65554, 26, 0, 131072, 28, 0, 131073, 26, 0, 131074, 28, 0, 131075, 26, 0, 131076, 26, 0, 131077, 27, 0, 131078, 27, 0, 131079, 27, 0, 131080, 27, 0, 131081, 28, 0, 131082, 27, 0, 131083, 28, 0, 131084, 26, 0, 131085, 25, 0, 131086, 26, 0, 131087, 27, 0, 131088, 26, 0, 131089, 28, 0, 131090, 26, 0, 196608, 27, 0, 196609, 26, 0, 196610, 26, 0, 196611, 27, 0, 196612, 26, 0, 196613, 27, 0, 196614, 27, 0, 196615, 27, 0, 196616, 27, 0, 196617, 27, 0, 196618, 27, 0, 196619, 27, 0, 196620, 27, 0, 196621, 27, 0, 196622, 26, 0, 196623, 27, 0, 196624, 26, 0, 196625, 27, 0, 196626, 27, 0, 262144, 27, 0, 262145, 26, 0, 262146, 26, 0, 262147, 26, 0, 262148, 27, 0, 262149, 27, 0, 262150, 27, 0, 262151, 27, 0, 262152, 27, 0, 262153, 26, 0, 262154, 26, 0, 262155, 26, 0, 262156, 28, 0, 262157, 27, 0, 262158, 28, 0, 262159, 27, 0, 262160, 28, 0, 262161, 26, 0, 262162, 27, 0, 327680, 26, 0, 327681, 27, 0, 327682, 26, 0, 327683, 27, 0, 327684, 26, 0, 327685, 28, 0, 327686, 26, 0, 327687, 27, 0, 327688, 28, 0, 327689, 27, 0, 327690, 26, 0, 327691, 27, 0, 327692, 27, 0, 327693, 26, 0, 327694, 27, 0, 327695, 28, 0, 327696, 26, 0, 327697, 28, 0, 327698, 26, 0, 393216, 26, 0, 393217, 27, 0, 393218, 28, 0, 393219, 26, 0, 393220, 27, 0, 393221, 26, 0, 393222, 26, 0, 393223, 27, 0, 393224, 28, 0, 393225, 27, 0, 393226, 26, 0, 393227, 27, 0, 393228, 26, 0, 393229, 28, 0, 393230, 26, 0, 393231, 27, 0, 393232, 27, 0, 393233, 26, 0, 393234, 27, 0, 458752, 26, 0, 458753, 27, 0, 458754, 27, 0, 458755, 28, 0, 458756, 27, 0, 458757, 26, 0, 458758, 27, 0, 458759, 26, 0, 458760, 26, 0, 458761, 28, 0, 458762, 27, 0, 458763, 27, 0, 458764, 26, 0, 458765, 27, 0, 458766, 28, 0, 458767, 26, 0, 458768, 26, 0, 458769, 26, 0, 458770, 26, 0 )
 
-If you want to use footstools, you have to instance one in the scene and set up a collision shape for it.
- Then in the editor, you configure the footstools push_other's y value to whatever amount you want pushback.
+[node name="Midground" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 262154, 32, 0, 393217, 34, 0, 393219, 34, 0, 393223, 35, 0, 393225, 34, 0, 393232, 34, 0, 393233, 34, 0, 458756, 16, 0, 458765, 45, 0, 458766, 39, 0 )
 
-Note: ChimneyDescent1 has an example. Turn on visible collisions in Debug to see it."
+[node name="Foreground" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 524288, 18, 0, 524289, 18, 0, 524290, 18, 0, 524291, 18, 0, 524292, 18, 0, 524293, 18, 0, 524294, 18, 0, 524295, 18, 0, 524296, 18, 0, 524297, 18, 0, 524298, 18, 0, 524299, 18, 0, 524300, 18, 0, 524301, 18, 0, 524302, 18, 0, 524303, 18, 0, 524304, 18, 0, 524305, 18, 0, 524306, 18, 0, 589824, 12, 0, 589825, 12, 0, 589826, 12, 0, 589827, 12, 0, 589828, 12, 0, 589829, 12, 0, 589830, 12, 0, 589831, 12, 0, 589832, 12, 0, 589833, 12, 0, 589834, 12, 0, 589835, 12, 0, 589836, 12, 0, 589837, 12, 0, 589838, 12, 0, 589839, 12, 0, 589840, 12, 0, 589841, 12, 0, 589842, 12, 0, 655360, 12, 0, 655361, 12, 0, 655362, 12, 0, 655363, 12, 0, 655364, 12, 0, 655365, 12, 0, 655366, 12, 0, 655367, 12, 0, 655368, 12, 0, 655369, 12, 0, 655370, 12, 0, 655371, 12, 0, 655372, 12, 0, 655373, 12, 0, 655374, 12, 0, 655375, 12, 0, 655376, 12, 0, 655377, 12, 0, 655378, 12, 0, 720896, 12, 0, 720897, 12, 0, 720898, 12, 0, 720899, 12, 0, 720900, 12, 0, 720901, 12, 0, 720902, 12, 0, 720903, 12, 0, 720904, 12, 0, 720905, 12, 0, 720906, 12, 0, 720907, 12, 0, 720908, 12, 0, 720909, 12, 0, 720910, 12, 0, 720911, 12, 0, 720912, 12, 0, 720913, 12, 0, 720914, 12, 0 )
 
-[node name="ItemList" type="ItemList" parent="."]
-margin_left = 733.0
-margin_top = 34.0
-margin_right = 994.0
-margin_bottom = 579.0
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_top = 100.0
+margin_right = 667.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "SNOWMAN SLUSHY"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 252.0
+margin_top = 245.0
+margin_right = 543.0
+margin_bottom = 280.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Press Enter to play"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 391.776, 491.034 )
+frames = SubResource( 3 )
+animation = "Idle"
+frame = 6
+playing = true
 

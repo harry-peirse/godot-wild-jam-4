@@ -1,16 +1,33 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const CHAR_DESTINATION = 700
+const CHAR_WALK_SPEED = 125
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$ItemList.connect( "item_activated", self, "load_scene" )
-	
-	for scene_name in SceneBrowser.scene_list.keys():
-		$ItemList.add_item(scene_name)
-	
-func load_scene(index):
-	var scene_to_play = $ItemList.get_item_text(index)
-	SceneBrowser.load_scene( scene_to_play )
+var waiting_for_start = true
+var animating_character = false
+var start_intro = false
+
+func _process(delta):
+	if waiting_for_start:
+		_wait_for_enter_to_be_pressed()
+	elif animating_character:
+		_animate_character(delta)
+	elif start_intro:
+		_start_intro()
+		
+func _wait_for_enter_to_be_pressed():
+	if Input.is_action_pressed("ConfirmButton") || Input.is_action_pressed("ui_accept"):
+		$AnimatedSprite.play("Run")
+		waiting_for_start = false
+		animating_character = true
+
+func _animate_character(delta):
+	if $AnimatedSprite.position.x < CHAR_DESTINATION :
+		$AnimatedSprite.position.x += CHAR_WALK_SPEED * delta
+	else:
+		animating_character = false
+		start_intro = true
+
+func _start_intro():
+	SceneBrowser.load_scene("Intro")
+	start_intro = false
