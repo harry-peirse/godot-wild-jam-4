@@ -23,19 +23,32 @@ func house_beaten():
 	attempt = null
 
 
-func house_started( house_name ):
-	attempt = house_name
+func house_started( house ):
+	attempt = house.name
 
 
-func house_ready( house_name ):
-	if completed_houses.has( house_name ) :
-		return true
+func house_ready( house ):
+	#Check if we have enough houses done
+	#for CarlsEnd and Krampus.
+	if house.name == "Krampus" && completed_houses.size() < 7 :
+		house.queue_free()
 	
-	if waiting_houses.has( house_name ) :
-		return false
+	if house.name == "CarlsEnd" && completed_houses.size() < 11 :
+		house.queue_free()
 	
-	waiting_houses.append( house_name )
-	return false
+	#If house is already beaten,
+	#do not go back into it.
+	if completed_houses.has( house.name ) :
+		house.queue_free()
+	
+	#House is in the list already,
+	#do not add it again.
+	if waiting_houses.has( house.name ) :
+		return
+	
+	#The house is a new one, yay.
+	waiting_houses.append( house.name )
+	return
 	
 	
 	
