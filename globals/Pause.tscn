@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://globals/Pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/characters/healthbar/under.png" type="Texture" id=2]
+[ext_resource path="res://Art/Animation/pause/WhiteIceEdge.png" type="Texture" id=3]
+[ext_resource path="res://Art/Animation/pause/Ice.png" type="Texture" id=4]
 
 [node name="Pause" type="Node2D"]
 pause_mode = 2
@@ -10,8 +12,19 @@ script = ExtResource( 1 )
 
 [node name="TextBackdrop" type="Sprite" parent="."]
 modulate = Color( 0.211765, 0.835294, 0.835294, 0.6 )
-scale = Vector2( 2, 7 )
+scale = Vector2( 6, 15 )
 texture = ExtResource( 2 )
+
+[node name="WhiteEdge" type="Sprite" parent="."]
+light_mask = 0
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 3 )
+
+[node name="Ice" type="Sprite" parent="."]
+modulate = Color( 0.847059, 0.992157, 1, 1 )
+light_mask = 0
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
 
 [node name="Continue" type="RichTextLabel" parent="."]
 modulate = Color( 1, 0, 0, 1 )
