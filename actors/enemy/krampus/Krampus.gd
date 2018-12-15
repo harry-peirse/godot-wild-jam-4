@@ -9,7 +9,8 @@ var shot = preload( "res://actors/enemy/burglar/Shot.tscn" )
 
 var fsm_dict = {
 	"Idle" : "idle",
-	"Shot" : "shot"
+	"Shot" : "shot",
+	"Die" : "die"
 }
 var fsm_state = "Idle"
 
@@ -19,13 +20,13 @@ var snowman
 var face_left = false
 
 #Randomly decide to jump every once in a while.
-const JUMP_COOL_WAIT = 0.016667 * 30
+const JUMP_COOL_WAIT = 0.016667 * 40
 var jump_random = 40
 var jump_cooldown = 0
 
 
 #Shot variables.
-const FIRE_FROM_IDLE_WAIT = 90
+const FIRE_FROM_IDLE_WAIT = 120
 var fire_round = 0
 var fire_from_idle = FIRE_FROM_IDLE_WAIT
 
@@ -38,6 +39,7 @@ func _ready():
 	randomize()
 	
 	$AnimSprite.connect( "animation_finished", self, "change_to_idle" )
+	self.connect( "lost_all_health", self, "die" )
 	
 	$AnimSprite.animation = "Idle"
 	$AnimSprite.play()
@@ -45,7 +47,7 @@ func _ready():
 	#De activate attack hitboxes.
 	$Shot.is_activated( false )
 	
-	endurance = 0.4
+	endurance = 5000
 
 
 func been_hit( push : Vector2, damaged = false ):
@@ -60,6 +62,9 @@ func change_state( new_state ):
 func change_to_idle():
 	if $AnimSprite.animation == "Idle" :
 		return
+		
+	if $AnimSprite.animation == "Die" :
+		get_tree().quit()
 	
 	$AnimSprite.animation = "Idle"
 	fsm_state = "Idle"
@@ -74,6 +79,12 @@ func change_to_idle():
 func chase_snowman( new_snowman ):
 	snowman = new_snowman
 	$Sight.queue_free()
+
+
+func die():
+	is_alive = false
+	change_state( "Die" )
+	velocity.y = 200
 
 
 func fire_shot():
@@ -93,7 +104,10 @@ func fire_shot():
 			instance.set_direction( 1 )
 		
 		get_parent().call_deferred( "add_child", instance )
-	
+
+
+func process_die( delta ):
+	move_body()
 
 
 func process_frame( delta ) :
@@ -117,6 +131,8 @@ func process_frame( delta ) :
 			else:
 				face_left = false
 		$AnimSprite.flip_h = face_left
+	
+	#Fall downward if dead and in air.
 	
 	call( "process_" + fsm_dict[ fsm_state ], delta )
 
