@@ -1,19 +1,40 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://actors/enemy/krampus/Krampus.gd" type="Script" id=1]
-[ext_resource path="res://assets/tilesets/Krampus.png" type="Texture" id=2]
-[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/enemy/sight/Sight.gd" type="Script" id=5]
-[ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/Krampus/Idle/Krampus-Idle4.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit1.png" type="Texture" id=6]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit2.png" type="Texture" id=7]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit3.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/Krampus/Hit/Krampus-Hit4.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile1.png" type="Texture" id=10]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile2.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile3.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Krampus/Projectile/Krampus-Projectile4.png" type="Texture" id=13]
+[ext_resource path="res://actors/HealthBar/HealthBar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://actors/collisions/Hurtbox.tscn" type="PackedScene" id=15]
+[ext_resource path="res://actors/enemy/sight/Sight.gd" type="Script" id=16]
+[ext_resource path="res://actors/collisions/Hitbox.tscn" type="PackedScene" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Swipe",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Shot",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -23,6 +44,10 @@ extents = Vector2( 31.1101, 54.9248 )
 [sub_resource type="RectangleShape2D" id=3]
 
 extents = Vector2( 549.293, 162.546 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+extents = Vector2( 56.14, 47.6569 )
 
 [node name="Krampus" type="KinematicBody2D"]
 collision_layer = 0
@@ -51,14 +76,15 @@ cast_to = Vector2( 0, 20 )
 position = Vector2( 0, -34.4413 )
 cast_to = Vector2( 0, -5 )
 
-[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+[node name="HealthBar" parent="." instance=ExtResource( 14 )]
 position = Vector2( -45, 70.188 )
 
 [node name="Col" type="CollisionShape2D" parent="."]
 position = Vector2( -3.22635, 8.96215 )
 shape = SubResource( 2 )
 
-[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+[node name="Hurtbox" parent="." instance=ExtResource( 15 )]
+push_other = Vector2( 600, 0 )
 
 [node name="Col2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( -3.22635, 8.96215 )
@@ -68,15 +94,22 @@ shape = SubResource( 2 )
 visible = false
 collision_layer = 0
 collision_mask = 16
-script = ExtResource( 5 )
+script = ExtResource( 16 )
 
 [node name="Co" type="CollisionShape2D" parent="Sight"]
 shape = SubResource( 3 )
 
-[node name="Hitbox" parent="." instance=ExtResource( 6 )]
+[node name="Hitbox" parent="." instance=ExtResource( 17 )]
 push_other = Vector2( 800, 0 )
 
 [node name="Col3" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( -3.22635, 8.96215 )
 shape = SubResource( 2 )
+
+[node name="Shot" parent="." instance=ExtResource( 17 )]
+is_active = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shot"]
+position = Vector2( 46.3291, 16.0933 )
+shape = SubResource( 4 )
 
