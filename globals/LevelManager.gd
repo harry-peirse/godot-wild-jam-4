@@ -11,6 +11,12 @@ var attempt
 var completed_houses = []
 var waiting_houses = []
 
+var snowman_location
+
+
+func get_snowman_location():
+	return snowman_location
+
 
 func house_beaten():
 	if attempt == null :
@@ -24,6 +30,8 @@ func house_beaten():
 
 
 func house_started( house ):
+	snowman_location = house.global_position
+	var house_name = house.name
 	attempt = house.name
 
 
@@ -33,7 +41,7 @@ func house_ready( house ):
 	if house.name == "Krampus" && completed_houses.size() < 7 :
 		house.queue_free()
 	
-	if house.name == "CarlsEnd" && completed_houses.size() < 11 :
+	if house.name == "CarlsEnding" && completed_houses.size() < 11 :
 		house.queue_free()
 	
 	#If house is already beaten,
@@ -49,6 +57,11 @@ func house_ready( house ):
 	#The house is a new one, yay.
 	waiting_houses.append( house.name )
 	return
+	
+	
+func reset_snowman_location():
+	snowman_location = null	
+	
 	
 	
 	

@@ -24,5 +24,6 @@ func _process(delta):
 		t.set_wait_time(2)
 		t.start()
 		yield(t, "timeout")
+		LevelManager.house_beaten()
 		get_node("/root/SceneBrowser").load_scene("OutsideDungeon1")
 	

@@ -35,6 +35,7 @@ func _process(delta):
 			counter = 4
 		elif counter == 4:
 			$ButtonSFX.play()
+			LevelManager.house_beaten()
 			get_node("/root/SceneBrowser").load_scene("OutsideDungeon1")
 	
 		

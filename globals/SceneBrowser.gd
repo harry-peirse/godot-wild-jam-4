@@ -32,7 +32,7 @@ var scene_list = {
 	"LivingRoom2": "res://scenes/levels/DifferentLivingRooms/LivingRoom2.tscn",
 	"LivingRoom3": "res://scenes/levels/DifferentLivingRooms/LivingRoom3.tscn",
 	"LivingRoom4": "res://scenes/levels/DifferentLivingRooms/LivingRoom4.tscn",
-	"KrampusFight": "res://prototype//KrampusFight.tscn",
+	"KrampusFight": "res://scenes/krampus/KrampusFight.tscn",
 	"JoinEnd": "res://scenes/levels/Decision2.tscn",
 	"DeadEnd": "res://scenes/levels/Decision1.tscn",
 	

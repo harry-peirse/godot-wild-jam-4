@@ -14,7 +14,11 @@ func _process(delta):
 		t.start()
 		yield(t, "timeout")
 		get_node("/root/SceneBrowser").load_scene("ChimneyDescent2")
+		LevelManager.house_started( self )
 
+
+func _ready():
+	LevelManager.house_ready( self )
 
 func _on_EButton_area_entered(area):
 	$Button.visible = true

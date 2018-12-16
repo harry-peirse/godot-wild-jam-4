@@ -125,14 +125,14 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 16, 48 )
 frames = SubResource( 3 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Success" type="AnimatedSprite" parent="Dialogue"]
 editor/display_folded = true
 visible = false
 frames = SubResource( 4 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Dialogue/Success"]
