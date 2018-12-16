@@ -12,7 +12,7 @@ var scene_list = {
 	"ChimneyDescent2" : "res://scenes/levels/ChimneyDescent2.tscn",
 	"ChimneyDescent3" : "res://scenes/levels/ChimneyDescent3.tscn",
 	"ChimneyDescent4" : "res://scenes/levels/ChimneyDescent4.tscn",
-	"ChimneyDescent5" : "res://scenes/levels/ChimneyDescent5.tscn",
+	"FreeFallDungeon" : "res://scenes/levels/ChimneyDescent5.tscn",
 	"LivingRoom" : "res://scenes/levels/LivingRoom.tscn",
 	"Temperature Test" : "res://scenes/levels/TemperatureTest.tscn",
 	"EscapeTheFire1": "res://scenes/levels/EscapeTheFire/EscapeTheFire1.tscn",

@@ -13,7 +13,7 @@ func _process(delta):
 		t.set_wait_time(1)
 		t.start()
 		yield(t, "timeout")
-		get_node("/root/SceneBrowser").load_scene("ChimneyDescent5")
+		get_node("/root/SceneBrowser").load_scene("FreeFallDungeon")
 		LevelManager.house_started( self )
 
 
