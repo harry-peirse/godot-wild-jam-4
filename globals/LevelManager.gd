@@ -40,14 +40,17 @@ func house_ready( house ):
 	#for CarlsEnd and Krampus.
 	if house.name == "Krampus" && completed_houses.size() < 7 :
 		house.queue_free()
+		return
 	
 	if house.name == "CarlsEnding" && completed_houses.size() < 10 :
 		house.queue_free()
+		return
 	
 	#If house is already beaten,
 	#do not go back into it.
 	if completed_houses.has( house.name ) :
 		house.queue_free()
+		return
 	
 	#House is in the list already,
 	#do not add it again.
