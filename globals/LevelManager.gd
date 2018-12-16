@@ -42,12 +42,16 @@ func house_started( house ):
 func house_ready( house ):
 	#Check if we have enough houses done
 	#for CarlsEnd and Krampus.
-	if house.name == "Krampus" && completed_houses.size() < 7 :
+	if( waiting_houses.has( "Krampus" ) && 
+	house.name == "Krampus" && 
+	completed_houses.size() < 7 ):
 		house.queue_free()
 		place_checkmark( house, true )
 		return
 	
-	if house.name == "CarlsEnding" && completed_houses.size() < 10 :
+	if( waiting_houses.has( "CarlsEnding" ) &&
+	house.name == "CarlsEnding" && 
+	completed_houses.size() < 10 ):
 		house.queue_free()
 		place_checkmark( house, true )
 		return
@@ -75,7 +79,7 @@ func place_checkmark( house, boolean = false ):
 	if boolean :
 		instance = lock_mark.instance()
 	
-	var root = get_tree().get_root()
+	var root = get_tree().get_root().get_node( "OutsideDungeon1" )
 	instance.global_position = house.global_position
 	root.call_deferred( "add_child", instance )
 	
