@@ -18,8 +18,8 @@
 [ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=16]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=17]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=18]
-[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton2.gd" type="Script" id=19]
-[ext_resource path="res://assets/Scene Props/RoofWall.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/Scene Props/RoofWall.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton2.gd" type="Script" id=20]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton3.gd" type="Script" id=21]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton4.gd" type="Script" id=22]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton5.gd" type="Script" id=23]
@@ -120,6 +120,7 @@ position = Vector2( 3645.26, 2759.07 )
 [node name="buttons" type="Node" parent="."]
 
 [node name="ChimneyCollider" type="StaticBody2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 3901.74, 4635.18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyCollider"]
@@ -128,20 +129,20 @@ scale = Vector2( 1, 0.5 )
 shape = SubResource( 1 )
 
 [node name="ChimneyDescent1" type="Area2D" parent="buttons"]
-position = Vector2( 3855.34, 4582.54 )
+position = Vector2( 3839.53, 3277.07 )
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/ChimneyDescent1"]
-position = Vector2( 45.4039, 34.5068 )
+position = Vector2( 39.1011, 19.3806 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="buttons/ChimneyDescent1"]
 
 [node name="IronGrid" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
-position = Vector2( 43.8678, 31.0632 )
+position = Vector2( 37.3517, 13.144 )
 z_index = 2
 frames = SubResource( 3 )
 animation = "Open"
@@ -151,16 +152,20 @@ stream = ExtResource( 12 )
 volume_db = -9.0
 
 [node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
-position = Vector2( 10.9937, 36.7393 )
+position = Vector2( 35.5735, 7.74784 )
 frames = SubResource( 4 )
-frame = 3
+frame = 4
 playing = true
 
+[node name="RoofWall" parent="buttons/ChimneyDescent1" instance=ExtResource( 19 )]
+position = Vector2( 54.7437, -9.0188 )
+
 [node name="EscapeTheFire" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 1106.86, 3420.37 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EscapeTheFire"]
 position = Vector2( -52.8986, 16.1926 )
@@ -183,12 +188,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 4
 playing = true
 
-[node name="RoofWall" parent="buttons/EscapeTheFire" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/EscapeTheFire" instance=ExtResource( 19 )]
 
 [node name="ChimneyDescent2" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 2500.85, 2137.66 )
 collision_layer = 0
 collision_mask = 1024
@@ -215,13 +221,14 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 4
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent2" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent2" instance=ExtResource( 19 )]
 position = Vector2( -5.90174, -8.80908 )
 
 [node name="Free5" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 2128.01, 1358.52 )
 collision_layer = 0
 collision_mask = 1024
@@ -248,12 +255,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 
-[node name="RoofWall" parent="buttons/Free5" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Free5" instance=ExtResource( 19 )]
 
 [node name="ChimneyDescent3" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 1682.41, 1358.52 )
 collision_layer = 0
 collision_mask = 1024
@@ -280,12 +288,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 3
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent3" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent3" instance=ExtResource( 19 )]
 
 [node name="Free4" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 4499.89, 915.287 )
 collision_layer = 0
 collision_mask = 1024
@@ -312,12 +321,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
-[node name="RoofWall" parent="buttons/Free4" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Free4" instance=ExtResource( 19 )]
 
 [node name="Free3" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 6219.37, 910.257 )
 collision_layer = 0
 collision_mask = 1024
@@ -344,11 +354,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
-[node name="RoofWall" parent="buttons/Free3" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Free3" instance=ExtResource( 19 )]
 
 [node name="Krampus" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 5072.66, 2069.33 )
 collision_layer = 0
 collision_mask = 1024
@@ -375,13 +387,13 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
 playing = true
 
-[node name="RoofWall" parent="buttons/Krampus" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Krampus" instance=ExtResource( 19 )]
 position = Vector2( -19.4977, -12.9543 )
 
 [node name="Free" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 4470.61, 2523.57 )
 collision_layer = 0
 collision_mask = 1024
@@ -408,13 +420,14 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 5
 playing = true
 
-[node name="RoofWall" parent="buttons/Free" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Free" instance=ExtResource( 19 )]
 position = Vector2( -2.68274, -24.4868 )
 
 [node name="ChimneyDescent4" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 6446.18, 2970.59 )
 collision_layer = 0
 collision_mask = 1024
@@ -441,13 +454,14 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 5
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent4" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent4" instance=ExtResource( 19 )]
 position = Vector2( 5.26501, -27.2075 )
 
 [node name="Free2" type="Area2D" parent="buttons"]
+editor/display_folded = true
 position = Vector2( 4169.32, 3302.07 )
 collision_layer = 0
 collision_mask = 1024
@@ -474,14 +488,14 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 5
 playing = true
 
-[node name="RoofWall" parent="buttons/Free2" instance=ExtResource( 20 )]
+[node name="RoofWall" parent="buttons/Free2" instance=ExtResource( 19 )]
 position = Vector2( -18.8746, -31.9214 )
 
 [node name="CarlsEnding" type="Area2D" parent="buttons"]
-position = Vector2( 3919.1, 3288.5 )
+position = Vector2( 3949.99, 4612.83 )
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource( 30 )
@@ -507,11 +521,8 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 4
 playing = true
-
-[node name="RoofWall" parent="buttons/CarlsEnding" instance=ExtResource( 20 )]
-position = Vector2( -18.8749, -14.7329 )
 
 [node name="enemys" type="Node" parent="."]
 editor/display_folded = true
