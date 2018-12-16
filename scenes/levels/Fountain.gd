@@ -2,7 +2,7 @@ extends Area2D
 
 
 
-var health_to_give = 20
+var health_to_give = 100
 
 signal fountain_entered
 
