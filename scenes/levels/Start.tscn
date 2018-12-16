@@ -168,7 +168,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 763, 339 )
 frames = SubResource( 2 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Area2D/Dialogue1"]
@@ -210,6 +210,7 @@ shape = SubResource( 3 )
 visible = false
 position = Vector2( 748, 412 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="BurningSledge" type="AnimatedSprite" parent="."]
@@ -233,8 +234,8 @@ attenuation = 1.51572
 
 [node name="CameraShade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.388235 )
-position = Vector2( 492.452, 243.673 )
-scale = Vector2( 12.9252, 4.1575 )
+position = Vector2( 545.452, 278.542 )
+scale = Vector2( 14.3199, 5.85736 )
 z_index = 5
 texture = ExtResource( 29 )
 
@@ -254,7 +255,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 64, 352 )
 frames = SubResource( 7 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Label4" type="Label" parent="Tutorial/Running"]
@@ -270,7 +271,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 128, 352 )
 frames = SubResource( 8 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Label1" type="Label" parent="Tutorial/Jump"]
@@ -286,7 +287,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 192, 352 )
 frames = SubResource( 9 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Label2" type="Label" parent="Tutorial/DoubleJump"]
@@ -302,7 +303,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 256, 352 )
 frames = SubResource( 10 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Label3" type="Label" parent="Tutorial/Dash"]
@@ -323,7 +324,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 12 )
 
 [node name="Light2D" type="Light2D" parent="Lights"]
-position = Vector2( 516, 203 )
+position = Vector2( 516, 205.79 )
 scale = Vector2( 8, 3 )
 texture = ExtResource( 12 )
 color = Color( 1, 1, 1, 0.619608 )
