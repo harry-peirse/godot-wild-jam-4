@@ -29,7 +29,7 @@ var scene_list = {
 	"EscapeTheFire12": "res://scenes/levels/EscapeTheFire/EscapeTheFire12.tscn",
 	"EscapeTheFireExit": "res://scenes/levels/EscapeTheFire/EscapeTheFireExit.tscn",
 	"GameOver": "res://scenes/gameover_screen/GameOver.tscn",
-	"CarlsEnding": "res://scenes/levels/carl/CarlsEnding.tscn",
+	"CarlsEnding": "res://scenes/levels/Carl/CarlsEnding.tscn",
 	"LivingRoom2": "res://scenes/levels/DifferentLivingRooms/LivingRoom2.tscn",
 	"LivingRoom3": "res://scenes/levels/DifferentLivingRooms/LivingRoom3.tscn",
 	"LivingRoom4": "res://scenes/levels/DifferentLivingRooms/LivingRoom4.tscn",

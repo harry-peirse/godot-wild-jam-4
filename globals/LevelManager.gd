@@ -43,10 +43,12 @@ func house_ready( house ):
 	#for CarlsEnd and Krampus.
 	if house.name == "Krampus" && completed_houses.size() < 7 :
 		house.queue_free()
+		place_checkmark( house, true )
 		return
 	
 	if house.name == "CarlsEnding" && completed_houses.size() < 10 :
 		house.queue_free()
+		place_checkmark( house, true )
 		return
 	
 	#If house is already beaten,
@@ -66,11 +68,13 @@ func house_ready( house ):
 	return
 	
 	
-func place_checkmark( house ):
+func place_checkmark( house, boolean = false ):
 	#Place the checkmark at house's position.
 	var instance = checkmark.instance()
 	var root = get_tree().get_root()
 	instance.global_position = house.global_position
+	if boolean :
+		instance.modulate = Color( 1,0,0,1 )
 	root.call_deferred( "add_child", instance )
 	
 	
