@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+extents = Vector2( 81.704, 29.0159 )
+
+[node name="RoofWall" type="StaticBody2D"]
+position = Vector2( -17.6471, 0 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+position = Vector2( -70.1541, 83.2073 )
+shape = SubResource( 5 )
+

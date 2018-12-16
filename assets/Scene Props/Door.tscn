@@ -1,0 +1,63 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scenes/levels/Door.gd" type="Script" id=1]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation4.png" type="Texture" id=5]
+[ext_resource path="res://Art/Animation/Door/DoorAnimation5.png" type="Texture" id=6]
+[ext_resource path="res://assets/SFX/Door.wav" type="AudioStream" id=7]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim1.png" type="Texture" id=8]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim2.png" type="Texture" id=9]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim3.png" type="Texture" id=10]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=11]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=12]
+[ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+extents = Vector2( 42.157, 78.6312 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Door" type="Area2D"]
+position = Vector2( 2592.31, 192.88 )
+script = ExtResource( 1 )
+
+[node name="Animated_Door_Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="DoorSFX" type="AudioStreamPlayer" parent="Animated_Door_Sprite"]
+stream = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.08643, 2.92992 )
+shape = SubResource( 2 )
+
+[node name="Button_Sprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -42.2517, -41.3716 )
+frames = SubResource( 3 )
+frame = 2
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_Door_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Door_area_exited"]

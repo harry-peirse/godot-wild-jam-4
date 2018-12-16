@@ -1,18 +1,33 @@
-extends Node2D
+extends Area2D
 
-signal burn_damage_taken
+const TIME_RESET = 0.016667 * 25 
+var damage = 10
+var time = TIME_RESET
 
-export var damage_per_second = 10
-export var damage_interval = 1
+var snowman = null
 
 func _ready():
-	$DamageTimer.set_wait_time(damage_interval)	
+	self.connect( "area_entered", self, "entered" )
+	self.connect( "area_exited", self, "exited" )
+	
+	set_physics_process( false )
+	
 
-func _on_Area2D_area_entered(actor):
-	emit_signal("burn_damage_taken", damage_per_second)
-	actor.get_parent().get_hurt_box().hurt(damage_per_second, self)
-	$DamageTimer.start()
+
+func _physics_process(delta):
+	time -= delta
+	
+	if time <= 0 :
+		time = TIME_RESET
+	
+		snowman.get_parent().lost_health( damage )
 
 
-func _on_DamageTimer_timeout():
-	emit_signal("burn_damage_taken", damage_per_second)
+func entered( actor ):
+	snowman = actor
+	set_physics_process( true )
+
+
+func exited( actor ):
+	snowman = null
+	set_physics_process( false)
