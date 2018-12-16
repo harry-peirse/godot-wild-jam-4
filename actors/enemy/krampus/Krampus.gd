@@ -78,17 +78,16 @@ func _process(delta):
 			$Dialogue/Button.visible = false
 			begin_fighting()
 
-		
 	
-
-
-
 func been_hit( push : Vector2, damaged = false ):
 	change_state( "Shot" )
 
 
 func begin_fighting( boolean = true ):
 	is_fighting = true
+	
+	if is_fighting :
+		$Hurtbox.is_activated( true )
 
 
 func change_state( new_state ):
@@ -101,7 +100,8 @@ func change_to_idle():
 		return
 		
 	if $AnimSprite.animation == "Die" :
-		get_tree().quit()
+		LevelManager.house_beaten()
+		SceneBrowser.load_scene( "OutsideDungeon1" )
 		return
 	
 	$AnimSprite.animation = "Idle"
@@ -149,9 +149,21 @@ func process_die( delta ):
 
 
 func process_frame( delta ) :
+	#Face Krampus the right way.
+	if is_alive :
+		if snowman != null :
+			var face = snowman.global_position.x - self.global_position.x
+			if face <= 0 :
+				face_left = true
+			else:
+				face_left = false
+		$AnimSprite.flip_h = face_left
+	
+	
 	if is_fighting == false:
 		handle_physics( delta )
 		move_body()
+		$Hurtbox.is_activated( false )
 		return
 	
 	#Rotate to face the Snowman.
@@ -166,14 +178,6 @@ func process_frame( delta ) :
 			velocity.y = -700
 			jump_cooldown = JUMP_COOL_WAIT
 		
-		
-		if snowman != null :
-			var face = snowman.global_position.x - self.global_position.x
-			if face <= 0 :
-				face_left = true
-			else:
-				face_left = false
-		$AnimSprite.flip_h = face_left
 	
 	#Fall downward if dead and in air.
 	
