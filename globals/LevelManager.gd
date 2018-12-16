@@ -14,7 +14,7 @@ var waiting_houses = []
 var snowman_location
 
 #Checkmark
-#var checkmark = preload( )
+var checkmark = preload( "res://scenes/Visited mark.tscn" )
 
 
 func get_snowman_location():
@@ -53,7 +53,7 @@ func house_ready( house ):
 	#do not go back into it.
 	if completed_houses.has( house.name ) :
 		house.queue_free()
-#		place_checkmark( house )
+		place_checkmark( house )
 		return
 	
 	#House is in the list already,
@@ -67,12 +67,11 @@ func house_ready( house ):
 	
 	
 func place_checkmark( house ):
-	pass
 	#Place the checkmark at house's position.
-#	var instance = checkmark.instance()
-#	var root = get_tree().get_root()
-#	instance.global_position = house.global_position
-#	root.call_deferred( "add_child" instance )
+	var instance = checkmark.instance()
+	var root = get_tree().get_root()
+	instance.global_position = house.global_position
+	root.call_deferred( "add_child", instance )
 	
 	
 func reset_snowman_location():
