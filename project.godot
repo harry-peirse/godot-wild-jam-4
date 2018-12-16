@@ -27,6 +27,7 @@ SceneBrowser="*res://globals/SceneBrowser.tscn"
 SnowmanStats="*res://globals/SnowmanStats.tscn"
 Pause="*res://globals/Pause.tscn"
 PreloadFX="*res://globals/PreloadFX.tscn"
+LevelManager="*res://globals/LevelManager.tscn"
 
 [display]
 
