@@ -15,6 +15,7 @@ var snowman_location
 
 #Checkmark
 var checkmark = preload( "res://scenes/Visited mark.tscn" )
+var lock_mark = preload( "res://scenes/LockedMark.tscn" )
 
 
 func get_snowman_location():
@@ -71,10 +72,11 @@ func house_ready( house ):
 func place_checkmark( house, boolean = false ):
 	#Place the checkmark at house's position.
 	var instance = checkmark.instance()
+	if boolean :
+		instance = lock_mark.instance()
+	
 	var root = get_tree().get_root()
 	instance.global_position = house.global_position
-	if boolean :
-		instance.modulate = Color( 1,0,0,1 )
 	root.call_deferred( "add_child", instance )
 	
 	
