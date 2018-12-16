@@ -266,7 +266,7 @@ visible = false
 position = Vector2( 2070.64, 72 )
 z_index = 2
 frames = SubResource( 4 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -306,7 +306,6 @@ shape = SubResource( 7 )
 visible = false
 position = Vector2( -201.215, 667.144 )
 frames = SubResource( 8 )
-frame = 3
 playing = true
 
 [node name="Gate" type="AnimatedSprite" parent="Gate+Levers"]
@@ -345,7 +344,6 @@ shape = SubResource( 11 )
 visible = false
 position = Vector2( 86.0957, 703.385 )
 frames = SubResource( 8 )
-frame = 3
 playing = true
 
 [node name="Slope" type="AnimatedSprite" parent="Gate+Levers/Lever2"]
@@ -375,7 +373,6 @@ volume_db = -6.0
 editor/display_folded = true
 position = Vector2( 1888, 62.4906 )
 frames = SubResource( 14 )
-frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Gate+Levers/LockedDialogue"]
@@ -399,25 +396,12 @@ position = Vector2( 992.827, 992.822 )
 [node name="Fire4" parent="." instance=ExtResource( 51 )]
 position = Vector2( 1632, 992 )
 
-[node name="Burglar" parent="." instance=ExtResource( 52 )]
-editor/display_folded = true
-position = Vector2( 416, 928 )
-
-[node name="Sight" parent="Burglar" instance=ExtResource( 3 )]
-scale = Vector2( 0.9, 1 )
-
 [node name="Burglar2" parent="." instance=ExtResource( 52 )]
 editor/display_folded = true
 position = Vector2( 800, 927.405 )
 
 [node name="Sight" parent="Burglar2" instance=ExtResource( 3 )]
 scale = Vector2( 0.8, 1 )
-
-[node name="Dog2" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-position = Vector2( 1280, 933.488 )
-
-[node name="Sight" parent="Dog2" instance=ExtResource( 3 )]
 
 [node name="Dog3" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
