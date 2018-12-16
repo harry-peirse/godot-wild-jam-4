@@ -41,7 +41,7 @@ func house_ready( house ):
 	if house.name == "Krampus" && completed_houses.size() < 7 :
 		house.queue_free()
 	
-	if house.name == "CarlsEnding" && completed_houses.size() < 11 :
+	if house.name == "CarlsEnding" && completed_houses.size() < 10 :
 		house.queue_free()
 	
 	#If house is already beaten,
