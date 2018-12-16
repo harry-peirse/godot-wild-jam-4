@@ -47,34 +47,28 @@ position = Vector2( 1312.18, 477.589 )
 position = Vector2( 1372.47, 477.589 )
 
 [node name="Dog" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( 1123.7, 627.467 )
 
 [node name="Sight" parent="Dog" instance=ExtResource( 8 )]
 
 [node name="UnderDog" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( 1578.11, 1005.35 )
 
 [node name="Sight" parent="UnderDog" instance=ExtResource( 8 )]
 
-[node name="UnderDog3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1690.52, 1005.35 )
-
-[node name="Sight" parent="UnderDog3" instance=ExtResource( 8 )]
-
-[node name="UnderDog2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1805.32, 995.782 )
-
-[node name="Sight" parent="UnderDog2" instance=ExtResource( 8 )]
-
 [node name="Dog2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 925.57, 860.996 )
+position = Vector2( 1141.39, 997.986 )
 
 [node name="Burglar" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 1435.53, 673.38 )
 
 [node name="Sight" parent="Burglar" instance=ExtResource( 8 )]
 
 [node name="Burglar2" parent="." instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 732.494, 800.031 )
 
 [node name="Sight" parent="Burglar2" instance=ExtResource( 8 )]

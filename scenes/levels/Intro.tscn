@@ -37,8 +37,6 @@
 [ext_resource path="res://Art/Animation/Torch/TorchAnimation3.png" type="Texture" id=35]
 [ext_resource path="res://Art/Animation/Torch/TorchAnimation4.png" type="Texture" id=36]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -50,7 +48,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 
-custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
 
 [sub_resource type="SpriteFrames" id=3]
@@ -73,7 +70,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=5]
 
-custom_solver_bias = 0.0
 extents = Vector2( 64.9428, 40.417 )
 
 [sub_resource type="SpriteFrames" id=6]
@@ -109,56 +105,18 @@ script = ExtResource( 1 )
 [node name="Snowman" parent="." instance=ExtResource( 2 )]
 position = Vector2( 700, 280 )
 z_index = 1
-input_pickable = false
 collision_mask = 3
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
-endurance = 1
-can_navigate = true
-has_camera = true
-camera_limit_top = null
-camera_limit_left = null
-camera_limit_bottom = null
-camera_limit_right = null
 
 [node name="TileMap(structure)(0)" type="TileMap" parent="."]
 position = Vector2( 64, 0 )
-mode = 0
 tile_set = ExtResource( 3 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65535, 11, 0, 3, 43, 0, 4, 43, 0, 11, 11, 0, 131071, 11, 0, 65547, 11, 0, 196607, 11, 0, 131083, 11, 0, 262143, 11, 0, 196608, 42, 0, 196619, 11, 0, 196621, 34, 0, 196622, 34, 0, 196623, 34, 0, 327679, 11, 0, 262155, 11, 0, 393215, 7, 0, 327680, 7, 0, 327681, 7, 0, 327682, 7, 0, 327683, 7, 0, 327684, 7, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 327691, 7, 0, 327692, 18, 0, 327693, 18, 0, 327694, 18, 0, 327695, 18, 0, 327696, 18, 0, 458751, 12, 0, 393216, 12, 0, 393217, 12, 0, 393218, 12, 0, 393219, 12, 0, 393220, 12, 0, 393221, 12, 0, 393222, 12, 0, 393223, 12, 0, 393224, 12, 0, 393225, 12, 0, 393226, 12, 0, 393227, 12, 0, 393228, 12, 0, 393229, 12, 0, 393230, 12, 0, 393231, 12, 0, 393232, 12, 0, 524287, 12, 0, 458752, 12, 0, 458753, 12, 0, 458754, 12, 0, 458755, 12, 0, 458756, 12, 0, 458757, 12, 0, 458758, 12, 0, 458759, 12, 0, 458760, 12, 0, 458761, 12, 0, 458762, 12, 0, 458763, 12, 0, 458764, 12, 0, 458765, 12, 0, 458766, 12, 0, 458767, 12, 0, 458768, 12, 0 )
+tile_data = PoolIntArray( -131078, 27, 0, -131077, 27, 0, -131076, 27, 0, -131075, 28, 0, -131074, 27, 0, -131073, 6, 0, -196608, 6, 0, -196607, 6, 0, -196606, 6, 0, -196605, 6, 0, -196604, 6, 0, -196603, 6, 0, -196602, 6, 0, -196601, 6, 0, -196600, 6, 0, -196599, 6, 0, -196598, 6, 0, -196597, 6, 0, -196596, 28, 0, -196595, 28, 0, -196594, 26, 0, -196593, 28, 0, -196592, 26, 0, -65542, 27, 0, -65541, 28, 0, -65540, 28, 0, -65539, 28, 0, -65538, 27, 0, -65537, 6, 0, -131072, 6, 0, -131071, 6, 0, -131070, 6, 0, -131069, 6, 0, -131068, 6, 0, -131067, 6, 0, -131066, 6, 0, -131065, 6, 0, -131064, 6, 0, -131063, 6, 0, -131062, 6, 0, -131061, 6, 0, -131060, 27, 0, -131059, 26, 0, -131058, 26, 0, -131057, 26, 0, -131056, 27, 0, -6, 27, 0, -5, 28, 0, -4, 27, 0, -3, 26, 0, -2, 26, 0, -1, 6, 0, -65536, 6, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 6, 0, -65531, 6, 0, -65530, 6, 0, -65529, 6, 0, -65528, 6, 0, -65527, 6, 0, -65526, 6, 0, -65525, 6, 0, -65524, 27, 0, -65523, 26, 0, -65522, 27, 0, -65521, 27, 0, -65520, 27, 0, 65530, 27, 0, 65531, 28, 0, 65532, 27, 0, 65533, 26, 0, 65534, 26, 0, 65535, 11, 0, 3, 43, 0, 4, 43, 0, 11, 11, 0, 131066, 28, 0, 131067, 28, 0, 131068, 26, 0, 131069, 26, 0, 131070, 27, 0, 131071, 11, 0, 65547, 11, 0, 196602, 28, 0, 196603, 26, 0, 196604, 26, 0, 196605, 27, 0, 196606, 27, 0, 196607, 11, 0, 131083, 11, 0, 262138, 28, 0, 262139, 27, 0, 262140, 26, 0, 262141, 27, 0, 262142, 27, 0, 262143, 11, 0, 196608, 42, 0, 196619, 11, 0, 196621, 34, 0, 196622, 34, 0, 196623, 34, 0, 327674, 27, 0, 327675, 27, 0, 327676, 27, 0, 327677, 26, 0, 327678, 27, 0, 327679, 11, 0, 262155, 11, 0, 393210, 18, 0, 393211, 18, 0, 393212, 18, 0, 393213, 18, 0, 393214, 18, 0, 393215, 7, 0, 327680, 7, 0, 327681, 7, 0, 327682, 7, 0, 327683, 7, 0, 327684, 7, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 327691, 7, 0, 327692, 18, 0, 327693, 18, 0, 327694, 18, 0, 327695, 18, 0, 327696, 18, 0, 458746, 12, 0, 458747, 12, 0, 458748, 12, 0, 458749, 12, 0, 458750, 12, 0, 458751, 12, 0, 393216, 12, 0, 393217, 12, 0, 393218, 12, 0, 393219, 12, 0, 393220, 12, 0, 393221, 12, 0, 393222, 12, 0, 393223, 12, 0, 393224, 12, 0, 393225, 12, 0, 393226, 12, 0, 393227, 12, 0, 393228, 12, 0, 393229, 12, 0, 393230, 12, 0, 393231, 12, 0, 393232, 12, 0, 524282, 12, 0, 524283, 12, 0, 524284, 12, 0, 524285, 12, 0, 524286, 12, 0, 524287, 12, 0, 458752, 12, 0, 458753, 12, 0, 458754, 12, 0, 458755, 12, 0, 458756, 12, 0, 458757, 12, 0, 458758, 12, 0, 458759, 12, 0, 458760, 12, 0, 458761, 12, 0, 458762, 12, 0, 458763, 12, 0, 458764, 12, 0, 458765, 12, 0, 458766, 12, 0, 458767, 12, 0, 458768, 12, 0 )
 
 [node name="TileMap(background)(-1)" type="TileMap" parent="."]
 position = Vector2( 64, 0 )
 z_index = -1
-mode = 0
 tile_set = ExtResource( 3 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 12, 26, 0, 13, 28, 0, 14, 27, 0, 15, 26, 0, 16, 26, 0, 65548, 28, 0, 65549, 27, 0, 65550, 26, 0, 65551, 25, 0, 65552, 27, 0, 131073, 36, 0, 131079, 36, 0, 131084, 26, 0, 131085, 28, 0, 131086, 27, 0, 131087, 26, 0, 131088, 28, 0, 196620, 27, 0, 196621, 26, 0, 196622, 28, 0, 196623, 27, 0, 196624, 26, 0, 262156, 28, 0, 262157, 27, 0, 262158, 26, 0, 262159, 28, 0, 262160, 27, 0, 327692, 28, 0, 327693, 28, 0, 327694, 26, 0, 327695, 26, 0 )
 
@@ -167,92 +125,40 @@ position = Vector2( 317.846, 189.89 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Fire"
-frame = 4
+frame = 3
 playing = true
 
 [node name="ChimneySFX" type="AudioStreamPlayer2D" parent="Chimney"]
 position = Vector2( -1.28607, 48.442 )
 stream = ExtResource( 9 )
 volume_db = -6.0
-pitch_scale = 1.0
 autoplay = true
-stream_paused = false
 max_distance = 1000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="LightningChimney" type="Light2D" parent="Chimney"]
 position = Vector2( 1.077, 39.1535 )
 scale = Vector2( 0.945, 1.34 )
-enabled = true
-editor_only = false
 texture = ExtResource( 10 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.956863, 0.913725, 0.729412, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="TileMap(background)(-2)" type="TileMap" parent="."]
 position = Vector2( 64, 0 )
 z_index = -2
-mode = 0
 tile_set = ExtResource( 3 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 31, 0, 1, 31, 0, 2, 31, 0, 3, 31, 0, 4, 31, 0, 5, 31, 0, 6, 31, 0, 7, 31, 0, 8, 31, 0, 9, 31, 0, 10, 31, 0, 65536, 31, 0, 65537, 31, 0, 65538, 31, 0, 65539, 31, 0, 65540, 31, 0, 65541, 31, 0, 65542, 31, 0, 65543, 31, 0, 65544, 31, 0, 65545, 31, 0, 65546, 31, 0, 131072, 31, 0, 131073, 31, 0, 131074, 31, 0, 131075, 31, 0, 131076, 31, 0, 131077, 31, 0, 131078, 31, 0, 131079, 31, 0, 131080, 31, 0, 131081, 31, 0, 131082, 31, 0, 196608, 31, 0, 196609, 31, 0, 196610, 31, 0, 196613, 31, 0, 196614, 31, 0, 196615, 31, 0, 196616, 31, 0, 196617, 31, 0, 196618, 31, 0, 262144, 31, 0, 262145, 31, 0, 262146, 31, 0, 262147, 31, 0, 262148, 31, 0, 262149, 31, 0, 262150, 31, 0, 262151, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 31, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 159.65, 206.586 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 0
 collision_mask = 1024
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 11 )
 
 [node name="PressE" type="Area2D" parent="Area2D"]
 editor/display_folded = true
 position = Vector2( -159.65, -206.586 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 0
 collision_mask = 1024
-audio_bus_override = false
-audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/PressE"]
 position = Vector2( 768, 256 )
@@ -271,31 +177,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue1"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -52.0
 margin_top = -14.0
 margin_right = 109.0
 margin_bottom = 22.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "Hello...
 Good that you 
 are here!"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue2" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -303,31 +196,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 1
+frame = 4
 playing = true
 
 [node name="Label2" type="Label" parent="Area2D/Dialogue2"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -50.0
 margin_top = -11.0
 margin_right = 111.0
 margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "This year the
 Grinch might 
 have won..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue3" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -335,30 +215,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
+frame = 3
 playing = true
 
 [node name="Label3" type="Label" parent="Area2D/Dialogue3"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -51.0
 margin_top = -11.0
 margin_right = 110.0
 margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "His ambush 
 yesterday was 
 just too much."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue4" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -366,31 +234,19 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
+frame = 3
 playing = true
 
 [node name="Label4" type="Label" parent="Area2D/Dialogue4"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -52.0
 margin_top = -11.0
 margin_right = 109.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "I cant deliver 
 any presents
 anymore...
 "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue5" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -398,31 +254,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 5
+frame = 2
 playing = true
 
 [node name="Label5" type="Label" parent="Area2D/Dialogue5"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -52.0
 margin_top = -11.0
 margin_right = 109.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "He blew up my 
 sledge and I am 
 hurt."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue6" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -430,31 +273,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Label6" type="Label" parent="Area2D/Dialogue6"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -52.0
 margin_top = -11.0
 margin_right = 109.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "You are the
 only one who is 
 uninjured..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Dialogue7" type="AnimatedSprite" parent="Area2D"]
 editor/display_folded = true
@@ -462,31 +292,18 @@ visible = false
 position = Vector2( -0.527039, 0.527039 )
 frames = SubResource( 4 )
 animation = "Hovering"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Label7" type="Label" parent="Area2D/Dialogue7"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -52.0
 margin_top = -11.0
 margin_right = 109.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 24 )
 text = "I beg you...
 please deliver
 the presents. "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -29.9169, 73.1302 )
@@ -495,26 +312,12 @@ shape = SubResource( 5 )
 [node name="EButtonSFX" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource( 25 )
 volume_db = -12.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
 
 [node name="DoorSFX" type="AudioStreamPlayer" parent="Area2D"]
 stream = ExtResource( 26 )
 volume_db = -12.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
 
 [node name="Timer" type="Timer" parent="Area2D"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="Door" type="AnimatedSprite" parent="Area2D"]
 position = Vector2( 576.35, 49.414 )
@@ -525,27 +328,8 @@ animation = "Door"
 visible = false
 position = Vector2( 32.0584, -25.8528 )
 scale = Vector2( 0.71, 0.21 )
-enabled = true
-editor_only = false
 texture = ExtResource( 10 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.917647, 0.713726, 0.101961, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="DialogueButton" type="AnimatedSprite" parent="Area2D"]
 visible = false
@@ -557,73 +341,35 @@ playing = true
 
 [node name="Camera Shade" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.301961 )
-position = Vector2( 652.99, 301.525 )
-scale = Vector2( 5.913, 3.016 )
+position = Vector2( 401.028, 224.539 )
+scale = Vector2( 11.4253, 7.04495 )
 texture = ExtResource( 32 )
 
 [node name="Torch" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 position = Vector2( 97.7546, 160.299 )
 frames = SubResource( 8 )
 animation = "Torch"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch"]
 position = Vector2( 26.644, -9.4791 )
 scale = Vector2( 1.66, 1.78 )
-enabled = true
-editor_only = false
 texture = ExtResource( 10 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.964706, 0.921569, 0.698039, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [node name="Torch2" type="AnimatedSprite" parent="."]
 position = Vector2( 672.018, 160.045 )
 frames = SubResource( 8 )
 animation = "Torch"
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Torch2"]
 position = Vector2( 26.644, -9.4791 )
 scale = Vector2( 1.66, 1.78 )
-enabled = true
-editor_only = false
 texture = ExtResource( 10 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 0.964706, 0.921569, 0.698039, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_Area2D_area_exited"]
