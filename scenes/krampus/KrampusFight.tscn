@@ -51,7 +51,6 @@ position = Vector2( -552.632, -289.474 )
 position = Vector2( 430.403, 198.054 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-frame = 5
 playing = true
 
 [node name="Label1" type="Label" parent="Carl/Dialogue"]
@@ -69,8 +68,9 @@ margin_left = 353.0
 margin_top = 181.0
 margin_right = 521.0
 margin_bottom = 229.0
-text = "He was tiresome to me. 
-And was ruining the plans."
+text = "He was tiresome to me 
+as he kept trying to 
+ruin my plans."
 
 [node name="Label3" type="Label" parent="Carl/Dialogue"]
 visible = false
@@ -78,9 +78,9 @@ margin_left = 353.0
 margin_top = 181.0
 margin_right = 520.0
 margin_bottom = 229.0
-text = "Why did he even tried to 
-save christmas. 
-Stupid little bug."
+text = "He tried to save Christmas.
+That dash of yours
+will fair no better."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carl/Dialogue"]
 shape = SubResource( 2 )
@@ -88,7 +88,7 @@ shape = SubResource( 2 )
 [node name="Button" type="AnimatedSprite" parent="Carl/Dialogue"]
 position = Vector2( 537.659, 240.461 )
 frames = SubResource( 3 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Snowman" parent="." instance=ExtResource( 15 )]
