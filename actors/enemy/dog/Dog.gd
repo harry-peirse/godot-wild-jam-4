@@ -17,7 +17,7 @@ func _ready():
 	
 	walk_speed += 50
 	
-	falloff_distance = 12
+	falloff_distance = 10
 	
 	$Falloff.position.x = falloff_distance
 
