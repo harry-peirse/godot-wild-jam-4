@@ -18,8 +18,8 @@
 [ext_resource path="res://Art/Animation/Button/ButtonAnim4.png" type="Texture" id=16]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim5.png" type="Texture" id=17]
 [ext_resource path="res://Art/Animation/Button/ButtonAnim6.png" type="Texture" id=18]
-[ext_resource path="res://assets/Scene Props/RoofWall.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton2.gd" type="Script" id=20]
+[ext_resource path="res://scenes/levels/OutsideDungeon1/EButton2.gd" type="Script" id=19]
+[ext_resource path="res://assets/Scene Props/RoofWall.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton3.gd" type="Script" id=21]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton4.gd" type="Script" id=22]
 [ext_resource path="res://scenes/levels/OutsideDungeon1/EButton5.gd" type="Script" id=23]
@@ -153,16 +153,14 @@ volume_db = -9.0
 [node name="Button" type="AnimatedSprite" parent="buttons/ChimneyDescent1"]
 position = Vector2( 10.9937, 36.7393 )
 frames = SubResource( 4 )
-frame = 3
+frame = 2
 playing = true
-
-[node name="RoofWall" parent="buttons/ChimneyDescent1" instance=ExtResource( 19 )]
 
 [node name="EscapeTheFire" type="Area2D" parent="buttons"]
 position = Vector2( 1106.86, 3420.37 )
 collision_layer = 0
 collision_mask = 1024
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="buttons/EscapeTheFire"]
 position = Vector2( -52.8986, 16.1926 )
@@ -185,10 +183,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 2
 playing = true
 
-[node name="RoofWall" parent="buttons/EscapeTheFire" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/EscapeTheFire" instance=ExtResource( 20 )]
 
 [node name="ChimneyDescent2" type="Area2D" parent="buttons"]
 position = Vector2( 2500.85, 2137.66 )
@@ -217,10 +215,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 2
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent2" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent2" instance=ExtResource( 20 )]
 
 [node name="Free5" type="Area2D" parent="buttons"]
 position = Vector2( 2128.01, 1358.52 )
@@ -249,10 +247,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
-[node name="RoofWall" parent="buttons/Free5" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Free5" instance=ExtResource( 20 )]
 
 [node name="ChimneyDescent3" type="Area2D" parent="buttons"]
 position = Vector2( 1682.41, 1358.52 )
@@ -281,10 +279,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent3" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent3" instance=ExtResource( 20 )]
 
 [node name="Free4" type="Area2D" parent="buttons"]
 position = Vector2( 4499.89, 915.287 )
@@ -313,10 +311,9 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
-[node name="RoofWall" parent="buttons/Free4" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Free4" instance=ExtResource( 20 )]
 
 [node name="Free3" type="Area2D" parent="buttons"]
 position = Vector2( 6219.37, 910.257 )
@@ -345,9 +342,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
+frame = 5
 playing = true
 
-[node name="RoofWall" parent="buttons/Free3" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Free3" instance=ExtResource( 20 )]
 
 [node name="Krampus" type="Area2D" parent="buttons"]
 position = Vector2( 5072.66, 2069.33 )
@@ -376,10 +374,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 5
+frame = 4
 playing = true
 
-[node name="RoofWall" parent="buttons/Krampus" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Krampus" instance=ExtResource( 20 )]
 
 [node name="Free" type="Area2D" parent="buttons"]
 position = Vector2( 4470.61, 2523.57 )
@@ -408,10 +406,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 3
 playing = true
 
-[node name="RoofWall" parent="buttons/Free" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Free" instance=ExtResource( 20 )]
 
 [node name="ChimneyDescent4" type="Area2D" parent="buttons"]
 position = Vector2( 6446.18, 2970.59 )
@@ -440,10 +438,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 3
 playing = true
 
-[node name="RoofWall" parent="buttons/ChimneyDescent4" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/ChimneyDescent4" instance=ExtResource( 20 )]
 
 [node name="Free2" type="Area2D" parent="buttons"]
 position = Vector2( 4169.32, 3302.07 )
@@ -472,10 +470,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 4
+frame = 3
 playing = true
 
-[node name="RoofWall" parent="buttons/Free2" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/Free2" instance=ExtResource( 20 )]
 
 [node name="CarlsEnding" type="Area2D" parent="buttons"]
 position = Vector2( 3919.1, 3288.5 )
@@ -504,10 +502,10 @@ volume_db = -9.0
 visible = false
 position = Vector2( 8, 8 )
 frames = SubResource( 4 )
-frame = 3
+frame = 2
 playing = true
 
-[node name="RoofWall" parent="buttons/CarlsEnding" instance=ExtResource( 19 )]
+[node name="RoofWall" parent="buttons/CarlsEnding" instance=ExtResource( 20 )]
 
 [node name="enemys" type="Node" parent="."]
 editor/display_folded = true
