@@ -11,7 +11,7 @@ var cannot_fire = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	falloff_distance = 3
+	falloff_distance = 2
 	
 	$Falloff.position.x = falloff_distance
 
