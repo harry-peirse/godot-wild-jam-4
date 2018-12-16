@@ -126,7 +126,7 @@ func on_floor():
 
 
 func move_body( move_by = velocity.rotated( slope() ), delta = FRAME ):
-	move_and_slide_with_snap( (move_by.rotated(slope()) / delta) * FRAME, Vector2( 0, -1 ), FLOOR )
+	move_and_slide_with_snap( (move_by / delta) * FRAME, Vector2( 0, -1 ), FLOOR )
 	flip_h()
 
 
