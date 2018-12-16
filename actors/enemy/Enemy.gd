@@ -56,6 +56,9 @@ func _ready():
 	self.add_to_group( "Enemy" )
 	
 	$AnimSprite.play()
+	
+	#Tone down the damage output.
+	$Hitbox.damage = 15
 
 
 func process_frame(delta):
